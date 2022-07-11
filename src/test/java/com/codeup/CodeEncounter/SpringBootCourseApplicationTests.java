@@ -1,13 +1,13 @@
-package com.codeup.codeencounter;
+package com.codeup.CodeEncounter;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CodeEncounterApplicationTests {
+class SpringBootCourseApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
