@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: head('Error')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="partials/header :: header"></header>
+<p>Something went wrong, use this <a href="javascript:window.history.back();">back</a> button and try again.</p>
+
+<img class="center" th:src="@{/img/worker1.png/}" style="max-width: 35vw;" alt="">
+
+<footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>

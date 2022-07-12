@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="partials/head :: head('Profile')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="partials/header :: header"></header>
+
+<div class="template row">
+    <aside class="col-xl-4">
+        <div class="container">
+            <div class="row p-3" style="background: white">
+                <div class="col">
+                    <img class="card-img-top p-3 profile-pic" th:src="${friend.getProfile_picture_url().toString()}" alt="Card image cap">
+                    <h5 class="card-title" th:text="${friend.username}"></h5>
+                </div>
+                <div class="col">
+                    <div class="card-text">
+                        <p th:text="${friend.firstName}"></p>
+                        <p th:text="${friend.lastName}"></p>
+                        <p class="text-muted">Joined</p>
+                        <p th:text="${friend.createdDate}"></p>
+                        <p class="text-muted">Birthday</p>
+                        <p th:text="${friend.birthday}"></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-text">
+                        <p class="text-muted">Email</p>
+                        <p th:text="${friend.email}"></p>
+                        <p class="text-muted">Works at</p>
+                        <p th:text="${friend.job}"></p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <p th:text="${friend.aboutMe}"></p>
+                </div>
+                <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${friend.getUsername()})}" th:method="POST">
+                    <input type="hidden" class="field" name="reject" th:value="${friend.getUsername()}"/>
+                    <button class="btn btn-light" onclick="return confirm('Are you sure?')">Unfriend</button>
+                </form>
+            </div>
+        </div>
+    </aside>
+    <main class="col-xl-8">
+        <div style="width: 100%; background-color: white;">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab" aria-controls="nav-friends" aria-selected="true">Friends</a>
+                    <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab" aria-controls="nav-photos" aria-selected="false">Galleries</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <!--       tab 1 friends-->
+                <div class="tab-pane fade show active" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">
+                    <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
+                        <h5>Home</h5>
+                    </a>
+                    <div style="background-color: #faf3dd;" class="row my-3">
+                        <div class="col-4 my-2" th:each="item : ${friendFriends}">
+                            <div th:if="${item.username == currentUser.username}" class="search-card">
+                                <a th:href="@{/user/{username} (username=${currentUser.getUsername()})}">
+                                    <img th:src="${item.profile_picture_url.toString()}">
+                                </a>
+                                <p class="my-1" th:text="${item.username}"></p>
+                            </div>
+                            <div th:if="${userFriendList.contains(item) == true}" class="search-card">
+                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">
+                                    <img th:src="${item.profile_picture_url.toString()}">
+                                </a>
+                                <p class="my-1" th:text="${item.username}"></p>
+                            </div>
+                            <div th:if="${userFriendList.contains(item) == false && pendingFriends.contains(item) == false && item.username != sessionUser.username}" class="search-card">
+                                <img th:src="${item.profile_picture_url.toString()}">
+                                <p class="my-1" th:text="${item.username}"></p>
+                                <form th:action="@{/request/{username}/{friendName} (username=${currentUser.getUsername()}, friendName = ${item.getUsername()})}" th:method="POST">
+                                    <button class="btn btn-primary" type="submit" name="Friend Request">Friend Request</button>
+                                </form>
+                            </div>
+                            <div th:if="${pendingFriends.contains(item) == true && item.username != sessionUser.username}" class="search-card">
+                                <img th:src="${item.profile_picture_url.toString()}">
+                                <p class="my-1" th:text="${item.username}"></p>
+                                <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUsername()})}" th:method="POST">
+                                    <input type="hidden" class="field" name="reject" th:value="${item.getUsername()}"/>
+                                    <button class="btn btn-secondary">Remove Request</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--       tab 2 galleries-->
+                <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab" >
+                    <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
+                        <h5>Go Home</h5>
+                    </a>
+                    <div style="background-color: #faf3dd;" class="row my-3">
+                        <div class="col-6 col-xl-4" th:each="item : ${galleries}">
+                            <div th:if="${!item.getPictures().isEmpty()}" class="search-card">
+                                <a th:href="@{/{username}/gallery/{id} (username=${item.getUser().getUsername()}, id=${item.getId()})}">
+                                    <img th:src="${item.getPictures().get(0).getPictureUrl().toString()}" alt="Gallery Thumbnail Image">
+                                </a>
+                                <p class="my-1" th:text="${item.getName()}"></p>
+                            </div>
+                            <div th:if="${item.getPictures().isEmpty()}" class="search-card">
+                                <a th:href="@{/{username}/gallery/{id} (username=${item.getUser().getUsername()}, id=${item.getId()})}">
+                                    <img src="/img/thumbnailDefault.jpg" alt="Gallery Thumbnail Image">
+                                </a>
+                                <p class="my-1" th:text="${item.getName()}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="col-xl-12">
+        JustFriends
+    </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
