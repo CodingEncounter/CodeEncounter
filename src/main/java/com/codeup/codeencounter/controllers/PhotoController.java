@@ -34,7 +34,7 @@ public class PhotoController {
         this.pictureRepo = pictureRepo;
     }
 
-//    @Value("${fileStack}")
+//    @Value("${FileStackKey}")
 //    private String fileStackKey;
 //
 //    @RequestMapping(path = "/keys.js", produces = "application/javascript")
