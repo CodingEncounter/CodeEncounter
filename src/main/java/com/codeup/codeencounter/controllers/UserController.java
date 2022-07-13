@@ -134,7 +134,7 @@ public class UserController {
         userFriend4.setStatus(Status.ACCEPTED);
         userFriendRepo.save(userFriend4);
 
-//        emailService.prepareAndSend(user,"Welcome to JustFriends " + user.getUsername() + "!",
+//        emailService.prepareAndSend(user,"Welcome to CodeEncounter " + user.getUsername() + "!",
 //                "We're glad to have you! You might notice that your newsfeed is a little quiet. We want to avoid the" +
 //                        "drama that social media sites typically have of suggesting who you should be friends with or advertising" +
 //                        "to you. You probably want to make that decision for yourself! Instead, why not invite invite your friends" +
