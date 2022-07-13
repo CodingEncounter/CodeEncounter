@@ -1,4 +1,4 @@
-package com.codeup.CodeEncounter.Models;
+package com.codeup.codeencounter.models;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;

@@ -1,4 +1,4 @@
-package com.codeup.CodeEncounter.Repositories;
+package com.codeup.codeencounter.repositories;
 
 import com.codeup.CodeEncounter.Models.User;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package com.codeup.CodeEncounter.Services;
+package com.codeup.codeencounter.services;
 
 import com.codeup.CodeEncounter.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;

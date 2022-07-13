@@ -1,13 +1,13 @@
-package com.codeup.CodeEncounter;
+package com.codeup.codeencounter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CodeEncounterApp {
+public class CodeEncounterApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CodeEncounterApp.class, args);
+        SpringApplication.run(com.codeup.codeencounter.CodeEncounterApplication.class, args);
 
     }
 

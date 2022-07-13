@@ -1,4 +1,4 @@
-package com.codeup.CodeEncounter.Controllers;
+package com.codeup.codeencounter.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

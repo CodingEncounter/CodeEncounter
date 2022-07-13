@@ -1,4 +1,4 @@
-package com.codeup.CodeEncounter.Repositories;
+package com.codeup.codeencounter.repositories;
 
 import com.codeup.CodeEncounter.Models.Comment;
 import com.codeup.CodeEncounter.Models.Post;

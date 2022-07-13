@@ -1,4 +1,4 @@
-package com.codeup.CodeEncounter.Controllers;
+package com.codeup.codeencounter.controllers;
 
 import com.codeup.CodeEncounter.Repositories.*;
 import com.codeup.CodeEncounter.Models.*;
