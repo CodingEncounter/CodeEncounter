@@ -1,4 +1,4 @@
-const client = filestack.init(AX1Jt8rFiRvGNuWPENMkoz);
+const client = filestack.init('AX1Jt8rFiRvGNuWPENMkoz');
 
 const options = {
     fromSources: ["local_file_system"],
