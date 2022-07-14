@@ -1,5 +1,5 @@
-const fileStack = 'AX1Jt8rFiRvGNuWPENMkoz';
-const client = filestack.init(fileStack);
+const apikey = 'AX1Jt8rFiRvGNuWPENMkoz';
+const client = filestack.init(apikey);
 
 const options = {
     fromSources: ["local_file_system"],

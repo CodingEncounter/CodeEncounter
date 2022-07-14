@@ -52,7 +52,7 @@ public class UserFriendController {
 
 //        emailService.prepareAndSend(userRepo.findByUsername(friendName), friendName + ", someone wants to be your friend :)",
 //                "Looks like you're popular! You might have a friend in " + username + " . Head to the friend request page on your" +
-//                        " justfriends.online profile to let them know if you'd like to be friends!");
+//                        "  profile to let them know if you'd like to be friends!");
 
         return "redirect:/";
     }
