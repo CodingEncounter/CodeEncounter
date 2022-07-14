@@ -158,7 +158,7 @@
                     <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">
                         <button type="submit" class="btn btn-primary">Discover</button>
                     </form>
-<!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
+                    <div style="background-color: #faf3dd;" class="row my-3">
 <!--                        <div class="col-4 my-2" th:each="item : ${friends}">-->
 <!--                            <div th:if="${item.profile_picture_url.isEmpty()}" class="search-card">-->
 <!--                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">-->
@@ -173,7 +173,7 @@
 <!--                                <p class="my-1" th:text="${item.username}"></p>-->
 <!--                            </div>-->
 <!--                        </div>-->
-<!--                    </div>-->
+                    </div>
                 </div>
                 <!--       tab 3 galleries-->
                 <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">

@@ -27,11 +27,11 @@ public class UserController {
     public CommentRepo commentRepo;
     public PictureRepo pictureRepo;
     public GalleryRepo galleryRepo;
-//    private final EmailService emailService;
+    private final EmailService emailService;
 
     public UserController(UserRepo userRepo, PasswordEncoder passwordEncoder,
                           UserFriendRepo userFriendRepo, PostRepo postRepo, CommentRepo commentRepo,
-                          PictureRepo pictureRepo, GalleryRepo galleryRepo /*EmailService emailService*/) {
+                          PictureRepo pictureRepo, GalleryRepo galleryRepo, EmailService emailService) {
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
         this.userFriendRepo = userFriendRepo;
@@ -39,7 +39,8 @@ public class UserController {
         this.commentRepo = commentRepo;
         this.galleryRepo = galleryRepo;
         this.pictureRepo = pictureRepo;
-//        this.emailService = emailService;
+        this.emailService = emailService;
+
     }
 
     //Create User Account
