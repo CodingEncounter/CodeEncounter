@@ -1,12 +1,13 @@
-package com.codeup.CodeEncounter.Controllers;
+package com.codeup.codeencounter.controllers;
 
-import com.codeup.CodeEncounter.Models.*;
-import com.codeup.CodeEncounter.Repositories.*;
-import com.codeup.CodeEncounter.Repositories.*;
+
+import com.codeup.codeencounter.models.*;
+import com.codeup.codeencounter.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-//import org.springframework.test.web.servlet.MockMvc;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDate;
@@ -17,7 +18,7 @@ import java.util.List;
 
 @Controller
 public class GenerateContent {
-    private ArrayList<Picture> testPictures1;
+    private ArrayList<com.codeup.codeencounter.models.Picture> testPictures1;
 
     @Autowired
     UserRepo userRepo;

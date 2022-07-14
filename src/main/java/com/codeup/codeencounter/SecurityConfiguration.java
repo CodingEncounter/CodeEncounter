@@ -1,5 +1,6 @@
-package com.codeup.CodeEncounter;
+package com.codeup.codeencounter;
 
+import com.codeup.codeencounter.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
