@@ -200,7 +200,7 @@
                     <form th:action="@{/{username}/gallery/create (username=${#authentication.principal.username})}" th:object="${newGallery}" method="POST" class="p-3">
                         <label for="galleryName">Gallery Name</label>
                         <input id="galleryName" class="form-control" type="text" th:field="*{name}" th:value="default" required>
-                        <button type="submit" class="btn btn-primary">Create A Gallery</button>
+                        <button type="submit" class="btn btn-primary">Create Gallery</button>
                     </form>
                 </div>
             </div>
