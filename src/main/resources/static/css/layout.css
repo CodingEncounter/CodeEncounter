@@ -6,14 +6,15 @@
     --jlightblue: #bde0fe;
     --jdarkblue: #a2d2ff;
     --jyellowish: #faf3dd;
+    --jgrey: grey;
 }
 
 /*Color*/
 body {
-    background-color: var(--jdarkblue);
+    background-color: var(--jgrey);
 }
 aside, main {
-    background-color: var(--jlightblue);
+    background-color: var(--jgrey);
 }
 .btn-link.btn-anchor {
     outline: none !important;
