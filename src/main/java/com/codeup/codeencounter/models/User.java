@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="users")
@@ -65,6 +66,17 @@ public class User {
     @JsonBackReference
     private List<Picture> pictures;
 
+
+
+    @ManyToMany
+    @JoinTable(name="user_interests",
+    joinColumns = {@JoinColumn(name="user_id")},
+    inverseJoinColumns = {@JoinColumn(name="interest_id")})
+    @OrderColumn(name="display_order")
+    private Set<Interest> interests;
+
+
+
     public User(){}
 
     public User(String aboutMe, Date birthday, String email, String firstName, String password,
@@ -83,6 +95,7 @@ public class User {
         this.aboutMe = aboutMe;
         this.createdDate = createdDate;
     }
+
 
     public User(long id, String aboutMe, Date birthday, String email, String firstName, String password,
                 String lastName, String job, String profile_picture_url, String username,
@@ -145,6 +158,14 @@ public class User {
     public void setPictures(List<Picture> pictures){this.pictures = pictures;}
     public void setPassword(String password){this.password = password;}
     public void setCreatedDate(Date createdDate){this.createdDate = createdDate;}
+
+    public Set<Interest> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(Set<Interest> interests) {
+        this.interests = interests;
+    }
 
 
 }

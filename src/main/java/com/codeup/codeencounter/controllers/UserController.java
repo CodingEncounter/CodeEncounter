@@ -27,11 +27,12 @@ public class UserController {
     public CommentRepo commentRepo;
     public PictureRepo pictureRepo;
     public GalleryRepo galleryRepo;
+    public InterestRepo interestRepo;
     private final EmailService emailService;
 
     public UserController(UserRepo userRepo, PasswordEncoder passwordEncoder,
                           UserFriendRepo userFriendRepo, PostRepo postRepo, CommentRepo commentRepo,
-                          PictureRepo pictureRepo, GalleryRepo galleryRepo, EmailService emailService) {
+                          PictureRepo pictureRepo, GalleryRepo galleryRepo, InterestRepo interestRepo, EmailService emailService) {
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
         this.userFriendRepo = userFriendRepo;
@@ -40,6 +41,7 @@ public class UserController {
         this.galleryRepo = galleryRepo;
         this.pictureRepo = pictureRepo;
         this.emailService = emailService;
+        this.interestRepo = interestRepo;
 
     }
 
@@ -227,6 +229,7 @@ public class UserController {
         model.addAttribute("newPost", new Post());
         model.addAttribute("newComment", new Comment());
         model.addAttribute("newGallery", new Gallery());
+        model.addAttribute("interests", interestRepo);
         return "user/profile-page";
     }
 
