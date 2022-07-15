@@ -152,24 +152,25 @@
                         </div>
                     </div>
                 </div>
+
                 <!--       tab 2 friends-->
                 <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">
                     <h1>Friends</h1>
                     <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">
                         <button type="submit" class="btn btn-primary">Discover</button>
                     </form>
-                    <!-- minified snippet to load TalkJS without delaying your page -->
-                    <script>
-                        (function(t,a,l,k,j,s){
-                            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
-                            ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
-                                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
-                    </script>
+<!--                    &lt;!&ndash; minified snippet to load TalkJS without delaying your page &ndash;&gt;-->
+<!--                    <script>-->
+<!--                        (function(t,a,l,k,j,s){-->
+<!--                            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)-->
+<!--                            ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l-->
+<!--                                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);-->
+<!--                    </script>-->
 
-                    <!-- container element in which TalkJS will display a chat UI -->
-                    <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px">
-                        <i>Loading chat...</i>
-                    </div>
+<!--                    &lt;!&ndash; container element in which TalkJS will display a chat UI &ndash;&gt;-->
+<!--                    <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px">-->
+<!--                        <i>Loading chat...</i>-->
+<!--                    </div>-->
 <!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
 <!--                        <div class="col-4 my-2" th:each="item : ${friends}">-->
 <!--                            <div th:if="${item.profile_picture_url.isEmpty()}" class="search-card">-->
@@ -217,6 +218,18 @@
                 </div>
             </div>
         </div>
+        <!-- minified snippet to load TalkJS without delaying your page -->
+        <script>
+            (function(t,a,l,k,j,s){
+                s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+                ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+                            .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+        </script>
+
+        <!-- container element in which TalkJS will display a chat UI -->
+        <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px">
+            <i>Loading chat...</i>
+        </div>
     </main>
     <footer class="col-xl-12">
         CodeEncounter
@@ -227,6 +240,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="/keys.js"></script>
+<script src="../js/UserChat.js"></script>
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
 </body>
 </html>
