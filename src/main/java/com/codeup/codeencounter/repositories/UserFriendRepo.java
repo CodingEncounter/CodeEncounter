@@ -5,9 +5,10 @@ import com.codeup.codeencounter.models.User;
 import com.codeup.codeencounter.models.UserFriend;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+
 import java.util.List;
 
-public interface UserFriendRepo extends JpaRepository <UserFriend, Long> {
+public interface UserFriendRepo extends JpaRepository<UserFriend, Long> {
     List<UserFriend> findAllByUser(User user);
     List<UserFriend> findAllByFriend(User friend);
     List<UserFriend> findAllByFriendAndStatus(User friend, Status status);
