@@ -5,6 +5,7 @@ import com.codeup.codeencounter.models.Interest;
 import com.codeup.codeencounter.repositories.InterestRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class InterestService {
@@ -22,6 +23,7 @@ public class InterestService {
     public void save(Interest interest) {
         interestRepo.save(interest);
     }
+
 
     public Interest createIfNotExists(String interestText) {
         Interest interest = interestRepo.findOneByName(interestText);

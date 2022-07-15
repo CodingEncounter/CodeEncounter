@@ -75,6 +75,8 @@ public class User {
     @OrderColumn(name="display_order")
     private Set<Interest> interests;
 
+
+
     public User(){}
 
     public User(String aboutMe, Date birthday, String email, String firstName, String password,
@@ -93,6 +95,7 @@ public class User {
         this.aboutMe = aboutMe;
         this.createdDate = createdDate;
     }
+
 
     public User(long id, String aboutMe, Date birthday, String email, String firstName, String password,
                 String lastName, String job, String profile_picture_url, String username,
@@ -163,4 +166,6 @@ public class User {
     public void setInterests(Set<Interest> interests) {
         this.interests = interests;
     }
+
+
 }
