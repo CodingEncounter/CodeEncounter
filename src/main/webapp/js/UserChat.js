@@ -22,7 +22,7 @@ Talk.ready.then(function () {
     conversation.setParticipant(me);
     conversation.setParticipant(other);
 
-    var conversation = talkSession.getOrCreateConversation('order_83562938');
+    // var conversation = talkSession.getOrCreateConversation('order_83562938');
 
     var inbox = talkSession.createInbox({ selected: conversation });
     inbox.mount(document.getElementById('talkjs-container'));
