@@ -39,6 +39,9 @@ public class User {
     @Column(columnDefinition = "TEXT")
     private String aboutMe;
 
+    @Column(columnDefinition = "TEXT")
+    private String codeLanguages;
+
     @NotBlank(message = "Please include a username.")
     @Column(nullable = false, unique = true)
     private String username;
@@ -79,7 +82,7 @@ public class User {
 
     public User(){}
 
-    public User(String aboutMe, Date birthday, String email, String firstName, String password,
+    public User(String aboutMe, String codeLanguages, Date birthday, String email, String firstName, String password,
                 String lastName, String job, String profile_picture_url, String username,
                 List<UserFriend> userFriends,  List<Picture> pictures, Date createdDate){
         this.birthday = birthday;
@@ -93,14 +96,16 @@ public class User {
         this.pictures = pictures;
         this.password = password;
         this.aboutMe = aboutMe;
+        this.codeLanguages = codeLanguages;
         this.createdDate = createdDate;
     }
 
 
-    public User(long id, String aboutMe, Date birthday, String email, String firstName, String password,
+    public User(long id, String aboutMe, String codeLanguages, Date birthday, String email, String firstName, String password,
                 String lastName, String job, String profile_picture_url, String username,
                 List<UserFriend> userFriends, List <Picture> pictures, Date createdDate){
         this.aboutMe = aboutMe;
+        this.codeLanguages = codeLanguages;
         this.birthday = birthday;
         this.email = email;
         this.firstName = firstName;
@@ -117,6 +122,7 @@ public class User {
 
     public User(User copy) {
         aboutMe = copy.aboutMe;
+        codeLanguages = copy.codeLanguages;
         birthday = copy.birthday;
         email = copy.email;
         firstName = copy.firstName;
@@ -133,6 +139,7 @@ public class User {
 
     public long getId(){return id;}
     public String getAboutMe(){return aboutMe;}
+    public String getCodeLanguages(){return codeLanguages;}
     public Date getBirthday(){return birthday;}
     public String getEmail(){return email;}
     public String getFirstName(){return firstName;}
@@ -147,6 +154,7 @@ public class User {
 
     public void setId(long id){this.id = id;}
     public void setAboutMe(String aboutMe){this.aboutMe = aboutMe;}
+    public void setCodeLanguages(String codeLanguages){this.codeLanguages = codeLanguages;}
     public void setBirthday(Date birthday){this.birthday = birthday;}
     public void setEmail(String email){this.email = email;}
     public void setFirstName(String firstName){this.firstName = firstName;}

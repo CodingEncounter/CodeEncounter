@@ -40,6 +40,9 @@
                 <div class="col-12">
                     <p th:text="${user.aboutMe}"></p>
                 </div>
+                <div class="col-12">
+                    <p th:text="${user.codeLanguages}"></p>
+                </div>
             </div>
         </div>
     </aside>
@@ -51,7 +54,7 @@
                     <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">Posts</a>
                     <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab" aria-controls="nav-friends" aria-selected="false">Friends</a>
                     <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab" aria-controls="nav-photos" aria-selected="false">Galleries</a>
-                    <a class="nav-item nav-link" id="nav-interest-tab" data-toggle="tab" href="#nav-interests" role="tab" aria-controls="nav-interests" aria-selected="false">Interests</a>
+                    <a class="nav-item nav-link" id="nav-code-tab" data-toggle="tab" href="#nav-code" role="tab" aria-controls="nav-code" aria-selected="false">Code</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -197,44 +200,44 @@
                         </div>
                     </div>
                     <!--       tab 4 interests-->
-                    <div class="tab-pane fade" id="nav-interests" role="tabpanel" aria-labelledby="nav-interest-tab">
-                        <h1>Interest</h1>
-                        <div style="background-color: #faf3dd;" class="row my-3">
-                            <div class="col-6 col-xl-4 my-2" th:each="item : ${interest}">
-                                <div class="col-md-10 offset-md-1">
+<!--                    <div class="tab-pane fade" id="nav-interests" role="tabpanel" aria-labelledby="nav-interest-tab">-->
+<!--                        <h1>Interest</h1>-->
+<!--                        <div style="background-color: #faf3dd;" class="row my-3">-->
+<!--                            <div class="col-6 col-xl-4 my-2" th:each="item : ${interest}">-->
+<!--                                <div class="col-md-10 offset-md-1">-->
 
-                                    <div id="profile-img-status"></div>
+<!--                                    <div id="profile-img-status"></div>-->
 
-                                    <div id="interestDiv">
-                                        <ul>
-                                            <c:forEach var="interest" items="${user.interests}">
-                                                <li>${interest.name}</li>
-                                            </c:forEach>
-                                        </ul>
-                                        <ul id="interestList">
-                                            <c:choose>
-                                                <c:when test="${empty user.interests}">
-                                                    <li>Random Tags go here!</li>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <c:forEach var="interest" items="${user.interests}">
-                                                        <li>${interest.name}</li>
-                                                    </c:forEach>
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <br><br>
-                    <h3>Create Gallery</h3>
-                    <form th:action="@{/{username}/gallery/create (username=${#authentication.principal.username})}" th:object="${newGallery}" method="POST" class="p-3">
-                        <label for="galleryName">Gallery Name</label>
-                        <input id="galleryName" class="form-control" type="text" th:field="*{name}" th:value="default" required>
-                        <button type="submit" class="btn btn-primary">Create Gallery</button>
-                    </form>
-                </div>
+<!--                                    <div id="interestDiv">-->
+<!--                                        <ul>-->
+<!--                                            <c:forEach var="interest" items="${user.interests}">-->
+<!--                                                <li>${interest.name}</li>-->
+<!--                                            </c:forEach>-->
+<!--                                        </ul>-->
+<!--                                        <ul id="interestList">-->
+<!--                                            <c:choose>-->
+<!--                                                <c:when test="${empty user.interests}">-->
+<!--                                                    <li>Random Tags go here!</li>-->
+<!--                                                </c:when>-->
+<!--                                                <c:otherwise>-->
+<!--                                                    <c:forEach var="interest" items="${user.interests}">-->
+<!--                                                        <li>${interest.name}</li>-->
+<!--                                                    </c:forEach>-->
+<!--                                                </c:otherwise>-->
+<!--                                            </c:choose>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    <br><br>-->
+<!--                    <h3>Create Gallery</h3>-->
+<!--                    <form th:action="@{/{username}/gallery/create (username=${#authentication.principal.username})}" th:object="${newGallery}" method="POST" class="p-3">-->
+<!--                        <label for="galleryName">Gallery Name</label>-->
+<!--                        <input id="galleryName" class="form-control" type="text" th:field="*{name}" th:value="default" required>-->
+<!--                        <button type="submit" class="btn btn-primary">Create Gallery</button>-->
+<!--                    </form>-->
+<!--                </div>-->
             </div>
         </div>
     </main>

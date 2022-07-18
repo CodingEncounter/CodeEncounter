@@ -40,6 +40,9 @@
                 <div class="col-12">
                     <p th:text="${user.aboutMe}"></p>
                 </div>
+                <div class="col-12">
+                    <p th:text="${user.codeLanguages}"></p>
+                </div>
             </div>
         </div>
     </aside>
@@ -60,6 +63,10 @@
                 <div class="mb-3">
                     <label for="aboutMe-input" class="form-label">About Me</label>
                     <input type="text" class="form-control" id="aboutMe-input" th:field="*{aboutMe}">
+                </div>
+                <div class="mb-3">
+                    <label for="codeLanguages-input" class="form-label">Coding Languages</label>
+                    <input type="text" class="form-control" id="codeLanguages-input" th:field="*{codeLanguages}">
                 </div>
                 <div class="mb-3">
                     <label for="birthday-input" class="col-2 col-form-label">Birthday</label>
