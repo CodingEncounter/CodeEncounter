@@ -45,7 +45,7 @@ public class GenerateContent {
         String formatMonth = Character.toUpperCase(monthString.charAt(0)) + monthString.substring(1).toLowerCase();
         int currentYear = currentdate.getYear();
 
-        User testUser1 = userRepo.findByUsername("GinaCali92");
+        User testUser1 = userRepo.findByUsername("theCage");
         User testUser2 = userRepo.findByUsername("IronMaidenFangirl");
         User testUser3 = userRepo.findByUsername("DanWasHere");
         User testUser4 = userRepo.findByUsername("DragonSlayer95");
@@ -75,15 +75,15 @@ public class GenerateContent {
 
         if (testUser1 == null) {
             User newUser = new User();
-            newUser.setEmail("TestEmail@Test.com");
-            newUser.setUsername("GinaCali92");
+            newUser.setEmail("thecage@Test.com");
+            newUser.setUsername("thecage");
             newUser.setPassword("TestPassword");
             newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
-            newUser.setFirstName("Gina");
-            newUser.setLastName("Lockwood");
-            newUser.setProfile_picture_url("/img/girl1.jpg");
-            newUser.setJob("Just a friend");
-            newUser.setAboutMe("Friendship is born at that moment when one person says to another, ‘What! You too? I thought I was the only one.");
+            newUser.setFirstName("Nic");
+            newUser.setLastName("Cage");
+            newUser.setProfile_picture_url("/img/nic-cage.jpeg");
+            newUser.setJob("World Renowned Actor");
+            newUser.setAboutMe("Just got cast as the new Neo in Matrix 5.");
             newUser.setBirthday(new Date());
             newUser.setCreatedDate(new Date());
             testUser1 = userRepo.save(newUser);
@@ -293,7 +293,7 @@ public class GenerateContent {
 
         if (testGallery1 == null) {
             Gallery newGallery = new Gallery();
-            newGallery.setName("cats&dogs");
+            newGallery.setName("coding");
             newGallery.setUser(testUser1);
             newGallery.setCreatedDate(new Date());
             testGallery1 = galleryRepo.save(newGallery);
@@ -308,10 +308,10 @@ public class GenerateContent {
 
         if (testPicture1 == null) {
             Picture newPicture = new Picture();
-            newPicture.setPictureUrl("/img/cat.jpg");
+            newPicture.setPictureUrl("/img/code1.jpg");
             newPicture.setUser(testUser1);
             newPicture.setComment("Wise beyond his years");
-            newPicture.setGallery(galleryRepo.findByName("cats&dogs"));
+            newPicture.setGallery(galleryRepo.findByName("coding"));
             testPicture1 = pictureRepo.save(newPicture);
         }
         if (testPicture2 == null) {
