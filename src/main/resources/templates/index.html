@@ -5,18 +5,362 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<header th:replace="partials/header :: header"></header>
-<div class="mt-3">
-    <img class="card-img-top my-5 mx-1" th:src="@{/img/one.png/}" alt="Card image cap">
-    <img class="card-img-top my-5 mx-1" th:src="@{/img/two.png/}" alt="Card image cap">
-    <img class="card-img-top my-5 mx-1" th:src="@{/img/three.png/}" alt="Card image cap">
-    <img class="card-img-top mt-5 mx-1" th:src="@{/img/four.png/}" alt="Card image cap">
+<!--<body>-->
+<!--<header th:replace="partials/header :: header"></header>-->
+<!--<div class="mt-3">-->
+<!--    <img class="card-img-top my-5 mx-1" th:src="@{/img/landingpage.jpeg/}" alt="Card image cap">-->
+<!--    <img class="card-img-top my-5 mx-1" th:src="@{/img/two.png/}" alt="Card image cap">-->
+<!--    <img class="card-img-top my-5 mx-1" th:src="@{/img/three.png/}" alt="Card image cap">-->
+<!--    <img class="card-img-top mt-5 mx-1" th:src="@{/img/four.png/}" alt="Card image cap">-->
+<!--</div>-->
+<!--<form style="display: flex; justify-content: center;" class="my-3" action="/sign-up">-->
+<!--    <button type="submit" class="btn btn-primary" >Sign Up Now!</button>-->
+<!--    <a class="btn btn-secondary" th:href="@{/login}">Login</a>-->
+<!--</form>-->
+
+<header th:fragment="header">
+    <div sec:authorize="isAnonymous()">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+            <div class="container-fluid">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px" th:href="@{/login}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px" th:href="@{/sign-up}">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div sec:authorize="isAuthenticated()">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+            <a class="navbar-brand" href="/">CodeEncounter</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup2" aria-controls="navbarNavAltMarkup2" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup2">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" th:href="@{/user/{username}(username=${#authentication.principal.username})}">Profile</a>
+                    <a class="nav-item nav-link" th:href="@{/{username}/friends/requests (username=${#authentication.principal.username})}">Requests</a>
+                    <form th:action="@{/logout}" th:method="post" class="p-2 nav-item">
+                        <button type="submit" class="btn btn-link btn-anchor nav-link">Logout</button>
+                    </form>
+                    <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">
+                        <input style="width: 70%; float: left;" class="form-control field" type="search" name="search" placeholder="Search" aria-label="Search">
+                        <button style="width: 30%; float: right;" class="btn btn-secondary my-1">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</header>
+<div class="wknd-home screen">
+    <div class="wknd-xf-header">
+        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
+    </div>
+    <div class="wknd-teaser-4">
+        <div class="overlap-group-1">
+            <div class="build-better-together monaco-regular-normal-eerie-black-40px">
+                Build better, together.
+            </div>
+            <div class="join-thousands-of-ot">
+                Join thousands of other developers world wide to build you projects into
+                something better. We need to continue with a landing page
+                description**************
+            </div>
+        </div>
+    </div>
+    <div class="wknd-teaser-5">
+        <div class="flex-col">
+            <div class="heading-2">
+                <div class="meet-up-remotely monaco-regular-normal-eerie-black-36px">
+                    Meet up remotely
+                </div>
+                <div class="underline"></div>
+            </div>
+            <div class="thousands-of-members">
+                Thousands of members in over 200 countries
+            </div>
+            <div
+                    class="description-about-users monaco-regular-normal-eerie-black-14px"
+            >
+                Description about users *********
+            </div>
+        </div>
+        <div class="wknd-image-2"></div>
+    </div>
+    <div class="heading-2-1">
+        <div class="recent-projects monaco-regular-normal-eerie-black-36px">
+            Recent Projects
+        </div>
+        <div class="underline"></div>
+    </div>
+    <div class="repeat-grid-1">
+        <div class="wknd-teaser-6">
+            <div class="wknd-image"></div>
+            <div class="wknd-teaser">
+                <div class="overlap-group">
+                    <div class="project-1 monaco-regular-normal-eerie-black-16px">
+                        PROJECT 1***
+                    </div>
+                    <div class="group-name monaco-regular-normal-gray-10px">
+                        GROUP !NAME
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wknd-teaser-1">
+            <div class="wknd-image"></div>
+            <div class="wknd-teaser">
+                <div class="overlap-group">
+                    <div class="project-1 monaco-regular-normal-eerie-black-16px">
+                        PROJECT 1***
+                    </div>
+                    <div class="group-name monaco-regular-normal-gray-10px">
+                        GROUP !NAME
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wknd-teaser-1">
+            <div class="wknd-image"></div>
+            <div class="wknd-teaser">
+                <div class="overlap-group">
+                    <div class="project-1 monaco-regular-normal-eerie-black-16px">
+                        PROJECT 1***
+                    </div>
+                    <div class="group-name monaco-regular-normal-gray-10px">
+                        GROUP !NAME
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wknd-teaser-1">
+            <div class="wknd-image"></div>
+            <div class="wknd-teaser">
+                <div class="overlap-group">
+                    <div class="project-1 monaco-regular-normal-eerie-black-16px">
+                        PROJECT 1***
+                    </div>
+                    <div class="group-name monaco-regular-normal-gray-10px">
+                        GROUP !NAME
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wknd-teaser-1">
+            <div class="wknd-image"></div>
+            <div class="wknd-teaser">
+                <div class="overlap-group">
+                    <div class="project-1 monaco-regular-normal-eerie-black-16px">
+                        PROJECT 1***
+                    </div>
+                    <div class="group-name monaco-regular-normal-gray-10px">
+                        GROUP !NAME
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wknd-teaser-1">
+            <div class="wknd-image"></div>
+            <div class="wknd-teaser">
+                <div class="overlap-group">
+                    <div class="project-1 monaco-regular-normal-eerie-black-16px">
+                        PROJECT 1***
+                    </div>
+                    <div class="group-name monaco-regular-normal-gray-10px">
+                        GROUP !NAME
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wknd-teaser-1">
+            <div class="wknd-image"></div>
+            <div class="wknd-teaser">
+                <div class="overlap-group">
+                    <div class="project-1 monaco-regular-normal-eerie-black-16px">
+                        PROJECT 1***
+                    </div>
+                    <div class="group-name monaco-regular-normal-gray-10px">
+                        GROUP !NAME
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wknd-teaser-1">
+            <div class="wknd-image"></div>
+            <div class="wknd-teaser">
+                <div class="overlap-group">
+                    <div class="project-1 monaco-regular-normal-eerie-black-16px">
+                        PROJECT 1***
+                    </div>
+                    <div class="group-name monaco-regular-normal-gray-10px">
+                        GROUP !NAME
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wknd-teaser-1">
+            <div class="wknd-image"></div>
+            <div class="wknd-teaser">
+                <div class="overlap-group">
+                    <div class="project-1 monaco-regular-normal-eerie-black-16px">
+                        PROJECT 1***
+                    </div>
+                    <div class="group-name monaco-regular-normal-gray-10px">
+                        GROUP !NAME
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wknd-separator"><div class="separator"></div></div>
+    <div class="heading-2-2">
+        <div class="next-adventures monaco-regular-normal-eerie-black-36px">
+            Next Adventures
+        </div>
+        <div class="underline"></div>
+    </div>
+    <div class="wknd-teaser-7">
+        <div class="overlap-group1">
+            <div class="climbing-new-zealand monaco-regular-normal-eerie-black-40px">
+                Climbing New Zealand
+            </div>
+            <div class="let-us-help-you-make">
+                Let us help you make your New Zealand climbing vacation a memory you
+                will cherish forever! Come join us for a guided rock climbing adventure
+                in the mountains that trained Sir Edmund Hilary.
+            </div>
+        </div>
+    </div>
+    <div class="meet-our-users">Meet our users</div>
+    <div class="repeat-grid-2">
+        <div class="wknd-teaser-8">
+            <div class="wknd-image-1"></div>
+            <div class="wknd-teaser-2">
+                <div
+                        class="whistler-mountain-biking monaco-regular-normal-eerie-black-16px"
+                >
+                    WHISTLER MOUNTAIN BIKING
+                </div>
+                <div class="cycling monaco-regular-normal-gray-10px">CYCLING</div>
+            </div>
+        </div>
+        <div class="wknd-teaser-3">
+            <div class="wknd-image-1"></div>
+            <div class="wknd-teaser-2">
+                <div
+                        class="whistler-mountain-biking monaco-regular-normal-eerie-black-16px"
+                >
+                    WHISTLER MOUNTAIN BIKING
+                </div>
+                <div class="cycling monaco-regular-normal-gray-10px">CYCLING</div>
+            </div>
+        </div>
+        <div class="wknd-teaser-3">
+            <div class="wknd-image-1"></div>
+            <div class="wknd-teaser-2">
+                <div
+                        class="whistler-mountain-biking monaco-regular-normal-eerie-black-16px"
+                >
+                    WHISTLER MOUNTAIN BIKING
+                </div>
+                <div class="cycling monaco-regular-normal-gray-10px">CYCLING</div>
+            </div>
+        </div>
+        <div class="wknd-teaser-3">
+            <div class="wknd-image-1"></div>
+            <div class="wknd-teaser-2">
+                <div
+                        class="whistler-mountain-biking monaco-regular-normal-eerie-black-16px"
+                >
+                    WHISTLER MOUNTAIN BIKING
+                </div>
+                <div class="cycling monaco-regular-normal-gray-10px">CYCLING</div>
+            </div>
+        </div>
+        <div class="wknd-teaser-3">
+            <div class="wknd-image-1"></div>
+            <div class="wknd-teaser-2">
+                <div
+                        class="whistler-mountain-biking monaco-regular-normal-eerie-black-16px"
+                >
+                    WHISTLER MOUNTAIN BIKING
+                </div>
+                <div class="cycling monaco-regular-normal-gray-10px">CYCLING</div>
+            </div>
+        </div>
+        <div class="wknd-teaser-3">
+            <div class="wknd-image-1"></div>
+            <div class="wknd-teaser-2">
+                <div
+                        class="whistler-mountain-biking monaco-regular-normal-eerie-black-16px"
+                >
+                    WHISTLER MOUNTAIN BIKING
+                </div>
+                <div class="cycling monaco-regular-normal-gray-10px">CYCLING</div>
+            </div>
+        </div>
+        <div class="wknd-teaser-3">
+            <div class="wknd-image-1"></div>
+            <div class="wknd-teaser-2">
+                <div
+                        class="whistler-mountain-biking monaco-regular-normal-eerie-black-16px"
+                >
+                    WHISTLER MOUNTAIN BIKING
+                </div>
+                <div class="cycling monaco-regular-normal-gray-10px">CYCLING</div>
+            </div>
+        </div>
+        <div class="wknd-teaser-3">
+            <div class="wknd-image-1"></div>
+            <div class="wknd-teaser-2">
+                <div
+                        class="whistler-mountain-biking monaco-regular-normal-eerie-black-16px"
+                >
+                    WHISTLER MOUNTAIN BIKING
+                </div>
+                <div class="cycling monaco-regular-normal-gray-10px">CYCLING</div>
+            </div>
+        </div>
+        <div class="wknd-teaser-3">
+            <div class="wknd-image-1"></div>
+            <div class="wknd-teaser-2">
+                <div
+                        class="whistler-mountain-biking monaco-regular-normal-eerie-black-16px"
+                >
+                    WHISTLER MOUNTAIN BIKING
+                </div>
+                <div class="cycling monaco-regular-normal-gray-10px">CYCLING</div>
+            </div>
+        </div>
+    </div>
+    <div class="wknd-container">
+        <div class="wknd-separator-1"><div class="separator"></div></div>
+        <div class="wknd-xf-newsletter">
+            <div class="wknd-image-3"></div>
+            <div class="flex-col-1">
+                <div class="another-description monaco-regular-normal-eerie-black-40px">
+                    Another description
+                </div>
+                <p class="be-the-first-to-know monaco-regular-normal-eerie-black-14px">
+                    Be the first to know about new trips, fresh gear, and co-op offers.
+                    We’re a good penpal. Promise.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="wknd-xf-footer">
+        <div class="code-encounter">CodeEncounter</div>
+        <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>
+    </div>
 </div>
-<form style="display: flex; justify-content: center;" class="my-3" action="/sign-up">
-    <button type="submit" class="btn btn-primary" >Sign Up Now!</button>
-    <a class="btn btn-secondary" th:href="@{/login}">Login</a>
-</form>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
