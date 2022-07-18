@@ -1,3 +1,62 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@font-face {
+    font-family: "Optima-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("https://fonts.animaapp.com/Optima-Bold");
+}
+
+:root {
+    --font-size-m: 81px;
+    --font-family-optima-bold: "Optima-Bold", Helvetica;
+}
+
+.web-1280-1 {
+    align-items: flex-end;
+    background: linear-gradient(
+            180deg,
+            rgba(72, 201, 122, 0.33) 0%,
+            #808080 100%
+    );
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    min-height: 800px;
+    padding: 39px 59px;
+    width: 1280px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hidden,
+.hidden * {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.title {
+    color: #000000;
+    font-family: var(--font-family-optima-bold);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 81px;
+    margin-top: 45px;
+    min-height: 99px;
+    min-width: 1160px;
+    white-space: nowrap;
+}
+
+.shutterstock_1233726961 {
+    align-self: center;
+    border-radius: 70px;
+    height: 534px;
+    margin-left: 1px;
+    width: 867px;
+}
 
 
 /**{*/
