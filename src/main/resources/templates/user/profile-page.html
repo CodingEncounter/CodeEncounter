@@ -51,6 +51,7 @@
                     <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">Posts</a>
                     <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab" aria-controls="nav-friends" aria-selected="false">Friends</a>
                     <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab" aria-controls="nav-photos" aria-selected="false">Galleries</a>
+                    <a class="nav-item nav-link" id="nav-interest-tab" data-toggle="tab" href="#nav-interests" role="tab" aria-controls="nav-interests" aria-selected="false">Interests</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -196,7 +197,7 @@
                         </div>
                     </div>
                     <!--       tab 4 interests-->
-                    <div class="tab-pane fade" id="nav-interests" role="tabpanel" aria-labelledby="nav-photos-tab">
+                    <div class="tab-pane fade" id="nav-interests" role="tabpanel" aria-labelledby="nav-interest-tab">
                         <h1>Interest</h1>
                         <div style="background-color: #faf3dd;" class="row my-3">
                             <div class="col-6 col-xl-4 my-2" th:each="item : ${interest}">
