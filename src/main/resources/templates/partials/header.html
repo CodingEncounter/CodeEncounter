@@ -11,7 +11,7 @@
 <body>
 <header th:fragment="header">
     <div sec:authorize="isAnonymous()">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-image: linear-gradient(to bottom right, #34ebc3, #dae3e0);">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
             <div class="container-fluid">
                 <div
                         class="collapse navbar-collapse justify-content-center"
@@ -26,20 +26,20 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px" th:href="@{/login}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px" th:href="@{/sign-up}">Register</a>
-                    </li>
-                </ul>
+<!--                <ul class="navbar-nav mb-2 mb-lg-0">-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px" th:href="@{/login}">Login</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px" th:href="@{/sign-up}">Register</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
             </div>
         </nav>
     </div>
 
                 <div sec:authorize="isAuthenticated()">
-                    <nav class="navbar navbar-expand-lg navbar-light" style="background-image: linear-gradient(to bottom right, #34ebc3, #dae3e0);">
+                    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
             <a class="navbar-brand" href="/">CodeEncounter</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup2" aria-controls="navbarNavAltMarkup2" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
