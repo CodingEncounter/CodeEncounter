@@ -37,6 +37,9 @@
                 <div class="col-12">
                     <p th:text="${friend.aboutMe}"></p>
                 </div>
+                <div class="col-12">
+                    <p th:text="${friend.codeLanguages}"></p>
+                </div>
                 <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${friend.getUsername()})}" th:method="POST">
                     <input type="hidden" class="field" name="reject" th:value="${friend.getUsername()}"/>
                     <button class="btn btn-light" onclick="return confirm('Are you sure?')">Unfriend</button>

@@ -39,6 +39,9 @@
                 <div class="col-12">
                     <p th:text="${user.aboutMe}"></p>
                 </div>
+                <div class="col-12">
+                    <p th:text="${user.codeLanguages}"></p>
+                </div>
             </div>
         </div>
     </aside>
@@ -58,6 +61,8 @@
                             <p class="my-1" th:text="${item.username}"></p>
                             <p class="my-1" th:text="${item.firstName}"></p>
                             <p class="my-1" th:text="${item.lastName}"></p>
+                            <p class="my-1" th:text="${item.codeLanguages}"></p>
+
                         </div>
                         <div th:if="${userFriends.contains(item) == true}" class="search-card">
                             <a th:href="@{/{username}/friend/{friendName} (username=${user.getUsername()}, friendName=${item.getUsername()})}">
@@ -66,12 +71,14 @@
                             <p class="my-1" th:text="${item.username}"></p>
                             <p class="my-1" th:text="${item.firstName}"></p>
                             <p class="my-1" th:text="${item.lastName}"></p>
+                            <p class="my-1" th:text="${item.codeLanguages}"></p>
                         </div>
                         <div th:if="${userFriends.contains(item) == false && pendingFriends.contains(item) == false && item.username != user.username}" class="search-card">
                             <img th:src="${item.profile_picture_url.toString()}">
                             <p class="my-1" th:text="${item.username}"></p>
                             <p class="my-1" th:text="${item.firstName}"></p>
                             <p class="my-1" th:text="${item.lastName}"></p>
+                            <p class="my-1" th:text="${item.codeLanguages}"></p>
                             <form th:action="@{/request/{username}/{friendName} (username=${user.getUsername()}, friendName = ${item.getUsername()})}" th:method="POST">
                                 <button class="btn btn-primary" type="submit" name="Friend Request">Friend Request</button>
                             </form>
@@ -81,6 +88,7 @@
                             <p class="my-1" th:text="${item.username}"></p>
                             <p class="my-1" th:text="${item.firstName}"></p>
                             <p class="my-1" th:text="${item.lastName}"></p>
+                            <p class="my-1" th:text="${item.codeLanguages}"></p>
                             <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUsername()})}" th:method="POST">
                                 <input type="hidden" class="field" name="reject" th:value="${item.getUsername()}"/>
                                 <button class="btn btn-secondary">Remove Request</button>
