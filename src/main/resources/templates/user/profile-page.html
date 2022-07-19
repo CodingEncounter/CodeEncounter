@@ -4,6 +4,12 @@
 <head th:replace="partials/head :: head('Profile')">
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        (function(t,a,l,k,j,s){
+            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+            ;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+    </script>
 </head>
 <body>
 <header th:replace="partials/header :: header"></header>
@@ -52,6 +58,7 @@
                     <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab" aria-controls="nav-friends" aria-selected="false">Friends</a>
                     <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab" aria-controls="nav-photos" aria-selected="false">Galleries</a>
                     <a class="nav-item nav-link" id="nav-interest-tab" data-toggle="tab" href="#nav-interests" role="tab" aria-controls="nav-interests" aria-selected="false">Interests</a>
+                    <a class="nav-item nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat" role="tab" aria-controls="nav-chat" aria-selected="false">Chat</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -236,18 +243,84 @@
                     </form>
                 </div>
             </div>
-        </div>
-        </div>
-    </main>
+                <!------- Tab 5 Chat  ------->
+                <div class="tab-pane fade show active" id="nav-chat" role="tabpanel" aria-labelledby="nav-chat-tab">
+                    <div id="talks-container" style="width: 90%; margin: 30px; height: 500px">
+                    <script>
+                        import Talk from 'talkjs';
+
+                        const getAgent = async () => {
+                            const response = await fetch('http://localhost:8081/getUser?userId=1');
+                            const data = await response.json();
+                            let agent = new Talk.User({
+                                id: data.id,
+                                name: data.name,
+                                photoUrl: data.dp,
+                                email: data.email,
+                                role: data.role
+                            });
+                            return agent;
+                        }
+                        const getUser = async () => {
+                            const response = await fetch('http://localhost:8081/getUser?userId=6');
+                            const data = await response.json();
+                            let user = new Talk.User({
+                                id: data.id,
+                                name: data.name,
+                                photoUrl: data.dp,
+                                email: data.email,
+                                role: data.role
+                            });
+                            return user;
+                        }
+                        (
+                            async function() {
+                                await Talk.ready;
+                                let agent = await getAgent();
+                                let user = await getUser();
+
+                                const session = new Talk.Session({
+                                    appId: 'tOGmRmb6',
+                                    me: user,
+                                });
+                                var conversation = session.getOrCreateConversation(Talk.oneOnOneId(user, agent));
+
+                                conversation.setAttributes({
+                                    welcomeMessages: ["You can start typing your message here and one of our agents will be with you shortly.", "Please do not divulge any of your personal information."]
+                                })
+                                conversation.setParticipant(user);
+                                conversation.setParticipant(agent);
+
+                                var chatbox = window.talkSession.createChatbox();
+                                chatbox.select(conversation);
+                                chatbox.mount(document.getElementById('talks-container'));
+                            }());
+                    </script>
+<!--                     minified snippet to load TalkJS without delaying your page-->
+<!--                    <script>-->
+<!--                        (function(t,a,l,k,j,s){-->
+<!--                            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)-->
+<!--                            ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l-->
+<!--                                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);-->
+<!--                    </script>-->
+
+<!--                     container element in which TalkJS will display a chat UI -->
+
+                    </div>
+<!--                </div>-->
+<!--        </div>-->
+<!--        </div>-->
+<!--    </main>-->
     <footer class="col-xl-12">
         CodeEncounter
     </footer>
-</div>
+<!--</div>-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="/keys.js"></script>
+<script src="../../../webapp/js/UserChat.js"></script>
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
 </body>
 </html>
