@@ -37,7 +37,7 @@ public class GenerateContent {
 
 
     @GetMapping("/Generate/Users/Test")
-    public void setup() throws Exception {
+    public void setup()  {
         LocalDate currentdate = LocalDate.now();
         int currentDay = currentdate.getDayOfMonth();
         Month currentMonth = currentdate.getMonth();
