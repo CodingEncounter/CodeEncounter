@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<section class="vh-100" style="background-color: #9A616D;">
+<section class="vh-100" style="background-color: #E6C25F;">
 <header th:replace="partials/header :: header"></header>
     <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -18,29 +18,19 @@
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-        <form class="card-body" th:action="@{/login}" method="POST">
+        <form class="card-body" style="font-family: Monaco" th:action="@{/login}" method="POST">
             <div class="d-flex align-items-center mb-3 pb-1">
-                <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                <i class="fas fa-cubes fa-2x me-3" style="color: black;"></i>
                 <span class="h1 fw-bold mb-0">CodeEncounter</span>
             </div>
                 <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
-<!--            <div class="p-1">-->
-<!--                <label for="username">Username</label>-->
-<!--                <input id="username" name="username" class="form-control" type="text" />-->
-<!--            </div>-->
-<!--            <div class="p-1">-->
-<!--                <label for="password">Password</label>-->
-<!--                <input id="password" name="password" class="form-control" type="password" />-->
-<!--            </div>-->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="username">Username</label>
                     <input id="username" name="username" class="form-control" type="text" />
-<!--                    <label class="form-label" for="username">Username</label>-->
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="password">Password</label>
                     <input id="password" name="password" class="form-control" type="password" />
-<!--                    <label class="form-label" for="password">Password</label>-->
                 </div>
             <br>
             <div class="d-grid gap-2">
@@ -61,36 +51,3 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head th:replace="partials/head :: head('Login')">-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<header th:replace="partials/header :: header"></header>-->
-
-<!--<div style="background-color: #bde0fe;">-->
-<!--    <br><br><br>-->
-<!--    <div class="card p-1" style="max-width: 500px; margin: auto;">-->
-<!--        <form class="card-body" th:action="@{/login}" method="POST">-->
-<!--            <div class="p-1">-->
-<!--                <label for="username">Username</label>-->
-<!--                <input id="username" name="username" class="form-control" type="text" />-->
-<!--            </div>-->
-<!--            <div class="p-1">-->
-<!--                <label for="password">Password</label>-->
-<!--                <input id="password" name="password" class="form-control" type="password" />-->
-<!--            </div>-->
-<!--            <br>-->
-<!--            <button type="submit" class="btn btn-primary">Login</button>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--    <br><br><br>-->
-<!--</div>-->
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>-->
-<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
-<!--</body>-->
-<!--</html>-->
