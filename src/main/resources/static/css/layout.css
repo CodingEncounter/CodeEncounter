@@ -568,3 +568,154 @@
     line-height: 40px;
     width: 2320px;
 }
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@font-face {
+    font-family: "Monaco-Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+}
+
+:root {
+    --eerie-black: #202020;
+    --font-size-xl: 60px;
+    --font-size-l: 47px;
+    --font-size-xxxxl: 34px;
+    --font-family-monaco-regular: Monaco;
+}
+
+.wknd-magazine {
+    align-items: center;
+    background-color: #e6c25f;
+    display: flex;
+    flex-direction: column;
+    min-height: 1567px;
+    width: 2650px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hidden,
+.hidden * {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.flex-row {
+    align-items: flex-start;
+    display: flex;
+    margin-left: 22px;
+    margin-top: 71px;
+    min-width: 2504px;
+}
+
+.image-2 {
+    height: 989px;
+    margin-left: 58px;
+    width: 1483px;
+}
+
+.overlap-group {
+    align-items: flex-start;
+    background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d703b2b1ad02a2aa7002d4/img/path-2874@1x.png);
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 77px;
+    min-height: 296px;
+    padding: 52px 66px;
+    width: 963px;
+}
+
+.uh-oh-something-went-wrong {
+    color: var(--eerie-black);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-l);
+    font-weight: 400;
+    letter-spacing: 0.94px;
+    line-height: 37px;
+    min-height: 61px;
+    white-space: nowrap;
+}
+
+.click-this-back-button-to-try-again {
+    align-self: flex-end;
+    color: var(--eerie-black);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-xxxxl);
+    font-weight: 400;
+    letter-spacing: 0.68px;
+    line-height: 27px;
+    margin-right: 67px;
+    margin-top: 21px;
+    min-height: 45px;
+    min-width: 739px;
+    white-space: nowrap;
+}
+
+.wknd-xf-header {
+    display: flex;
+    height: 160px;
+    margin-top: 40px;
+    width: 2650px;
+}
+
+.wknd-header {
+    background-color: #ffffff;
+    display: flex;
+    flex: 1;
+    width: 2650px;
+}
+
+.title {
+    color: var(--eerie-black);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+    height: 77px;
+    letter-spacing: 1.2px;
+    line-height: 48px;
+    margin-left: 50px;
+    margin-top: 41.5px;
+    white-space: nowrap;
+    width: 484px;
+}
+
+.wknd-xf-footer {
+    align-items: flex-start;
+    background-color: var(--eerie-black);
+    display: flex;
+    height: 234px;
+    justify-content: flex-end;
+    margin-top: 73px;
+    min-width: 2650px;
+    padding: 56px 929px;
+}
+
+.wknd-navigation {
+    align-items: flex-start;
+    display: flex;
+    min-width: 321px;
+}
+
+.wknd-navigation-item-2 {
+    height: 48px;
+    margin-left: 12px;
+    width: 106px;
+}
+
+.wknd-navigation-item {
+    height: 48px;
+    width: 126px;
+}
+
+.wknd-navigation-item-1 {
+    height: 48px;
+    margin-left: 12px;
+    width: 65px;
+}
+
