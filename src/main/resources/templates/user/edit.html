@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
 <head th:replace="partials/head :: head('Edit')">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -57,7 +58,7 @@
                     <input type="text" class="form-control" id="last-name-input" th:field="*{lastName}">
                 </div>
                 <div class="mb-3">
-                    <label for="aboutMe-input" class="form-label">About Me</label>
+                    <label for="aboutMe-input" class="form-label">Coding Interest</label>
                     <input type="text" class="form-control" id="aboutMe-input" th:field="*{aboutMe}">
                 </div>
                 <div class="mb-3">

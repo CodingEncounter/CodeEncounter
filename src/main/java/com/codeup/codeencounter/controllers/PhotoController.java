@@ -34,15 +34,15 @@ public class PhotoController {
         this.pictureRepo = pictureRepo;
     }
 
-//    @Value("${fileStack}")
-//    private String fileStackKey;
-//
-//    @RequestMapping(path = "/keys.js", produces = "application/javascript")
-//    @ResponseBody
-//    public String apikey() {
-//        System.out.println(fileStackKey);
-//        return "const FileStackKey = `" + fileStackKey + "`";
-//    }
+    @Value("${filestack.key}")
+    private String fileStackKey;
+
+    @RequestMapping(path = "/keys.js", produces = "application/javascript")
+    @ResponseBody
+    public String apikey() {
+        System.out.println(fileStackKey);
+        return "const FileStackKey = `" + fileStackKey + "`";
+    }
 
 
     //Create Gallery
