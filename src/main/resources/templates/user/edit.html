@@ -34,7 +34,7 @@
                         <p th:text="${user.job}"></p>
                     </div>
                     <form  th:if="${#authentication.principal.username == user.username}" th:action="@{/edit/{username}(username=${#authentication.principal.username})}" class="card-link" method="get">
-                        <button type="submit" class="btn btn-secondary">Edit Profile</button>
+                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 15px;">Edit Profile</button>
                     </form>
                 </div>
                 <div class="col-12">
@@ -82,17 +82,17 @@
                 </div>
                 <div class="error-message" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
                 <div class="error-message" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
-                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 15px;">Save Changes</button>
             </form>
             <form style="float: right;" th:action="@{/{username}/delete (username=${#authentication.principal.username})}" method="POST" class="p-3" >
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?\nYou can\'t change your mind after clicking OK.')">Delete your account</button>
+                <button type="submit" class="btn btn-danger" style="font-family: Monaco; font-size: 15px;" onclick="return confirm('Are you sure?\nYou can\'t change your mind after clicking OK.')">Delete your account</button>
             </form>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Friend Requests</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close" style="font-family: Monaco; font-size: 15px;"data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -121,18 +121,18 @@
                                         </form>
                                         <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
                                             <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>
-                                            <button class="btn btn-danger">Reject</button>
+                                            <button class="btn btn-danger" style="font-family: Monaco; font-size: 15px;">Reject</button>
                                         </form>
                                         <form th:action="@{/request/{username}/{friendName}/block (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
                                             <input type="hidden" class="field" name="block" th:value="${item.getUser().getUsername()}"/>
-                                            <button class="btn btn-danger">Block</button>
+                                            <button class="btn btn-danger" style="font-family: Monaco; font-size: 15px;">Block</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 15px;" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>

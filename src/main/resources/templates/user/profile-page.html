@@ -7,18 +7,23 @@
 </head>
 <body>
 <header th:replace="partials/header :: header"></header>
+<div class="wknd-profile screen">
+    <div class="wknd-xf-header">
+        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
+    </div>
 
 <div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">
     <aside class="col-xl-4">
         <div class="container">
-            <div class="row p-3" style="background: white">
+            <div class="row p-5" style="background: #E6C25F">
                 <div class="col">
-                    <img class="card-img-top p-3 profile-pic" th:src="${user.getProfile_picture_url().toString()}"
+                    <img class="card-img-top profile-pic" th:src="${user.getProfile_picture_url().toString()}"
                          alt="Card image cap">
-                    <h5 class="card-title" th:text="${user.username}"></h5>
+                    <h5 style="font-family: Monaco; font-size: 25px;" class="card-title" th:text="${user.username}"></h5>
                 </div>
+
                 <div class="col">
-                    <div class="card-text">
+                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">
                         <p th:text="${user.firstName}"></p>
                         <p th:text="${user.lastName}"></p>
                         <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
@@ -28,7 +33,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card-text">
+                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">
                         <p class="text-muted"><i class="far fa-envelope"></i> Email</p>
                         <p th:text="${user.email}"></p>
                         <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>
@@ -37,18 +42,66 @@
                     <form th:if="${sessionUser.getUsername() == user.username}"
                           th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
                           class="card-link" method="get">
-                        <button type="submit" class="btn btn-secondary">Edit Profile</button>
+                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>
                     </form>
                 </div>
-                <div class="col-12">
+                <div class="col-12" style="font-family: Monaco; font-size: 25px;">
                     <p th:text="${user.aboutMe}"></p>
                 </div>
-                <div class="col-12">
+                <div class="col-12" style="font-family: Monaco; font-size: 25px;">
                     <p th:text="${user.codeLanguages}"></p>
                 </div>
             </div>
         </div>
     </aside>
+
+
+    <!--<div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">-->
+    <!--<div class="wknd-home screen">-->
+    <!--<div class="wknd-xf-header">-->
+    <!--    <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>-->
+    <!--</div>-->
+    <!--    <div class="wknd-faq screen">-->
+    <!--        <div class="flex-row">-->
+    <!--            <img class="card-img-top p-3 profile-pic" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap">-->
+
+    <!--            <div class="flex-col">-->
+    <!--                <div class="user1" th:text="${user.username}"></div>-->
+    <!--                <div class="joineddate"><i class="text-muted far fa-handshake"></i> Joined<br/><p th:text="${user.createdDate}"></p></div>-->
+    <!--                <div class="birthdaydate"><i class="text-muted fas fa-birthday-cake"></i> Birthday<br/><p th:text="${user.birthday}"></p></div>-->
+    <!--            </div>-->
+
+    <!--            <div class="flex-col-1">-->
+    <!--                <div class="emailaddress"><i class=" text-muted far fa-envelope"></i> Email<br/><p th:text="${user.email}"></p></div>-->
+    <!--                <div class="works-atplace"><i class="text-muted far fa-address-card"></i> Works At<br /><p th:text="${user.job}"></p></div>-->
+    <!--            </div>-->
+    <!--                                    <form th:if="${sessionUser.getUsername() == user.username}"-->
+    <!--                                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"-->
+    <!--                                          class="card-link" method="get">-->
+    <!--                                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 15px;">Edit Profile</button>-->
+    <!--                                    </form>-->
+
+
+    <!--        </div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <main class="col-xl-8">
         <div style="width: 100%;">
             <!--            nav tabs-->
@@ -241,59 +294,7 @@
                 <div class="tab-pane fade" id="nav-ide" role="tabpanel" aria-labelledby="nav-ide-tab">
                     <h1>Code Playground</h1>
                     <div style="background-color: #faf3dd;" class="row my-3">
-<!--                        <div class="col-6 col-xl-4 my-2" th:each="item : ${interest}">-->
-<!--                            <div class="col-md-10 offset-md-1">-->
-
-<!--                                <div id="profile-img-status"></div>-->
-
-<!--                                <div id="interestDiv">-->
-
-
-<!--                                    <div class="cp_embed_wrapper">-->
-<!--                                        <iframe allowfullscreen="true" allowpaymentrequest="true"-->
-<!--                                                allowtransparency="true" class="cp_embed_iframe " frameborder="0"-->
-<!--                                                height="800" width="100%" name="cp_embed_1" scrolling="no"-->
-<!--                                                src="https://codepen.io/embed/prefill"-->
-<!--                                                style="width: 100%; overflow:hidden; display:block;"-->
-<!--                                                title="CodePen Embed">-->
-
-<!--                                        </iframe>-->
-<!--                                        <form class="cp_embed_form" style="display: none;" method="post"-->
-<!--                                              action="https://codepen.io/embed/prefill" target="cp_embed_1">-->
-<!--                                            <input type="hidden" name="height" value="800">-->
-<!--                                            <input type="hidden" name="theme-id" value="1">-->
-<!--                                            <input type="hidden" name="default-tab" value="html,result">-->
-<!--                                            <input type="hidden" name="editable" value="true">-->
-<!--                                            <input type="hidden" name="user" value="anon">-->
-<!--                                            <input type="hidden" name="name" value="cp_embed_1">-->
-<!--                                            <input type="hidden" name="data"-->
-<!--                                                   value="{&quot;html&quot;:&quot;\t<section class=\&quot;p-0 bg-img cover-background\&quot; style=\&quot;background-image: url(https://bootdey.com/img/Content/bg1.jpg);\&quot;>\n-->
-<!--                                                   <div class=\&quot;container-fluid d-flex flex-column\&quot;>\n-->
-<!--                                                   <div class=\&quot;row align-items-center justify-content-center min-vh-100\&quot;>\n-->
-<!--                                                   <div class=\&quot;col-md-9 col-lg-6 my-5\&quot;>\n-->
-<!--                                                   <div class=\&quot;text-center error-page\&quot;>\n-->
-<!--                                                   <h1 class=\&quot;mb-0 text-secondary\&quot;>404</h1>\n-->
-<!--                                                   <h2 class=\&quot;mb-4 text-white\&quot;>Sorry, something went wrong!</h2>\n-->
-<!--                                                   <p class=\&quot;w-sm-80 mx-auto mb-4 text-white\&quot;>This page is incidentally inaccessible because of support. We will back very before long much obliged for your understanding</p>\n-->
-<!--                                                   <div>\n-->
-<!--                                                   <a href=\&quot;#\&quot; class=\&quot;btn btn-info btn-lg me-sm-2 mb-2 mb-sm-0\&quot;>Return Home</a>\n-->
-<!--                                                   </div>\n-->
-<!--                                                   </div>\n-->
-<!--                                                   </div>\n-->
-<!--                                                   </div>\n-->
-<!--                                                   </div>\n-->
-<!--                                                   </section>\n&quot;,&quot;css&quot;:&quot;\tbody{margin-top:20px;}\n.cover-background {\n-->
-<!--                                                   position: relative !important;\nbackground-size: cover !important;\noverflow: hidden !important;\nbackground-position: center !important;\nbackground-repeat: no-repeat !important;\n}\n.p-0 {\n-->
-<!--                                                   padding: 0!important;\n}\nsection {\n    padding: 120px 0;\noverflow: hidden;\nbackground: #fff;\n}\n\n.error-page {\n    background-color: #BABABA4A;\n    -webkit-backdrop-filter: blur(9px);\nbackdrop-filter: blur(15px);\nborder: 1px solid rgba(234,234,235,0.2);\npadding: 80px 20px;\n}\n.text-center {\n-->
-<!--                                                   text-align: center!important;\n}\n.error-page h1 {\n    font-size: 200px;\nline-height: 1;\nfont-weight: 600;\n}\n.text-secondary {\n    color: #15395A !important;\n}\n.mb-4 {\n    margin-bottom: 1.5rem!important;\n}\n&quot;,&quot;js&quot;:&quot;\t\n&quot;}">-->
-<!--                                        </form>-->
-<!--                                    </div>-->
                         <div data-pym-src="https://www.jdoodle.com/embed/v0/4Zf6?stdin=0&arg=0&rw=1"></div>
-
-
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -324,3 +325,19 @@
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
 </body>
 </html>
+
+
+
+
+
+
+<!--        <div class="wknd-container">-->
+<!--            <div class="wknd-separator"><div class="separator"></div></div>-->
+<!--            <div class="wknd-xf-footer">-->
+<!--                <h1 class="title">CodeEncounter</h1>-->
+<!--                <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+

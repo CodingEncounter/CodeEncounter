@@ -37,6 +37,17 @@
     width: 2600px;
 }
 
+.wknd-profile {
+
+    background-color: #e6c25f;
+    display: flex;
+    flex-direction: column;
+    min-height: 3881px;
+    width: 2600px;
+}
+
+
+
 .hidden,
 .hidden * {
     pointer-events: none;
@@ -719,4 +730,205 @@
     width: 65px;
 }
 
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
+@font-face {
+    font-family: "Monaco-Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+}
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:600");
+
+:root {
+    --eerie-black: #202020;
+    --gray: #909090;
+    --font-size-xxl: 44px;
+    --font-size-xxxxl: 40px;
+    --font-size-xxxl2: 36px;
+    --font-size-l: 38px;
+    --font-size-m: 37px;
+    --font-size-xxxl: 55px;
+    --font-size-xs: 35px;
+    --font-family-monaco-regular: Monaco;
+    --font-family-source_sans_pro: Monaco;
+}
+
+.wknd-faq {
+    align-items: flex-start;
+    background-color: #e6c25f;
+    display: flex;
+    flex-direction: column;
+    min-height: 2011px;
+    overflow-x: hidden;
+    width: 2600px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hidden,
+.hidden * {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.flex-row {
+    align-items: flex-start;
+    display: flex;
+    margin-left: 119.13px;
+    margin-top: 120px;
+    min-width: 1939px;
+}
+
+.flex-col {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-left: 197px;
+    margin-top: 18px;
+    min-height: 508px;
+    width: 180px;
+}
+
+.birthdaydate {
+    color: var(--eerie-black);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-xxxl2);
+    font-weight: 400;
+    letter-spacing: 0.72px;
+    line-height: 69px;
+    margin-top: 82px;
+    min-height: 116px;
+    white-space: nowrap;
+}
+
+.user1 {
+    color: var(--eerie-black);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-xxl);
+    font-weight: 400;
+    letter-spacing: 0.88px;
+    line-height: 85px;
+    margin-bottom: -28px;
+    min-height: 57px;
+    white-space: nowrap;
+}
+
+.joineddate {
+    color: var(--eerie-black);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-xxxxl);
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    line-height: 77px;
+    margin-top: 124px;
+    min-height: 129px;
+    white-space: nowrap;
+}
+
+.flex-col-1 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 393px;
+    margin-top: 20.5px;
+    min-height: 363px;
+    width: 185px;
+}
+
+.works-atplace {
+    color: var(--eerie-black);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-m);
+    font-weight: 400;
+    letter-spacing: 0.74px;
+    line-height: 71px;
+    margin-top: 121px;
+    min-height: 119px;
+    min-width: 185px;
+    white-space: nowrap;
+}
+
+.emailaddress {
+    color: var(--eerie-black);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-l);
+    font-weight: 400;
+    letter-spacing: 0.76px;
+    line-height: 73px;
+    margin-right: 1px;
+    min-height: 123px;
+    min-width: 166px;
+    white-space: nowrap;
+}
+
+.wknd-image {
+    background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d83dd6166c676c6bc34351/img/image-1x-png-1x-png-1x-png-1x-png-1x-png-1x-png-1x-png-1x-png-1x-1@1x.png);
+    background-size: 100% 100%;
+    height: 844px;
+    width: 984px;
+}
+
+.wknd-container {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-top: 42px;
+    min-height: 1005px;
+    width: 2650px;
+}
+
+.wknd-separator {
+    display: flex;
+    height: 42px;
+    margin-left: 119px;
+    width: 984px;
+}
+
+.separator {
+    background-color: #ebebeb;
+    border-radius: 1px;
+    flex: 1;
+    margin-bottom: 16px;
+    margin-top: 19px;
+    width: 984px;
+}
+
+.wknd-xf-footer {
+    align-items: flex-start;
+    background-color: var(--eerie-black);
+    display: flex;
+    flex-direction: column;
+    margin-top: 729px;
+    min-height: 234px;
+    padding: 25px 49px;
+    width: 2650px;
+}
+
+.title {
+    color: var(--gray);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-xxxl);
+    font-weight: 400;
+    letter-spacing: 2.2px;
+    line-height: 14px;
+    margin-top: 50px;
+    min-height: 71px;
+    white-space: nowrap;
+}
+
+.x2022-code-encounter {
+    color: var(--gray);
+    font-family: var(--font-family-source_sans_pro);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    line-height: 35px;
+    margin-top: 10px;
+    min-height: 53px;
+    opacity: 0.5;
+    white-space: nowrap;
+}
