@@ -13,10 +13,7 @@
     <div sec:authorize="isAnonymous()">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
             <div class="container-fluid">
-                <div
-                        class="collapse navbar-collapse justify-content-center"
-                        id="navbarCenteredExample"
-                >
+                <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" href="/" style="font-family: Monaco; font-size: 60px;">CodeEncounter</a>
@@ -24,38 +21,31 @@
                     </ul>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-<!--                <ul class="navbar-nav mb-2 mb-lg-0">-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px" th:href="@{/login}">Login</a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px" th:href="@{/sign-up}">Register</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
         </nav>
     </div>
 
-                <div sec:authorize="isAuthenticated()">
-                    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
-            <a class="navbar-brand" href="/">CodeEncounter</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup2" aria-controls="navbarNavAltMarkup2" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup2">
-                <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" th:href="@{/user/{username}(username=${#authentication.principal.username})}">Profile</a>
-                    <a class="nav-item nav-link" th:href="@{/{username}/friends/requests (username=${#authentication.principal.username})}">Requests</a>
-                    <form th:action="@{/logout}" th:method="post" class="p-2 nav-item">
+<!--Navbar/header when user is logged in _____________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
+    <div sec:authorize="isAuthenticated()">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+            <div class="container-fluid">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/user/{username}(username=${#authentication.principal.username})}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/{username}/friends/requests (username=${#authentication.principal.username})}">Requests</a>
+                    </li>
+                </ul>
+                <form th:action="@{/logout}" th:method="post" class="p-2 nav-item" style="font-family: Monaco; font-size: 25px">
                         <button type="submit" class="btn btn-link btn-anchor nav-link">Logout</button>
                     </form>
                     <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">
-                        <input style="width: 70%; float: left;" class="form-control field" type="search" name="search" placeholder="Search" aria-label="Search">
-                        <button style="width: 30%; float: right;" class="btn btn-secondary my-1">Search</button>
+                        <input style="font-family: Monaco; font-size: 25px; width: 70%; float: left;" class="form-control field" type="search" name="search" placeholder="Search" aria-label="Search">
+                        <button style="font-family: Monaco; font-size: 25px; width: 30%; float: right;" class="btn btn-secondary">Search</button>
                     </form>
-                </div>
             </div>
         </nav>
     </div>
