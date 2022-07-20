@@ -1006,19 +1006,19 @@
     width: 314px;
 }
 
-.x2022-code-encounter {
-    color: var(--gray);
-    font-family: var(--font-family-source_sans_pro);
-    font-size: var(--font-size-xxxl);
-    font-weight: 600;
-    left: 0;
-    letter-spacing: 1.12px;
-    line-height: 28px;
-    opacity: 0.5;
-    position: absolute;
-    top: 28px;
-    white-space: nowrap;
-}
+/*.x2022-code-encounter {*/
+/*    color: var(--gray);*/
+/*    font-family: var(--font-family-source_sans_pro);*/
+/*    font-size: var(--font-size-xxxl);*/
+/*    font-weight: 600;*/
+/*    left: 0;*/
+/*    letter-spacing: 1.12px;*/
+/*    line-height: 28px;*/
+/*    opacity: 0.5;*/
+/*    position: absolute;*/
+/*    top: 28px;*/
+/*    white-space: nowrap;*/
+/*}*/
 
 .sourcesanspro-semi-bold-gray-28px {
     color: var(--gray);
