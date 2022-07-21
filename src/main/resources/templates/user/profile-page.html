@@ -12,60 +12,118 @@
     <div class="wknd-xf-header">
         <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
     </div>
-
-<div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">
-    <aside class="col-xl-4">
-        <div class="container">
-            <div class="row p-6" style="background: #E6C25F">
-                <div class="col">
-                    <img class="card-img-top profile-pic" th:src="${user.getProfile_picture_url().toString()}"
-                         alt="Card image cap">
-                    <h5 style="font-family: Monaco; font-size: 25px;" class="card-title" th:text="${user.username}"></h5>
+    <div class="web-1920-1 screen">
+        <div class="flex-row">
+        <!--        image-->
+        <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"
+             alt="Card image cap">
+<!--        image-->
+        <!--            content-->
+        <div class="flex-row-1 border-1px-dove-gray">
+            <div class="flex-col">
+                <div class="full-name monaco-regular-normal-black-30px"><p th:text="${user.firstName}"></p>
+                    <p th:text="${user.lastName}"></p></div>
+                <div class="joinedjoin-date monaco-regular-normal-black-30px">
+                    <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
+                    <p th:text="${user.createdDate}"></p>
                 </div>
-                <div class="col">
-                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">
-                        <p th:text="${user.firstName}"></p>
-                        <p th:text="${user.lastName}"></p>
-                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
-                        <p th:text="${user.createdDate}"></p>
+                <div class="component-1-1">
+                    <div class="birthdaybirth-date monaco-regular-normal-black-30px">
                         <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
                         <p th:text="${user.birthday}"></p>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">
-                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p>
-                        <p th:text="${user.email}"></p>
-                        <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>
-                        <p th:text="${user.job}"></p>
-                    </div>
-                    <form th:if="${sessionUser.getUsername() == user.username}"
-                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
-                          class="card-link" method="get">
-                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>
-                    </form>
+                <div class="email-emailcom monaco-regular-normal-black-30px">
+                    <p class="text-muted"><i class="far fa-envelope"></i> Email</p>
+                    <p th:text="${user.email}"></p>
                 </div>
-                <div class="col-12" style="font-family: Monaco; font-size: 25px;">
-                    <p th:text="${user.aboutMe}"></p>
-                </div>
-                <div class="col-12" style="font-family: Monaco; font-size: 25px;">
-                    <p th:text="${user.codeLanguages}"></p>
+                <div class="works-atplace-works monaco-regular-normal-black-30px">
+                    <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>
+                    <p th:text="${user.job}"></p>
                 </div>
             </div>
-        </div>
-    </aside>
+            <div class="flex-col-1">
+                <div class="interestsinterest monaco-regular-normal-black-30px">
 
-    <main class="col-xl-8">
+                    <p th:text="${user.aboutMe}"></p>
+                </div>
+                <div class="languagaeslanguages monaco-regular-normal-black-30px">
+                    <p class="text-muted">Language Proficiency:</p>
+                    <p th:text="${user.codeLanguages}"></p>
+                </div>
+<!--                content-->
+                <!--button-->
+                <form th:if="${sessionUser.getUsername() == user.username}"
+                      th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
+                      class="rectangle-2 border-1px-dove-gray" method="get">
+                    <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>
+                </form>
+<!--button-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<header th:replace="partials/header :: header"></header>-->
+<!--<div class="wknd-profile screen">-->
+<!--    <br><br>-->
+<!--    <div class="wknd-xf-header">-->
+<!--        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>-->
+<!--    </div>-->
+
+<!--<div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">-->
+<!--    <aside class="col-xl-4">-->
+<!--        <div class="container">-->
+<!--            <div class="row p-6" style="background: #E6C25F">-->
+<!--                <div class="col">-->
+<!--                    <img class="card-img-top profile-pic" th:src="${user.getProfile_picture_url().toString()}"-->
+<!--                         alt="Card image cap">-->
+<!--                    <h5 style="font-family: Monaco; font-size: 25px;" class="card-title" th:text="${user.username}"></h5>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">-->
+<!--&lt;!&ndash;                        <p th:text="${user.firstName}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p th:text="${user.lastName}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p th:text="${user.createdDate}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p th:text="${user.birthday}"></p>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">-->
+<!--                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p>-->
+<!--                        <p th:text="${user.email}"></p>-->
+<!--                        <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>-->
+<!--                        <p th:text="${user.job}"></p>-->
+<!--                    </div>-->
+<!--                    <form th:if="${sessionUser.getUsername() == user.username}"-->
+<!--                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"-->
+<!--                          class="card-link" method="get">-->
+<!--                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--                <div class="col-12" style="font-family: Monaco; font-size: 25px;">-->
+<!--                    <p th:text="${user.aboutMe}"></p>-->
+<!--                </div>-->
+<!--                <div class="col-12" style="font-family: Monaco; font-size: 25px;">-->
+<!--                    <p th:text="${user.codeLanguages}"></p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </aside>-->
+
+    <main class="col-xl-12">
         <div style="width: 100%;">
             <!--            nav tabs-->
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 25px;">
                     <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts"
-                       role="tab" aria-controls="nav-posts" aria-selected="true">Posts</a>
+                       role="tab" aria-controls="nav-posts" aria-selected="true">Post Something</a>
                     <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab"
-                       aria-controls="nav-friends" aria-selected="false">Friends</a>
+                       aria-controls="nav-friends" aria-selected="false"> View Friends</a>
                     <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab"
-                       aria-controls="nav-photos" aria-selected="false">Galleries</a>
+                       aria-controls="nav-photos" aria-selected="false">View Galleries</a>
                     <a class="nav-item nav-link" id="nav-ide-tab" data-toggle="tab" href="#nav-ide"
                        role="tab" aria-controls="nav-ide" aria-selected="false">IDE</a>
                 </div>
@@ -73,19 +131,23 @@
             <div class="tab-content" id="nav-tabContent">
                 <!--       tab 1 posts -->
                 <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">
+
+<!--                    make a post and upload a pic-->
                     <form style="background-color: #faf3dd;"
                           th:action="@{/posts/create/{username}(username=${#authentication.principal.username})}"
                           th:object="${newPost}" method="POST" class="p-4 m-3">
                         <div class="btn-group" role="group" style="width: 100%;">
-                            <input style="font-family: Monaco; font-size: 25px;" type="text" id="postBody" class="form-control" placeholder="What's up?"
+                            <input style="font-family: Monaco; font-size: 25px;" type="text" id="postBody" class="form-control" placeholder="What's new?"
                                    th:field="*{body}" required>
                             <div id="uploadPhoto">
                                 <input type="hidden" id="photo" name="gallery_photo" th:field="*{photo_url}">
-                                <button class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;" id="upload">Upload</button>
+                                <button class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;" id="upload">Upload</button>
                             </div>
-                            <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Submit</button>
+                            <button type="submit" class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;">Submit</button>
                         </div>
                     </form>
+<!--                                        make a post and upload a pic-->
+
                     <div class="container">
                         <div th:each="item : ${posts}">
                             <div class="card my-3">
@@ -199,7 +261,7 @@
                 <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">
                     <h1 style="font-family: Monaco; font-size: 25px;">Friends</h1>
                     <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">
-                        <button type="submit" class="btn btn-dark btn-block">Discover</button>
+                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Discover</button>
                     </form>
                     <div style="background-color: #faf3dd;" class="row my-3">
                         <div class="col-4 my-2" th:each="item : ${friends}">
@@ -241,7 +303,7 @@
                 </div>
                 <!--       tab 4 interests-->
                 <div class="tab-pane fade" id="nav-ide" role="tabpanel" aria-labelledby="nav-ide-tab">
-                    <h1 style="font-family: Monaco; font-size: 25px;">Code Playground</h1>
+                    <h1 style="font-family: Monaco; font-size: 25px;">Try something out on our code playground</h1>
                     <div style="background-color: #faf3dd;" class="row my-3">
                         <div data-pym-src="https://www.jdoodle.com/embed/v0/4Zf6?stdin=0&arg=0&rw=1"></div>
                     </div>
@@ -250,13 +312,12 @@
         </div>
     </main>
             <div class="wknd-container">
-                <div class="wknd-separator"><div class="separator"></div></div>
                 <div class="wknd-xf-footer">
                     <h1 class="title">CodeEncounter</h1>
                     <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>
                 </div>
             </div>
-        </div>
+<!--        </div>-->
 
 </div>
 
