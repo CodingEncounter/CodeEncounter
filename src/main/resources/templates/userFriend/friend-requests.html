@@ -7,6 +7,11 @@
 </head>
 <body>
 <header th:replace="partials/header :: header"></header>
+<div class="wknd-profile screen">
+    <br><br>
+    <div class="wknd-xf-header">
+        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
+    </div>
 
 <div class="template row">
 
@@ -18,7 +23,7 @@
                     <h5 class="card-title" th:text="${user.username}"></h5>
                 </div>
                 <div class="col">
-                    <div class="card-text">
+                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">
                         <p th:text="${user.firstName}"></p>
                         <p th:text="${user.lastName}"></p>
                         <p class="text-muted">Joined</p>
@@ -28,7 +33,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card-text">
+                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">
                         <p class="text-muted">Email</p>
                         <p th:text="${user.email}"></p>
                         <p class="text-muted">Works at</p>
