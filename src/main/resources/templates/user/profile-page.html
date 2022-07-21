@@ -16,13 +16,12 @@
 <div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">
     <aside class="col-xl-4">
         <div class="container">
-            <div class="row p-5" style="background: #E6C25F">
+            <div class="row p-6" style="background: #E6C25F">
                 <div class="col">
                     <img class="card-img-top profile-pic" th:src="${user.getProfile_picture_url().toString()}"
                          alt="Card image cap">
                     <h5 style="font-family: Monaco; font-size: 25px;" class="card-title" th:text="${user.username}"></h5>
                 </div>
-
                 <div class="col">
                     <div class="card-text" style="font-family: Monaco; font-size: 25px;">
                         <p th:text="${user.firstName}"></p>
@@ -56,58 +55,11 @@
         </div>
     </aside>
 
-
-    <!--<div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">-->
-    <!--<div class="wknd-home screen">-->
-    <!--<div class="wknd-xf-header">-->
-    <!--    <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>-->
-    <!--</div>-->
-    <!--    <div class="wknd-faq screen">-->
-    <!--        <div class="flex-row">-->
-    <!--            <img class="card-img-top p-3 profile-pic" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap">-->
-
-    <!--            <div class="flex-col">-->
-    <!--                <div class="user1" th:text="${user.username}"></div>-->
-    <!--                <div class="joineddate"><i class="text-muted far fa-handshake"></i> Joined<br/><p th:text="${user.createdDate}"></p></div>-->
-    <!--                <div class="birthdaydate"><i class="text-muted fas fa-birthday-cake"></i> Birthday<br/><p th:text="${user.birthday}"></p></div>-->
-    <!--            </div>-->
-
-    <!--            <div class="flex-col-1">-->
-    <!--                <div class="emailaddress"><i class=" text-muted far fa-envelope"></i> Email<br/><p th:text="${user.email}"></p></div>-->
-    <!--                <div class="works-atplace"><i class="text-muted far fa-address-card"></i> Works At<br /><p th:text="${user.job}"></p></div>-->
-    <!--            </div>-->
-    <!--                                    <form th:if="${sessionUser.getUsername() == user.username}"-->
-    <!--                                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"-->
-    <!--                                          class="card-link" method="get">-->
-    <!--                                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 15px;">Edit Profile</button>-->
-    <!--                                    </form>-->
-
-
-    <!--        </div>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <main class="col-xl-8">
         <div style="width: 100%;">
             <!--            nav tabs-->
             <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 25px;">
                     <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts"
                        role="tab" aria-controls="nav-posts" aria-selected="true">Posts</a>
                     <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab"
@@ -125,7 +77,7 @@
                           th:action="@{/posts/create/{username}(username=${#authentication.principal.username})}"
                           th:object="${newPost}" method="POST" class="p-4 m-3">
                         <div class="btn-group" role="group" style="width: 100%;">
-                            <input type="text" id="postBody" class="form-control" placeholder="What's up?"
+                            <input style="font-family: Monaco; font-size: 25px;" type="text" id="postBody" class="form-control" placeholder="What's up?"
                                    th:field="*{body}" required>
                             <div id="uploadPhoto">
                                 <input type="hidden" id="photo" name="gallery_photo" th:field="*{photo_url}">
@@ -174,7 +126,6 @@
                                                   method="get">
                                                 <button class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;" type="submit" name="edit">Edit</button>
                                             </form>
-                                            <!--                                            <a th:href="@{/posts/edit/{username}/{id} (username=${user.getUsername()}, id=${item.getId()})}">Edit post</a>-->
                                             <form style="float: left;"
                                                   th:action="@{/posts/delete/{username}/{id} (username=${user.getUsername()}, id = ${item.getId()})}"
                                                   th:method="post">
@@ -273,7 +224,6 @@
                     <div style="background-color: #faf3dd;" class="row my-3">
                         <div class="col-6 col-xl-4 my-2" th:each="item : ${galleries}">
                             <div th:if="${!item.getPictures().isEmpty()}" id="thumbnail-container" class="search-card">
-                                <!--                                <a class="modal-link" href="#exampleModal" data-toggle="modal" th:data-id="${item.getId()}">-->
                                 <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">
                                     <img th:src="${item.getPictures().get(0).pictureUrl.toString()}"
                                          alt="Gallery Thumbnail Image">
