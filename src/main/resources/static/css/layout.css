@@ -820,3 +820,222 @@
     min-height: 40px;
     white-space: nowrap;
 }
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@font-face {
+    font-family: "Monaco-Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+}
+
+:root {
+    --dove-gray: #707070;
+    --white: #ffffff;
+    --black: #000000;
+    --font-size-m2: 20px;
+    --font-family-monaco-regular: Monaco;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.artboard-1 {
+    align-items: flex-start;
+    background-color: var(--white);
+    display: flex;
+    height: 800px;
+    min-width: 1440px;
+}
+
+.hidden,
+.hidden * {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.border-1px-dove-gray {
+    border: 1px solid var(--dove-gray);
+}
+
+.overlap-group {
+    background-color: #e6c25f;
+    height: 610px;
+    margin-top: 50px;
+    position: relative;
+    width: 1440px;
+}
+
+
+
+.monaco-regular-normal-black-20px {
+    color: var(--black);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-m2);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.rectangle-9 {
+    background-color: var(--white);
+    height: 35px;
+    left: 168px;
+    position: absolute;
+    top: 421px;
+    width: 295px;
+}
+
+.rectangle-6 {
+    background-color: var(--white);
+    height: 35px;
+    left: 168px;
+    position: absolute;
+    top: 157px;
+    width: 295px;
+}
+
+.rectangle-11 {
+    background-color: var(--white);
+    height: 35px;
+    left: 750px;
+    position: absolute;
+    top: 349px;
+    width: 295px;
+}
+
+.discard-changes {
+    left: 78px;
+    letter-spacing: 0;
+    line-height: 20px;
+    position: absolute;
+    top: 64px;
+    white-space: nowrap;
+}
+
+.delete {
+    /*background-color: #fc0000;*/
+    height: 51px;
+    left: 78px;
+    position: absolute;
+    top: 500px;
+    width: 207px;
+}
+
+.rectangle-10 {
+    background-color: var(--white);
+    height: 127px;
+    left: 750px;
+    position: absolute;
+    top: 157px;
+    width: 531px;
+}
+
+
+
+
+
+.rectangle-8 {
+    background-color: var(--white);
+    height: 35px;
+    left: 168px;
+    position: absolute;
+    top: 335px;
+    width: 295px;
+}
+
+.upload {
+    background-color: #808080;
+    height: 52px;
+    left: 751px;
+    position: absolute;
+    top: 404px;
+    width: 191px;
+}
+
+.save {
+    background-color: var(--black);
+    height: 51px;
+    left: 1185px;
+    position: absolute;
+    top: 491px;
+    width: 191px;
+}
+
+.rectangle-4 {
+    background-color: var(--white);
+    border-radius: 35px;
+    height: 520px;
+    left: 46px;
+    position: absolute;
+    top: 42px;
+    width: 1358px;
+}
+
+.first-name {
+    left: 168px;
+    letter-spacing: 0;
+    line-height: 20px;
+    position: absolute;
+    top: 124px;
+    white-space: nowrap;
+}
+
+.last-name {
+    left: 168px;
+    letter-spacing: 0;
+    line-height: 20px;
+    position: absolute;
+    top: 210px;
+    white-space: nowrap;
+}
+
+.birthday {
+    left: 168px;
+    letter-spacing: 0;
+    line-height: 20px;
+    position: absolute;
+    top: 295px;
+    white-space: nowrap;
+}
+.job-title {
+    left: 168px;
+    letter-spacing: 0;
+    line-height: 20px;
+    position: absolute;
+    top: 400px;
+    white-space: nowrap;
+}
+.coding-interests {
+    left: 650px;
+    letter-spacing: 0;
+    line-height: 20px;
+    position: absolute;
+    top: 124px;
+    white-space: nowrap;
+    width: 50%;
+}
+
+.rectangle-7 {
+    background-color: var(--white);
+    height: 35px;
+    left: 168px;
+    position: absolute;
+    top: 249px;
+    width: 295px;
+}
+
+
+
+.coding-languages {
+    left: 650px;
+    letter-spacing: 0;
+    line-height: 20px;
+    position: absolute;
+    top: 306px;
+    white-space: nowrap;
+    width: 50%;
+}
+
+
