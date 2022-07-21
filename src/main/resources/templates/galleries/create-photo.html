@@ -7,6 +7,11 @@
 </head>
 <body>
 <header th:replace="partials/header :: header"></header>
+<div class="wknd-profile screen">
+    <br><br>
+    <div class="wknd-xf-header">
+        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
+    </div>
 
 <h1>Upload Photo</h1>
 <form th:action="@{/{username}/gallery/{id}/create-photo (username=${#authentication.principal.username}, id=${gallery.getId()})}" th:object="${picture}" method="POST" class="p-3">
