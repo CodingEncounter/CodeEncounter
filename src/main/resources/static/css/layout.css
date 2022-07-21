@@ -641,3 +641,174 @@
     top: 0;
     width: 256px;
 }
+
+
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@font-face {
+    font-family: "Monaco-Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+}
+
+:root {
+    --black: #000000;
+    --dove-gray: #707070;
+    --font-size-m: 30px;
+    --font-family-monaco-regular: Monaco;
+}
+
+.web-1920-1 {
+    align-items: flex-start;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 650px;
+    padding: 75px 17px;
+    width: 1440px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hidden,
+.hidden * {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.flex-row {
+    align-items: flex-start;
+    align-self: flex-end;
+    display: flex;
+    margin-top: 10px;
+    min-width: 1405px;
+}
+
+.shutterstock_2028609842 {
+    height: 628px;
+    width: 525px;
+}
+
+.border-1px-dove-gray {
+    border: 1px solid var(--dove-gray);
+}
+
+.flex-row-1 {
+    align-items: center;
+    background-color: #e6c25f;
+    display: flex;
+    height: 628px;
+    justify-content: flex-end;
+    min-width: 880px;
+    padding: 17px 33px;
+}
+
+.flex-col-1 {
+    align-items: flex-start;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    margin-left: 147px;
+    min-height: 554px;
+    width: 452px;
+}
+
+.languagaeslanguages {
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-top: 96px;
+    min-height: 81px;
+    white-space: nowrap;
+}
+
+.monaco-regular-normal-black-30px {
+    color: var(--black);
+    font-family: var(--font-family-monaco-regular);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.interestsinterest {
+    letter-spacing: 0;
+    line-height: 30px;
+    min-height: 163px;
+    white-space: pre-wrap;
+}
+
+.rectangle-2 {
+    align-self: flex-end;
+    margin-right: 2px;
+    margin-top: 170px;
+}
+
+.flex-col {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 38.5px;
+    min-height: 510px;
+    width: 200px;
+}
+
+.works-atplace-works {
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-top: 35px;
+    min-height: 81px;
+    white-space: nowrap;
+}
+
+.email-emailcom {
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-top: 46px;
+    min-height: 81px;
+    white-space: nowrap;
+}
+
+.joinedjoin-date {
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-top: 40px;
+    min-height: 81px;
+    white-space: nowrap;
+}
+
+.component-1-1 {
+    display: flex;
+    height: 79px;
+    margin-top: 26px;
+    width: 182px;
+}
+
+.birthdaybirth-date {
+    flex: 1;
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-bottom: -11.5px;
+    margin-right: -2px;
+    margin-top: 9.5px;
+    white-space: nowrap;
+    width: 182px;
+}
+
+.full-name {
+    letter-spacing: 0;
+    line-height: 30px;
+    min-height: 40px;
+    white-space: nowrap;
+}
+
+.title {
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-left: 1px;
+    min-height: 40px;
+    white-space: nowrap;
+}
+
