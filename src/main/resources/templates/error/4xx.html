@@ -1,3 +1,18 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="partials/head :: head('Error')">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<header th:replace="partials/header :: header"></header>-->
+<!--<p>Something went wrong, use this <a href="javascript:window.history.back();">back</a> button and try again.</p>-->
+
+<!--<img class="center" th:src="@{/img/worker1.png/}" style="max-width: 35vw;" alt="">-->
+
+<!--<footer th:replace="partials/footer :: footer"></footer>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/head :: head('Error')">
@@ -6,10 +21,34 @@
 </head>
 <body>
 <header th:replace="partials/header :: header"></header>
-<p>Something went wrong, use this <a href="javascript:window.history.back();">back</a> button and try again.</p>
+<div class="wknd-magazine screen">
+    <div class="wknd-xf-header">
+        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
+    </div>
+    <div class="flex-row">
+        <div class="overlap-group">
+            <div class="uh-oh-something-went-wrong">Uh oh! Something went wrong</div>
+            <div class="click-this-back-button-to-try-again">
+                Click this <a href="javascript:window.history.back();">back</a> button to try again.
+            </div>
+        </div>
+        <img
+                class="image-2"
+                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d703b2b1ad02a2aa7002d4/img/image-2-1x-png-1x-png@1x.png"
+        />
+    </div>
+    <div class="wknd-xf-footer">
+        <div class="wknd-navigation">
+            <div class="wknd-navigation-item"></div>
+            <div class="wknd-navigation-item-1"></div>
+            <div class="wknd-navigation-item-2"></div>
+        </div>
+    </div>
+</div>
 
-<img class="center" th:src="@{/img/worker1.png/}" style="max-width: 35vw;" alt="">
-
-<footer th:replace="partials/footer :: footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
