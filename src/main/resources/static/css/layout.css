@@ -725,6 +725,15 @@
     white-space: nowrap;
 }
 
+.monaco-regular-normal-red-30px{
+    align-self: flex-end;
+    margin-right: 2px;
+    margin-top: 170px;
+    font-family: Monaco;
+    font-size: 20px;
+    text-decoration-color: red;
+}
+
 .monaco-regular-normal-black-30px {
     color: var(--black);
     font-family: var(--font-family-monaco-regular);
@@ -811,4 +820,3 @@
     min-height: 40px;
     white-space: nowrap;
 }
-
