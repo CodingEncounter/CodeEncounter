@@ -665,8 +665,8 @@
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    min-height: 650px;
-    padding: 75px 17px;
+    min-height: 500px;
+    padding: 17px;
     width: 1440px;
 }
 
