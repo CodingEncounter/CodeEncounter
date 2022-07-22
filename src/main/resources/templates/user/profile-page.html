@@ -1,181 +1,468 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://thymeleaf.org">
-<head th:replace="partials/head :: head('Profile')">
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script>
-        (function(t,a,l,k,j,s){
-            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
-            ;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
-                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
-    </script>
-</head>
-<body>
-<header th:replace="partials/header :: header"></header>
-<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++CODEUP HEADER+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-<div class="wknd-profile screen">
-    <br><br>
-    <div class="wknd-xf-header">
-        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
-    </div>
-</div>
-<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++CODEUP HEADER+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Profile DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <div class="web-1920-1 screen">
-        <div class="flex-row">
-            <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++image DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-            <div class="col">
-                <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"
-                     alt="Card image cap">
-                <h5 style="font-family: Monaco; font-size: 25px;" th:text="${user.username}"></h5>
-            </div>
-                    <div class="flex-row-1 border-1px-dove-gray">
-                        <div class="flex-col">
-                            <div class="full-name monaco-regular-normal-black-30px"><p th:text="${user.firstName}"></p>
-                                <p th:text="${user.lastName}"></p></div>
-                            <div class="joinedjoin-date monaco-regular-normal-black-30px">
-                                <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
-                                <p th:text="${user.createdDate}"></p>
-                            </div>
-                            <div class="component-1-1">
-                                <div class="birthdaybirth-date monaco-regular-normal-black-30px">
-                                    <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
-                                    <p th:text="${user.birthday}"></p>
-                                </div>
-                            </div>
-                            <div class="email-emailcom monaco-regular-normal-black-30px">
-                                <p class="text-muted"><i class="far fa-envelope"></i> Email</p>
-                                <p th:text="${user.email}"></p>
-                            </div>
-                            <div class="works-atplace-works monaco-regular-normal-black-30px">
-                                <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>
-                                <p th:text="${user.job}"></p>
-                            </div>
-                        </div>
-                        <div class="flex-col-1">
-                            <div class="interestsinterest monaco-regular-normal-black-30px">
-
-                                <p th:text="${user.aboutMe}"></p>
-                            </div>
-                            <div class="languagaeslanguages monaco-regular-normal-black-30px">
-                                <p class="text-muted">Language Proficiency:</p>
-                                <p th:text="${user.codeLanguages}"></p>
-                            </div>
-            <!--                content-->
-                            <!--button-->
-                            <form th:if="${sessionUser.getUsername() == user.username}"
-                                  th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
-                                  class="rectangle-2 border-1px-dove-gray" method="get">
-                                <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>
-                            </form>
-            <!--button-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++image DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-        </div>
-    </div>
-<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Profile DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-
-
-
-
-
-
-
-<!--    &lt;!&ndash;    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
-<!--    &lt;!&ndash;    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Everything below is the user profile++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
-<!--    <div class="web-1920-1 screen">-->
-
-
-
-
-<!--        <div class="flex-row">-->
-<!--        &lt;!&ndash;        image&ndash;&gt;-->
-<!--        <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"-->
-<!--             alt="Card image cap">-->
-<!--&lt;!&ndash;        image&ndash;&gt;-->
-        <!--            content-->
-<!--        <div class="flex-row-1 border-1px-dove-gray">-->
-<!--            <div class="flex-col">-->
-<!--                <div class="full-name monaco-regular-normal-black-30px"><p th:text="${user.firstName}"></p>-->
-<!--                    <p th:text="${user.lastName}"></p></div>-->
-<!--                <div class="joinedjoin-date monaco-regular-normal-black-30px">-->
-<!--                    <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>-->
-<!--                    <p th:text="${user.createdDate}"></p>-->
-<!--                </div>-->
-<!--                <div class="component-1-1">-->
-<!--                    <div class="birthdaybirth-date monaco-regular-normal-black-30px">-->
-<!--                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>-->
-<!--                        <p th:text="${user.birthday}"></p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="email-emailcom monaco-regular-normal-black-30px">-->
-<!--                    <p class="text-muted"><i class="far fa-envelope"></i> Email</p>-->
-<!--                    <p th:text="${user.email}"></p>-->
-<!--                </div>-->
-<!--                <div class="works-atplace-works monaco-regular-normal-black-30px">-->
-<!--                    <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>-->
-<!--                    <p th:text="${user.job}"></p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="flex-col-1">-->
-<!--                <div class="interestsinterest monaco-regular-normal-black-30px">-->
-
-<!--                    <p th:text="${user.aboutMe}"></p>-->
-<!--                </div>-->
-<!--                <div class="languagaeslanguages monaco-regular-normal-black-30px">-->
-<!--                    <p class="text-muted">Language Proficiency:</p>-->
-<!--                    <p th:text="${user.codeLanguages}"></p>-->
-<!--                </div>-->
-<!--&lt;!&ndash;                content&ndash;&gt;-->
-<!--                &lt;!&ndash;button&ndash;&gt;-->
-<!--                <form th:if="${sessionUser.getUsername() == user.username}"-->
-<!--                      th:action="@{/edit/{username}(username=${#authentication.principal.username})}"-->
-<!--                      class="rectangle-2 border-1px-dove-gray" method="get">-->
-<!--                    <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>-->
-<!--                </form>-->
-<!--&lt;!&ndash;button&ndash;&gt;-->
-<!--            </div>-->
-<!--        </div>-->
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:th="http://thymeleaf.org">-->
+<!--<head th:replace="partials/head :: head('Profile')">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <script>-->
+<!--        (function(t,a,l,k,j,s){-->
+<!--            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)-->
+<!--            ;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l-->
+<!--                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<header th:replace="partials/header :: header"></header>-->
+<!--&lt;!&ndash;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++CODEUP HEADER+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+<!--<div class="wknd-profile screen">-->
+<!--    <br><br>-->
+<!--    <div class="wknd-xf-header">-->
+<!--        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>-->
 <!--    </div>-->
 <!--</div>-->
+<!--&lt;!&ndash;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++CODEUP HEADER+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
 
-<!--    &lt;!&ndash;    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Everything above is the user profile++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
-<!--    &lt;!&ndash;    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+<!--&lt;!&ndash;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Profile DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+<!--    <div class="web-1920-1 screen">-->
+<!--        <div class="flex-row">-->
+<!--            &lt;!&ndash;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++image DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+<!--            <div class="col">-->
+<!--                <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"-->
+<!--                     alt="Card image cap">-->
+<!--                <h5 style="font-family: Monaco; font-size: 25px;" th:text="${user.username}"></h5>-->
+<!--            </div>-->
+<!--                    <div class="flex-row-1 border-1px-dove-gray">-->
+<!--                        <div class="flex-col">-->
+<!--                            <div class="full-name monaco-regular-normal-black-30px"><p th:text="${user.firstName}"></p>-->
+<!--                                <p th:text="${user.lastName}"></p></div>-->
+<!--                            <div class="joinedjoin-date monaco-regular-normal-black-30px">-->
+<!--                                <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>-->
+<!--                                <p th:text="${user.createdDate}"></p>-->
+<!--                            </div>-->
+<!--                            <div class="component-1-1">-->
+<!--                                <div class="birthdaybirth-date monaco-regular-normal-black-30px">-->
+<!--                                    <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>-->
+<!--                                    <p th:text="${user.birthday}"></p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="email-emailcom monaco-regular-normal-black-30px">-->
+<!--                                <p class="text-muted"><i class="far fa-envelope"></i> Email</p>-->
+<!--                                <p th:text="${user.email}"></p>-->
+<!--                            </div>-->
+<!--                            <div class="works-atplace-works monaco-regular-normal-black-30px">-->
+<!--                                <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>-->
+<!--                                <p th:text="${user.job}"></p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="flex-col-1">-->
+<!--                            <div class="interestsinterest monaco-regular-normal-black-30px">-->
 
-<!--&lt;!&ndash;<header th:replace="partials/header :: header"></header>&ndash;&gt;-->
-<!--&lt;!&ndash;<div class="wknd-profile screen">&ndash;&gt;-->
-<!--&lt;!&ndash;    <br><br>&ndash;&gt;-->
-<!--&lt;!&ndash;    <div class="wknd-xf-header">&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>&ndash;&gt;-->
+<!--                                <p th:text="${user.aboutMe}"></p>-->
+<!--                            </div>-->
+<!--                            <div class="languagaeslanguages monaco-regular-normal-black-30px">-->
+<!--                                <p class="text-muted">Language Proficiency:</p>-->
+<!--                                <p th:text="${user.codeLanguages}"></p>-->
+<!--                            </div>-->
+<!--            &lt;!&ndash;                content&ndash;&gt;-->
+<!--                            &lt;!&ndash;button&ndash;&gt;-->
+<!--                            <form th:if="${sessionUser.getUsername() == user.username}"-->
+<!--                                  th:action="@{/edit/{username}(username=${#authentication.principal.username})}"-->
+<!--                                  class="rectangle-2 border-1px-dove-gray" method="get">-->
+<!--                                <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>-->
+<!--                            </form>-->
+<!--            &lt;!&ndash;button&ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++image DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+<!--&lt;!&ndash;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Profile DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+
+
+
+
+
+
+
+
+<!--&lt;!&ndash;    &lt;!&ndash;    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    &lt;!&ndash;    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Everything below is the user profile++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="web-1920-1 screen">&ndash;&gt;-->
+
+
+
+
+<!--&lt;!&ndash;        <div class="flex-row">&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;        image&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"&ndash;&gt;-->
+<!--&lt;!&ndash;             alt="Card image cap">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        image&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;            content&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="flex-row-1 border-1px-dove-gray">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="flex-col">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="full-name monaco-regular-normal-black-30px"><p th:text="${user.firstName}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p th:text="${user.lastName}"></p></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="joinedjoin-date monaco-regular-normal-black-30px">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p th:text="${user.createdDate}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="component-1-1">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="birthdaybirth-date monaco-regular-normal-black-30px">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p th:text="${user.birthday}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="email-emailcom monaco-regular-normal-black-30px">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="text-muted"><i class="far fa-envelope"></i> Email</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p th:text="${user.email}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="works-atplace-works monaco-regular-normal-black-30px">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p th:text="${user.job}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="flex-col-1">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="interestsinterest monaco-regular-normal-black-30px">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <p th:text="${user.aboutMe}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="languagaeslanguages monaco-regular-normal-black-30px">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p class="text-muted">Language Proficiency:</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p th:text="${user.codeLanguages}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                content&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;button&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <form th:if="${sessionUser.getUsername() == user.username}"&ndash;&gt;-->
+<!--&lt;!&ndash;                      th:action="@{/edit/{username}(username=${#authentication.principal.username})}"&ndash;&gt;-->
+<!--&lt;!&ndash;                      class="rectangle-2 border-1px-dove-gray" method="get">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                </form>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;button&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
 <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-<!--&lt;!&ndash;<div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">&ndash;&gt;-->
+<!--&lt;!&ndash;    &lt;!&ndash;    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Everything above is the user profile++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    &lt;!&ndash;    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;<header th:replace="partials/header :: header"></header>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<div class="wknd-profile screen">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <br><br>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <div class="wknd-xf-header">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    </div>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;<div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <aside class="col-xl-4">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        <div class="container">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <div class="row p-6" style="background: #E6C25F">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div class="col">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <img class="card-img-top profile-pic" th:src="${user.getProfile_picture_url().toString()}"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                         alt="Card image cap">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <h5 style="font-family: Monaco; font-size: 25px;" class="card-title" th:text="${user.username}"></h5>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div class="col">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                        <p th:text="${user.firstName}"></p>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                        <p th:text="${user.lastName}"></p>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                        <p th:text="${user.createdDate}"></p>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;                        <p th:text="${user.birthday}"></p>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div class="col">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                        <p th:text="${user.email}"></p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                        <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                        <p th:text="${user.job}"></p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <form th:if="${sessionUser.getUsername() == user.username}"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                          class="card-link" method="get">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    </form>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div class="col-12" style="font-family: Monaco; font-size: 25px;">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <p th:text="${user.aboutMe}"></p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div class="col-12" style="font-family: Monaco; font-size: 25px;">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <p th:text="${user.codeLanguages}"></p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    </aside>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <main class="col-xl-12">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div style="width: 100%;">&ndash;&gt;-->
+<!--&lt;!&ndash;            &lt;!&ndash;            nav tabs&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            <nav>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 25px;">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts"&ndash;&gt;-->
+<!--&lt;!&ndash;                       role="tab" aria-controls="nav-posts" aria-selected="true">Post Something</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab"&ndash;&gt;-->
+<!--&lt;!&ndash;                       aria-controls="nav-friends" aria-selected="false"> View Friends</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab"&ndash;&gt;-->
+<!--&lt;!&ndash;                       aria-controls="nav-photos" aria-selected="false">View Galleries</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-item nav-link" id="nav-ide-tab" data-toggle="tab" href="#nav-ide"&ndash;&gt;-->
+<!--&lt;!&ndash;                       role="tab" aria-controls="nav-ide" aria-selected="false">IDE</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </nav>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="tab-content" id="nav-tabContent">&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;       tab 1 posts &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;                    make a post and upload a pic&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    <form style="background-color: #faf3dd;"&ndash;&gt;-->
+<!--&lt;!&ndash;                          th:action="@{/posts/create/{username}(username=${#authentication.principal.username})}"&ndash;&gt;-->
+<!--&lt;!&ndash;                          th:object="${newPost}" method="POST" class="p-4 m-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="btn-group" role="group" style="width: 100%;">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <input style="font-family: Monaco; font-size: 25px;" type="text" id="postBody" class="form-control" placeholder="What's new?"&ndash;&gt;-->
+<!--&lt;!&ndash;                                   th:field="*{body}" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div id="uploadPhoto">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="hidden" id="photo" name="gallery_photo" th:field="*{photo_url}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;" id="upload">Upload</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <button type="submit" class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;">Submit</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                        make a post and upload a pic&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div th:each="item : ${posts}">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="card my-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div class="card-header container">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <div class="col-xl-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <a th:if="${item.getUser() != user}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                               th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <img th:src="${item.getUser().getProfile_picture_url().toString()}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                     class="rounded gallery-item-tiny" alt="...">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <a th:if="${item.getUser() == user}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                               th:href="@{/user/{username} (username=${user.getUsername()})}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <img th:src="${item.getUser().getProfile_picture_url().toString()}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                     class="rounded gallery-item-tiny" alt="...">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <div class="col-xl-9">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <br>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <h6 th:text="${item.getUser().getUsername()}"></h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <p th:text="'Uploaded: ' + ${item.getDateString()}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                   style="font-size: 100%; white-space: nowrap"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <small class="text-muted" th:text="${item.getEditDate()}"></small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div class="card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="mt-2 pt-2">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <img th:if="${item.getPhoto_url()} != null" class="gallery-item-post"&ndash;&gt;-->
+<!--&lt;!&ndash;                                             th:src="${item.getPhoto_url().toString()}" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <p class="card-text m-1" th:text="${item.getBody()}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <div class="mt-2 pt-2" th:if="${item.getUser() == user}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <form style="float: left;"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                  th:action="@{/posts/edit/{username}/{id} (username=${user.getUsername()}, id=${item.getId()})}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                  method="get">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <button class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;" type="submit" name="edit">Edit</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </form>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <form style="float: left;"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                  th:action="@{/posts/delete/{username}/{id} (username=${user.getUsername()}, id = ${item.getId()})}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                  th:method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <button class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;" type="submit" name="delete">Remove</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </form>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <br>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <form class="mt-3 pt-3 border-top"&ndash;&gt;-->
+<!--&lt;!&ndash;                                              th:action="@{/posts/create/{username}/{postId}/comment (username=${user.getUsername()}, postId=${item.getId()})}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                              th:object="${newComment}" method="POST">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <input id="commentBody" class="form-control" th:field="*{body}" type="text"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                   placeholder="comment" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Comment</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </form>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <div th:each="commentItem : ${comments}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div th:if="${commentItem.getParentPost() == item}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="card m-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <div class="card-body container">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <div class="col-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <a th:if="${commentItem.getUser() != user}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                       th:href="@{/{username}/friend/{friendName} (friendName=${commentItem.getUser().getUsername()}, username=${user.getUsername()})}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <img th:src="${commentItem.getUser().getProfile_picture_url().toString()}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                             class="rounded gallery-item-teeny-tiny" alt="...">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <a th:if="${commentItem.getUser() == user}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                       th:href="@{/user/{username} (username=${user.getUsername()})}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <img th:src="${commentItem.getUser().getProfile_picture_url().toString()}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                             class="rounded gallery-item-teeny-tiny" alt="...">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <div class="col-8">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <div class="me-auto card-title">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <p th:text="${commentItem.getUser().getUsername()}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <p th:text="'Uploaded: ' + ${commentItem.getDateString()}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <small class="text-muted"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                           th:text="${commentItem.getEditDate()}"></small>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <br><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <p th:text="${commentItem.getBody()}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <div class="mt-2 pt-2 border-top">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <div th:if="${commentItem.getUser() == user}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <form style="float: left;"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                          th:action="@{/comments/edit/{username}/{commentId} (username=${#authentication.principal.username}, commentId=${commentItem.id})}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                          th:object="${commentItem}" method="get">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <button type="submit" class="btn btn-secondary">Edit</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <form style="float: right;"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                          th:action="@{/comments/delete/{username}/{commentId} (username=${user.getUsername()}, commentId=${commentItem.getId()})}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                          method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <button type="submit" name="delete" class="btn btn-light">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                            Remove&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        </button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;       tab 2 friends&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h1 style="font-family: Monaco; font-size: 25px;">Friends</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Discover</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div style="background-color: #faf3dd;" class="row my-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-4 my-2" th:each="item : ${friends}">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div th:if="${item.profile_picture_url.isEmpty()}" class="search-card">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <img src="/img/blank-profile-picture.png">&ndash;&gt;-->
+<!--&lt;!&ndash;                                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <p class="my-1" th:text="${item.username}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div th:if="${!item.profile_picture_url.isEmpty()}" class="search-card">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <img th:src="${item.profile_picture_url.toString()}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <p class="my-1" th:text="${item.username}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;       tab 3 galleries&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h1 style="font-family: Monaco; font-size: 25px;">Photos</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div style="background-color: #faf3dd;" class="row my-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-6 col-xl-4 my-2" th:each="item : ${galleries}">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div th:if="${!item.getPictures().isEmpty()}" id="thumbnail-container" class="search-card">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <img th:src="${item.getPictures().get(0).pictureUrl.toString()}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                         alt="Gallery Thumbnail Image">&ndash;&gt;-->
+<!--&lt;!&ndash;                                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <p class="my-1" th:text="${item.name}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div th:if="${item.getPictures().isEmpty()} == true" class="search-card">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <img src="/img/thumbnailDefault.jpg" alt="Gallery Thumbnail Image">&ndash;&gt;-->
+<!--&lt;!&ndash;                                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <p class="my-1" th:text="${item.getName()}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;       tab 4 interests&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="tab-pane fade" id="nav-ide" role="tabpanel" aria-labelledby="nav-ide-tab">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h1 style="font-family: Monaco; font-size: 25px;">Try something out on our code playground</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div style="background-color: #faf3dd;" class="row my-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div data-pym-src="https://www.jdoodle.com/embed/v0/4Zf6?stdin=0&arg=0&rw=1"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </main>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="wknd-container">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="wknd-xf-footer">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h1 class="title">CodeEncounter</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        </div>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script async src="https://static.codepen.io/assets/embed/ei.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"&ndash;&gt;-->
+<!--&lt;!&ndash;        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"&ndash;&gt;-->
+<!--&lt;!&ndash;        crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"&ndash;&gt;-->
+<!--&lt;!&ndash;        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"&ndash;&gt;-->
+<!--&lt;!&ndash;        crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"&ndash;&gt;-->
+<!--&lt;!&ndash;        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"&ndash;&gt;-->
+<!--&lt;!&ndash;        crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"&ndash;&gt;-->
+<!--&lt;!&ndash;        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"&ndash;&gt;-->
+<!--&lt;!&ndash;        crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="/keys.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html xmlns="http://www.w3.org/1999/xhtml"&ndash;&gt;-->
+<!--&lt;!&ndash;      xmlns:th="http://thymeleaf.org">&ndash;&gt;-->
+<!--&lt;!&ndash;<head th:replace="partials/head :: head('Profile')">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Title</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    <script>&ndash;&gt;-->
+<!--&lt;!&ndash;        (function(t,a,l,k,j,s){&ndash;&gt;-->
+<!--&lt;!&ndash;            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)&ndash;&gt;-->
+<!--&lt;!&ndash;            ;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l&ndash;&gt;-->
+<!--&lt;!&ndash;                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);&ndash;&gt;-->
+<!--&lt;!&ndash;    </script>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<header th:replace="partials/header :: header"></header>&ndash;&gt;-->
+
+<!--<div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">-->
 <!--&lt;!&ndash;    <aside class="col-xl-4">&ndash;&gt;-->
 <!--&lt;!&ndash;        <div class="container">&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="row p-6" style="background: #E6C25F">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="row p-3" style="background: white">&ndash;&gt;-->
 <!--&lt;!&ndash;                <div class="col">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <img class="card-img-top profile-pic" th:src="${user.getProfile_picture_url().toString()}"&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img class="card-img-top p-3 profile-pic" th:src="${user.getProfile_picture_url().toString()}"&ndash;&gt;-->
 <!--&lt;!&ndash;                         alt="Card image cap">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <h5 style="font-family: Monaco; font-size: 25px;" class="card-title" th:text="${user.username}"></h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h5 class="card-title" th:text="${user.username}"></h5>&ndash;&gt;-->
 <!--&lt;!&ndash;                </div>&ndash;&gt;-->
 <!--&lt;!&ndash;                <div class="col">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                        <p th:text="${user.firstName}"></p>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                        <p th:text="${user.lastName}"></p>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                        <p th:text="${user.createdDate}"></p>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                        <p th:text="${user.birthday}"></p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="card-text">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p th:text="${user.firstName}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p th:text="${user.lastName}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p th:text="${user.createdDate}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p th:text="${user.birthday}"></p>&ndash;&gt;-->
 <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
 <!--&lt;!&ndash;                </div>&ndash;&gt;-->
 <!--&lt;!&ndash;                <div class="col">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="card-text">&ndash;&gt;-->
 <!--&lt;!&ndash;                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p>&ndash;&gt;-->
 <!--&lt;!&ndash;                        <p th:text="${user.email}"></p>&ndash;&gt;-->
 <!--&lt;!&ndash;                        <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>&ndash;&gt;-->
@@ -184,54 +471,57 @@
 <!--&lt;!&ndash;                    <form th:if="${sessionUser.getUsername() == user.username}"&ndash;&gt;-->
 <!--&lt;!&ndash;                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"&ndash;&gt;-->
 <!--&lt;!&ndash;                          class="card-link" method="get">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <button type="submit" class="btn btn-secondary">Edit Profile</button>&ndash;&gt;-->
 <!--&lt;!&ndash;                    </form>&ndash;&gt;-->
 <!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="col-12" style="font-family: Monaco; font-size: 25px;">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="col-12">&ndash;&gt;-->
 <!--&lt;!&ndash;                    <p th:text="${user.aboutMe}"></p>&ndash;&gt;-->
 <!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="col-12" style="font-family: Monaco; font-size: 25px;">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="col-12">&ndash;&gt;-->
 <!--&lt;!&ndash;                    <p th:text="${user.codeLanguages}"></p>&ndash;&gt;-->
 <!--&lt;!&ndash;                </div>&ndash;&gt;-->
 <!--&lt;!&ndash;            </div>&ndash;&gt;-->
 <!--&lt;!&ndash;        </div>&ndash;&gt;-->
 <!--&lt;!&ndash;    </aside>&ndash;&gt;-->
-
-<!--    <main class="col-xl-12">-->
+<!--    <main class="col-xl-8">-->
 <!--        <div style="width: 100%;">-->
 <!--            &lt;!&ndash;            nav tabs&ndash;&gt;-->
 <!--            <nav>-->
-<!--                <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 25px;">-->
+<!--                <div class="nav nav-tabs" id="nav-tab" role="tablist">-->
+
+<!--                    <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">Posts</a>-->
+<!--                    <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab" aria-controls="nav-friends" aria-selected="false">Friends</a>-->
+<!--                    <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab" aria-controls="nav-photos" aria-selected="false">Galleries</a>-->
+<!--                    <a class="nav-item nav-link" id="nav-interest-tab" data-toggle="tab" href="#nav-interests" role="tab" aria-controls="nav-interests" aria-selected="false">Interests</a>-->
+<!--                    <a class="nav-item nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat" role="tab" aria-controls="nav-chat" aria-selected="false">Chat</a>-->
+
 <!--                    <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts"-->
-<!--                       role="tab" aria-controls="nav-posts" aria-selected="true">Post Something</a>-->
+<!--                       role="tab" aria-controls="nav-posts" aria-selected="true">Posts</a>-->
 <!--                    <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab"-->
-<!--                       aria-controls="nav-friends" aria-selected="false"> View Friends</a>-->
+<!--                       aria-controls="nav-friends" aria-selected="false">Friends</a>-->
 <!--                    <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab"-->
-<!--                       aria-controls="nav-photos" aria-selected="false">View Galleries</a>-->
+<!--                       aria-controls="nav-photos" aria-selected="false">Galleries</a>-->
 <!--                    <a class="nav-item nav-link" id="nav-ide-tab" data-toggle="tab" href="#nav-ide"-->
 <!--                       role="tab" aria-controls="nav-ide" aria-selected="false">IDE</a>-->
+
 <!--                </div>-->
 <!--            </nav>-->
 <!--            <div class="tab-content" id="nav-tabContent">-->
 <!--                &lt;!&ndash;       tab 1 posts &ndash;&gt;-->
 <!--                <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">-->
-
-<!--&lt;!&ndash;                    make a post and upload a pic&ndash;&gt;-->
 <!--                    <form style="background-color: #faf3dd;"-->
 <!--                          th:action="@{/posts/create/{username}(username=${#authentication.principal.username})}"-->
 <!--                          th:object="${newPost}" method="POST" class="p-4 m-3">-->
 <!--                        <div class="btn-group" role="group" style="width: 100%;">-->
-<!--                            <input style="font-family: Monaco; font-size: 25px;" type="text" id="postBody" class="form-control" placeholder="What's new?"-->
+<!--                            <input type="text" id="postBody" class="form-control" placeholder="What's up?"-->
 <!--                                   th:field="*{body}" required>-->
 <!--                            <div id="uploadPhoto">-->
 <!--                                <input type="hidden" id="photo" name="gallery_photo" th:field="*{photo_url}">-->
-<!--                                <button class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;" id="upload">Upload</button>-->
+<!--                                <button class="btn btn-light py-3" id="upload">Upload</button>-->
 <!--                            </div>-->
-<!--                            <button type="submit" class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;">Submit</button>-->
+<!--                            <button type="submit" class="btn btn-primary">Submit</button>-->
 <!--                        </div>-->
 <!--                    </form>-->
-<!--&lt;!&ndash;                                        make a post and upload a pic&ndash;&gt;-->
-
 <!--                    <div class="container">-->
 <!--                        <div th:each="item : ${posts}">-->
 <!--                            <div class="card my-3">-->
@@ -270,12 +560,15 @@
 <!--                                            <form style="float: left;"-->
 <!--                                                  th:action="@{/posts/edit/{username}/{id} (username=${user.getUsername()}, id=${item.getId()})}"-->
 <!--                                                  method="get">-->
-<!--                                                <button class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;" type="submit" name="edit">Edit</button>-->
+<!--                                                <button class="btn btn-secondary m-1" type="submit" name="edit">Edit-->
+<!--                                                </button>-->
 <!--                                            </form>-->
+<!--                                            &lt;!&ndash;                                            <a th:href="@{/posts/edit/{username}/{id} (username=${user.getUsername()}, id=${item.getId()})}">Edit post</a>&ndash;&gt;-->
 <!--                                            <form style="float: left;"-->
 <!--                                                  th:action="@{/posts/delete/{username}/{id} (username=${user.getUsername()}, id = ${item.getId()})}"-->
 <!--                                                  th:method="post">-->
-<!--                                                <button class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;" type="submit" name="delete">Remove</button>-->
+<!--                                                <button class="btn btn-light m-1" type="submit" name="delete">Remove-->
+<!--                                                </button>-->
 <!--                                            </form>-->
 <!--                                            <br>-->
 <!--                                        </div>-->
@@ -284,7 +577,7 @@
 <!--                                              th:object="${newComment}" method="POST">-->
 <!--                                            <input id="commentBody" class="form-control" th:field="*{body}" type="text"-->
 <!--                                                   placeholder="comment" required>-->
-<!--                                            <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Comment</button>-->
+<!--                                            <button type="submit" class="btn btn-primary m-2">Comment</button>-->
 <!--                                        </form>-->
 <!--                                    </div>-->
 <!--                                </div>-->
@@ -343,9 +636,9 @@
 <!--                </div>-->
 <!--                &lt;!&ndash;       tab 2 friends&ndash;&gt;-->
 <!--                <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">-->
-<!--                    <h1 style="font-family: Monaco; font-size: 25px;">Friends</h1>-->
+<!--                    <h1>Friends</h1>-->
 <!--                    <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">-->
-<!--                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Discover</button>-->
+<!--                        <button type="submit" class="btn btn-primary">Discover</button>-->
 <!--                    </form>-->
 <!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
 <!--                        <div class="col-4 my-2" th:each="item : ${friends}">-->
@@ -366,10 +659,11 @@
 <!--                </div>-->
 <!--                &lt;!&ndash;       tab 3 galleries&ndash;&gt;-->
 <!--                <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">-->
-<!--                    <h1 style="font-family: Monaco; font-size: 25px;">Photos</h1>-->
+<!--                    <h1>Photos</h1>-->
 <!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
 <!--                        <div class="col-6 col-xl-4 my-2" th:each="item : ${galleries}">-->
 <!--                            <div th:if="${!item.getPictures().isEmpty()}" id="thumbnail-container" class="search-card">-->
+<!--                                &lt;!&ndash;                                <a class="modal-link" href="#exampleModal" data-toggle="modal" th:data-id="${item.getId()}">&ndash;&gt;-->
 <!--                                <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">-->
 <!--                                    <img th:src="${item.getPictures().get(0).pictureUrl.toString()}"-->
 <!--                                         alt="Gallery Thumbnail Image">-->
@@ -387,22 +681,149 @@
 <!--                </div>-->
 <!--                &lt;!&ndash;       tab 4 interests&ndash;&gt;-->
 <!--                <div class="tab-pane fade" id="nav-ide" role="tabpanel" aria-labelledby="nav-ide-tab">-->
-<!--                    <h1 style="font-family: Monaco; font-size: 25px;">Try something out on our code playground</h1>-->
+<!--                    <h1>Code Playground</h1>-->
 <!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
+<!--                        &lt;!&ndash;                        <div class="col-6 col-xl-4 my-2" th:each="item : ${interest}">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            <div class="col-md-10 offset-md-1">&ndash;&gt;-->
+
+<!--                        &lt;!&ndash;                                <div id="profile-img-status"></div>&ndash;&gt;-->
+
+<!--                        &lt;!&ndash;                                <div id="interestDiv">&ndash;&gt;-->
+
+
+<!--                        &lt;!&ndash;                                    <div class="cp_embed_wrapper">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                        <iframe allowfullscreen="true" allowpaymentrequest="true"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                allowtransparency="true" class="cp_embed_iframe " frameborder="0"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                height="800" width="100%" name="cp_embed_1" scrolling="no"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                src="https://codepen.io/embed/prefill"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                style="width: 100%; overflow:hidden; display:block;"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                title="CodePen Embed">&ndash;&gt;-->
+
+<!--                        &lt;!&ndash;                                        </iframe>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                        <form class="cp_embed_form" style="display: none;" method="post"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                              action="https://codepen.io/embed/prefill" target="cp_embed_1">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                            <input type="hidden" name="height" value="800">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                            <input type="hidden" name="theme-id" value="1">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                            <input type="hidden" name="default-tab" value="html,result">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                            <input type="hidden" name="editable" value="true">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                            <input type="hidden" name="user" value="anon">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                            <input type="hidden" name="name" value="cp_embed_1">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                            <input type="hidden" name="data"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   value="{&quot;html&quot;:&quot;\t<section class=\&quot;p-0 bg-img cover-background\&quot; style=\&quot;background-image: url(https://bootdey.com/img/Content/bg1.jpg);\&quot;>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   <div class=\&quot;container-fluid d-flex flex-column\&quot;>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   <div class=\&quot;row align-items-center justify-content-center min-vh-100\&quot;>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   <div class=\&quot;col-md-9 col-lg-6 my-5\&quot;>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   <div class=\&quot;text-center error-page\&quot;>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   <h1 class=\&quot;mb-0 text-secondary\&quot;>404</h1>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   <h2 class=\&quot;mb-4 text-white\&quot;>Sorry, something went wrong!</h2>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   <p class=\&quot;w-sm-80 mx-auto mb-4 text-white\&quot;>This page is incidentally inaccessible because of support. We will back very before long much obliged for your understanding</p>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   <div>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   <a href=\&quot;#\&quot; class=\&quot;btn btn-info btn-lg me-sm-2 mb-2 mb-sm-0\&quot;>Return Home</a>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   </div>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   </div>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   </div>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   </div>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   </div>\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   </section>\n&quot;,&quot;css&quot;:&quot;\tbody{margin-top:20px;}\n.cover-background {\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   position: relative !important;\nbackground-size: cover !important;\noverflow: hidden !important;\nbackground-position: center !important;\nbackground-repeat: no-repeat !important;\n}\n.p-0 {\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   padding: 0!important;\n}\nsection {\n    padding: 120px 0;\noverflow: hidden;\nbackground: #fff;\n}\n\n.error-page {\n    background-color: #BABABA4A;\n    -webkit-backdrop-filter: blur(9px);\nbackdrop-filter: blur(15px);\nborder: 1px solid rgba(234,234,235,0.2);\npadding: 80px 20px;\n}\n.text-center {\n&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                   text-align: center!important;\n}\n.error-page h1 {\n    font-size: 200px;\nline-height: 1;\nfont-weight: 600;\n}\n.text-secondary {\n    color: #15395A !important;\n}\n.mb-4 {\n    margin-bottom: 1.5rem!important;\n}\n&quot;,&quot;js&quot;:&quot;\t\n&quot;}">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                        </form>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                    </div>&ndash;&gt;-->
 <!--                        <div data-pym-src="https://www.jdoodle.com/embed/v0/4Zf6?stdin=0&arg=0&rw=1"></div>-->
+
+
+<!--                        &lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        </div>&ndash;&gt;-->
 <!--                    </div>-->
 <!--                </div>-->
 <!--            </div>-->
-<!--        </div>-->
-<!--    </main>-->
-<!--            <div class="wknd-container">-->
-<!--                <div class="wknd-xf-footer">-->
-<!--                    <h1 class="title">CodeEncounter</h1>-->
-<!--                    <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
 
+<!--            &lt;!&ndash;-&#45;&#45;&#45;&#45; Tab 5 Chat  -&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--            <div class="tab-pane fade show active" id="nav-chat" role="tabpanel" aria-labelledby="nav-chat-tab">-->
+<!--                <div id="talks-container" style="width: 90%; margin: 30px; height: 500px">-->
+<!--                    <script>-->
+<!--                        import Talk from 'talkjs';-->
+
+<!--                        const getAgent = async () => {-->
+<!--                            const response = await fetch('http://localhost:8081/getUser?userId=1');-->
+<!--                            const data = await response.json();-->
+<!--                            let agent = new Talk.User({-->
+<!--                                id: data.id,-->
+<!--                                name: data.name,-->
+<!--                                photoUrl: data.dp,-->
+<!--                                email: data.email,-->
+<!--                                role: data.role-->
+<!--                            });-->
+<!--                            return agent;-->
+<!--                        }-->
+<!--                        const getUser = async () => {-->
+<!--                            const response = await fetch('http://localhost:8081/getUser?userId=6');-->
+<!--                            const data = await response.json();-->
+<!--                            let user = new Talk.User({-->
+<!--                                id: data.id,-->
+<!--                                name: data.name,-->
+<!--                                photoUrl: data.dp,-->
+<!--                                email: data.email,-->
+<!--                                role: data.role-->
+<!--                            });-->
+<!--                            return user;-->
+<!--                        }-->
+<!--                        (-->
+<!--                            async function() {-->
+<!--                                await Talk.ready;-->
+<!--                                let agent = await getAgent();-->
+<!--                                let user = await getUser();-->
+
+<!--                                const session = new Talk.Session({-->
+<!--                                    appId: 'tOGmRmb6',-->
+<!--                                    me: user,-->
+<!--                                });-->
+<!--                                var conversation = session.getOrCreateConversation(Talk.oneOnOneId(user, agent));-->
+
+<!--                                conversation.setAttributes({-->
+<!--                                    welcomeMessages: ["You can start typing your message here and one of our agents will be with you shortly.", "Please do not divulge any of your personal information."]-->
+<!--                                })-->
+<!--                                conversation.setParticipant(user);-->
+<!--                                conversation.setParticipant(agent);-->
+
+<!--                                var chatbox = window.talkSession.createChatbox();-->
+<!--                                chatbox.select(conversation);-->
+<!--                                chatbox.mount(document.getElementById('talks-container'));-->
+<!--                            }());-->
+<!--                    </script>-->
+<!--                    &lt;!&ndash;                     minified snippet to load TalkJS without delaying your page&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <script>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        (function(t,a,l,k,j,s){&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    </script>&ndash;&gt;-->
+
+<!--                    &lt;!&ndash;                     container element in which TalkJS will display a chat UI &ndash;&gt;-->
+
+<!--                </div>-->
+<!--                &lt;!&ndash;                </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;    </main>&ndash;&gt;-->
+
+<!--            </div>-->
+<!--    </main>-->
+
+<!--    <div class="wknd-container">-->
+<!--        <div class="wknd-xf-footer">-->
+<!--            <h1 class="title">CodeEncounter</h1>-->
+<!--            <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash;</div>&ndash;&gt;-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>-->
+<!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
 <!--</div>-->
 
 <!--<script async src="https://static.codepen.io/assets/embed/ei.js"></script>-->
@@ -421,79 +842,85 @@
 <!--        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
 <!--        crossorigin="anonymous"></script>-->
 <!--<script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>-->
+
 <!--<script src="/keys.js"></script>-->
+<!--<script src="../../../webapp/js/UserChat.js"></script>-->
 <!--<script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>-->
 <!--</body>-->
 <!--</html>-->
 
-<!--<!DOCTYPE html>-->
-<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
-<!--      xmlns:th="http://thymeleaf.org">-->
-<!--<head th:replace="partials/head :: head('Profile')">-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--    <script>-->
-<!--        (function(t,a,l,k,j,s){-->
-<!--            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)-->
-<!--            ;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l-->
-<!--                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);-->
-<!--    </script>-->
-<!--</head>-->
-<!--<body>-->
-<!--<header th:replace="partials/header :: header"></header>-->
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head th:replace="partials/head :: head('Profile')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<link rel="stylesheet" href="../css/ChatTest.css" />
+<!-- minified snippet to load TalkJS without delaying your page -->
+<script>
+    (function(t,a,l,k,j,s){
+        s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+        ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+                    .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+</script>
+
+<!-- container element in which TalkJS will display a chat UI -->
+<div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px">
+    <i>Loading chat...</i>
+</div>
+<header th:replace="partials/header :: header"></header>
 
 <div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">
-<!--    <aside class="col-xl-4">-->
-<!--        <div class="container">-->
-<!--            <div class="row p-3" style="background: white">-->
-<!--                <div class="col">-->
-<!--                    <img class="card-img-top p-3 profile-pic" th:src="${user.getProfile_picture_url().toString()}"-->
-<!--                         alt="Card image cap">-->
-<!--                    <h5 class="card-title" th:text="${user.username}"></h5>-->
-<!--                </div>-->
-<!--                <div class="col">-->
-<!--                    <div class="card-text">-->
-<!--                        <p th:text="${user.firstName}"></p>-->
-<!--                        <p th:text="${user.lastName}"></p>-->
-<!--                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>-->
-<!--                        <p th:text="${user.createdDate}"></p>-->
-<!--                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>-->
-<!--                        <p th:text="${user.birthday}"></p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col">-->
-<!--                    <div class="card-text">-->
-<!--                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p>-->
-<!--                        <p th:text="${user.email}"></p>-->
-<!--                        <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>-->
-<!--                        <p th:text="${user.job}"></p>-->
-<!--                    </div>-->
-<!--                    <form th:if="${sessionUser.getUsername() == user.username}"-->
-<!--                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"-->
-<!--                          class="card-link" method="get">-->
-<!--                        <button type="submit" class="btn btn-secondary">Edit Profile</button>-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--                <div class="col-12">-->
-<!--                    <p th:text="${user.aboutMe}"></p>-->
-<!--                </div>-->
-<!--                <div class="col-12">-->
-<!--                    <p th:text="${user.codeLanguages}"></p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </aside>-->
+    <aside class="col-xl-4">
+        <div class="container">
+            <div class="row p-3" style="background: white">
+                <div class="col">
+                    <img class="card-img-top p-3 profile-pic" th:src="${user.getProfile_picture_url().toString()}"
+                         alt="Card image cap">
+                    <h5 class="card-title" th:text="${user.username}"></h5>
+                </div>
+                <div class="col">
+                    <div class="card-text">
+                        <p th:text="${user.firstName}"></p>
+                        <p th:text="${user.lastName}"></p>
+                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
+                        <p th:text="${user.createdDate}"></p>
+                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
+                        <p th:text="${user.birthday}"></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-text">
+                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p>
+                        <p th:text="${user.email}"></p>
+                        <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>
+                        <p th:text="${user.job}"></p>
+                    </div>
+                    <form th:if="${sessionUser.getUsername() == user.username}"
+                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
+                          class="card-link" method="get">
+                        <button type="submit" class="btn btn-secondary">Edit Profile</button>
+                    </form>
+                </div>
+                <div class="col-12">
+                    <p th:text="${user.aboutMe}"></p>
+                </div>
+                <div class="col-12">
+                    <p th:text="${user.codeLanguages}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="chat"></div>
+    </aside>
     <main class="col-xl-8">
         <div style="width: 100%;">
             <!--            nav tabs-->
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-
-                    <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">Posts</a>
-                    <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab" aria-controls="nav-friends" aria-selected="false">Friends</a>
-                    <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab" aria-controls="nav-photos" aria-selected="false">Galleries</a>
-                    <a class="nav-item nav-link" id="nav-interest-tab" data-toggle="tab" href="#nav-interests" role="tab" aria-controls="nav-interests" aria-selected="false">Interests</a>
-                    <a class="nav-item nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat" role="tab" aria-controls="nav-chat" aria-selected="false">Chat</a>
 
                     <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts"
                        role="tab" aria-controls="nav-posts" aria-selected="true">Posts</a>
@@ -503,7 +930,7 @@
                        aria-controls="nav-photos" aria-selected="false">Galleries</a>
                     <a class="nav-item nav-link" id="nav-ide-tab" data-toggle="tab" href="#nav-ide"
                        role="tab" aria-controls="nav-ide" aria-selected="false">IDE</a>
-
+                    <a class="nav-item nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat" role="tab" aria-controls="nav-chat" aria-selected="false">Chat</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -739,96 +1166,54 @@
                     </div>
                 </div>
             </div>
-
             <!------- Tab 5 Chat  ------->
             <div class="tab-pane fade show active" id="nav-chat" role="tabpanel" aria-labelledby="nav-chat-tab">
-                <div id="talks-container" style="width: 90%; margin: 30px; height: 500px">
-                    <script>
-                        import Talk from 'talkjs';
+                <!--                    <div id="talks-container" style="width: 90%; margin: 30px; height: 500px">-->
+                <a href='ChatTest.html'><button>Chat</button></a>
 
-                        const getAgent = async () => {
-                            const response = await fetch('http://localhost:8081/getUser?userId=1');
-                            const data = await response.json();
-                            let agent = new Talk.User({
-                                id: data.id,
-                                name: data.name,
-                                photoUrl: data.dp,
-                                email: data.email,
-                                role: data.role
-                            });
-                            return agent;
-                        }
-                        const getUser = async () => {
-                            const response = await fetch('http://localhost:8081/getUser?userId=6');
-                            const data = await response.json();
-                            let user = new Talk.User({
-                                id: data.id,
-                                name: data.name,
-                                photoUrl: data.dp,
-                                email: data.email,
-                                role: data.role
-                            });
-                            return user;
-                        }
-                        (
-                            async function() {
-                                await Talk.ready;
-                                let agent = await getAgent();
-                                let user = await getUser();
-
-                                const session = new Talk.Session({
-                                    appId: 'tOGmRmb6',
-                                    me: user,
-                                });
-                                var conversation = session.getOrCreateConversation(Talk.oneOnOneId(user, agent));
-
-                                conversation.setAttributes({
-                                    welcomeMessages: ["You can start typing your message here and one of our agents will be with you shortly.", "Please do not divulge any of your personal information."]
-                                })
-                                conversation.setParticipant(user);
-                                conversation.setParticipant(agent);
-
-                                var chatbox = window.talkSession.createChatbox();
-                                chatbox.select(conversation);
-                                chatbox.mount(document.getElementById('talks-container'));
-                            }());
-                    </script>
-                    <!--                     minified snippet to load TalkJS without delaying your page-->
-                    <!--                    <script>-->
-                    <!--                        (function(t,a,l,k,j,s){-->
-                    <!--                            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)-->
-                    <!--                            ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l-->
-                    <!--                                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);-->
-                    <!--                    </script>-->
-
-                    <!--                     container element in which TalkJS will display a chat UI -->
-
-                </div>
-                <!--                </div>-->
-                <!--        </div>-->
-                <!--        </div>-->
-                <!--    </main>-->
 
             </div>
+            <div id="wrapper">
+                <div id="menu">
+                    <p class="welcome">Welcome, <b></b></p>
+                    <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+                </div>
+
+                <div id="chatbox"></div>
+
+                <form name="message" action="">
+                    <input name="usermsg" type="text" id="usermsg" />
+                    <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
+                </form>
+            </div>
+
+        </div>
+        <!--        </div>-->
+        <!--        </div>-->
     </main>
 
-    <div class="wknd-container">
-        <div class="wknd-xf-footer">
-            <h1 class="title">CodeEncounter</h1>
-            <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>
-        </div>
-    </div>
+</div>
+<!--        </div>-->
 
-    <!--</div>-->
+<!--    </main>-->
+
+<footer class="col-xl-12">
+    CodeEncounter23
+</footer>
+
+<!--</div>-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </div>
 
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 <script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
-
+<script type="text/javascript" th:src="@{/js/UserChat.js}" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
@@ -842,9 +1227,9 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
-
+<script src="../chat.php"></script>
 <script src="/keys.js"></script>
-<script src="../../../webapp/js/UserChat.js"></script>
+<!--<script src="../../static/js/UserChat.js"></script>-->
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
 </body>
 </html>
