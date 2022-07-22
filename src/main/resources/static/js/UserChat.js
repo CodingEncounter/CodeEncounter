@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // 'use strict';
 //
 // var usernamePage = document.querySelector('#username-page');
@@ -121,6 +122,8 @@
 
 //
 //
+=======
+>>>>>>> 49b9f7704a8be8e89464aa0dd85740c5ad68ed01
 Talk.ready.then(function () {
     var me = new Talk.User({
         id: '123456',
