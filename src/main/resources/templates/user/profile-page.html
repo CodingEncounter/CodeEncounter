@@ -1,27 +1,105 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
-<!--      xmlns:th="http://thymeleaf.org">-->
-<!--<head th:replace="partials/head :: head('Profile')">-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<header th:replace="partials/header :: header"></header>-->
-<!--<div class="wknd-profile screen">-->
-<!--    <br><br>-->
-<!--    <div class="wknd-xf-header">-->
-<!--        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>-->
-<!--    </div>-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head th:replace="partials/head :: head('Profile')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        (function(t,a,l,k,j,s){
+            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+            ;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+    </script>
+</head>
+<body>
+<header th:replace="partials/header :: header"></header>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++CODEUP HEADER+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<div class="wknd-profile screen">
+    <br><br>
+    <div class="wknd-xf-header">
+        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
+    </div>
+</div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++CODEUP HEADER+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Profile DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <div class="web-1920-1 screen">
+        <div class="flex-row">
+            <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++image DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+            <div class="col">
+                <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"
+                     alt="Card image cap">
+                <h5 style="font-family: Monaco; font-size: 25px;" th:text="${user.username}"></h5>
+            </div>
+                    <div class="flex-row-1 border-1px-dove-gray">
+                        <div class="flex-col">
+                            <div class="full-name monaco-regular-normal-black-30px"><p th:text="${user.firstName}"></p>
+                                <p th:text="${user.lastName}"></p></div>
+                            <div class="joinedjoin-date monaco-regular-normal-black-30px">
+                                <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
+                                <p th:text="${user.createdDate}"></p>
+                            </div>
+                            <div class="component-1-1">
+                                <div class="birthdaybirth-date monaco-regular-normal-black-30px">
+                                    <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
+                                    <p th:text="${user.birthday}"></p>
+                                </div>
+                            </div>
+                            <div class="email-emailcom monaco-regular-normal-black-30px">
+                                <p class="text-muted"><i class="far fa-envelope"></i> Email</p>
+                                <p th:text="${user.email}"></p>
+                            </div>
+                            <div class="works-atplace-works monaco-regular-normal-black-30px">
+                                <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>
+                                <p th:text="${user.job}"></p>
+                            </div>
+                        </div>
+                        <div class="flex-col-1">
+                            <div class="interestsinterest monaco-regular-normal-black-30px">
+
+                                <p th:text="${user.aboutMe}"></p>
+                            </div>
+                            <div class="languagaeslanguages monaco-regular-normal-black-30px">
+                                <p class="text-muted">Language Proficiency:</p>
+                                <p th:text="${user.codeLanguages}"></p>
+                            </div>
+            <!--                content-->
+                            <!--button-->
+                            <form th:if="${sessionUser.getUsername() == user.username}"
+                                  th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
+                                  class="rectangle-2 border-1px-dove-gray" method="get">
+                                <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>
+                            </form>
+            <!--button-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++image DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        </div>
+    </div>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Profile DISPLAY+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+
+
+
+
+
 
 <!--    &lt;!&ndash;    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
 <!--    &lt;!&ndash;    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Everything below is the user profile++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
 <!--    <div class="web-1920-1 screen">-->
+
+
+
+
 <!--        <div class="flex-row">-->
 <!--        &lt;!&ndash;        image&ndash;&gt;-->
 <!--        <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"-->
 <!--             alt="Card image cap">-->
 <!--&lt;!&ndash;        image&ndash;&gt;-->
-<!--        &lt;!&ndash;            content&ndash;&gt;-->
+        <!--            content-->
 <!--        <div class="flex-row-1 border-1px-dove-gray">-->
 <!--            <div class="flex-col">-->
 <!--                <div class="full-name monaco-regular-normal-black-30px"><p th:text="${user.firstName}"></p>-->
@@ -348,63 +426,63 @@
 <!--</body>-->
 <!--</html>-->
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://thymeleaf.org">
-<head th:replace="partials/head :: head('Profile')">
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script>
-        (function(t,a,l,k,j,s){
-            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
-            ;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
-                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
-    </script>
-</head>
-<body>
-<header th:replace="partials/header :: header"></header>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:th="http://thymeleaf.org">-->
+<!--<head th:replace="partials/head :: head('Profile')">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <script>-->
+<!--        (function(t,a,l,k,j,s){-->
+<!--            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)-->
+<!--            ;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l-->
+<!--                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<header th:replace="partials/header :: header"></header>-->
 
 <div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">
-    <aside class="col-xl-4">
-        <div class="container">
-            <div class="row p-3" style="background: white">
-                <div class="col">
-                    <img class="card-img-top p-3 profile-pic" th:src="${user.getProfile_picture_url().toString()}"
-                         alt="Card image cap">
-                    <h5 class="card-title" th:text="${user.username}"></h5>
-                </div>
-                <div class="col">
-                    <div class="card-text">
-                        <p th:text="${user.firstName}"></p>
-                        <p th:text="${user.lastName}"></p>
-                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
-                        <p th:text="${user.createdDate}"></p>
-                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
-                        <p th:text="${user.birthday}"></p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card-text">
-                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p>
-                        <p th:text="${user.email}"></p>
-                        <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>
-                        <p th:text="${user.job}"></p>
-                    </div>
-                    <form th:if="${sessionUser.getUsername() == user.username}"
-                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
-                          class="card-link" method="get">
-                        <button type="submit" class="btn btn-secondary">Edit Profile</button>
-                    </form>
-                </div>
-                <div class="col-12">
-                    <p th:text="${user.aboutMe}"></p>
-                </div>
-                <div class="col-12">
-                    <p th:text="${user.codeLanguages}"></p>
-                </div>
-            </div>
-        </div>
-    </aside>
+<!--    <aside class="col-xl-4">-->
+<!--        <div class="container">-->
+<!--            <div class="row p-3" style="background: white">-->
+<!--                <div class="col">-->
+<!--                    <img class="card-img-top p-3 profile-pic" th:src="${user.getProfile_picture_url().toString()}"-->
+<!--                         alt="Card image cap">-->
+<!--                    <h5 class="card-title" th:text="${user.username}"></h5>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="card-text">-->
+<!--                        <p th:text="${user.firstName}"></p>-->
+<!--                        <p th:text="${user.lastName}"></p>-->
+<!--                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>-->
+<!--                        <p th:text="${user.createdDate}"></p>-->
+<!--                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>-->
+<!--                        <p th:text="${user.birthday}"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="card-text">-->
+<!--                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p>-->
+<!--                        <p th:text="${user.email}"></p>-->
+<!--                        <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>-->
+<!--                        <p th:text="${user.job}"></p>-->
+<!--                    </div>-->
+<!--                    <form th:if="${sessionUser.getUsername() == user.username}"-->
+<!--                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"-->
+<!--                          class="card-link" method="get">-->
+<!--                        <button type="submit" class="btn btn-secondary">Edit Profile</button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--                <div class="col-12">-->
+<!--                    <p th:text="${user.aboutMe}"></p>-->
+<!--                </div>-->
+<!--                <div class="col-12">-->
+<!--                    <p th:text="${user.codeLanguages}"></p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </aside>-->
     <main class="col-xl-8">
         <div style="width: 100%;">
             <!--            nav tabs-->
@@ -734,9 +812,12 @@
             </div>
     </main>
 
-    <footer class="col-xl-12">
-        CodeEncounter23
-    </footer>
+    <div class="wknd-container">
+        <div class="wknd-xf-footer">
+            <h1 class="title">CodeEncounter</h1>
+            <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>
+        </div>
+    </div>
 
     <!--</div>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

@@ -721,8 +721,7 @@
     letter-spacing: 0;
     line-height: 30px;
     margin-top: 96px;
-    min-height: 81px;
-    white-space: nowrap;
+    white-space: pre-wrap;
 }
 
 .monaco-regular-normal-red-30px{
@@ -733,6 +732,8 @@
     font-size: 20px;
     text-decoration-color: red;
 }
+
+/*.languages*/
 
 .monaco-regular-normal-black-30px {
     color: var(--black);
@@ -752,7 +753,7 @@
 .rectangle-2 {
     align-self: flex-end;
     margin-right: 2px;
-    margin-top: 170px;
+    margin-top: 150px;
 }
 
 .flex-col {
@@ -854,10 +855,6 @@
 .hidden * {
     pointer-events: none;
     visibility: hidden;
-}
-
-.border-1px-dove-gray {
-    border: 1px solid var(--dove-gray);
 }
 
 .overlap-group {

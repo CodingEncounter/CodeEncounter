@@ -116,26 +116,26 @@ public class UserController {
         model.addAttribute("user", dbUser);
 
         //makes user friends with default users
-        UserFriend userFriend1 = new UserFriend();
-        userFriend1.setUser(user);
-        userFriend1.setFriend(userRepo.findByUsername("GinaCali92"));
-        userFriend1.setStatus(Status.ACCEPTED);
-        userFriendRepo.save(userFriend1);
-        UserFriend userFriend2 = new UserFriend();
-        userFriend2.setUser(user);
-        userFriend2.setFriend(userRepo.findByUsername("IronMaidenFangirl"));
-        userFriend2.setStatus(Status.ACCEPTED);
-        userFriendRepo.save(userFriend2);
-        UserFriend userFriend3 = new UserFriend();
-        userFriend3.setUser(user);
-        userFriend3.setFriend(userRepo.findByUsername("DanWasHere"));
-        userFriend3.setStatus(Status.ACCEPTED);
-        userFriendRepo.save(userFriend3);
-        UserFriend userFriend4 = new UserFriend();
-        userFriend4.setUser(user);
-        userFriend4.setFriend(userRepo.findByUsername("DragonSlayer95"));
-        userFriend4.setStatus(Status.ACCEPTED);
-        userFriendRepo.save(userFriend4);
+//        UserFriend userFriend1 = new UserFriend();
+//        userFriend1.setUser(user);
+//        userFriend1.setFriend(userRepo.findByUsername("GinaCali92"));
+//        userFriend1.setStatus(Status.ACCEPTED);
+//        userFriendRepo.save(userFriend1);
+//        UserFriend userFriend2 = new UserFriend();
+//        userFriend2.setUser(user);
+//        userFriend2.setFriend(userRepo.findByUsername("IronMaidenFangirl"));
+//        userFriend2.setStatus(Status.ACCEPTED);
+//        userFriendRepo.save(userFriend2);
+//        UserFriend userFriend3 = new UserFriend();
+//        userFriend3.setUser(user);
+//        userFriend3.setFriend(userRepo.findByUsername("DanWasHere"));
+//        userFriend3.setStatus(Status.ACCEPTED);
+//        userFriendRepo.save(userFriend3);
+//        UserFriend userFriend4 = new UserFriend();
+//        userFriend4.setUser(user);
+//        userFriend4.setFriend(userRepo.findByUsername("DragonSlayer95"));
+//        userFriend4.setStatus(Status.ACCEPTED);
+//        userFriendRepo.save(userFriend4);
 
 //        emailService.prepareAndSend(user,"Welcome to CodeEncounter " + user.getUsername() + "!",
 //                "We're glad to have you! You might notice that your newsfeed is a little quiet. We want to avoid the" +
@@ -281,4 +281,3 @@ public class UserController {
         return "user/random";
     }
 }
-
