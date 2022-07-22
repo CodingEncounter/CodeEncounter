@@ -222,6 +222,7 @@ public class UserController {
         model.addAttribute("galleries", galleryRepo.findAllByUser(user));
         model.addAttribute("all-galleries", galleryRepo.findAll());
         model.addAttribute("user", user);
+
         model.addAttribute("sessionUser", sessionUser);
         model.addAttribute("friends",myFriends);
         model.addAttribute("comments", friendlyComments);
