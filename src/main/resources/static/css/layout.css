@@ -948,7 +948,7 @@
 .upload {
     background-color: #808080;
     height: 52px;
-    left: 751px;
+    left: 650px;
     position: absolute;
     top: 404px;
     width: 191px;
@@ -1012,7 +1012,7 @@
     letter-spacing: 0;
     line-height: 20px;
     position: absolute;
-    top: 124px;
+    top: 180px;
     white-space: nowrap;
     width: 50%;
 }
