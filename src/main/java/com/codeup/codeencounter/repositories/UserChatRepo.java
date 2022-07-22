@@ -1,11 +1,11 @@
 package com.codeup.codeencounter.repositories;
 
 
-import com.codeup.codeencounter.models.ChatMessage;
+import com.codeup.codeencounter.models.UserChat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserChatRepo extends JpaRepository<ChatMessage, Long> {
+public interface UserChatRepo extends JpaRepository<UserChat, Long> {
 
 }

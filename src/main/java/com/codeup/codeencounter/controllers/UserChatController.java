@@ -18,7 +18,7 @@ public class UserChatController{
 
     @PostMapping(value = "/createUser")
     public ResponseEntity<UserChat> createUserChat(@RequestBody UserChat user){
-       return new ResponseEntity<>(userChatRepo.save(user), HttpStatus.OK);
+        return new ResponseEntity<>(userChatRepo.save(user), HttpStatus.OK);
     }
     @GetMapping(value = "/getUser")
     public ResponseEntity<UserChat> getUserChat(@RequestParam(required = true) Long userId){
