@@ -5,253 +5,973 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
+<style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+    @font-face {
+        font-family: "Monaco-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+    }
+
+    :root {
+        --primary--500-: #6200ee;
+        --white: #ffffff;
+        --light---outline--on-surface-000000-12: #0000001f;
+        --light---on-surface--high-emphasis-000000-87: #000000de;
+        --light---on-surface--medium-emphasis-000000-60: #00000099;
+        --equator: #e6c25f;
+        --font-size-l2: 16px;
+        --font-size-m3: 14px;
+        --font-family-monaco-regular: Monaco;
+    }
+
+    .viewingprofile {
+        align-items: flex-start;
+        background-color: var(--white);
+        display: flex;
+        height: 650px;
+        min-width: 1440px;
+        padding: 49px 20px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .light-container {
+        height: 533px;
+        position: relative;
+        width: 1376px;
+    }
+
+    .light-card-image-top-elevated-01-dp {
+        align-items: flex-start;
+        display: flex;
+        height: 533px;
+        left: 0;
+        min-width: 1376px;
+        position: absolute;
+        top: 0;
+    }
+
+    .overlap-group4 {
+        border-radius: 4px;
+        height: 525px;
+        position: absolute;
+        width: 1376px;
+    }
+
+    .light-card-elements-imagea-image {
+        display: flex;
+        height: 385px;
+        left: 0;
+        position: absolute;
+        top: 64px;
+        width: 1376px;
+    }
+
+    .image {
+        border-radius: 30px;
+        flex: 1;
+        margin-left: 90px;
+        margin-right: 853px;
+        width: 426px;
+        height: 426px;
+    }
+
+    .light-lists-three-li-5 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 962px;
+        min-height: 69px;
+        position: absolute;
+        top: 111px;
+        width: 309px;
+    }
+
+    .devider-light {
+        align-self: flex-end;
+        background-color: var(--light---outline--on-surface-000000-12);
+        height: 1px;
+        margin-top: 12px;
+        width: 293px;
+    }
+
+    .overlap-group {
+        height: 47px;
+        margin-left: 14px;
+        margin-top: 9px;
+        position: relative;
+        width: 225px;
+    }
+
+    .secondary-text {
+        height: 28px;
+        left: 0;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        position: absolute;
+        top: 19px;
+        width: 225px;
+    }
+
+    .monaco-regular-normal-black-14px {
+        color: var(--light---on-surface--medium-emphasis-000000-60);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m3);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .subtitle-1 {
+        left: 0;
+        letter-spacing: 0.5px;
+        line-height: 24px;
+        position: absolute;
+        top: 0;
+        white-space: nowrap;
+    }
+
+    .monaco-regular-normal-black-16px {
+        color: var(--light---on-surface--high-emphasis-000000-87);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-l2);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .light-lists-three-li-4 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 249px;
+        width: 309px;
+    }
+
+    .light-lists-three-li-2 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 111px;
+        width: 309px;
+    }
+
+    .light-lists-three-li-6 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 317px;
+        width: 309px;
+    }
+
+    .light-button3-containeda-text-enabled {
+        display: flex;
+        height: 37px;
+        left: 1206px;
+        position: absolute;
+        top: 463px;
+        width: 129px;
+    }
+
+    .container-2 {
+        align-items: flex-start;
+        display: flex;
+        flex: 1;
+        min-width: 129px;
+    }
+
+    .overlap-group1-1 {
+        height: 37px;
+        position: relative;
+        width: 129px;
+    }
+
+    .states-1 {
+        display: flex;
+        height: 20px;
+        left: 15px;
+        position: absolute;
+        top: 9px;
+        width: 103px;
+    }
+
+    .edit-profile {
+        color: var(--white);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m3);
+        font-weight: 400;
+        height: 20px;
+        letter-spacing: 0;
+        line-height: 14px;
+        white-space: nowrap;
+        width: 103px;
+    }
+
+    .light-lists-three-li {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 962px;
+        min-height: 88px;
+        position: absolute;
+        top: 196px;
+        width: 309px;
+    }
+
+    .subtitle-1-1 {
+        letter-spacing: 0.5px;
+        line-height: 24px;
+        margin-bottom: -2px;
+        margin-left: 14px;
+        margin-top: 9px;
+        min-height: 22px;
+        white-space: nowrap;
+    }
+
+    .secondary-text-1 {
+        align-self: center;
+        height: 42px;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        margin-left: 9px;
+        margin-top: 2px;
+        width: 290px;
+    }
+
+    .light-lists-three-li-1 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 962px;
+        min-height: 71px;
+        position: absolute;
+        top: 315px;
+        width: 309px;
+    }
+
+    .secondary-text-2 {
+        align-self: center;
+        height: 42px;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        margin-left: 3px;
+        margin-top: 2px;
+        width: 290px;
+    }
+
+    .devider-light-1 {
+        align-self: flex-end;
+        background-color: var(--light---outline--on-surface-000000-12);
+        height: 1px;
+        margin-top: 6px;
+        width: 293px;
+    }
+
+    .subtitle-1-2 {
+        letter-spacing: 0.5px;
+        line-height: 24px;
+        margin-bottom: -2px;
+        margin-left: 11px;
+        margin-top: -2px;
+        min-height: 22px;
+        white-space: nowrap;
+    }
+
+    .light-lists-three-li-3 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 180px;
+        width: 309px;
+    }
+
+    .overlap-group6 {
+        height: 47px;
+        margin-left: 14px;
+        margin-top: 9px;
+        position: relative;
+        width: 190px;
+    }
+
+    .secondary-text-3 {
+        height: 28px;
+        left: 0;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        position: absolute;
+        top: 19px;
+        width: 190px;
+    }
+    /*<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->*/
+    /*<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->*/
+    /*<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->*/
+
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+    @font-face {
+        font-family: Monaco;
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+    }
+
+    :root {
+        --primary--500-: #6200ee;
+        --white: #ffffff;
+        --black: #000000;
+        --gunsmoke: #838383;
+        --red: #ff0000;
+        --font-size-m: 28px;
+        --font-size-m3: 14px;
+        --font-family-monaco-regular: Monaco;
+    }
+
+    .editform {
+        align-items: flex-start;
+        background-color: var(--white);
+        display: flex;
+        flex-direction: column;
+        min-height: 577px;
+        padding: 25px 32px;
+        width: 1440px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .discardchanges {
+        align-items: flex-start;
+        display: flex;
+        min-width: 172px;
+    }
+
+    .a1 {
+        height: 35px;
+        position: relative;
+        width: 172px;
+    }
+
+    .a2 {
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 172px;
+    }
+
+    .a8 {
+        background-color: var(--gunsmoke);
+        border-radius: 4px;
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 172px;
+    }
+
+    .a3 {
+        display: flex;
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 172px;
+    }
+
+    .a4 {
+        align-items: flex-start;
+        background-color: var(--gunsmoke);
+        border-radius: 4px;
+        box-shadow: 0px 1px 5px #00000033;
+        display: flex;
+        flex: 1;
+        min-width: 172px;
+        mix-blend-mode: multiply;
+    }
+
+    .a5 {
+        align-items: flex-start;
+        background-color: var(--gunsmoke);
+        border-radius: 4px;
+        box-shadow: 0px 3px 1px #0000001f;
+        display: flex;
+        min-width: 172px;
+    }
+
+    .a6 {
+        background-color: var(--gunsmoke);
+        border-radius: 4px;
+        box-shadow: 0px 2px 2px #00000024;
+        height: 35px;
+        width: 172px;
+    }
+
+    .monaco-regular-normal-white-14px {
+        color: var(--white);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m3);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .discardlabel {
+        left: 16px;
+        letter-spacing: 1.25px;
+        line-height: 16px;
+        position: absolute;
+        top: 9px;
+        white-space: nowrap;
+    }
+
+    .c1 {
+        align-items: flex-end;
+        align-self: flex-end;
+        display: flex;
+        height: 38px;
+        margin-right: 3px;
+        margin-top: 46px;
+        min-width: 1363px;
+    }
+
+    .d8 {
+        height: 34px;
+        margin-bottom: 1px;
+        margin-left: 97px;
+        position: relative;
+        width: 147px;
+    }
+
+    .d9 {
+        display: flex;
+        height: 34px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 147px;
+    }
+
+    .container {
+        align-items: flex-start;
+        display: flex;
+        flex: 1;
+        min-width: 147px;
+    }
+
+    .e1 {
+        height: 34px;
+        position: relative;
+        width: 147px;
+    }
+
+    .e6 {
+        background-color: var(--black);
+        border-radius: 4px;
+        height: 34px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 147px;
+    }
+
+    .e2 {
+        align-items: flex-start;
+        background-color: var(--black);
+        border-radius: 4px;
+        box-shadow: 0px 1px 5px #00000033;
+        display: flex;
+        flex: 1;
+        min-width: 147px;
+        mix-blend-mode: multiply;
+    }
+
+    .e3 {
+        align-items: flex-start;
+        background-color: var(--black);
+        border-radius: 4px;
+        box-shadow: 0px 3px 1px #0000001f;
+        display: flex;
+        min-width: 147px;
+    }
+
+    .e4 {
+        background-color: var(--black);
+        border-radius: 4px;
+        box-shadow: 0px 2px 2px #00000024;
+        height: 34px;
+        width: 147px;
+    }
+
+    .light-button3-containeda-text-enabled-1 {
+        align-items: flex-start;
+        align-self: flex-start;
+        display: flex;
+        min-width: 162px;
+    }
+
+    .c2 {
+        height: 35px;
+        position: relative;
+        width: 162px;
+    }
+
+    .del {
+        left: 13px;
+        letter-spacing: 1.25px;
+        line-height: 16px;
+        position: absolute;
+        top: 10px;
+        white-space: nowrap;
+    }
+
+    .dis {
+        left: 13px;
+        letter-spacing: 1.25px;
+        line-height: 16px;
+        position: absolute;
+        top: 10px;
+        white-space: nowrap;
+    }
+
+
+    .c3 {
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 162px;
+    }
+
+    .c4 {
+        display: flex;
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 162px;
+    }
+
+    .c5 {
+        align-items: flex-start;
+        background-color: var(--red);
+        border-radius: 4px;
+        box-shadow: 0px 1px 5px #00000033;
+        display: flex;
+        flex: 1;
+        min-width: 162px;
+        mix-blend-mode: multiply;
+    }
+
+    .c6 {
+        align-items: flex-start;
+        background-color: var(--red);
+        border-radius: 4px;
+        box-shadow: 0px 3px 1px #0000001f;
+        display: flex;
+        min-width: 162px;
+    }
+
+    .c7 {
+        background-color: var(--red);
+        border-radius: 4px;
+        box-shadow: 0px 2px 2px #00000024;
+        height: 35px;
+        width: 162px;
+    }
+
+    .c8 {
+        background-color: var(--red);
+        border-radius: 4px;
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 162px;
+    }
+
+    .light-button3-containeda-text-enabled-2 {
+        align-items: flex-start;
+        display: flex;
+        margin-left: 804px;
+        min-width: 153px;
+    }
+
+    .d1 {
+        height: 35px;
+        position: relative;
+        width: 153px;
+    }
+
+    .pic {
+        left: 13px;
+        letter-spacing: 1.25px;
+        line-height: 16px;
+        position: absolute;
+        top: 15px;
+        white-space: nowrap;
+    }
+
+    .sav {
+        left: 13px;
+        letter-spacing: 1.25px;
+        line-height: 16px;
+        position: absolute;
+        top: 15px;
+        white-space: nowrap;
+    }
+
+    .d2 {
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 153px;
+    }
+
+    .d7 {
+        background-color: var(--gunsmoke);
+        border-radius: 4px;
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 153px;
+    }
+
+    .d3 {
+        display: flex;
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 153px;
+    }
+
+    .d4 {
+        align-items: flex-start;
+        background-color: var(--gunsmoke);
+        border-radius: 4px;
+        box-shadow: 0px 1px 5px #00000033;
+        display: flex;
+        flex: 1;
+        min-width: 153px;
+        mix-blend-mode: multiply;
+    }
+
+    .d5 {
+        align-items: flex-start;
+        background-color: var(--gunsmoke);
+        border-radius: 4px;
+        box-shadow: 0px 3px 1px #0000001f;
+        display: flex;
+        min-width: 153px;
+    }
+
+    .d6 {
+        background-color: var(--gunsmoke);
+        border-radius: 4px;
+        box-shadow: 0px 2px 2px #00000024;
+        height: 35px;
+        width: 153px;
+    }
+
+    .b1 {
+        align-self: center;
+        height: 377px;
+        margin-right: 157px;
+        margin-top: 26px;
+        position: relative;
+        width: 965px;
+    }
+
+    .b2 {
+        align-items: flex-start;
+        display: flex;
+        height: 377px;
+        left: 0;
+        min-width: 965px;
+        position: absolute;
+        top: 0;
+    }
+
+    .b3 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin-top: 7px;
+        min-height: 324px;
+        width: 327px;
+    }
+
+    .b4 {
+        height: 86px;
+        position: relative;
+        width: 327px;
+    }
+
+    .title {
+        left: 0;
+        letter-spacing: 2.49px;
+        line-height: 25px;
+        position: absolute;
+        top: 0;
+        white-space: nowrap;
+    }
+
+    .monaco-regular-normal-black-28px {
+        color: var(--black);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .border-2px-primary--500- {
+        border: 2px solid var(--primary--500-);
+    }
+
+    .container-l-color {
+        border-radius: 4px;
+        height: 56px;
+        left: 0;
+        position: absolute;
+        top: 30px;
+        width: 327px;
+    }
+
+    .b5 {
+        height: 86px;
+        margin-top: 82px;
+        position: relative;
+        width: 327px;
+    }
+
+    .birthday {
+        left: 0;
+        letter-spacing: 2.49px;
+        line-height: 25px;
+        position: absolute;
+        top: 0;
+        white-space: nowrap;
+    }
+
+    .last-name {
+        letter-spacing: 2.49px;
+        line-height: 25px;
+        margin-top: 33px;
+        min-height: 37px;
+        white-space: nowrap;
+    }
+
+    .b6 {
+        align-items: flex-start;
+        align-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        margin-left: 213px;
+        min-height: 372px;
+        width: 425px;
+    }
+
+    .b9 {
+        height: 132px;
+        margin-top: 33px;
+        position: relative;
+        width: 425px;
+    }
+
+    .container-l-color-4 {
+        border-radius: 4px;
+        height: 104px;
+        left: 1px;
+        position: absolute;
+        top: 28px;
+        width: 424px;
+    }
+
+    .interests {
+        left: 0;
+        letter-spacing: 2.49px;
+        line-height: 25px;
+        position: absolute;
+        top: 0;
+        white-space: nowrap;
+    }
+
+    .b8 {
+        height: 86px;
+        margin-top: 33px;
+        position: relative;
+        width: 328px;
+    }
+
+    .container-l-color-3 {
+        border-radius: 4px;
+        height: 56px;
+        left: 1px;
+        position: absolute;
+        top: 30px;
+        width: 327px;
+    }
+
+    .job-title {
+        left: 0;
+        letter-spacing: 2.49px;
+        line-height: 25px;
+        position: absolute;
+        top: 0;
+        white-space: nowrap;
+    }
+
+    .b7 {
+        height: 88px;
+        position: relative;
+        width: 425px;
+    }
+
+    .container-l-color-2 {
+        border-radius: 4px;
+        height: 58px;
+        left: 1px;
+        position: absolute;
+        top: 30px;
+        width: 424px;
+    }
+
+    .coding-languages {
+        left: 0;
+        letter-spacing: 2.49px;
+        line-height: 25px;
+        position: absolute;
+        top: 0;
+        white-space: nowrap;
+    }
+
+    .container-l-color-1 {
+        border-radius: 4px;
+        height: 56px;
+        left: 0;
+        position: absolute;
+        top: 156px;
+        width: 328px;
+    }
+
+
+</style>
+
 <body>
 <header th:replace="partials/header :: header"></header>
-
-<!--<form class="web-1920-1 screen" name="form1" action="form1" method="post">-->
-<!--    <div class="overlap-group3 border-1px-dove-gray">-->
-
-<!--        <div class="rectangle-4 border-1px-dove-gray"></div>-->
-
-<!--        <div class="discard-changes monaco-regular-normal-black-20px">-->
-<!--            <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">-->
-<!--                <h5>Discard Changes</h5>-->
-<!--            </a>-->
-<!--        </div>-->
-<!--        <form th:action="@{/edit/{username} (username=${user.getUsername()})}" method="POST" th:object="${user}">-->
-
-
-<!--            <div class="rectangle-14 border-1px-dove-gray"></div>-->
-<!--            <div class="group-1">-->
-<!--                <label class="first-name monaco-regular-normal-black-20px" for="first-name-input">First Name</label>-->
-<!--                <input class="rectangle border-1px-dove-gray" type="text" id="first-name-input" th:field="*{firstName}" />-->
-<!--            </div>-->
-<!--            <div class="overlap-group">-->
-<!--                <label class="last-name monaco-regular-normal-black-20px" for="last-name-input">Last Name</label>-->
-<!--                <input class="rectangle-1 border-1px-dove-gray" type="text" id="last-name-input" th:field="*{lastName}"></input>-->
-<!--            </div>-->
-
-<!--            <div class="overlap-group1">-->
-<!--                <label class="birthday monaco-regular-normal-black-20px" for="birthday-input">Birthday</label>-->
-<!--                <input class="rectangle-1 border-1px-dove-gray" type="date" value="2000-01-01" id="birthday-input" th:field="*{birthday}"></input>-->
-<!--            </div>-->
-
-
-<!--            <div class="group-4">-->
-<!--                <label class="job-title monaco-regular-normal-black-20px" for="job-input">Job Title</label>-->
-<!--                <input class="rectangle-9 border-1px-dove-gray" type="text" id="job-input" th:field="*{job}" maxlength="30"></d>-->
-<!--            </div>-->
-
-<!--            <div class="group-5">-->
-<!--                <label class="job-title monaco-regular-normal-black-20px" for="aboutMe-input">Coding Interests</label>-->
-<!--                <input class="rectangle-9 border-1px-dove-gray" type="text" id="aboutMe-input" th:field="*{aboutMe}" maxlength="30"></d>-->
-<!--            </div>-->
-
-<!--            <div class="group-6">-->
-<!--                <label for="codeLanguages-input" class="coding monaco-regular-normal-black-20px">Coding Languages</label>-->
-<!--                <input type="text" class="rectangle border-1px-dove-gray" id="codeLanguages-input" th:field="*{codeLanguages}">-->
-<!--            </div>-->
-
-
-<!--            <div class="border-1px-dove-gray" id="uploadPhoto">-->
-<!--                <input type="hidden" id="photo" name="gallery_photo" th:field="*{profile_picture_url}"/>-->
-<!--                <button class="btn btn-secondary change" style="font-family: Monaco; font-size: 15px; text-color: white;" id="upload">Change Profile Photo</button>-->
-<!--            </div>-->
-
-<!--            <div class="error-message" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>-->
-<!--            <div class="error-message" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>-->
-<!--            <button type="submit" class="rectangle-16 btn btn-primary">Save Changes</button>-->
-
-<!--            <form style="float: right;" th:action="@{/{username}/delete (username=${#authentication.principal.username})}" method="POST" class="p-3" >-->
-<!--                <button type="submit" class="rectangle-15 btn btn-danger" onclick="return confirm('Are you sure?\nYou can\'t change your mind after clicking OK.')">Delete your account</button>-->
-<!--            </form>-->
-
-<!--</form>-->
-
-<!--<form class="web-1920-1 screen" name="form1" action="form1" method="post">-->
-<!--    <h1 class="title monaco-regular-normal-black-30px">Username</h1>-->
-<!--    <div class="flex-row">-->
-<!--        <img-->
-<!--                class="shutterstock_2028609842"-->
-<!--                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8b97fad031b391774fc25/img/shutterstock-2028609842@1x.png"-->
-<!--        />-->
-<!--        <div class="flex-row-1 border-1px-dove-gray">-->
-<!--            <div class="flex-col">-->
-<!--                <div class="full-name monaco-regular-normal-black-30px">Full Name</div>-->
-<!--                <div class="joinedjoin-date monaco-regular-normal-black-30px">-->
-<!--                    Joined<br />Join date-->
-<!--                </div>-->
-<!--                <div class="component-1-1">-->
-<!--                    <div class="birthdaybirth-date monaco-regular-normal-black-30px">-->
-<!--                        Birthday<br />Birth date-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="email-emailcom monaco-regular-normal-black-30px">-->
-<!--                    Email <br />@email.com-->
-<!--                </div>-->
-<!--                <div class="works-atplace-works monaco-regular-normal-black-30px">-->
-<!--                    Works at<br />Place works-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="flex-col-1">-->
-<!--                <div class="interestsinterest-d monaco-regular-normal-black-30px">-->
-<!--                    Interests<br />Interest description fill<br />Aksdfja;adlkfjaasdkajf<br />Ksldjadsl-->
-<!--                </div>-->
-<!--                <div class="languagaeslanguages monaco-regular-normal-black-30px">-->
-<!--                    Languagaes<br />Languages-->
-<!--                </div>-->
-<!--                <div class="rectangle-2 border-1px-dove-gray"></div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="overlap-group3 border-1px-dove-gray">-->
-<!--        <div class="rectangle-4 border-1px-dove-gray"></div>-->
-<!--        <div class="discard-changes monaco-regular-normal-black-20px">-->
-<!--            Discard changes-->
-<!--        </div>-->
-<!--        <div class="rectangle-14 border-1px-dove-gray"></div>-->
-<!--        <div class="group-1">-->
-<!--            <div class="first-name monaco-regular-normal-black-20px">First Name</div>-->
-<!--            <div class="rectangle border-1px-dove-gray"></div>-->
-<!--        </div>-->
-<!--        <div class="overlap-group">-->
-<!--            <div class="last-name monaco-regular-normal-black-20px">Last Name</div>-->
-<!--            <div class="rectangle-1 border-1px-dove-gray"></div>-->
-<!--        </div>-->
-<!--        <div class="overlap-group1">-->
-<!--            <div class="birthday monaco-regular-normal-black-20px">Birthday</div>-->
-<!--            <div class="rectangle-1 border-1px-dove-gray"></div>-->
-<!--        </div>-->
-<!--        <div class="group-4">-->
-<!--            <div class="job-title monaco-regular-normal-black-20px">Job Title</div>-->
-<!--            <div class="rectangle-9 border-1px-dove-gray"></div>-->
-<!--        </div>-->
-<!--        <div class="group-5">-->
-<!--            <div class="coding monaco-regular-normal-black-20px">-->
-<!--                Coding Interests-->
-<!--            </div>-->
-<!--            <a href="javascript:SubmitForm('form1')"-->
-<!--            ><div class="rectangle-10 border-1px-dove-gray"></div-->
-<!--            ></a>-->
-<!--        </div>-->
-<!--        <div class="group-6">-->
-<!--            <div class="coding monaco-regular-normal-black-20px">-->
-<!--                Coding Languages-->
-<!--            </div>-->
-<!--            <div class="rectangle border-1px-dove-gray"></div>-->
-<!--        </div>-->
-<!--        <div class="rectangle-12 border-1px-dove-gray"></div>-->
-<!--        <div class="rectangle-15 border-1px-dove-gray"></div>-->
-<!--        <div class="rectangle-16 border-1px-dove-gray"></div>-->
-<!--    </div>-->
-<!--</form>-->
-
-
-
-
-
-
-
-
-
-
-
-<div class="template row">
-    <aside class="col-xl-4">
-        <div class="container">
-            <div class="row p-2" style="background: white">
-                <div class="col">
-                    <img class="card-img-top p-3 profile-pic" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap">
-                    <h5 class="card-title" th:text="${user.username}"></h5>
-                </div>
-                <div class="col">
-                    <div class="card-text">
-                        <p th:text="${user.firstName}"></p>
-                        <p th:text="${user.lastName}"></p>
-                        <p class="text-muted">Joined</p>
-                        <p th:text="${user.createdDate}"></p>
-                        <p class="text-muted">Birthday</p>
-                        <p th:text="${user.birthday}"></p>
+    <main class="editform screen">
+        <div class="p-5" style="width: 100%; background-color: #e6c25f; border: 5px solid black">
+            <div class="discardchanges">
+                <div class="a1">
+                    <div class="a2">
+                        <div class="a3">
+                            <div class="a4">
+                                <div class="a5"><div class="a6"></div></div>
+                            </div>
+                                </div>
+                                <div class="a8"></div>
+                                <div class="a8"></div>
+                            </div>
+                                <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
+                                    <div class="dis monaco-regular-normal-white-14px">DISCARD CHANGES</div>
+                                </a>
+                            </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card-text">
-                        <p class="text-muted">Email</p>
-                        <p th:text="${user.email}"></p>
-                        <p class="text-muted">Job</p>
-                        <p th:text="${user.job}"></p>
-                    </div>
-                    <form  th:if="${#authentication.principal.username == user.username}" th:action="@{/edit/{username}(username=${#authentication.principal.username})}" class="card-link" method="get">
-                        <button type="submit" class="btn btn-secondary">Edit Profile</button>
-                    </form>
-                </div>
-                <div class="col-12">
-                    <p th:text="${user.aboutMe}"></p>
-                </div>
-                <div class="col-12">
-                    <p th:text="${user.codeLanguages}"></p>
-                </div>
-            </div>
-        </div>
-    </aside>
-    <main class="col-xl-8">
-        <div class="p-5" style="width: 100%; background-color: white; border: 5px solid #bde0fe">
-            <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
-                <h5>Home</h5>
-            </a>
-
 
             <form th:action="@{/edit/{username} (username=${user.getUsername()})}" method="POST" th:object="${user}">
-                <div class="mb-3">
-                    <label for="first-name-input">First Name</label>
-                    <input id="first-name-input" class="form-control" th:field="*{firstName}" />
+                <div class="mb-3 mt-3">
+                    <label for="first-name-input" class="form-label monaco-regular-normal-black-28px">First Name</label>
+                    <input id="first-name-input" class="form-control monaco-regular-normal-black-14px" th:field="*{firstName}" />
                 </div>
                 <div class="mb-3">
-                    <label for="last-name-input" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="last-name-input" th:field="*{lastName}">
+                    <label for="last-name-input" class="form-label monaco-regular-normal-black-28px">Last Name</label>
+                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="last-name-input" th:field="*{lastName}">
                 </div>
                 <div class="mb-3">
-                    <label for="aboutMe-input" class="form-label">Coding Interest</label>
-                    <input type="text" class="form-control" id="aboutMe-input" th:field="*{aboutMe}">
+                    <label for="aboutMe-input" class="form-label monaco-regular-normal-black-28px">Coding Interests</label>
+                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="aboutMe-input" th:field="*{aboutMe}">
                 </div>
                 <div class="mb-3">
-                    <label for="codeLanguages-input" class="form-label">Coding Languages</label>
-                    <input type="text" class="form-control" id="codeLanguages-input" th:field="*{codeLanguages}">
-                </div>
-
-
-                <div class="mb-3">
-                    <label for="birthday-input" class="col-2 col-form-label">Birthday</label>
-                    <input class="form-control" type="date" value="2000-01-01" id="birthday-input" th:field="*{birthday}">
+                    <label for="codeLanguages-input" class="form-label monaco-regular-normal-black-28px">Coding Languages</label>
+                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="codeLanguages-input" th:field="*{codeLanguages}">
                 </div>
 
 
                 <div class="mb-3">
-                    <label for="job-input" class="form-label">Job</label>
-                    <input type="text" class="form-control" id="job-input" th:field="*{job}" maxlength="30">
+                    <label for="birthday-input" class="col-2 col-form-label monaco-regular-normal-black-28px">Birthday</label>
+                    <input class="form-control monaco-regular-normal-black-14px" type="date" value="2000-01-01" id="birthday-input" th:field="*{birthday}">
                 </div>
 
 
+                <div class="mb-3">
+                    <label for="job-input" class="form-label monaco-regular-normal-black-28px">Job</label>
+                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="job-input" th:field="*{job}" maxlength="30">
+                </div>
+                    <div class="light-button3-containeda-text-enabled-2">
+                                    <div class="d1">
+                                        <div class="d2">
+                                            <div class="d3">
+                                            </div>
+                                        </div>
+                                        <div class="pic monaco-regular-normal-white-14px" id="uploadPhoto">
+
+                                                <input type="hidden" id="photo" name="gallery_photo" th:field="*{profile_picture_url}" />
+                                                <button class="btn btn-secondary" id="upload">Profile Photo</button>
 
 
-
-
-
-                <div class="mb-3 p-5" id="uploadPhoto">
-                    <input type="hidden" id="photo" name="gallery_photo" th:field="*{profile_picture_url}" />
-                    <button class="btn btn-secondary" id="upload">Change Profile Photo</button>
+                                        </div>
+                                    </div>
+                                </div>
+                <div class="light-button3-containeda-text-enabled-2">
+                            <div class="d8">
+                                <div class="d9">
+                                    <div class="container">
+                                        <div class="e1">
+                                            <div class="error-message" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+                                            <div class="error-message" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+                                            <button type="submit" class="btn btn-primary sav monaco-regular-normal-white-14px">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
 
-
-
-
-                <div class="error-message" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
-                <div class="error-message" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
-                <button type="submit" class="btn btn-primary">Save Changes</button>
             </form>
-            <form style="float: right;" th:action="@{/{username}/delete (username=${#authentication.principal.username})}" method="POST" class="p-3" >
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?\nYou can\'t change your mind after clicking OK.')">Delete your account</button>
+            <form th:action="@{/{username}/delete (username=${#authentication.principal.username})}" method="POST" class="p-3" >
+                <button type="submit" class="btn btn-danger monaco-regular-normal-white-14px" onclick="return confirm('Are you sure?\nYou can\'t change your mind after clicking OK.')">Delete your account</button>
             </form>
+
+
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
@@ -304,14 +1024,6 @@
             </div>
         </div>
     </main>
-    <div class="wknd-container">
-        <div class="wknd-separator"><div class="separator"></div></div>
-        <div class="wknd-xf-footer">
-            <h1 class="title">CodeEncounter</h1>
-            <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>
-        </div>
-    </div>
-
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
