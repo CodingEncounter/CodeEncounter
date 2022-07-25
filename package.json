@@ -1,0 +1,7 @@
+{
+  "name": "CodeEncounter",
+  "version": "1.0.0",
+  "dependencies": {
+    "talkjs": "^0.15.5"
+  }
+}
