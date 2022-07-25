@@ -4,33 +4,20 @@
 <head th:replace="partials/head :: head('Profile')">
     <meta charset="UTF-8">
     <title>Title</title>
-     minified snippet to load TalkJS without delaying your page
+    <!-- minified snippet to load TalkJS without delaying your page -->
     <script>
         (function(t,a,l,k,j,s){
             s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
             ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
                         .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
     </script>
-
-    <!-- container element in which TalkJS will display a chat UI -->
+<!--    &lt;!&ndash; container element in which TalkJS will display a chat UI &ndash;&gt;-->
     <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px">
         <i>Loading chat...</i>
     </div>
 </head>
 <body>
-<!--<link rel="stylesheet" href="../css/ChatTest.css" />-->
-<!--&lt;!&ndash; minified snippet to load TalkJS without delaying your page &ndash;&gt;-->
-<!--<script>-->
-<!--    (function(t,a,l,k,j,s){-->
-<!--        s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)-->
-<!--        ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l-->
-<!--                    .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);-->
-<!--</script>-->
 
-<!--&lt;!&ndash; container element in which TalkJS will display a chat UI &ndash;&gt;-->
-<!--<div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px">-->
-<!--    <i>Loading chat...</i>-->
-<!--</div>-->
 <!--<header th:replace="partials/header :: header"></header>-->
 <!--<div class="wknd-profile screen">-->
 <!--    <br><br>-->
@@ -89,18 +76,16 @@
 <!--button-->
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="chat"></div>
-    </aside>
-    <main class="col-xl-8">
-        <div style="width: 100%;">
-            <!--            nav tabs-->
-            <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
 
-=======
-    </div>
-</div>
+<!--    </aside>-->
+<!--    <main class="col-xl-8">-->
+<!--        <div style="width: 100%;">-->
+            <!--            nav tabs-->
+<!--            <nav>-->
+<!--                <div class="nav nav-tabs" id="nav-tab" role="tablist">-->
+<!--                    -->
+<!--    </div>-->
+
 
     <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Everything above is the user profile++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -159,7 +144,6 @@
             <!--            nav tabs-->
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 25px;">
->>>>>>> 49b9f7704a8be8e89464aa0dd85740c5ad68ed01
                     <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts"
                        role="tab" aria-controls="nav-posts" aria-selected="true">Post Something</a>
                     <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab"
@@ -377,8 +361,6 @@
 <!--        </div>-->
 <!--        </div>-->
     </main>
-<<<<<<< HEAD
-
         </div>
 <!--        </div>-->
 
@@ -390,13 +372,12 @@
 
 <!--</div>-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<!--<script type="text/javascript">-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>-->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-=======
             <div class="wknd-container">
                 <div class="wknd-xf-footer">
                     <h1 class="title">CodeEncounter</h1>
@@ -405,7 +386,6 @@
             </div>
 <!--        </div>-->
 
->>>>>>> 49b9f7704a8be8e89464aa0dd85740c5ad68ed01
 </div>
 
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
@@ -424,10 +404,9 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
-<script src="../chat.php"></script>
 <script src="/keys.js"></script>
 <!--<script src="../../static/js/UserChat.js"></script>-->
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
-<!--<script type="text/javascript" th:src="@{../js/UserChat.js}" defer></script>-->
+<script type="text/javascript" th:src="@{../js/UserChat.js}" defer></script>
 </body>
 </html>
