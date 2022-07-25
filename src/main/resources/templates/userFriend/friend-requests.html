@@ -5,6 +5,326 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+    @font-face {
+        font-family: "Monaco-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+    }
+
+    :root {
+        --primary--500-: #6200ee;
+        --white: #ffffff;
+        --light---outline--on-surface-000000-12: #0000001f;
+        --light---on-surface--high-emphasis-000000-87: #000000de;
+        --light---on-surface--medium-emphasis-000000-60: #00000099;
+        --equator: #e6c25f;
+        --font-size-l2: 16px;
+        --font-size-m3: 14px;
+        --font-family-monaco-regular: Monaco;
+    }
+
+    .viewingprofile {
+        align-items: flex-start;
+        background-color: var(--white);
+        display: flex;
+        height: 650px;
+        min-width: 1440px;
+        padding: 49px 20px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .light-container {
+        height: 533px;
+        position: relative;
+        width: 1376px;
+    }
+
+    .light-card-image-top-elevated-01-dp {
+        align-items: flex-start;
+        display: flex;
+        height: 533px;
+        left: 0;
+        min-width: 1376px;
+        position: absolute;
+        top: 0;
+    }
+
+    .overlap-group4 {
+        border-radius: 4px;
+        height: 525px;
+        position: absolute;
+        width: 1376px;
+    }
+
+    .light-card-elements-imagea-image {
+        display: flex;
+        height: 385px;
+        left: 0;
+        position: absolute;
+        top: 64px;
+        width: 1376px;
+    }
+
+    .image {
+        border-radius: 30px;
+        flex: 1;
+        margin-left: 90px;
+        margin-right: 853px;
+        width: 426px;
+        height: 426px;
+    }
+
+    .light-lists-three-li-5 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 962px;
+        min-height: 69px;
+        position: absolute;
+        top: 111px;
+        width: 309px;
+    }
+
+    .devider-light {
+        align-self: flex-end;
+        background-color: var(--light---outline--on-surface-000000-12);
+        height: 1px;
+        margin-top: 12px;
+        width: 293px;
+    }
+
+    .overlap-group {
+        height: 47px;
+        margin-left: 14px;
+        margin-top: 9px;
+        position: relative;
+        width: 225px;
+    }
+
+    .secondary-text {
+        height: 28px;
+        left: 0;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        position: absolute;
+        top: 19px;
+        width: 225px;
+    }
+
+    .monaco-regular-normal-black-14px {
+        color: var(--light---on-surface--medium-emphasis-000000-60);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m3);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .subtitle-1 {
+        left: 0;
+        letter-spacing: 0.5px;
+        line-height: 24px;
+        position: absolute;
+        top: 0;
+        white-space: nowrap;
+    }
+
+    .monaco-regular-normal-black-16px {
+        color: var(--light---on-surface--high-emphasis-000000-87);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-l2);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .light-lists-three-li-4 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 249px;
+        width: 309px;
+    }
+
+    .light-lists-three-li-2 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 111px;
+        width: 309px;
+    }
+
+    .light-lists-three-li-6 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 317px;
+        width: 309px;
+    }
+
+    .light-button3-containeda-text-enabled {
+        display: flex;
+        height: 37px;
+        left: 1206px;
+        position: absolute;
+        top: 463px;
+        width: 129px;
+    }
+
+    .container-2 {
+        align-items: flex-start;
+        display: flex;
+        flex: 1;
+        min-width: 129px;
+    }
+
+    .overlap-group1-1 {
+        height: 37px;
+        position: relative;
+        width: 129px;
+    }
+
+    .states-1 {
+        display: flex;
+        height: 20px;
+        left: 15px;
+        position: absolute;
+        top: 9px;
+        width: 103px;
+    }
+
+    .edit-profile {
+        color: var(--white);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m3);
+        font-weight: 400;
+        height: 20px;
+        letter-spacing: 0;
+        line-height: 14px;
+        white-space: nowrap;
+        width: 103px;
+    }
+
+    .light-lists-three-li {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 962px;
+        min-height: 88px;
+        position: absolute;
+        top: 196px;
+        width: 309px;
+    }
+
+    .subtitle-1-1 {
+        letter-spacing: 0.5px;
+        line-height: 24px;
+        margin-bottom: -2px;
+        margin-left: 14px;
+        margin-top: 9px;
+        min-height: 22px;
+        white-space: nowrap;
+    }
+
+    .secondary-text-1 {
+        align-self: center;
+        height: 42px;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        margin-left: 9px;
+        margin-top: 2px;
+        width: 290px;
+    }
+
+    .light-lists-three-li-1 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 962px;
+        min-height: 71px;
+        position: absolute;
+        top: 315px;
+        width: 309px;
+    }
+
+    .secondary-text-2 {
+        align-self: center;
+        height: 42px;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        margin-left: 3px;
+        margin-top: 2px;
+        width: 290px;
+    }
+
+    .devider-light-1 {
+        align-self: flex-end;
+        background-color: var(--light---outline--on-surface-000000-12);
+        height: 1px;
+        margin-top: 6px;
+        width: 293px;
+    }
+
+    .subtitle-1-2 {
+        letter-spacing: 0.5px;
+        line-height: 24px;
+        margin-bottom: -2px;
+        margin-left: 11px;
+        margin-top: -2px;
+        min-height: 22px;
+        white-space: nowrap;
+    }
+
+    .light-lists-three-li-3 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 180px;
+        width: 309px;
+    }
+
+    .overlap-group6 {
+        height: 47px;
+        margin-left: 14px;
+        margin-top: 9px;
+        position: relative;
+        width: 190px;
+    }
+
+    .secondary-text-3 {
+        height: 28px;
+        left: 0;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        position: absolute;
+        top: 19px;
+        width: 190px;
+    }
+
+</style>
 <body>
 <header th:replace="partials/header :: header"></header>
 <div class="wknd-profile screen">
@@ -12,91 +332,135 @@
     <div class="wknd-xf-header">
         <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
     </div>
-
-    <div class="template row">
-
-        <aside class="col-xl-4">
-            <div class="container">
-                <div class="row p-3" style="background: #E6C25F">
-                    <div class="col">
-                        <img class="card-img-top p-3 profile-pic" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap">
-                        <h5 class="card-title" th:text="${user.username}"></h5>
-                    </div>
-                    <div class="col">
-                        <div class="card-text" style="font-family: Monaco; font-size: 25px;">
-                            <p th:text="${user.firstName}"></p>
-                            <p th:text="${user.lastName}"></p>
-                            <p class="text-muted">Joined</p>
-                            <p th:text="${user.createdDate}"></p>
-                            <p class="text-muted">Birthday</p>
-                            <p th:text="${user.birthday}"></p>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card-text" style="font-family: Monaco; font-size: 25px;">
-                            <p class="text-muted">Email</p>
-                            <p th:text="${user.email}"></p>
-                            <p class="text-muted">Works at</p>
-                            <p th:text="${user.job}"></p>
-                        </div>
-                        <form  th:if="${#authentication.principal.username == user.getUsername()}" th:action="@{/edit/{username}(username=${#authentication.principal.username})}" class="card-link" method="get">
-                            <button type="submit" class="btn btn-secondary">Edit Profile</button>
-                        </form>
-                    </div>
-                    <div class="col-12">
-                        <p th:text="${user.aboutMe}"></p>
-                    </div>
-                    <div class="col-12">
-                        <p th:text="${user.codeLanguages}"></p>
-                    </div>
+    <div class="mb-3 mt-3" style="width: 100%; background-color: #e6c25f; border: 5px solid black">
+        <div class="light-container">
+            <div class="light-card-image-top-elevated-01-dp">
+                <div class="light-card-elements-imagea-image">
+                    <img class="image" th:src="${user.getProfile_picture_url().toString()}"
+                         alt="Card image cap">
                 </div>
             </div>
-        </aside>
-        <main class="col-xl-8">
-            <div style="width: 100%; background-color: white;" class="p-5">
-                <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
-                    <h5>Home</h5>
-                </a>
-                <h1>Friend Requests</h1>
-                <div class="p-5" style="background-color: #bde0fe;" th:each="item : ${friendRequests}">
-                    <div class="row m-3 p-3" style="background-color: white;">
-                        <div class="col-4">
-                            <img th:src="${item.getUser().getProfile_picture_url().toString()}" class="gallery-item-tiny" alt="...">
-                            <a th:if="${item.getStatus().ACCEPTED}" th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">
-                                <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
-                            </a>
-                            <div th:if="${item.getStatus().PENDING}" th:href="@{/user/{username} (username=${user.getUsername()})}">
-                                <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                            <small class="text-muted">Username: </small>
-                            <p class="card-text" th:text="${item.getUser().getUsername()}"></p>
-                            <small class="text-muted">First Name: </small>
-                            <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>
-                            <small class="text-muted">Last Name: </small>
-                            <p class="card-text" th:text="${item.getUser().getLastName()}"></p>
-                            <form th:action="@{/request/{username}/{friendName}/accept (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
-                                <input class="field" name="accept" type="hidden" th:value="${item.getUser().getUsername()}"/>
-                                <button class="btn btn-primary">Accept</button>
-                            </form>
-                            <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
-                                <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>
-                                <button class="btn btn-danger">Reject</button>
-                            </form>
-                        </div>
+            <div class="light-lists-three-li">
+                <div class="subtitle-1-1 monaco-regular-normal-black-16px">
+                    Interests:
+                </div>
+                <p class="secondary-text-1 monaco-regular-normal-black-14px" th:text="${user.aboutMe}"></p>
+                <div class="devider-light"></div>
+            </div>
+            <div class="light-lists-three-li-1">
+                <div class="subtitle-1-2 monaco-regular-normal-black-16px">
+                    <p class="text-muted">Language Proficiency:</p>
+                </div>
+                <p class="secondary-text-2 monaco-regular-normal-black-14px" th:text="${user.codeLanguages}"></p>
+                <div class="devider-light-1"></div>
+            </div>
+            <div class="light-lists-three-li-2">
+                <div class="overlap-group">
+                    <div class="subtitle-1 monaco-regular-normal-black-16px">
+                        <p th:text="${user.firstName}"></p>
+                        <p th:text="${user.lastName}"></p>
                     </div>
                 </div>
+                <div class="devider-light"></div>
             </div>
-        </main>
-        <div class="wknd-container">
-            <div class="wknd-separator"><div class="separator"></div></div>
-            <div class="wknd-xf-footer">
-                <h1 class="title">CodeEncounter</h1>
-                <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>
+            <div class="light-lists-three-li-3">
+                <div class="overlap-group6">
+                    <div class="subtitle-1 monaco-regular-normal-black-16px">
+                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
+                    </div>
+                    <div class="secondary-text-3 monaco-regular-normal-black-14px">
+                        <p th:text="${user.createdDate}"></p>
+                    </div>
+                </div>
+                <div class="devider-light"></div>
+            </div>
+            <div class="light-lists-three-li-4">
+                <div class="overlap-group">
+                    <div class="subtitle-1 monaco-regular-normal-black-16px">
+                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
+                    </div>
+                    <div class="secondary-text monaco-regular-normal-black-14px">
+                        <p th:text="${user.birthday}"></p>
+                    </div>
+                </div>
+                <div class="devider-light"></div>
+            </div>
+            <div class="light-lists-three-li-5">
+                <div class="overlap-group">
+                    <div class="subtitle-1 monaco-regular-normal-black-16px">
+                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p>
+                    </div>
+                    <div class="secondary-text monaco-regular-normal-black-14px">
+                        <p th:text="${user.email}"></p>
+                    </div>
+                </div>
+                <div class="devider-light"></div>
+            </div>
+            <div class="light-lists-three-li-6">
+                <div class="overlap-group">
+                    <div class="subtitle-1 monaco-regular-normal-black-16px">
+                        <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>
+                    </div>
+                    <div class="secondary-text monaco-regular-normal-black-14px">
+                        <p th:text="${user.job}"></p>
+                    </div>
+                </div>
+                <div class="devider-light"></div>
             </div>
         </div>
     </div>
+
+
+    <main class="col-xl-8">
+        <div class="discardchanges">
+            <div class="a1">
+                <div class="a2">
+                    <div class="a3">
+                        <div class="a4">
+                            <div class="a5"><div class="a6"></div></div>
+                        </div>
+                    </div>
+                    <div class="a8"></div>
+                    <div class="a8"></div>
+                </div>
+                <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
+                    <div class="dis monaco-regular-normal-white-14px">Back to profile page</div>
+                </a>
+            </div>
+        </div>
+            <h1>Friend Requests</h1>
+            <div class="p-5" style="background-color: #bde0fe;" th:each="item : ${friendRequests}">
+                <div class="row m-3 p-3" style="background-color: white;">
+                    <div class="col-4">
+                        <img th:src="${item.getUser().getProfile_picture_url().toString()}" class="gallery-item-tiny" alt="...">
+                        <a th:if="${item.getStatus().ACCEPTED}" th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">
+                            <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
+                        </a>
+                        <div th:if="${item.getStatus().PENDING}" th:href="@{/user/{username} (username=${user.getUsername()})}">
+                            <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <small class="text-muted">Username: </small>
+                        <p class="card-text" th:text="${item.getUser().getUsername()}"></p>
+                        <small class="text-muted">First Name: </small>
+                        <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>
+                        <small class="text-muted">Last Name: </small>
+                        <p class="card-text" th:text="${item.getUser().getLastName()}"></p>
+                        <form th:action="@{/request/{username}/{friendName}/accept (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
+                            <input class="field" name="accept" type="hidden" th:value="${item.getUser().getUsername()}"/>
+                            <button class="btn btn-primary">Accept</button>
+                        </form>
+                        <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
+                            <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>
+                            <button class="btn btn-danger">Reject</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
