@@ -5,11 +5,213 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+    :root {
+        --white: #fff;
+        --black: #1c2b2d;
+        --blue: #31326f;
+        --light-blue: #005490;
+        --color-primary: black;
+        --color-sec: black;
+        --color-grey: #eee;
+        --color-dark-grey: #222831;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /*html {*/
+    /*    font-size: 10px;*/
+    /*}*/
+
+    body {
+        font-family: Monaco;
+    }
+
+    p {
+        font-size: 1.6rem;
+        line-height: 1.5;
+    }
+
+    img {
+        width: 30%;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .meetus {
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .main h2 {
+        font-size: 20px;
+        font-weight: 300;
+        margin-bottom: 2rem;
+    }
+
+    .slider {
+        width: 80%;
+        max-width: 60rem;
+        height: auto;
+        padding: 4rem 5rem;
+        position: relative;
+        border: 5px solid var(--color-primary);
+        background-color: white;
+    }
+
+    .fa-quote-left {
+        font-size: 2.5rem;
+        height: 5rem;
+        width: 5rem;
+        background-color: var(--color-sec);
+        color: var(--white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        position: absolute;
+        left: 2rem;
+        top: -3rem;
+    }
+
+    .slide {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        transform: translateX(2rem);
+        animation: slide 0.5s forwards;
+    }
+
+    @keyframes slide {
+        to {
+            transform: translateX(0);
+        }
+    }
+    .slide-2 {
+        display: none;
+    }
+
+    .testimonial-text {
+        font-size: 1.3rem;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+        position: relative;
+        padding-bottom: 2rem;
+    }
+
+    .testimonial-text::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 25%;
+        height: 1px;
+        background-color: var(--color-sec);
+        transform: translateX(-50%);
+    }
+
+    .slide-img img {
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+        border: 2px solid var(--color-grey);
+    }
+
+    .author-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--color-sec);
+    }
+
+    .author-text span {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: var(--color-dark-grey);
+    }
+
+    .nextprev {
+        position: absolute;
+        left: 80%;
+        bottom: -2rem;
+        width: 9rem;
+        height: 3.5rem;
+        border: 2px solid var(--color-sec);
+        border-radius: 50px;
+        background-color: var(--white);
+        overflow: hidden;
+    }
+
+    .next,
+    .prev {
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .next:hover,
+    .prev:hover {
+        background-color: black;
+    }
+
+    .next {
+        right: 0;
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    .next::after,
+    .prev::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    }
+
+    .next::after {
+        background-image: url(/img/icon-next.svg);
+    }
+    .prev::after {
+        background-image: url(/img/icon-prev.svg);
+    }
+
+    @media screen and (max-width: 600px) {
+        .slider {
+            width: 90%;
+        }
+        .buttons {
+            left: 75%;
+        }
+    }
+</style>
 <header th:fragment="header">
     <div sec:authorize="isAnonymous()">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e6c25f;">
             <div class="container-fluid">
-                <ul class="navbar-nav mb-2 mb-lg-0">
+                <ul class="navbar-nav mb-2 mb-lg-2">
                     <li class="nav-item">
                         <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px" th:href="@{/login}">Login</a>
                     </li>
@@ -49,9 +251,9 @@
                 src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/path-2874-1x-png@1x.png"
         />
         <div class="code-encounter">CodeEncounter</div>
-        <div class="wknd-teaser-4">
+        <div class="mainimg">
             <div class="overlap-group2 border-1px-dove-gray">
-                <h1 class="title">Build something better, together.</h1>
+                <h1 class="intro">Build something better, together.</h1>
             </div>
         </div>
     </div>
@@ -64,10 +266,20 @@
                 <div class="underline"></div>
             </div>
             <div class="something monaco-regular-normal-eerie-black-24px">
-                Something
+                Join in on the fun today
             </div>
             <div class="something-taskldfas wknd-text-small">
-                Something taskldfa;sdhf;kasdfasjfa;skdfj
+                Our sign up process is simple. <br>
+                Once you're logged in, you can enjoy all of the features that CodeEncounter has to offer.
+                <li>
+                    View, comment, and chat with other users
+                </li>
+                <li>
+                    Built in IDE to test what you're working on
+                </li>
+                <li>
+                    Post, comment, and see what your friends are up to.
+                </li>
             </div>
         </div>
         <img
@@ -133,16 +345,16 @@
             </div>
         </div>
         <img
-                class="image-6"
+                class="project1"
                 src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-6-1x-png@1x.png"
         /><img
-            class="image-12"
+            class="project2"
             src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-12-1x-png@1x.png"
     /><img
-            class="image-13"
+            class="project3"
             src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-13-1x-png@1x.png"
     /><img
-            class="image-14"
+            class="project4"
             src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-14@1x.png"
     />
     </div>
@@ -196,25 +408,84 @@
             </div>
         </div>
         <img
-                class="image-8"
+                class="user1"
                 src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-8-1x-png@1x.png"
         /><img
-            class="image-9"
+            class="user2"
             src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-9-1x-png@1x.png"
     /><img
-            class="image-10"
+            class="user3"
             src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-10-1x-png@1x.png"
     /><img
-            class="image-11"
+            class="user4"
             src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-11-1x-png@1x.png"
     />
     </div>
+    <section class="meetus">
+        <h2 class="main h2">-- Meet The Team --</h2>
+        <div class="slider">
+            <i class="fas fa-quote-left"></i>
+
+            <div class="slide slide-1">
+                <p class="testimonial-text">
+                    “ I’ve been interested in coding for a while but never taken the
+                    jump, until now. I couldn’t recommend this course enough. I’m now in
+                    the job of my dreams and so excited about the future. ”
+                </p>
+                <div class="slide-img">
+                    <img src="/static/img/melanie-schwartz.jpg" alt="" />
+                </div>
+                <p class="author-text">Melanie Schwartz <span>Web Developer</span></p>
+            </div>
+
+            <div class="slide slide-2">
+                <p class="testimonial-text">
+                    “ If you want to lay the best foundation possible I’d recommend
+                    taking the Codeup Full Stack Developer course. The depth the instructors go into is incredible.
+                    I now feel so confident about starting up as a professional
+                    developer. ”
+                </p>
+                <div class="slide-img">
+                    <img src="/img/img-4390.jpg" alt="" />
+                </div>
+                <p class="author-text">
+                    Cory Tidwell <span>Full-Stack Developer</span>
+                </p>
+            </div>
+            <div class="slide slide-3">
+                <p class="testimonial-text">
+                    “ I’ve been interested in coding for a while but never taken the
+                    jump, until now. I couldn’t recommend this course enough. I’m now in
+                    the job of my dreams and so excited about the future. ”
+                </p>
+                <div class="slide-img">
+                    <img src="/img/image-tanya.jpg" alt="" />
+                </div>
+                <p class="author-text">Boryana Dimova <span>Web Developer</span></p>
+            </div>
+            <div class="slide slide-4">
+                <p class="testimonial-text">
+                    “ I’ve been interested in coding for a while but never taken the
+                    jump, until now. I couldn’t recommend this course enough. I’m now in
+                    the job of my dreams and so excited about the future. ”
+                </p>
+                <div class="slide-img">
+                    <img src="/img/image-tanya.jpg" alt="" />
+                </div>
+                <p class="author-text">Chris Ortiz <span>Web Developer</span></p>
+            </div>
+
+            <div class="nextprev">
+                <div class="next"></div>
+                <div class="prev"></div>
+            </div>
+        </div>
+    </section>
     <div class="wknd-xf-footer">
         <div class="overlap-group1">
             <div class="x2022-code-encounter">
-        <span class="sourcesanspro-semi-bold-gray-28px">Ⓒ 2022 CodeEncounter</span>
+                <span class="sourcesanspro-semi-bold-gray-28px">Ⓒ 2022 CodeEncounter</span>
             </div>
-            <div class="c monaco-regular-normal-eerie-black-24px">C</div>
         </div>
     </div>
 </div>
@@ -222,5 +493,8 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/slider.js}" defer></script>
+
+
 </body>
 </html>
