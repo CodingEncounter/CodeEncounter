@@ -30,6 +30,501 @@
     <!--    <script th:src="../../static/js/geocoder.js"></script>-->
     <!--    <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>-->
 </head>
+<style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+    @font-face {
+        font-family: "Monaco-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+    }
+
+    :root {
+        --primary--500-: #6200ee;
+        --white: #ffffff;
+        --light---outline--on-surface-000000-12: #0000001f;
+        --light---on-surface--high-emphasis-000000-87: #000000de;
+        --light---on-surface--medium-emphasis-000000-60: #00000099;
+        --equator: #e6c25f;
+        --font-size-l2: 16px;
+        --font-size-m3: 14px;
+        --font-family-monaco-regular: Monaco;
+    }
+
+    .viewingprofile {
+        align-items: flex-start;
+        background-color: var(--white);
+        display: flex;
+        height: 853px;
+        min-width: 1440px;
+        padding: 49px 25px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .light-container {
+        height: 533px;
+        position: relative;
+        width: 1376px;
+    }
+
+    .light-card-image-top-elevated-01-dp {
+        align-items: flex-start;
+        display: flex;
+        height: 533px;
+        left: 0;
+        min-width: 1376px;
+        position: absolute;
+        top: 0;
+    }
+
+    .overlap-group4 {
+        border-radius: 4px;
+        height: 533px;
+        position: relative;
+        width: 1376px;
+    }
+
+    .overlap-group3 {
+        border-radius: 4px;
+        height: 533px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1376px;
+    }
+
+    .light-card-1-containera-elevated {
+        align-items: flex-start;
+        display: flex;
+        height: 474px;
+        left: 0;
+        min-width: 1376px;
+        position: absolute;
+        top: 0;
+    }
+
+    .overlap-group1 {
+        height: 474px;
+        position: relative;
+        width: 1376px;
+    }
+
+    .container {
+        background-color: var(--equator);
+        border-radius: 4px;
+        height: 474px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1376px;
+    }
+
+    .light-elevation00dp {
+        display: flex;
+        height: 474px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1376px;
+    }
+
+    .shadow {
+        align-items: flex-start;
+        background-color: var(--equator);
+        border-radius: 4px;
+        box-shadow: 0px 1px 3px #00000033;
+        display: flex;
+        flex: 1;
+        min-width: 1376px;
+        mix-blend-mode: multiply;
+    }
+
+    .overlap-group-1 {
+        align-items: flex-start;
+        background-color: var(--equator);
+        border-radius: 4px;
+        box-shadow: 0px 2px 1px #0000001f;
+        display: flex;
+        min-width: 1376px;
+    }
+
+    .rectangle {
+        background-color: var(--equator);
+        border-radius: 4px;
+        box-shadow: 0px 1px 1px #00000024;
+        height: 474px;
+        width: 1376px;
+    }
+
+    .light-button1-texta-text {
+        align-items: flex-start;
+        display: flex;
+        height: 35px;
+        left: 1196px;
+        min-width: 131px;
+        position: absolute;
+        top: 469px;
+    }
+
+    .overlap-group2 {
+        border-radius: 4px;
+        height: 35px;
+        position: relative;
+        width: 131px;
+    }
+
+    .container-1 {
+        background-color: var(--equator);
+        border-radius: 4px;
+        display: flex;
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 131px;
+    }
+
+    .states {
+        display: flex;
+        flex: 1;
+        width: 131px;
+    }
+
+    .states-light-surface {
+        background-color: var(--equator);
+        border-radius: 4px;
+        flex: 1;
+        margin-bottom: 35px;
+        margin-right: 131px;
+        width: 1px;
+    }
+
+    .label {
+        color: var(--equator);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m3);
+        font-weight: 400;
+        left: 8px;
+        letter-spacing: 1.25px;
+        line-height: 16px;
+        position: absolute;
+        top: 9px;
+        white-space: nowrap;
+    }
+
+    .color-l-container {
+        background-color: var(--equator);
+        border-radius: 4px;
+        height: 533px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1376px;
+    }
+
+    .light-card-elements-imagea-image {
+        display: flex;
+        height: 385px;
+        left: 0;
+        position: absolute;
+        top: 64px;
+        width: 1376px;
+    }
+
+    .image {
+        border-radius: 31px;
+        flex: 1;
+        margin-left: 97px;
+        margin-right: 853px;
+        width: 426px;
+    }
+
+    .light-lists-three-li-5 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 962px;
+        min-height: 69px;
+        position: absolute;
+        top: 111px;
+        width: 309px;
+    }
+
+    .devider-light {
+        align-self: flex-end;
+        background-color: var(--light---outline--on-surface-000000-12);
+        height: 1px;
+        margin-top: 12px;
+        width: 293px;
+    }
+
+    .overlap-group {
+        height: 47px;
+        margin-left: 14px;
+        margin-top: 9px;
+        position: relative;
+        width: 225px;
+    }
+
+    .secondary-text {
+        height: 28px;
+        left: 0;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        position: absolute;
+        top: 19px;
+        width: 225px;
+    }
+
+    .monaco-regular-normal-black-14px {
+        color: var(--light---on-surface--medium-emphasis-000000-60);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m3);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .subtitle-1 {
+        left: 0;
+        letter-spacing: 0.5px;
+        line-height: 24px;
+        position: absolute;
+        top: 0;
+        white-space: nowrap;
+    }
+
+    .monaco-regular-normal-black-16px {
+        color: var(--light---on-surface--high-emphasis-000000-87);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-l2);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .light-lists-three-li-4 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 249px;
+        width: 309px;
+    }
+
+    .light-lists-three-li-2 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 111px;
+        width: 309px;
+    }
+
+    .light-lists-three-li-6 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 317px;
+        width: 309px;
+    }
+
+    .light-button3-containeda-text-enabled {
+        display: flex;
+        height: 37px;
+        left: 1206px;
+        position: absolute;
+        top: 463px;
+        width: 129px;
+    }
+
+    .container-2 {
+        align-items: flex-start;
+        display: flex;
+        flex: 1;
+        min-width: 129px;
+    }
+
+    .overlap-group1-1 {
+        height: 37px;
+        position: relative;
+        width: 129px;
+    }
+
+    .states-1 {
+        display: flex;
+        height: 20px;
+        left: 15px;
+        position: absolute;
+        top: 9px;
+        width: 103px;
+    }
+
+    .edit-profile {
+        color: var(--white);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m3);
+        font-weight: 400;
+        height: 20px;
+        letter-spacing: 0;
+        line-height: 14px;
+        white-space: nowrap;
+        width: 103px;
+    }
+
+    .light-elevation02dp {
+        display: flex;
+        height: 37px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 129px;
+    }
+
+    .shadow-1 {
+        align-items: flex-start;
+        background-color: var(--white);
+        border-radius: 4px;
+        box-shadow: 0px 1px 5px #00000033;
+        display: flex;
+        flex: 1;
+        min-width: 129px;
+        mix-blend-mode: multiply;
+    }
+
+    .overlap-group-2 {
+        align-items: flex-start;
+        background-color: var(--white);
+        border-radius: 4px;
+        box-shadow: 0px 3px 1px #0000001f;
+        display: flex;
+        min-width: 129px;
+    }
+
+    .rectangle-1 {
+        background-color: var(--white);
+        border-radius: 4px;
+        box-shadow: 0px 2px 2px #00000024;
+        height: 37px;
+        width: 129px;
+    }
+
+
+    .light-lists-three-li {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 962px;
+        min-height: 88px;
+        position: absolute;
+        top: 196px;
+        width: 309px;
+    }
+
+    .subtitle-1-1 {
+        letter-spacing: 0.5px;
+        line-height: 24px;
+        margin-bottom: -2px;
+        margin-left: 14px;
+        margin-top: 9px;
+        min-height: 22px;
+        white-space: nowrap;
+    }
+
+    .secondary-text-1 {
+        align-self: center;
+        height: 42px;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        margin-left: 9px;
+        margin-top: 2px;
+        width: 290px;
+    }
+
+    .light-lists-three-li-1 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 962px;
+        min-height: 71px;
+        position: absolute;
+        top: 315px;
+        width: 309px;
+    }
+
+    .secondary-text-2 {
+        align-self: center;
+        height: 42px;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        margin-left: 3px;
+        margin-top: 2px;
+        width: 290px;
+    }
+
+    .devider-light-1 {
+        align-self: flex-end;
+        background-color: var(--light---outline--on-surface-000000-12);
+        height: 1px;
+        margin-top: 6px;
+        width: 293px;
+    }
+
+    .subtitle-1-2 {
+        letter-spacing: 0.5px;
+        line-height: 24px;
+        margin-bottom: -2px;
+        margin-left: 11px;
+        margin-top: -2px;
+        min-height: 22px;
+        white-space: nowrap;
+    }
+
+    .light-lists-three-li-3 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 620px;
+        min-height: 69px;
+        position: absolute;
+        top: 180px;
+        width: 309px;
+    }
+
+    .overlap-group6 {
+        height: 47px;
+        margin-left: 14px;
+        margin-top: 9px;
+        position: relative;
+        width: 190px;
+    }
+
+    .secondary-text-3 {
+        height: 28px;
+        left: 0;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        position: absolute;
+        top: 19px;
+        width: 190px;
+    }
+
+</style>
 
 <body>
 <header th:replace="partials/header :: header"></header>
@@ -41,57 +536,157 @@
 
     <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Everything below is the user profile++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <div class="web-1920-1 screen">
-        <div class="flex-row">
+<!--    <div class="web-1920-1 screen">-->
+<!--        <div class="flex-row">-->
             <!--        image-->
-            <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"
-                 alt="Card image cap">
+
             <!--        image-->
             <!--            content-->
-            <div class="flex-row-1 border-1px-dove-gray">
-                <div class="flex-col">
-                    <div class="full-name monaco-regular-normal-black-30px"><p th:text="${user.firstName}"></p>
-                        <p th:text="${user.lastName}"></p></div>
-                    <div class="joinedjoin-date monaco-regular-normal-black-30px">
-                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
-                        <p th:text="${user.createdDate}"></p>
-                    </div>
-                    <div class="component-1-1">
-                        <div class="birthdaybirth-date monaco-regular-normal-black-30px">
-                            <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
-                            <p th:text="${user.birthday}"></p>
+<!--            <div class="flex-row-1 border-1px-dove-gray">-->
+<!--                <div class="flex-col">-->
+<!--                    <div class="full-name monaco-regular-normal-black-30px"></div>-->
+
+
+<!--                    <div class="works-atplace-works monaco-regular-normal-black-30px">-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="flex-col-1">-->
+
+
+                    <!--                content-->
+                    <!--button-->
+<!--                    <form th:if="${sessionUser.getUsername() == user.username}"-->
+<!--                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"-->
+<!--                          class="rectangle-2 border-1px-dove-gray" method="get">-->
+<!--                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>-->
+<!--                    </form>-->
+                    <!--button-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+    <div class="viewingprofile screen">
+        <div class="light-container">
+            <div class="light-card-image-top-elevated-01-dp">
+                <div class="overlap-group4">
+                    <div class="overlap-group3">
+                        <div class="light-card-1-containera-elevated">
+                            <div class="overlap-group1">
+                                <div class="light-elevation00dp">
+                                    <div class="shadow">
+                                        <div class="overlap-group-1">
+                                            <div class="rectangle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container"></div>
+                            </div>
+                        </div>
+                        <div class="color-l-container"></div>
+                        <div class="light-button1-texta-text">
+                            <div class="overlap-group2">
+                                <div class="container-1">
+                                    <div class="states">
+                                        <div class="states-light-surface"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="email-emailcom monaco-regular-normal-black-30px">
+                    <div class="light-card-elements-imagea-image">
+                        <img class="image" th:src="${user.getProfile_picture_url().toString()}"
+                             alt="Card image cap">
+                    </div>
+                </div>
+            </div>
+            <div class="light-lists-three-li">
+                <div class="subtitle-1-1 monaco-regular-normal-black-16px">
+                    Interests:
+                </div>
+                <p class="secondary-text-1 monaco-regular-normal-black-14px" th:text="${user.aboutMe}"></p>
+                <div class="devider-light"></div>
+            </div>
+            <div class="light-lists-three-li-1">
+                <div class="subtitle-1-2 monaco-regular-normal-black-16px">
+                    <p class="text-muted">Language Proficiency:</p>
+                </div>
+                <p class="secondary-text-2 monaco-regular-normal-black-14px" th:text="${user.codeLanguages}"></p>
+                <div class="devider-light-1"></div>
+            </div>
+            <div class="light-lists-three-li-2">
+                <div class="overlap-group">
+                    <div class="subtitle-1 monaco-regular-normal-black-16px">
+                        <p th:text="${user.firstName}"></p>
+                        <p th:text="${user.lastName}"></p>
+                    </div>
+                </div>
+                <div class="devider-light"></div>
+            </div>
+            <div class="light-lists-three-li-3">
+                <div class="overlap-group6">
+                    <div class="subtitle-1 monaco-regular-normal-black-16px">
+                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
+                    </div>
+                    <div class="secondary-text-3 monaco-regular-normal-black-14px">
+                        <p th:text="${user.createdDate}"></p>
+                    </div>
+                </div>
+                <div class="devider-light"></div>
+            </div>
+            <div class="light-lists-three-li-4">
+                <div class="overlap-group">
+                    <div class="subtitle-1 monaco-regular-normal-black-16px">
+                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
+                    </div>
+                    <div class="secondary-text monaco-regular-normal-black-14px">
+                        <p th:text="${user.birthday}"></p>
+                    </div>
+                </div>
+                <div class="devider-light"></div>
+            </div>
+            <div class="light-lists-three-li-5">
+                <div class="overlap-group">
+                    <div class="subtitle-1 monaco-regular-normal-black-16px">
                         <p class="text-muted"><i class="far fa-envelope"></i> Email</p>
+                    </div>
+                    <div class="secondary-text monaco-regular-normal-black-14px">
                         <p th:text="${user.email}"></p>
                     </div>
-                    <div class="works-atplace-works monaco-regular-normal-black-30px">
+                </div>
+                <div class="devider-light"></div>
+            </div>
+            <div class="light-button3-containeda-text-enabled">
+                <div class="container-2">
+                    <div class="overlap-group1-1">
+                        <div class="states-1">
+                            <form th:if="${sessionUser.getUsername() == user.username}"
+                                  th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
+                                  class="edit-profile" method="get">
+                                <button type="submit" class="btn btn-dark btn-block">Edit Profile</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="light-lists-three-li-6">
+                <div class="overlap-group">
+                    <div class="subtitle-1 monaco-regular-normal-black-16px">
                         <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>
+                    </div>
+                    <div class="secondary-text monaco-regular-normal-black-14px">
                         <p th:text="${user.job}"></p>
                     </div>
                 </div>
-                <div class="flex-col-1">
-                    <div class="interestsinterest monaco-regular-normal-black-30px">
-
-                        <p th:text="${user.aboutMe}"></p>
-                    </div>
-                    <div class="languagaeslanguages monaco-regular-normal-black-30px">
-                        <p class="text-muted">Language Proficiency:</p>
-                        <p th:text="${user.codeLanguages}"></p>
-                    </div>
-                    <!--                content-->
-                    <!--button-->
-                    <form th:if="${sessionUser.getUsername() == user.username}"
-                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
-                          class="rectangle-2 border-1px-dove-gray" method="get">
-                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>
-                    </form>
-                    <!--button-->
-                </div>
+                <div class="devider-light"></div>
             </div>
         </div>
     </div>
+
+
 
     <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Everything above is the user profile++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
