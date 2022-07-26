@@ -592,7 +592,7 @@
     line-height: 14px;
     margin-top: 16px;
     min-height: 15px;
-    white-space: nowrap;
+    white-space: pre-wrap;
 }
 
 .monaco-regular-normal-gray-10px {
@@ -640,4 +640,9 @@
     position: absolute;
     top: 0;
     width: 256px;
+}
+
+.title{
+    font-family: Monaco;
+    font-size: 35px;
 }
