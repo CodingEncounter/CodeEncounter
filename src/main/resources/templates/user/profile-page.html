@@ -233,7 +233,7 @@
                      <form th:if="${sessionUser.getUsername() == user.username}"
                                                th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
                                                class="editprofilbtn" method="get">
-                        <button type="submit" class="color monaco-regular-normal-black-14px">Edit Profile</button>
+                         <button type="submit" class="btn btn-dark btn-block">Edit Profile</button>
                     </form>
                 </div>
             </div>
@@ -387,9 +387,9 @@
                 </div>
                 <!--       tab 2 friends-->
                 <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">
-                    <h1 style="font-family: Monaco; font-size: 25px;">Friends</h1>
+                    <h1 class="pt-3" style="font-family: Monaco; font-size: 25px;">Friends</h1>
                     <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">
-                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Discover</button>
+                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 20px;">Discover</button>
                     </form>
                     <div style="background-color: #faf3dd;" class="row my-3">
                         <div class="col-4 my-2" th:each="item : ${friends}">
