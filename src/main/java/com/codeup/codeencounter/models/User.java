@@ -54,6 +54,12 @@ public class User {
     @Column
     private String job;
 
+    @Column(name = "dp")
+    private String dp;
+
+    @Column(name = "role")
+    private String role;
+
     @Column
     private String profile_picture_url = "/img/blank-profile-picture.png";
 
@@ -83,7 +89,7 @@ public class User {
     public User(){}
 
     public User(String aboutMe, String codeLanguages, Date birthday, String email, String firstName, String password,
-                String lastName, String job, String profile_picture_url, String username,
+                String lastName, String job, String dp, String role, String profile_picture_url, String username,
                 List<UserFriend> userFriends,  List<Picture> pictures, Date createdDate){
         this.birthday = birthday;
         this.email = email;
@@ -92,6 +98,8 @@ public class User {
         this.profile_picture_url = profile_picture_url;
         this.userFriends = userFriends;
         this.job = job;
+        this.dp = dp;
+        this.role = role;
         this.username = username;
         this.pictures = pictures;
         this.password = password;
@@ -102,7 +110,7 @@ public class User {
 
 
     public User(long id, String aboutMe, String codeLanguages, Date birthday, String email, String firstName, String password,
-                String lastName, String job, String profile_picture_url, String username,
+                String lastName, String job, String dp, String role, String profile_picture_url, String username,
                 List<UserFriend> userFriends, List <Picture> pictures, Date createdDate){
         this.aboutMe = aboutMe;
         this.codeLanguages = codeLanguages;
@@ -113,6 +121,8 @@ public class User {
         this.profile_picture_url = profile_picture_url;
         this.userFriends = userFriends;
         this.job = job;
+        this.dp = dp;
+        this.role = role;
         this.username = username;
         this.pictures = pictures;
         this.id = id;
@@ -130,12 +140,22 @@ public class User {
         profile_picture_url = copy.profile_picture_url;
         userFriends = copy.userFriends;
         job = copy.job;
+        dp = copy.dp;
+        role = copy.role;
         username = copy.username;
         pictures = copy.pictures;
         id = copy.id;
         password = copy.password;
         createdDate = copy.createdDate;
     }
+
+//    public User(Long id, String firstName, String dp, String email, String role) {
+//        super();
+//        this.id = id;
+//        this.firstName = firstName;
+//        this.dp = dp;
+//        this.email = email;
+//        this.role = role;
 
     public long getId(){return id;}
     public String getAboutMe(){return aboutMe;}
@@ -175,5 +195,22 @@ public class User {
         this.interests = interests;
     }
 
+    public String getDp() {
+        return dp;
+    }
+
+    public void setDp(String dp) {
+        this.dp = dp;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
 }
+
+

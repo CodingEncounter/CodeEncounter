@@ -89,9 +89,18 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
+            <artifactId>spring-boot-starter-reactor-netty</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+=======
             <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
 
+>>>>>>> 81273b24f38098930b25128ee887f6c77d45eafb
 
     </dependencies>
 
