@@ -1,66 +1,38 @@
 package com.codeup.codeencounter.models;
 
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "userchat")
 public class ChatMessage {
-   @Id
-   @Column(name = "id", nullable = false)
-   private Long id;
+    private String content;
+    private String sender;
+    private MessageType type;
 
-   private MessageType type;
-   private String content;
-   private String sender;
+    public enum MessageType{
+        CHAT, LEAVE, JOIN
+    }
 
-   public Long getId() {
-      return id;
-   }
+    public String getContent() {
+        return content;
+    }
 
-   public void setId(Long id) {
-      this.id = id;
-   }
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-   public enum MessageType {
-      CHAT,
-      JOIN,
-      LEAVE
-   }
+    public String getSender() {
+        return sender;
+    }
 
-   public MessageType getType() {
-      return type;
-   }
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
 
-   public void setType(MessageType type) {
-      this.type = type;
-   }
+    public MessageType getType() {
+        return type;
+    }
 
-   public String getContent() {
-      return content;
-   }
-
-   public void setContent(String content) {
-      this.content = content;
-   }
-
-   public String getSender() {
-      return sender;
-   }
-
-   public void setSender(String sender) {
-      this.sender = sender;
-   }
+    public void setType(MessageType type) {
+        this.type = type;
+    }
 }
-//   @Id
-//   @GeneratedValue(strategy = GenerationType.AUTO)
-//   private Long id;
-//   @Column(name = "name")
-//   private String name;
-//   @Column(name = "dp")
-//   private String dp;
-//   @Column(name = "email")
-//   private String email;
-//   @Column(name = "role")
-//   private String role;
-//}
+
+

@@ -24,9 +24,7 @@
         box-sizing: border-box;
     }
 
-    /*html {*/
-    /*    font-size: 10px;*/
-    /*}*/
+
 
     body {
         font-family: Monaco;
@@ -41,171 +39,170 @@
         width: 30%;
     }
 
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
 
-    .meetus {
-        width: 100%;
-        height: 80vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
-    .main h2 {
-        font-size: 20px;
-        font-weight: 300;
-        margin-bottom: 2rem;
-    }
-
-    .slider {
-        width: 80%;
-        max-width: 60rem;
-        height: auto;
-        padding: 4rem 5rem;
-        position: relative;
-        border: 5px solid var(--color-primary);
-        background-color: white;
-    }
-
-    .fa-quote-left {
-        font-size: 2.5rem;
-        height: 5rem;
-        width: 5rem;
-        background-color: var(--color-sec);
-        color: var(--white);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        position: absolute;
-        left: 2rem;
-        top: -3rem;
-    }
-
-    .slide {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        transform: translateX(2rem);
-        animation: slide 0.5s forwards;
-    }
-
-    @keyframes slide {
-        to {
-            transform: translateX(0);
-        }
-    }
-    .slide-2 {
-        display: none;
-    }
-
-    .testimonial-text {
-        font-size: 1.3rem;
-        line-height: 1.2;
-        margin-bottom: 2rem;
-        position: relative;
-        padding-bottom: 2rem;
-    }
-
-    .testimonial-text::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        width: 25%;
-        height: 1px;
-        background-color: var(--color-sec);
-        transform: translateX(-50%);
-    }
-
-    .slide-img img {
-        width: 15rem;
-        height: 15rem;
-        border-radius: 50%;
-        border: 2px solid var(--color-grey);
-    }
-
-    .author-text {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--color-sec);
-    }
-
-    .author-text span {
-        display: block;
-        font-size: 1.2rem;
+    @font-face {
+        font-family: "Monaco-Regular";
+        font-style: normal;
         font-weight: 400;
-        color: var(--color-dark-grey);
+        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
     }
 
-    .nextprev {
-        position: absolute;
-        left: 80%;
-        bottom: -2rem;
-        width: 9rem;
-        height: 3.5rem;
-        border: 2px solid var(--color-sec);
-        border-radius: 50px;
+    :root {
+        --black: #000000;
+        --dove-gray: #707070;
+        --white: #ffffff;
+        --font-size-m2: 20px;
+        --font-size-l: 41px;
+        --font-family-monaco-regular: Monaco;
+    }
+
+    .aboutus {
+        align-items: flex-end;
+        background-color: #e6c25f;
+        display: flex;
+        flex-direction: column;
+        min-height: 850px;
+        padding: 26px 4px;
+        width: 1440px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .title {
+        align-self: center;
+        color: var(--black);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-l);
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 41px;
+        margin-left: 83px;
+        min-height: 53px;
+        min-width: 765px;
+        white-space: nowrap;
+    }
+
+    .flex-row {
+        align-items: flex-start;
+        display: flex;
+        margin-top: 26px;
+        min-width: 1376px;
+    }
+
+    .flex-col {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin-left: 24px;
+        min-height: 700px;
+        width: 326px;
+    }
+
+    .border-1px-dove-gray {
+        border: 1px solid var(--dove-gray);
+    }
+
+    .rectangle {
+        align-self: center;
         background-color: var(--white);
-        overflow: hidden;
+        height: 336px;
+        margin-right: 26px;
+        width: 264px;
     }
 
-    .next,
-    .prev {
-        display: inline-block;
-        width: 50%;
-        height: 100%;
-        position: absolute;
-        cursor: pointer;
+    .boryana-dimova {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-left: 9px;
+        margin-top: 36px;
+        min-height: 27px;
+        white-space: nowrap;
     }
 
-    .next:hover,
-    .prev:hover {
-        background-color: black;
+    .monaco-regular-normal-black-20px {
+        color: var(--black);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m2);
+        font-style: normal;
+        font-weight: 400;
     }
 
-    .next {
-        right: 0;
+    .ive-been-intereste {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 59px;
+        min-height: 243px;
+        white-space: nowrap;
     }
 
-    .prev {
-        left: 0;
+    .flex-row-1 {
+        align-items: flex-start;
+        display: flex;
+        height: 700px;
+        min-width: 676px;
     }
 
-    .next::after,
-    .prev::after {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: auto;
+    .flex-col-1 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        min-height: 700px;
+        width: 326px;
     }
 
-    .next::after {
-        background-image: url(/img/icon-next.svg);
-    }
-    .prev::after {
-        background-image: url(/img/icon-prev.svg);
+    .img-4390 {
+        align-self: center;
+        height: 336px;
+        margin-right: 26px;
+        width: 264px;
     }
 
-    @media screen and (max-width: 600px) {
-        .slider {
-            width: 90%;
-        }
-        .buttons {
-            left: 75%;
-        }
+    .name-1 {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-left: 15px;
+        margin-top: 36px;
+        min-height: 27px;
+        white-space: nowrap;
     }
+
+    .group-1 {
+        align-self: center;
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62df1813533454bc2def061f/img/melanie-schwartz@1x.png);
+        background-size: 100% 100%;
+        height: 336px;
+        margin-right: 26px;
+        width: 264px;
+    }
+
+    .name-2 {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-left: 15px;
+        margin-top: 36px;
+        min-height: 27px;
+        white-space: nowrap;
+    }
+    .name-3 {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-left: 15px;
+        margin-top: 36px;
+        min-height: 27px;
+        white-space: nowrap;
+    }
+
+
 </style>
 <header th:fragment="header">
     <div sec:authorize="isAnonymous()">
@@ -375,112 +372,60 @@
             endless.
         </div>
     </div>
-    <div
-            class="meet-our-users-and-your-future-friends monaco-regular-normal-eerie-black-24px"
-    >
-        Meet our users and your future friends
-    </div>
-    <div class="overlap-group3">
-        <div class="repeat-grid-2">
-            <div class="wknd-teaser-7">
-                <div class="wknd-teaser-2">
-                    <div class="name-1 monaco-regular-normal-eerie-black-16px">Sam</div>
-                    <div class="new-user monaco-regular-normal-gray-10px">User since 2021</div>
+    <div class="aboutus screen">
+        <h1 class="title">Meet the CodeEncounter Founders</h1>
+        <div class="flex-row">
+            <div class="flex-row-1">
+                <div class="flex-col-1">
+                    <img
+                            class="img-4390"
+                            src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62df1813533454bc2def061f/img/img-4390@1x.png"
+                    />
+                    <div class="name-1 monaco-regular-normal-black-20px">Cory Tidwell</div>
+                    <div class="ive-been-intereste monaco-regular-normal-black-20px">
+                        “I’ve been interested <br />in coding for a while <br />but never
+                        taken the <br />jump, until now. <br />I couldn’t recommend <br />this
+                        course enough. I’m <br />now inthe job of my dreams <br />and so
+                        excited about the <br />future.”
+                    </div>
+                </div>
+                <div class="flex-col">
+                    <div class="group-1"></div>
+                    <div class="name-2 monaco-regular-normal-black-20px">
+                        Melanie Schwartz
+                    </div>
+                    <div class="ive-been-intereste monaco-regular-normal-black-20px">
+                        “I’ve been interested <br />in coding for a while <br />but never
+                        taken the <br />jump, until now. <br />I couldn’t recommend <br />this
+                        course enough. I’m <br />now inthe job of my dreams <br />and so
+                        excited about the <br />future.”
+                    </div>
                 </div>
             </div>
-            <div class="wknd-teaser-3">
-                <div class="wknd-teaser-2">
-                    <div class="name-1 monaco-regular-normal-eerie-black-16px">Dylan</div>
-                    <div class="new-user monaco-regular-normal-gray-10px">New User</div>
+            <div class="flex-col">
+                <div class="rectangle border-1px-dove-gray"></div>
+                <div class="name-3 monaco-regular-normal-black-20px">Chris Ortiz</div>
+                <div class="ive-been-intereste monaco-regular-normal-black-20px">
+                    “I’ve been interested <br />in coding for a while <br />but never taken
+                    the <br />jump, until now. <br />I couldn’t recommend <br />this course
+                    enough. I’m <br />now inthe job of my dreams <br />and so excited about
+                    the <br />future.”
                 </div>
             </div>
-            <div class="wknd-teaser-3">
-                <div class="wknd-teaser-2">
-                    <div class="name-1 monaco-regular-normal-eerie-black-16px">Sasha</div>
-                    <div class="new-user monaco-regular-normal-gray-10px">User since 2020</div>
+            <div class="flex-col">
+                <div class="rectangle border-1px-dove-gray"></div>
+                <div class="boryana-dimova monaco-regular-normal-black-20px">
+                    Boryana Dimova
                 </div>
-            </div>
-            <div class="wknd-teaser-3">
-                <div class="wknd-teaser-2">
-                    <div class="name-1 monaco-regular-normal-eerie-black-16px">Nate</div>
-                    <div class="new-user monaco-regular-normal-gray-10px">Mentor</div>
+                <div class="ive-been-intereste monaco-regular-normal-black-20px">
+                    “I’ve been interested <br />in coding for a while <br />but never taken
+                    the <br />jump, until now. <br />I couldn’t recommend <br />this course
+                    enough. I’m <br />now inthe job of my dreams <br />and so excited about
+                    the <br />future.”
                 </div>
             </div>
         </div>
-        <img
-                class="user1"
-                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-8-1x-png@1x.png"
-        /><img
-            class="user2"
-            src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-9-1x-png@1x.png"
-    /><img
-            class="user3"
-            src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-10-1x-png@1x.png"
-    /><img
-            class="user4"
-            src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d8896ead031b391774fb9d/img/image-11-1x-png@1x.png"
-    />
     </div>
-    <section class="meetus">
-        <h2 class="main h2">-- Meet The Team --</h2>
-        <div class="slider">
-            <i class="fas fa-quote-left"></i>
-
-            <div class="slide slide-1">
-                <p class="testimonial-text">
-                    “ I’ve been interested in coding for a while but never taken the
-                    jump, until now. I couldn’t recommend this course enough. I’m now in
-                    the job of my dreams and so excited about the future. ”
-                </p>
-                <div class="slide-img">
-                    <img src="/static/img/melanie-schwartz.jpg" alt="" />
-                </div>
-                <p class="author-text">Melanie Schwartz <span>Web Developer</span></p>
-            </div>
-
-            <div class="slide slide-2">
-                <p class="testimonial-text">
-                    “ If you want to lay the best foundation possible I’d recommend
-                    taking the Codeup Full Stack Developer course. The depth the instructors go into is incredible.
-                    I now feel so confident about starting up as a professional
-                    developer. ”
-                </p>
-                <div class="slide-img">
-                    <img src="/img/img-4390.jpg" alt="" />
-                </div>
-                <p class="author-text">
-                    Cory Tidwell <span>Full-Stack Developer</span>
-                </p>
-            </div>
-            <div class="slide slide-3">
-                <p class="testimonial-text">
-                    “ I’ve been interested in coding for a while but never taken the
-                    jump, until now. I couldn’t recommend this course enough. I’m now in
-                    the job of my dreams and so excited about the future. ”
-                </p>
-                <div class="slide-img">
-                    <img src="/img/image-tanya.jpg" alt="" />
-                </div>
-                <p class="author-text">Boryana Dimova <span>Web Developer</span></p>
-            </div>
-            <div class="slide slide-4">
-                <p class="testimonial-text">
-                    “ I’ve been interested in coding for a while but never taken the
-                    jump, until now. I couldn’t recommend this course enough. I’m now in
-                    the job of my dreams and so excited about the future. ”
-                </p>
-                <div class="slide-img">
-                    <img src="/img/image-tanya.jpg" alt="" />
-                </div>
-                <p class="author-text">Chris Ortiz <span>Web Developer</span></p>
-            </div>
-
-            <div class="nextprev">
-                <div class="next"></div>
-                <div class="prev"></div>
-            </div>
-        </div>
-    </section>
     <div class="wknd-xf-footer">
         <div class="overlap-group1">
             <div class="x2022-code-encounter">
@@ -493,8 +438,5 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/js/slider.js}" defer></script>
-
-
 </body>
 </html>
