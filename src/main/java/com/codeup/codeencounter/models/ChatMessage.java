@@ -1,5 +1,6 @@
 package com.codeup.codeencounter.models;
 
+
 public class ChatMessage {
     private String content;
     private String sender;
@@ -33,3 +34,5 @@ public class ChatMessage {
         this.type = type;
     }
 }
+
+
