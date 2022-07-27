@@ -2,169 +2,314 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://thymeleaf.org">
 <head th:replace="partials/head :: head('Profile')">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Title</title>
-    <!-- minified snippet to load TalkJS without delaying your page -->
-<!--    <script>-->
-<!--        (function(t,a,l,k,j,s){-->
-<!--            s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)-->
-<!--            ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l-->
-<!--                        .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);-->
-<!--    </script>-->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
-<!--    &lt;!&ndash; container element in which TalkJS will display a chat UI &ndash;&gt;-->
-<!--    <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px">-->
-<!--        <i>Loading chat...</i>-->
-<!--    </div>-->
 </head>
+<style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+    @font-face {
+        font-family: "Monaco-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+    }
+
+    :root {
+        --black: #000000;
+        --white: #ffffff;
+        --dove-gray: #707070;
+        --font-size-m2: 20px;
+        --font-size-m3: 14px;
+        --font-family-monaco-regular: Monaco;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .dashboard {
+        align-items: flex-start;
+        background-color: var(--white);
+        display: flex;
+        height: 772px;
+        min-width: 1440px;
+        padding: 18px 17px;
+    }
+
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .rectangle-6 {
+        background-color: var(--white);
+        border-radius: 8px;
+        height: 653px;
+        margin-left: 27px;
+        width: 656px;
+    }
+
+    .border-1px-dove-gray {
+        border: 1px solid var(--dove-gray);
+    }
+
+    .overlap-group3 {
+        align-items: flex-start;
+        background-color: #e6c25f;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        min-height: 653px;
+        padding: 21px 30px;
+        width: 720px;
+    }
+    .overlap-group4 {
+        align-items: flex-start;
+        background-color: #e6c25f;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        min-height: 653px;
+        padding: 21px 30px;
+        width: 720px;
+    }
+
+    .light-button3-containeda-text-enabled {
+        align-items: flex-start;
+        align-self: flex-end;
+        display: flex;
+        margin-right: 1px;
+        margin-top: 26px;
+        min-width: 144px;
+    }
+
+    .btngroup {
+        height: 34px;
+        position: relative;
+        width: 144px;
+    }
+
+    .overlap-group1 {
+        height: 34px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 144px;
+    }
+
+    .color {
+        background-color: gray;
+        border-radius: 4px;
+        height: 34px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 144px;
+    }
+
+    .coding-interestsdes {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 23px;
+        min-height: 54px;
+        white-space: nowrap;
+    }
+
+    .monaco-regular-normal-black-20px {
+        color: var(--black);
+        font-family: var(--font-family-monaco-regular);
+        font-size: var(--font-size-m2);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .language-proficiency {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 24px;
+        min-height: 54px;
+        white-space: nowrap;
+    }
+
+    .flex-row {
+        align-items: flex-start;
+        display: flex;
+        height: 388px;
+        margin-left: 1px;
+        margin-top: 8px;
+        min-width: 547px;
+    }
+
+    .image {
+        height: 380px;
+        width: 297px;
+    }
+
+    .flex-col {
+        align-items: flex-start;
+        align-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        margin-left: 116px;
+        min-height: 372px;
+        width: 134px;
+    }
+
+    .flex-col-item {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 34px;
+        min-height: 54px;
+        white-space: nowrap;
+    }
+
+    .full-name {
+        letter-spacing: 0;
+        line-height: 20px;
+        min-height: 27px;
+        white-space: nowrap;
+    }
+
+    .joined-datedate {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 28px;
+        min-height: 54px;
+        white-space: nowrap;
+    }
+    .email{
+        font-size: 16px;
+    }
+</style>
+
+
 <body>
 <header th:replace="partials/header :: header"></header>
+
 <div class="wknd-profile screen">
     <br><br>
     <div class="wknd-xf-header">
         <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
     </div>
 
-    <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Everything below is the user profile++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <div class="web-1920-1 screen">
         <div class="flex-row">
-        <!--        image-->
-        <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"
-             alt="Card image cap">
-<!--        image-->
-        <!--            content-->
-        <div class="flex-row-1 border-1px-dove-gray">
-            <div class="flex-col">
-                <div class="full-name monaco-regular-normal-black-30px"><p th:text="${user.firstName}"></p>
-                    <p th:text="${user.lastName}"></p></div>
-                <div class="joinedjoin-date monaco-regular-normal-black-30px">
-                    <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
-                    <p th:text="${user.createdDate}"></p>
+            <!--        image-->
+            <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"
+                 alt="Card image cap">
+
+            <div class="flex-row-1 border-1px-dove-gray">
+
+                <div class="wknd-xf-header">
+                    <div class="wknd-header"><h1 class="title p-4 pb-1 pt-4">User Dashboard</h1></div>
                 </div>
-                <div class="component-1-1">
-                    <div class="birthdaybirth-date monaco-regular-normal-black-30px">
-                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
-                        <p th:text="${user.birthday}"></p>
+                <div class="dashboard screen">
+                    <div class="overlap-group3 border-1px-dove-gray">
+                        <div class="flex-row">
+                            <img
+                                    class="image" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap"
+
+                            />
+
+                            <div class="flex-col">
+                                <div class="full-name monaco-regular-normal-black-20px">
+                                    <p th:text="${user.firstName}"></p>
+                                    <p th:text="${user.lastName}"></p></div>
+
+
+                                <div class="joined-datedate monaco-regular-normal-black-20px">
+                                    <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
+                                    <p th:text="${user.createdDate}"></p>
+                                </div>
+                                <div class="flex-col-item monaco-regular-normal-black-20px">
+                                    <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
+                                    <p th:text="${user.birthday}"></p>
+                                </div>
+                                <div class="flex-col-item monaco-regular-normal-black-20px">
+                                    <p class="text-muted"><i class="far fa-address-card"></i> Works at</p><p th:text="${user.job}"></p>
+                                </div>
+                                <!--                <div class="flex-col-item monaco-regular-normal-black-20px">-->
+                                <!--                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p><p class="email" th:text="${user.email}"></p>-->
+                                <!--                </div>-->
+                            </div>
+                        </div>
+                        <div class="coding-interestsdes monaco-regular-normal-black-20px">
+                            Coding Interests<br /><p th:text="${user.aboutMe}"></p>
+                        </div>
+                        <div class="language-proficiency monaco-regular-normal-black-20px">
+                            <p class="text-muted">Language Proficiency:</p><p th:text="${user.codeLanguages}"></p>
+                        </div>
+                        <div class="light-button3-containeda-text-enabled">
+                            <div class="btngroup">
+                                <div class="overlap-group1">
+                                    <form th:if="${sessionUser.getUsername() == user.username}"
+                                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
+                                          class="editprofilbtn" method="get">
+                                        <button type="submit" class="color monaco-regular-normal-black-14px">Edit Profile</button>
+                                    </form>
+                                </div>
+
+
+                                <form th:if="${sessionUser.getUsername() == user.username}"
+                                      th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
+                                      class="rectangle-2 border-1px-dove-gray" method="get">
+                                    <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>
+                                </form>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="email-emailcom monaco-regular-normal-black-30px">
-                    <p class="text-muted"><i class="far fa-envelope"></i> Email</p>
-                    <p th:text="${user.email}"></p>
-                </div>
-                <div class="works-atplace-works monaco-regular-normal-black-30px">
-                    <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>
-                    <p th:text="${user.job}"></p>
-                </div>
-            </div>
-            <div class="flex-col-1">
-                <div class="interestsinterest monaco-regular-normal-black-30px">
 
-                    <p th:text="${user.aboutMe}"></p>
-                </div>
-                <div class="languagaeslanguages monaco-regular-normal-black-30px">
-                    <p class="text-muted">Language Proficiency:</p>
-                    <p th:text="${user.codeLanguages}"></p>
-                </div>
-<!--                content-->
-                <!--button-->
-                <form th:if="${sessionUser.getUsername() == user.username}"
-                      th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
-                      class="rectangle-2 border-1px-dove-gray" method="get">
-                    <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>
-                </form>
-<!--button-->
+                <main class="col-xl-12">
             </div>
         </div>
     </div>
-</div>
+    <main class="col-xl-6">
 
-    <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Everything above is the user profile++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-<!--<header th:replace="partials/header :: header"></header>-->
-<!--<div class="wknd-profile screen">-->
-<!--    <br><br>-->
-<!--    <div class="wknd-xf-header">-->
-<!--        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>-->
-<!--    </div>-->
-
-<!--<div th:if="${sessionUser.getUsername() == user.getUsername()}" class="row template">-->
-<!--    <aside class="col-xl-4">-->
-<!--        <div class="container">-->
-<!--            <div class="row p-6" style="background: #E6C25F">-->
-<!--                <div class="col">-->
-<!--                    <img class="card-img-top profile-pic" th:src="${user.getProfile_picture_url().toString()}"-->
-<!--                         alt="Card image cap">-->
-<!--                    <h5 style="font-family: Monaco; font-size: 25px;" class="card-title" th:text="${user.username}"></h5>-->
-<!--                </div>-->
-<!--                <div class="col">-->
-<!--                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">-->
-<!--&lt;!&ndash;                        <p th:text="${user.firstName}"></p>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <p th:text="${user.lastName}"></p>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <p th:text="${user.createdDate}"></p>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <p th:text="${user.birthday}"></p>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col">-->
-<!--                    <div class="card-text" style="font-family: Monaco; font-size: 25px;">-->
-<!--                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p>-->
-<!--                        <p th:text="${user.email}"></p>-->
-<!--                        <p class="text-muted"><i class="far fa-address-card"></i> Works at</p>-->
-<!--                        <p th:text="${user.job}"></p>-->
-<!--                    </div>-->
-<!--                    <form th:if="${sessionUser.getUsername() == user.username}"-->
-<!--                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"-->
-<!--                          class="card-link" method="get">-->
-<!--                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--                <div class="col-12" style="font-family: Monaco; font-size: 25px;">-->
-<!--                    <p th:text="${user.aboutMe}"></p>-->
-<!--                </div>-->
-<!--                <div class="col-12" style="font-family: Monaco; font-size: 25px;">-->
-<!--                    <p th:text="${user.codeLanguages}"></p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </aside>-->
-
-    <main class="col-xl-12">
         <div style="width: 100%;">
             <!--            nav tabs-->
             <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 25px;">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 15px;">
                     <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts"
-                       role="tab" aria-controls="nav-posts" aria-selected="true">Post Something</a>
+                       role="tab" aria-controls="nav-posts" aria-selected="true"> Post</a>
                     <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab"
                        aria-controls="nav-friends" aria-selected="false"> View Friends</a>
                     <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab"
                        aria-controls="nav-photos" aria-selected="false">View Galleries</a>
                     <a class="nav-item nav-link" id="nav-ide-tab" data-toggle="tab" href="#nav-ide"
                        role="tab" aria-controls="nav-ide" aria-selected="false">IDE</a>
+                    <a class="nav-item nav-link" id="nav-map-tab" data-toggle="tab" href="#nav-map"
+                       role="tab" aria-controls="nav-map" aria-selected="false">Map</a>
+                    <a class="nav-item nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat"
+                       role="tab" aria-controls="nav-map" aria-selected="false">Chat</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <!--       tab 1 posts -->
                 <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">
 
-<!--                    make a post and upload a pic-->
+                    <!--                    make a post and upload a pic-->
                     <form style="background-color: #faf3dd;"
                           th:action="@{/posts/create/{username}(username=${#authentication.principal.username})}"
                           th:object="${newPost}" method="POST" class="p-4 m-3">
                         <div class="btn-group" role="group" style="width: 100%;">
-                            <input style="font-family: Monaco; font-size: 25px;" type="text" id="postBody" class="form-control" placeholder="What's new?"
+                            <input style="font-family: Monaco; font-size: 20px;" type="text" id="postBody" class="form-control" placeholder="What's new?"
                                    th:field="*{body}" required>
                             <div id="uploadPhoto">
                                 <input type="hidden" id="photo" name="gallery_photo" th:field="*{photo_url}">
-                                <button class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;" id="upload">Upload</button>
+                                <button class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 15px;" id="upload">Upload</button>
                             </div>
-                            <button type="submit" class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;">Submit</button>
+                            <button type="submit" class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 15px;">Submit</button>
                         </div>
                     </form>
-<!--                                        make a post and upload a pic-->
+                    make a post and upload a pic
 
                     <div class="container">
                         <div th:each="item : ${posts}">
@@ -321,27 +466,291 @@
                 </div>
                 <!--       tab 4 IDE-->
                 <div class="tab-pane fade" id="nav-ide" role="tabpanel" aria-labelledby="nav-ide-tab">
-                    <h1 style="font-family: Monaco; font-size: 25px;">Try something out on our code playground</h1>
+                    <h1 class="pt-3" style="font-family: Monaco; font-size: 25px;">Try something out on our code playground</h1>
                     <div style="background-color: #faf3dd;" class="row my-3">
-                        <div data-pym-src="https://www.jdoodle.com/embed/v0/4Zf6?stdin=0&arg=0&rw=1"></div>
+                        <div data-pym-src="https://www.jdoodle.com/embed/v0/4ZwB?rw=1&stdin=0&arg=0"></div>
+                    </div>
+                </div>
+
+                <!--                MAP        -->
+                <div class="tab-pane fade" id="nav-map" role="tabpanel" aria-labelledby="nav-map-tab">
+                    <h1>Map</h1>
+                    <div id="map" style="margin-left: auto; margin-right: auto; height: auto; width: auto;"></div>
+                    <script>
+                        console.log("something from prof-page.html");
+                    </script>
+                </div>
+
+                <!--                Chat        -->
+                <div class="tab-pane fade" id="nav-chat" role="tabpanel" aria-labelledby="nav-map-tab">
+                    <h1>Chat</h1>
+                    <div id="username-page">
+                        <div class="username-page-container">
+                            <h1 class="title">Type your username</h1>
+                            <form id="usernameForm" name="usernameForm">
+                                <div class="form-group">
+                                    <input type="text" id="name" placeholder="Username"
+                                           autocomplete="off" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="accent username-submit">Start
+                                        Chatting</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="chat-page" class="hidden">
+                        <div class="chat-container">
+                            <div class="chat-header">
+                                <h2>CodeEncounter Global Chat Box</h2>
+                            </div>
+                            <div class="connecting">Connecting...</div>
+                            <ul id="messageArea">
+
+                            </ul>
+                            <form id="messageForm" name="messageForm" nameForm="messageForm">
+                                <div class="form-group">
+                                    <div class="input-group clearfix">
+                                        <input type="text" id="message" placeholder="Type a message..."
+                                               autocomplete="off" class="form-control" />
+                                        <button type="submit" class="primary">Send</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-            <div class="wknd-container">
-                <div class="wknd-xf-footer">
-                    <h1 class="title">CodeEncounter</h1>
-                    <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>
-                </div>
-            </div>
-<!--        </div>-->
+
+
+
 
 </div>
 
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+
+<!--    <main class="col-xl-6">-->
+<!--        <div style="width: 100%;">-->
+<!--            &lt;!&ndash;            nav tabs&ndash;&gt;-->
+<!--            <nav>-->
+<!--                <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 25px;">-->
+<!--                    <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts"-->
+<!--                       role="tab" aria-controls="nav-posts" aria-selected="true">Post Something</a>-->
+<!--                    <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab"-->
+<!--                       aria-controls="nav-friends" aria-selected="false"> View Friends</a>-->
+<!--                    <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab"-->
+<!--                       aria-controls="nav-photos" aria-selected="false">View Galleries</a>-->
+<!--                    <a class="nav-item nav-link" id="nav-ide-tab" data-toggle="tab" href="#nav-ide"-->
+<!--                       role="tab" aria-controls="nav-ide" aria-selected="false">IDE</a>-->
+<!--                    <a class="nav-item nav-link" id="nav-map-tab" data-toggle="tab" href="#nav-map"-->
+<!--                       role="tab" aria-controls="nav-map" aria-selected="false">Map</a>-->
+<!--                </div>-->
+<!--            </nav>-->
+<!--            <div class="tab-content" id="nav-tabContent">-->
+<!--                &lt;!&ndash;       tab 1 posts &ndash;&gt;-->
+<!--                <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">-->
+
+<!--                    &lt;!&ndash;                    make a post and upload a pic&ndash;&gt;-->
+<!--                    <form style="background-color: #faf3dd;"-->
+<!--                          th:action="@{/posts/create/{username}(username=${#authentication.principal.username})}"-->
+<!--                          th:object="${newPost}" method="POST" class="p-4 m-3">-->
+<!--                        <div class="btn-group" role="group" style="width: 100%;">-->
+<!--                            <input style="font-family: Monaco; font-size: 25px;" type="text" id="postBody" class="form-control" placeholder="What's new?"-->
+<!--                                   th:field="*{body}" required>-->
+<!--                            <div id="uploadPhoto">-->
+<!--                                <input type="hidden" id="photo" name="gallery_photo" th:field="*{photo_url}">-->
+<!--                                <button class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;" id="upload">Upload</button>-->
+<!--                            </div>-->
+<!--                            <button type="submit" class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;">Submit</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                                                            make a post and upload a pic-->
+
+<!--                    <div class="container">-->
+<!--                        <div th:each="item : ${posts}">-->
+<!--                            <div class="card my-3">-->
+<!--                                <div class="card-header container">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-xl-3">-->
+<!--                                            <a th:if="${item.getUser() != user}"-->
+<!--                                               th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">-->
+<!--                                                <img th:src="${item.getUser().getProfile_picture_url().toString()}"-->
+<!--                                                     class="rounded gallery-item-tiny" alt="...">-->
+<!--                                            </a>-->
+<!--                                            <a th:if="${item.getUser() == user}"-->
+<!--                                               th:href="@{/user/{username} (username=${user.getUsername()})}">-->
+<!--                                                <img th:src="${item.getUser().getProfile_picture_url().toString()}"-->
+<!--                                                     class="rounded gallery-item-tiny" alt="...">-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-xl-9">-->
+<!--                                            <br>-->
+<!--                                            <h6 th:text="${item.getUser().getUsername()}"></h6>-->
+<!--                                            <div>-->
+<!--                                                <p th:text="'Uploaded: ' + ${item.getDateString()}"-->
+<!--                                                   style="font-size: 100%; white-space: nowrap"></p>-->
+<!--                                                <small class="text-muted" th:text="${item.getEditDate()}"></small>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <div class="mt-2 pt-2">-->
+<!--                                        <img th:if="${item.getPhoto_url()} != null" class="gallery-item-post"-->
+<!--                                             th:src="${item.getPhoto_url().toString()}" alt="">-->
+<!--                                        <p class="card-text m-1" th:text="${item.getBody()}"></p>-->
+<!--                                        <br>-->
+<!--                                        <div class="mt-2 pt-2" th:if="${item.getUser() == user}">-->
+<!--                                            <form style="float: left;"-->
+<!--                                                  th:action="@{/posts/edit/{username}/{id} (username=${user.getUsername()}, id=${item.getId()})}"-->
+<!--                                                  method="get">-->
+<!--                                                <button class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;" type="submit" name="edit">Edit</button>-->
+<!--                                            </form>-->
+<!--                                            <form style="float: left;"-->
+<!--                                                  th:action="@{/posts/delete/{username}/{id} (username=${user.getUsername()}, id = ${item.getId()})}"-->
+<!--                                                  th:method="post">-->
+<!--                                                <button class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;" type="submit" name="delete">Remove</button>-->
+<!--                                            </form>-->
+<!--                                            <br>-->
+<!--                                        </div>-->
+<!--                                        <form class="mt-3 pt-3 border-top"-->
+<!--                                              th:action="@{/posts/create/{username}/{postId}/comment (username=${user.getUsername()}, postId=${item.getId()})}"-->
+<!--                                              th:object="${newComment}" method="POST">-->
+<!--                                            <input id="commentBody" class="form-control" th:field="*{body}" type="text"-->
+<!--                                                   placeholder="comment" required>-->
+<!--                                            <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Comment</button>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div th:each="commentItem : ${comments}">-->
+<!--                                <div th:if="${commentItem.getParentPost() == item}">-->
+<!--                                    <div class="card m-3">-->
+<!--                                        <div class="card-body container">-->
+<!--                                            <div class="row">-->
+<!--                                                <div class="col-4">-->
+<!--                                                    <a th:if="${commentItem.getUser() != user}"-->
+<!--                                                       th:href="@{/{username}/friend/{friendName} (friendName=${commentItem.getUser().getUsername()}, username=${user.getUsername()})}">-->
+<!--                                                        <img th:src="${commentItem.getUser().getProfile_picture_url().toString()}"-->
+<!--                                                             class="rounded gallery-item-teeny-tiny" alt="...">-->
+<!--                                                    </a>-->
+<!--                                                    <a th:if="${commentItem.getUser() == user}"-->
+<!--                                                       th:href="@{/user/{username} (username=${user.getUsername()})}">-->
+<!--                                                        <img th:src="${commentItem.getUser().getProfile_picture_url().toString()}"-->
+<!--                                                             class="rounded gallery-item-teeny-tiny" alt="...">-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                                <div class="col-8">-->
+<!--                                                    <div class="me-auto card-title">-->
+<!--                                                        <p th:text="${commentItem.getUser().getUsername()}"></p>-->
+<!--                                                    </div>-->
+<!--                                                    <p th:text="'Uploaded: ' + ${commentItem.getDateString()}"></p>-->
+<!--                                                    <small class="text-muted"-->
+<!--                                                           th:text="${commentItem.getEditDate()}"></small>-->
+<!--                                                    <br><br>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <p th:text="${commentItem.getBody()}"></p>-->
+<!--                                            <div class="mt-2 pt-2 border-top">-->
+<!--                                                <div th:if="${commentItem.getUser() == user}">-->
+<!--                                                    <form style="float: left;"-->
+<!--                                                          th:action="@{/comments/edit/{username}/{commentId} (username=${#authentication.principal.username}, commentId=${commentItem.id})}"-->
+<!--                                                          th:object="${commentItem}" method="get">-->
+<!--                                                        <button type="submit" class="btn btn-secondary">Edit</button>-->
+<!--                                                    </form>-->
+<!--                                                    <form style="float: right;"-->
+<!--                                                          th:action="@{/comments/delete/{username}/{commentId} (username=${user.getUsername()}, commentId=${commentItem.getId()})}"-->
+<!--                                                          method="post">-->
+<!--                                                        <button type="submit" name="delete" class="btn btn-light">-->
+<!--                                                            Remove-->
+<!--                                                        </button>-->
+<!--                                                    </form>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash;       tab 2 friends&ndash;&gt;-->
+<!--                <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">-->
+<!--                    <h1 style="font-family: Monaco; font-size: 25px;">Friends</h1>-->
+<!--                    <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">-->
+<!--                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Discover</button>-->
+<!--                    </form>-->
+<!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
+<!--                        <div class="col-4 my-2" th:each="item : ${friends}">-->
+<!--                            <div th:if="${item.profile_picture_url.isEmpty()}" class="search-card">-->
+<!--                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">-->
+<!--                                    <img src="/img/blank-profile-picture.png">-->
+<!--                                </a>-->
+<!--                                <p class="my-1" th:text="${item.username}"></p>-->
+<!--                            </div>-->
+<!--                            <div th:if="${!item.profile_picture_url.isEmpty()}" class="search-card">-->
+<!--                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">-->
+<!--                                    <img th:src="${item.profile_picture_url.toString()}">-->
+<!--                                </a>-->
+<!--                                <p class="my-1" th:text="${item.username}"></p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash;       tab 3 galleries&ndash;&gt;-->
+<!--                <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">-->
+<!--                    <h1 style="font-family: Monaco; font-size: 25px;">Photos</h1>-->
+<!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
+<!--                        <div class="col-6 col-xl-4 my-2" th:each="item : ${galleries}">-->
+<!--                            <div th:if="${!item.getPictures().isEmpty()}" id="thumbnail-container" class="search-card">-->
+<!--                                <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">-->
+<!--                                    <img th:src="${item.getPictures().get(0).pictureUrl.toString()}"-->
+<!--                                         alt="Gallery Thumbnail Image">-->
+<!--                                </a>-->
+<!--                                <p class="my-1" th:text="${item.name}"></p>-->
+<!--                            </div>-->
+<!--                            <div th:if="${item.getPictures().isEmpty()} == true" class="search-card">-->
+<!--                                <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">-->
+<!--                                    <img src="/img/thumbnailDefault.jpg" alt="Gallery Thumbnail Image">-->
+<!--                                </a>-->
+<!--                                <p class="my-1" th:text="${item.getName()}"></p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash;       tab 4 IDE&ndash;&gt;-->
+<!--                <div class="tab-pane fade" id="nav-ide" role="tabpanel" aria-labelledby="nav-ide-tab">-->
+<!--                    <h1 style="font-family: Monaco; font-size: 25px;">Try something out on our code playground</h1>-->
+<!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
+<!--                        <div data-pym-src="https://www.jdoodle.com/embed/v0/4ZwB?rw=1&stdin=0&arg=0"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                &lt;!&ndash;                MAP        &ndash;&gt;-->
+<!--                <div class="tab-pane fade" id="nav-map" role="tabpanel" aria-labelledby="nav-map-tab">-->
+<!--                    <h1>Map</h1>-->
+<!--                    <div id="map" style="margin-left: auto; margin-right: auto; height: auto; width: auto;"></div>-->
+<!--                    <script>-->
+<!--                        console.log("something from prof-page.html");-->
+<!--                    </script>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </main>-->
+
+</body>
+<!--MAP  -->
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
@@ -355,8 +764,15 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src = "https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" th:src="@{/js/chat/main.js}" defer></script>
+<script type="text/javascript" th:src="@{/js/talk.js}" defer></script>
+<script type="text/javascript" th:src="@{/js/chat.js}" defer></script>
+<script type="text/babel" th:src="@{/js/chat/index.js}" ></script>
 <script src="/keys.js"></script>
+<script type="text/javascript" th:src="@{/js/mapbox.js}" defer></script>
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
-<!--<script type="text/javascript" th:src="@{../js/UserChat.js}" defer></script>-->
-</body>
+
 </html>
