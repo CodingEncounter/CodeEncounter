@@ -6,8 +6,7 @@
     <title>Title</title>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-<<<<<<< HEAD
-=======
+
 </head>
 <style>
     @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
@@ -188,11 +187,11 @@
         font-size: 16px;
     }
 </style>
->>>>>>> 81273b24f38098930b25128ee887f6c77d45eafb
+
 
 <body>
 <header th:replace="partials/header :: header"></header>
-<<<<<<< HEAD
+
 <div class="wknd-profile screen">
     <br><br>
     <div class="wknd-xf-header">
@@ -206,7 +205,7 @@
              alt="Card image cap">
 
         <div class="flex-row-1 border-1px-dove-gray">
-=======
+
 <div class="wknd-xf-header">
     <div class="wknd-header"><h1 class="title p-4 pb-1 pt-4">User Dashboard</h1></div>
 </div>
@@ -217,7 +216,7 @@
                     class="image" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap"
 
             />
->>>>>>> 81273b24f38098930b25128ee887f6c77d45eafb
+
             <div class="flex-col">
                 <div class="full-name monaco-regular-normal-black-20px">
                     <p th:text="${user.firstName}"></p>
@@ -255,7 +254,7 @@
                         <button type="submit" class="color monaco-regular-normal-black-14px">Edit Profile</button>
                     </form>
                 </div>
-<<<<<<< HEAD
+
 
                 <form th:if="${sessionUser.getUsername() == user.username}"
                       th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
@@ -269,12 +268,12 @@
 </div>
 
     <main class="col-xl-12">
-=======
+
             </div>
         </div>
     </div>
     <main class="col-xl-6">
->>>>>>> 81273b24f38098930b25128ee887f6c77d45eafb
+
         <div style="width: 100%;">
             <!--            nav tabs-->
             <nav>
@@ -482,7 +481,7 @@
                         console.log("something from prof-page.html");
                     </script>
                 </div>
-<<<<<<< HEAD
+
                     <!--                Chat        -->
                     <div class="tab-pane fade" id="nav-chat" role="tabpanel" aria-labelledby="nav-map-tab">
                         <h1>Chat</h1>
@@ -528,7 +527,7 @@
     </main>
 
 
-=======
+
             </div>
         </div>
     </main>
@@ -748,7 +747,7 @@
 </div>
 </body>
 <!--MAP  -->
->>>>>>> 81273b24f38098930b25128ee887f6c77d45eafb
+
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
