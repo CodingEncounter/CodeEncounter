@@ -4,6 +4,7 @@
 <head th:replace="partials/head :: head('Profile')">
     <meta charset="UTF-8" name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Title</title>
+<<<<<<< HEAD
 
 
     <!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
@@ -58,6 +59,10 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
+=======
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+>>>>>>> aefbb0f (added profile)
 
 </head>
 <style>
@@ -249,6 +254,7 @@
     <div class="wknd-xf-header">
         <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
     </div>
+
 
 
 <!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -474,6 +480,81 @@
             </div>
         </div>
     </div>
+
+    <div class="web-1920-1 screen">
+        <div class="flex-row">
+            <!--        image-->
+            <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"
+                 alt="Card image cap">
+
+            <div class="flex-row-1 border-1px-dove-gray">
+
+                <div class="wknd-xf-header">
+                    <div class="wknd-header"><h1 class="title p-4 pb-1 pt-4">User Dashboard</h1></div>
+                </div>
+                <div class="dashboard screen">
+                    <div class="overlap-group3 border-1px-dove-gray">
+                        <div class="flex-row">
+                            <img
+                                    class="image" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap"
+
+                            />
+
+                            <div class="flex-col">
+                                <div class="full-name monaco-regular-normal-black-20px">
+                                    <p th:text="${user.firstName}"></p>
+                                    <p th:text="${user.lastName}"></p></div>
+
+
+                                <div class="joined-datedate monaco-regular-normal-black-20px">
+                                    <p class="text-muted"><i class="far fa-handshake"></i> Joined</p>
+                                    <p th:text="${user.createdDate}"></p>
+                                </div>
+                                <div class="flex-col-item monaco-regular-normal-black-20px">
+                                    <p class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</p>
+                                    <p th:text="${user.birthday}"></p>
+                                </div>
+                                <div class="flex-col-item monaco-regular-normal-black-20px">
+                                    <p class="text-muted"><i class="far fa-address-card"></i> Works at</p><p th:text="${user.job}"></p>
+                                </div>
+                                <!--                <div class="flex-col-item monaco-regular-normal-black-20px">-->
+                                <!--                        <p class="text-muted"><i class="far fa-envelope"></i> Email</p><p class="email" th:text="${user.email}"></p>-->
+                                <!--                </div>-->
+                            </div>
+                        </div>
+                        <div class="coding-interestsdes monaco-regular-normal-black-20px">
+                            Coding Interests<br /><p th:text="${user.aboutMe}"></p>
+                        </div>
+                        <div class="language-proficiency monaco-regular-normal-black-20px">
+                            <p class="text-muted">Language Proficiency:</p><p th:text="${user.codeLanguages}"></p>
+                        </div>
+                        <div class="light-button3-containeda-text-enabled">
+                            <div class="btngroup">
+                                <div class="overlap-group1">
+                                    <form th:if="${sessionUser.getUsername() == user.username}"
+                                          th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
+                                          class="editprofilbtn" method="get">
+                                        <button type="submit" class="color monaco-regular-normal-black-14px">Edit Profile</button>
+                                    </form>
+                                </div>
+
+
+                                <form th:if="${sessionUser.getUsername() == user.username}"
+                                      th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
+                                      class="rectangle-2 border-1px-dove-gray" method="get">
+                                    <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <main class="col-xl-12">
+            </div>
+        </div>
+    </div>
+
     <main class="col-xl-6">
 
         <div style="width: 100%;">
@@ -683,6 +764,57 @@
                         <div data-pym-src="https://www.jdoodle.com/embed/v0/4ZwB?rw=1&stdin=0&arg=0"></div>
 
                     </div>
+                </div>
+
+                <!--                MAP        -->
+                <div class="tab-pane fade" id="nav-map" role="tabpanel" aria-labelledby="nav-map-tab">
+                    <h1>Map</h1>
+                    <div id="map" style="margin-left: auto; margin-right: auto; height: auto; width: auto;"></div>
+                    <script>
+                        console.log("something from prof-page.html");
+                    </script>
+                </div>
+
+                <!--                Chat        -->
+                <div class="tab-pane fade" id="nav-chat" role="tabpanel" aria-labelledby="nav-map-tab">
+                    <h1>Chat</h1>
+                    <div id="username-page">
+                        <div class="username-page-container">
+                            <h1 class="title">Type your username</h1>
+                            <form id="usernameForm" name="usernameForm">
+                                <div class="form-group">
+                                    <input type="text" id="name" placeholder="Username"
+                                           autocomplete="off" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="accent username-submit">Start
+                                        Chatting</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="chat-page" class="hidden">
+                        <div class="chat-container">
+                            <div class="chat-header">
+                                <h2>CodeEncounter Global Chat Box</h2>
+                            </div>
+                            <div class="connecting">Connecting...</div>
+                            <ul id="messageArea">
+
+                            </ul>
+                            <form id="messageForm" name="messageForm" nameForm="messageForm">
+                                <div class="form-group">
+                                    <div class="input-group clearfix">
+                                        <input type="text" id="message" placeholder="Type a message..."
+                                               autocomplete="off" class="form-control" />
+                                        <button type="submit" class="primary">Send</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
 
 
 
@@ -729,6 +861,7 @@
             </div>
             </div>
         </div>
+
         </main>
     </div>
     <!--        </div>-->
@@ -787,6 +920,12 @@
         </div>
         </div>
     </main>
+
+    </main>
+
+
+
+
 
 
 
@@ -1033,6 +1172,7 @@
 <!--    </main>-->
 
 
+
 <!--MAP  -->
 
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -1065,7 +1205,9 @@
 <script type="text/javascript" th:src="@{/js/mapbox.js}" defer></script>
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
 
+
 <script type="text/javascript" th:src="@{../js/UserChat.js}" defer></script>
 </body>
+
 
 </html>
