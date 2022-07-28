@@ -1,30 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-
-    <title>Tuts+ Chat Application</title>
-    <meta name="description" content="Tuts+ Chat Application" />
-    <link rel="stylesheet" href="style.css" />
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head th:replace="partials/head :: head('Chat')">
+    <meta charset="UTF-8" name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/main.css" />
 </head>
-<body>
-<div id="wrapper">
-    <div id="menu">
-        <p class="welcome">Welcome, <b></b></p>
-        <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+
+<body background="/img/18.jpg"
+      style="background-position: center; background-repeat: no-repeat; background-size: cover;">
+<header th:replace="partials/header :: header"></header>
+<noscript>
+    <h2>Sorry! Your browser doesn't support Javascript</h2>
+</noscript>
+
+<div id="username-page">
+    <div class="username-page-container">
+        <h1 class="">Type your username</h1>
+        <form id="usernameForm" name="usernameForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Username"
+                       autocomplete="off" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="accent username-submit">Start
+                    Chatting</button>
+            </div>
+        </form>
     </div>
-
-    <div id="chatbox"></div>
-
-    <form name="message" action="">
-        <input name="usermsg" type="text" id="usermsg" />
-        <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
-    </form>
 </div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-    // jQuery Document
-    $(document).ready(function () {});
-</script>
+
+<div id="chat-page" class="hidden">
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>CodeEncounter Global Chat Box</h2>
+        </div>
+        <div class="connecting">Connecting...</div>
+        <ul id="messageArea">
+
+        </ul>
+        <form id="messageForm" name="messageForm" nameForm="messageForm">
+            <div class="form-group">
+                <div class="input-group clearfix">
+                    <input type="text" id="message" placeholder="Type a message..."
+                           autocomplete="off" class="form-control" />
+                    <button type="submit" class="primary">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script type="text/javascript" th:src="@{/js/chat/main.js}" defer></script>
 </body>
 </html>

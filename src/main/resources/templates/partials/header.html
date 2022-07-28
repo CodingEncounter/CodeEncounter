@@ -10,6 +10,7 @@
 </head>
 <body>
 <header th:fragment="header">
+    <a name="top"></a>
     <div sec:authorize="isAnonymous()">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
             <div class="container-fluid">
@@ -27,25 +28,31 @@
         </nav>
     </div>
 
-<!--Navbar/header when user is logged in _____________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
+    <!--Navbar/header when user is logged in _____________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
     <div sec:authorize="isAuthenticated()">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e6c25f;">
             <div class="container-fluid">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/user/{username}(username=${#authentication.principal.username})}">Profile</a>
+                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/user/{username}(username=${#authentication.principal.username})}">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/{username}/friends/requests (username=${#authentication.principal.username})}">Requests</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/#nav-posts}">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/user/{username}/chat (username=${#authentication.principal.username})}">Chat</a>
+                    </li>
                 </ul>
                 <form th:action="@{/logout}" th:method="post" class="p-2 nav-item" style="font-family: Monaco; font-size: 25px">
-                        <button type="submit" class="btn btn-link btn-anchor nav-link">Logout</button>
-                    </form>
-                    <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">
-                        <input style="font-family: Monaco; font-size: 25px; width: 70%; float: left;" class="form-control field" type="search" name="search" placeholder="Search" aria-label="Search">
-                        <button style="font-family: Monaco; font-size: 25px; width: 30%; float: right;" class="btn btn-dark btn-block">Search</button>
-                    </form>
+                    <button type="submit" class="btn btn-link btn-anchor nav-link">Logout</button>
+                </form>
+                <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">
+                    <input style="font-family: Monaco; font-size: 25px; width: 70%; float: left;" class="form-control field" type="search" name="search" placeholder="User Search" aria-label="Search">
+                    <button style="font-family: Monaco; font-size: 25px; width: 30%; float: right;" class="btn btn-dark btn-block">Search</button>
+                </form>
             </div>
         </nav>
     </div>

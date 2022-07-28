@@ -40,18 +40,26 @@ public class ChatController {
         return chatMessage;
     }
 
-    @GetMapping("/chat")
+    @GetMapping("/user/{username}/chat")
     public String chat() {
-        return "chat";
+        return "user/chat";
     }
-    @RequestMapping("/chat")
-    public String index(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (!(auth instanceof AnonymousAuthenticationToken))
-            return "redirect:/user/" + auth.getName();
+//    @RequestMapping("/{username}/chat")
+//    public String index(Model model) {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        if (!(auth instanceof AnonymousAuthenticationToken))
+//            return "redirect:/user/" + auth.getName();
+//
+//        return "user/chat";
+//    }
 
-        return "chat";
-    }
+//    @RequestMapping("/{username}/chat")
+//    public String chat(Model model) {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        if (!(auth instanceof AnonymousAuthenticationToken))
+//            return "redirect:/user/" + auth.getName();
+//
+//        return "/user/chat";
+//    }
+
 }
-
-
