@@ -391,72 +391,72 @@
         <!--        </div>-->
         <!--    </aside>-->
 
-        <main class="col-xl-12">
-            <div style="width: 100%;">
-                <!--            nav tabs-->
-                <nav>
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 25px;">
-                        <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts"
-                           role="tab" aria-controls="nav-posts" aria-selected="true">Post Something</a>
-                        <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab"
-                           aria-controls="nav-friends" aria-selected="false"> View Friends</a>
-                        <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab"
-                           aria-controls="nav-photos" aria-selected="false">View Galleries</a>
-                        <a class="nav-item nav-link" id="nav-ide-tab" data-toggle="tab" href="#nav-ide"
-                           role="tab" aria-controls="nav-ide" aria-selected="false">IDE</a>
+<!--        <main class="col-xl-12">-->
+<!--            <div style="width: 100%;">-->
+<!--                &lt;!&ndash;            nav tabs&ndash;&gt;-->
+<!--                <nav>-->
+<!--                    <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 25px;">-->
+<!--                        <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts"-->
+<!--                           role="tab" aria-controls="nav-posts" aria-selected="true">Post Something</a>-->
+<!--                        <a class="nav-item nav-link" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab"-->
+<!--                           aria-controls="nav-friends" aria-selected="false"> View Friends</a>-->
+<!--                        <a class="nav-item nav-link" id="nav-photos-tab" data-toggle="tab" href="#nav-photos" role="tab"-->
+<!--                           aria-controls="nav-photos" aria-selected="false">View Galleries</a>-->
+<!--                        <a class="nav-item nav-link" id="nav-ide-tab" data-toggle="tab" href="#nav-ide"-->
+<!--                           role="tab" aria-controls="nav-ide" aria-selected="false">IDE</a>-->
 
-                        <a class="nav-item nav-link" id="nav-map-tab" data-toggle="tab" href="#nav-map"
-                           role="tab" aria-controls="nav-map" aria-selected="false">Map</a>
+<!--                        <a class="nav-item nav-link" id="nav-map-tab" data-toggle="tab" href="#nav-map"-->
+<!--                           role="tab" aria-controls="nav-map" aria-selected="false">Map</a>-->
 
-                        <a class="nav-item nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat" role="tab" aria-controls="nav-chat" aria-selected="false">Chat</a>
+<!--                        <a class="nav-item nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat" role="tab" aria-controls="nav-chat" aria-selected="false">Chat</a>-->
 
-                    </div>
-                </nav>
-                <div class="tab-content" id="nav-tabContent">
-                    <!--       tab 1 posts -->
-                    <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">
+<!--                    </div>-->
+<!--                </nav>-->
+<!--                <div class="tab-content" id="nav-tabContent">-->
+<!--                    &lt;!&ndash;       tab 1 posts &ndash;&gt;-->
+<!--                    <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">-->
 
-                        <!--                    make a post and upload a pic-->
-                        <form style="background-color: #faf3dd;"
-                              th:action="@{/posts/create/{username}(username=${#authentication.principal.username})}"
-                              th:object="${newPost}" method="POST" class="p-4 m-3">
-                            <div class="btn-group" role="group" style="width: 100%;">
-                                <input style="font-family: Monaco; font-size: 25px;" type="text" id="postBody" class="form-control" placeholder="What's new?"
-                                       th:field="*{body}" required>
-                                <div id="uploadPhoto">
-                                    <input type="hidden" id="photo" name="gallery_photo" th:field="*{photo_url}">
-                                    <button class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;" id="upload">Upload</button>
-                                </div>
-                                <button type="submit" class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;">Submit</button>
-                            </div>
-                        </form>
-                        <!--                                        make a post and upload a pic-->
+<!--                        &lt;!&ndash;                    make a post and upload a pic&ndash;&gt;-->
+<!--                        <form style="background-color: #faf3dd;"-->
+<!--                              th:action="@{/posts/create/{username}(username=${#authentication.principal.username})}"-->
+<!--                              th:object="${newPost}" method="POST" class="p-4 m-3">-->
+<!--                            <div class="btn-group" role="group" style="width: 100%;">-->
+<!--                                <input style="font-family: Monaco; font-size: 25px;" type="text" id="postBody" class="form-control" placeholder="What's new?"-->
+<!--                                       th:field="*{body}" required>-->
+<!--                                <div id="uploadPhoto">-->
+<!--                                    <input type="hidden" id="photo" name="gallery_photo" th:field="*{photo_url}">-->
+<!--                                    <button class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;" id="upload">Upload</button>-->
+<!--                                </div>-->
+<!--                                <button type="submit" class="btn btn-dark btn-block m-1" style="font-family: Monaco; font-size: 20px;">Submit</button>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                        &lt;!&ndash;                                        make a post and upload a pic&ndash;&gt;-->
 
-                        <div class="container">
-                            <div th:each="item : ${posts}">
-                                <div class="card my-3">
-                                    <div class="card-header container">
-                                        <div class="row">
-                                            <div class="col-xl-3">
-                                                <a th:if="${item.getUser() != user}"
-                                                   th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">
-                                                    <img th:src="${item.getUser().getProfile_picture_url().toString()}"
-                                                         class="rounded gallery-item-tiny" alt="...">
-                                                </a>
-                                                <a th:if="${item.getUser() == user}"
-                                                   th:href="@{/user/{username} (username=${user.getUsername()})}">
-                                                    <img th:src="${item.getUser().getProfile_picture_url().toString()}"
-                                                         class="rounded gallery-item-tiny" alt="...">
-                                                </a>
-                                            </div>
-                                            <div class="col-xl-9">
-                                                <br>
-                                                <h6 th:text="${item.getUser().getUsername()}"></h6>
-                                                <div>
-                                                    <p th:text="'Uploaded: ' + ${item.getDateString()}"
-                                                       style="font-size: 100%; white-space: nowrap"></p>
-                                                    <small class="text-muted" th:text="${item.getEditDate()}"></small>
-                                                </div>
+<!--                        <div class="container">-->
+<!--                            <div th:each="item : ${posts}">-->
+<!--                                <div class="card my-3">-->
+<!--                                    <div class="card-header container">-->
+<!--                                        <div class="row">-->
+<!--                                            <div class="col-xl-3">-->
+<!--                                                <a th:if="${item.getUser() != user}"-->
+<!--                                                   th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">-->
+<!--                                                    <img th:src="${item.getUser().getProfile_picture_url().toString()}"-->
+<!--                                                         class="rounded gallery-item-tiny" alt="...">-->
+<!--                                                </a>-->
+<!--                                                <a th:if="${item.getUser() == user}"-->
+<!--                                                   th:href="@{/user/{username} (username=${user.getUsername()})}">-->
+<!--                                                    <img th:src="${item.getUser().getProfile_picture_url().toString()}"-->
+<!--                                                         class="rounded gallery-item-tiny" alt="...">-->
+<!--                                                </a>-->
+<!--                                            </div>-->
+<!--                                            <div class="col-xl-9">-->
+<!--                                                <br>-->
+<!--                                                <h6 th:text="${item.getUser().getUsername()}"></h6>-->
+<!--                                                <div>-->
+<!--                                                    <p th:text="'Uploaded: ' + ${item.getDateString()}"-->
+<!--                                                       style="font-size: 100%; white-space: nowrap"></p>-->
+<!--                                                    <small class="text-muted" th:text="${item.getEditDate()}"></small>-->
+<!--                                                </div>-->
 
 
             </div>
