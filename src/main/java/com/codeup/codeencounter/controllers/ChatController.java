@@ -44,6 +44,11 @@ public class ChatController {
     public String chat() {
         return "user/chat";
     }
+
+    @GetMapping("/user/{username}/ide")
+    public String ide() {
+        return "user/ide";
+    }
 //    @RequestMapping("/{username}/chat")
 //    public String index(Model model) {
 //        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
