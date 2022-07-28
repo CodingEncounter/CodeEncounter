@@ -18,12 +18,19 @@
   <!--            nav tabs-->
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 15px;">
-      <a class="nav-item nav-link active" id="nav-java-tab" data-toggle="tab" href="#nav-java"
-         role="tab" aria-controls="nav-java" aria-selected="true"> Java</a>
-      <a class="nav-item nav-link" id="nav-python-tab" data-toggle="tab" href="#nav-python" role="tab"
-         aria-controls="nav-python" aria-selected="false"> Python</a>
-      <a class="nav-item nav-link" id="nav-c-tab" data-toggle="tab" href="#nav-c" role="tab"
-         aria-controls="nav-python" aria-selected="false"> C</a>
+<!--      <a class="nav-item nav-link active" id="nav-java-tab" data-toggle="tab" href="#nav-java"-->
+<!--         role="tab" aria-controls="nav-java" aria-selected="true"> Java</a>-->
+<!--      <a class="nav-item nav-link" id="nav-python-tab" data-toggle="tab" href="#nav-python" role="tab"-->
+<!--         aria-controls="nav-python" aria-selected="false"> Python</a>-->
+<!--      <a class="nav-item nav-link" id="nav-c-tab" data-toggle="tab" href="#nav-c" role="tab"-->
+<!--         aria-controls="nav-c" aria-selected="false"> C</a>-->
+<!--      <a class="nav-item nav-link" id="nav-nodejs-tab" data-toggle="tab" href="#nav-nodejs" role="tab"-->
+<!--         aria-controls="nav-nodejs" aria-selected="false"> NodeJS</a>-->
+      <a class="nav-item nav-link" style="font-family: Monaco; font-size: 15px"th:href="@{/user/{username}/java (username=${#authentication.principal.username})}">Java</a>
+      <a class="nav-item nav-link" style="font-family: Monaco; font-size: 15px"th:href="@{/user/{username}/python (username=${#authentication.principal.username})}">Python</a>
+      <a class="nav-item nav-link" style="font-family: Monaco; font-size: 15px"th:href="@{/user/{username}/nodejs (username=${#authentication.principal.username})}">NodeJS</a>
+      <a class="nav-item nav-link" style="font-family: Monaco; font-size: 15px"th:href="@{/user/{username}/c (username=${#authentication.principal.username})}">C</a>
+
 
     </div>
   </nav>
@@ -57,6 +64,13 @@
 
         </div>
     </div>
+
+  <div class="tab-pane fade" id="nav-nodejs" role="tabpanel" aria-labelledby="nav-nodejs-tab">
+    <div id="nodejs" data-pym-src='https://www.jdoodle.com/plugin' data-language="nodejs"
+         data-version-index="4" data-libs="mavenlib1, mavenlib2">
+
+    </div>
+  </div>
 
 </div>
 </div>

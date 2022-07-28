@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head th:replace="partials/head :: head('Java')">
+  <meta charset="UTF-8" name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Title</title>
+  <!--  <link rel="stylesheet" href="/css/main.css" />-->
+</head>
+
+<body>
+<!--        background="/img/18.jpg" style="background-position: center; background-repeat: no-repeat; background-size: cover;">-->
+<header th:replace="partials/header :: header"></header>
+<!--<div class="tab-pane fade" id="nav-ide" role="tabpanel" aria-labelledby="nav-ide-tab">-->
+<main class="col-xl-6">
+
+
+  <div style="width: 100%;">
+    <!--            nav tabs-->
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 15px;">
+        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 15px"th:href="@{/user/{username}/java (username=${#authentication.principal.username})}">Java</a>
+        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 15px"th:href="@{/user/{username}/python (username=${#authentication.principal.username})}">Python</a>
+        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 15px"th:href="@{/user/{username}/nodejs (username=${#authentication.principal.username})}">NodeJS</a>
+        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 15px"th:href="@{/user/{username}/c (username=${#authentication.principal.username})}">C</a>
+
+
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div>
+        <!--  <h1 class="pt-3" style="font-family: Monaco; font-size: 25px;">Try something out on our code playground</h1>-->
+        <!--                      <div style="background-color: #faf3dd;" class="row my-3">-->
+        <!--                          <div data-pym-src="https://www.jdoodle.com/embed/v0/4ZwB?rw=1&stdin=0&arg=0"></div>-->
+        <!--                      </div>-->
+        <!--  <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">-->
+
+        <div class="tab-pane fade show active container" id="nav-java" role="tabpanel" aria-labelledby="nav-java-tab">
+          <div id="java" data-pym-src='https://www.jdoodle.com/plugin' data-language="java"
+               data-version-index="4" data-libs="mavenlib1, mavenlib2">
+            <!--    Optional default code goes here-->
+          </div>
+        </div>
+
+        <!--  <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">-->
+
+<!--        <div class="tab-pane fade container" id="nav-python" role="tabpanel" aria-labelledby="nav-python-tab">-->
+<!--          <div id="python" data-pym-src='https://www.jdoodle.com/plugin' data-language="python3"-->
+<!--               data-version-index="4" data-libs="mavenlib1, mavenlib2">-->
+
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="tab-pane fade" id="nav-c" role="tabpanel" aria-labelledby="nav-c-tab">-->
+<!--          <div id="c" data-pym-src='https://www.jdoodle.com/plugin' data-language="c"-->
+<!--               data-version-index="4" data-libs="mavenlib1, mavenlib2">-->
+
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="tab-pane fade" id="nav-nodejs" role="tabpanel" aria-labelledby="nav-nodejs-tab">-->
+<!--          <div id="nodejs" data-pym-src='https://www.jdoodle.com/plugin' data-language="nodejs"-->
+<!--               data-version-index="4" data-libs="mavenlib1, mavenlib2">-->
+
+<!--          </div>-->
+<!--        </div>-->
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>-->
+<!--<script type="text/javascript" th:src="@{/js/chat/main.js}" defer></script>-->
+</body>
+</html>
