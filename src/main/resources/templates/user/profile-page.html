@@ -6,7 +6,6 @@
     <title>Title</title>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-
 </head>
 <style>
     @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
@@ -196,24 +195,8 @@
     }
 </style>
 
-
 <body>
 <header th:replace="partials/header :: header"></header>
-
-<div class="wknd-profile screen">
-    <br><br>
-    <div class="wknd-xf-header">
-        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
-    </div>
-
-    <div class="web-1920-1 screen">
-        <div class="flex-row">
-        <!--        image-->
-        <img class="shutterstock_2028609842" th:src="${user.getProfile_picture_url().toString()}"
-             alt="Card image cap">
-
-        <div class="flex-row-1 border-1px-dove-gray">
-
 <div class="wknd-xf-header">
     <div class="wknd-header"><h1 class="title p-4 pb-1 pt-4">User Dashboard</h1></div>
 </div>
@@ -224,7 +207,6 @@
                     class="image" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap"
 
             />
-
             <div class="flex-col">
                 <div class="full-name monaco-regular-normal-black-20px">
                     <p th:text="${user.firstName}"></p>
@@ -259,29 +241,13 @@
                     <form th:if="${sessionUser.getUsername() == user.username}"
                           th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
                           class="editprofilbtn" method="get">
-                        <button type="submit" class="color monaco-regular-normal-black-14px">Edit Profile</button>
+                        <button type="submit" class="btn btn-dark btn-block">Edit Profile</button>
                     </form>
                 </div>
-
-
-                <form th:if="${sessionUser.getUsername() == user.username}"
-                      th:action="@{/edit/{username}(username=${#authentication.principal.username})}"
-                      class="rectangle-2 border-1px-dove-gray" method="get">
-                    <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Edit Profile</button>
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-    <main class="col-xl-12">
-
             </div>
         </div>
     </div>
     <main class="col-xl-6">
-
         <div style="width: 100%;">
             <!--            nav tabs-->
             <nav>
@@ -431,9 +397,9 @@
                 </div>
                 <!--       tab 2 friends-->
                 <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">
-                    <h1 style="font-family: Monaco; font-size: 25px;">Friends</h1>
+                    <h1 class="pt-3" style="font-family: Monaco; font-size: 25px;">Friends</h1>
                     <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">
-                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 25px;">Discover</button>
+                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Monaco; font-size: 20px;">Discover</button>
                     </form>
                     <div style="background-color: #faf3dd;" class="row my-3">
                         <div class="col-4 my-2" th:each="item : ${friends}">
@@ -494,6 +460,7 @@
                     </script>
                 </div>
 
+
                     <!--                Chat        -->
 <!--                    <div class="tab-pane fade" id="nav-chat" role="tabpanel" aria-labelledby="nav-map-tab">-->
 <!--                        <h1>Chat</h1>-->
@@ -534,16 +501,18 @@
 <!--                            </div>-->
 <!--                        </div>-->
 <!--            </div>-->
-        </div>
-        </div>
-    </main>
 
-
-
-            </div>
         </div>
     </main>
 </div>
+<!--</div>-->
+<!--</main>-->
+
+
+
+
+<!--</div>-->
+
 
 
 <!--    <main class="col-xl-6">-->
@@ -759,7 +728,6 @@
 </div>
 </body>
 <!--MAP  -->
-
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
@@ -779,13 +747,6 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-<script src = "https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="text/javascript" th:src="@{/js/chat/main.js}" defer></script>
-<script type="text/javascript" th:src="@{/js/talk.js}" defer></script>
-<script type="text/javascript" th:src="@{/js/chat.js}" defer></script>
-<script type="text/babel" th:src="@{/js/chat/index.js}" ></script>
 <script src="/keys.js"></script>
 <script type="text/javascript" th:src="@{/js/mapbox.js}" defer></script>
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>

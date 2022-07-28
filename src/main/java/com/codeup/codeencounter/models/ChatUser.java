@@ -1,20 +1,12 @@
 package com.codeup.codeencounter.models;
-//import javax.persistence.Column;
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
-//import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.userdetails.User;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "chat_users")
