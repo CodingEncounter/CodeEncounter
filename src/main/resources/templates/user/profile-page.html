@@ -186,6 +186,14 @@
     .email{
         font-size: 16px;
     }
+    .nav-ide {
+        height: 940px;
+        width: 215px;
+        overflow: auto;
+        float: left;
+        position: relative;
+        margin-left: -5px;
+    }
 </style>
 
 
@@ -288,8 +296,8 @@
                        role="tab" aria-controls="nav-ide" aria-selected="false">IDE</a>
                     <a class="nav-item nav-link" id="nav-map-tab" data-toggle="tab" href="#nav-map"
                        role="tab" aria-controls="nav-map" aria-selected="false">Map</a>
-                    <a class="nav-item nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat"
-                       role="tab" aria-controls="nav-map" aria-selected="false">Chat</a>
+<!--                    <a class="nav-item nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat"-->
+<!--                       role="tab" aria-controls="nav-map" aria-selected="false">Chat</a>-->
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -468,8 +476,12 @@
                 <!--       tab 4 IDE-->
                 <div class="tab-pane fade" id="nav-ide" role="tabpanel" aria-labelledby="nav-ide-tab">
                     <h1 class="pt-3" style="font-family: Monaco; font-size: 25px;">Try something out on our code playground</h1>
-                    <div style="background-color: #faf3dd;" class="row my-3">
-                        <div data-pym-src="https://www.jdoodle.com/embed/v0/4ZwB?rw=1&stdin=0&arg=0"></div>
+<!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
+<!--                        <div data-pym-src="https://www.jdoodle.com/embed/v0/4ZwB?rw=1&stdin=0&arg=0"></div>-->
+<!--                    </div>-->
+                    <div id="ide" data-pym-src='https://www.jdoodle.com/plugin' data-language="java"
+                         data-version-index="4" data-libs="mavenlib1, mavenlib2">
+                        Optional default code goes here
                     </div>
                 </div>
 
@@ -483,45 +495,45 @@
                 </div>
 
                     <!--                Chat        -->
-                    <div class="tab-pane fade" id="nav-chat" role="tabpanel" aria-labelledby="nav-map-tab">
-                        <h1>Chat</h1>
-                        <div id="username-page">
-                            <div class="username-page-container">
-                                <h1 class="title">Type your username</h1>
-                                <form id="usernameForm" name="usernameForm">
-                                    <div class="form-group">
-                                        <input type="text" id="name" placeholder="Username"
-                                               autocomplete="off" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="accent username-submit">Start
-                                        Chatting</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+<!--                    <div class="tab-pane fade" id="nav-chat" role="tabpanel" aria-labelledby="nav-map-tab">-->
+<!--                        <h1>Chat</h1>-->
+<!--                        <div id="username-page">-->
+<!--                            <div class="username-page-container">-->
+<!--                                <h1 class="title">Type your username</h1>-->
+<!--                                <form id="usernameForm" name="usernameForm">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <input type="text" id="name" placeholder="Username"-->
+<!--                                               autocomplete="off" class="form-control" />-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group">-->
+<!--                                        <button type="submit" class="accent username-submit">Start-->
+<!--                                        Chatting</button>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
-                        <div id="chat-page" class="hidden">
-                            <div class="chat-container">
-                                <div class="chat-header">
-                                    <h2>CodeEncounter Global Chat Box</h2>
-                                </div>
-                                <div class="connecting">Connecting...</div>
-                                <ul id="messageArea">
+<!--                        <div id="chat-page" class="hidden">-->
+<!--                            <div class="chat-container">-->
+<!--                                <div class="chat-header">-->
+<!--                                    <h2>CodeEncounter Global Chat Box</h2>-->
+<!--                                </div>-->
+<!--                                <div class="connecting">Connecting...</div>-->
+<!--                                <ul id="messageArea">-->
 
-                                </ul>
-                                <form id="messageForm" name="messageForm" nameForm="messageForm">
-                                    <div class="form-group">
-                                        <div class="input-group clearfix">
-                                            <input type="text" id="message" placeholder="Type a message..."
-                                                   autocomplete="off" class="form-control" />
-                                            <button type="submit" class="primary">Send</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-            </div>
+<!--                                </ul>-->
+<!--                                <form id="messageForm" name="messageForm" nameForm="messageForm">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <div class="input-group clearfix">-->
+<!--                                            <input type="text" id="message" placeholder="Type a message..."-->
+<!--                                                   autocomplete="off" class="form-control" />-->
+<!--                                            <button type="submit" class="primary">Send</button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--            </div>-->
         </div>
         </div>
     </main>
