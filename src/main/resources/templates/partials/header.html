@@ -29,22 +29,38 @@
 
     <!--Navbar/header when user is logged in _____________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
     <div sec:authorize="isAuthenticated()">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e6c25f;">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff5a3ce8;">
             <div class="container-fluid">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-item nav-link" style="font-family: Poppins; font-size: 25px"th:href="@{/user/{username}(username=${#authentication.principal.username})}">Profile</a>
+                        <a class="nav-item nav-link" style="font-family: Poppins; font-size: 25px"th:href="@{/user/{username}(username=${#authentication.principal.username})}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/{username}/friends/requests (username=${#authentication.principal.username})}">Requests</a>
+                        <a class="nav-item nav-link" style="font-family: Poppins; font-size: 25px"th:href="@{/{username}/friends/requests (username=${#authentication.principal.username})}">Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Poppins; font-size: 25px"th:href="@{/#nav-posts}">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Poppins; font-size: 25px"th:href="@{/user/{username}/chat (username=${#authentication.principal.username})}">Chat</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <!--                        <select name="languages" id="languages">-->
+                        <!--                          <option value="Java"><a href="../user/ide.html">Java</a> </option>-->
+                        <a class="nav-item nav-link" style="font-family: Poppins; font-size: 25px"th:href="@{/user/{username}/ide (username=${#authentication.principal.username})}">IDE</a>
+                        <!--                        </select>-->
+                    </li>
+                    <li class="nav-item">
+                    <form th:action="@{/logout}" th:method="post" class="nav-item" style="font-family: Poppins; font-size: 30px">
+                        <button type="submit" class="btn btn-anchor nav-link">Logout</button>
+                    </form>
                     </li>
                 </ul>
-                <form th:action="@{/logout}" th:method="post" class="p-2 nav-item" style="font-family: Monaco; font-size: 25px">
-                    <button type="submit" class="btn btn-link btn-anchor nav-link">Logout</button>
-                </form>
+
                 <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">
-                    <input style="font-family: Monaco; font-size: 25px; width: 70%; float: left;" class="form-control field" type="search" name="search" placeholder="Search" aria-label="Search">
-                    <button style="font-family: Monaco; font-size: 25px; width: 30%; float: right;" class="btn btn-dark btn-block">Search</button>
+                    <input style="font-family: Poppins; font-size: 15px; width: 70%; float: left;" class="form-control field" type="search" name="search" placeholder="User Search" aria-label="Search">
+                    <button style="font-family: Poppins; font-size: 15px; width: 30%; float: right;" class="btn btn-dark btn-block">Search</button>
                 </form>
             </div>
         </nav>
