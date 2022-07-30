@@ -5,55 +5,329 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+    @font-face {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+    }
+
+    :root {
+        --black: #000000;
+        --white: #ffffff;
+        --dove-gray: #707070;
+        --font-size-m2: 20px;
+        --font-size-m3: 14px;
+        --font-family-monaco-regular: Monaco;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .dashboard {
+        align-items: flex-start;
+        background-color: var(--white);
+        display: flex;
+        height: 772px;
+        min-width: 1440px;
+        padding: 18px 17px;
+    }
+
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .rectangle-6 {
+        background-color: var(--white);
+        border-radius: 8px;
+        height: 653px;
+        margin-left: 27px;
+        width: 656px;
+    }
+
+    .border-1px-dove-gray {
+        border: 1px solid var(--dove-gray);
+    }
+
+    .overlap-group3 {
+        align-items: flex-start;
+        background-color: #e6c25f;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        min-height: 653px;
+        padding: 21px 30px;
+        width: 720px;
+    }
+    .overlap-group4 {
+        align-items: flex-start;
+        background-color: #e6c25f;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        min-height: 653px;
+        padding: 21px 30px;
+        width: 720px;
+    }
+
+    .light-button3-containeda-text-enabled {
+        align-items: flex-start;
+        align-self: flex-end;
+        display: flex;
+        margin-right: 1px;
+        margin-top: 26px;
+        min-width: 144px;
+    }
+
+    .btngroup {
+        height: 34px;
+        position: relative;
+        width: 144px;
+    }
+
+    .overlap-group1 {
+        height: 34px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 144px;
+    }
+
+    .color {
+        background-color: gray;
+        border-radius: 4px;
+        height: 34px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 144px;
+    }
+
+    .coding-interestsdes {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 23px;
+        min-height: 54px;
+        white-space: nowrap;
+    }
+
+
+
+    .language-proficiency {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 24px;
+        min-height: 54px;
+        white-space: nowrap;
+    }
+
+    .flex-row {
+        align-items: flex-start;
+        display: flex;
+        height: 388px;
+        margin-left: 1px;
+        margin-top: 8px;
+        min-width: 547px;
+    }
+
+    .image {
+        height: 300px;
+        width: 280px;
+        border-radius: 8px;
+    }
+
+    .flex-col {
+        align-items: flex-start;
+        align-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        margin-left: 116px;
+        min-height: 372px;
+        width: 134px;
+    }
+
+    .flex-col-item {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 34px;
+        min-height: 54px;
+        white-space: nowrap;
+    }
+
+    .full-name {
+        letter-spacing: 0;
+        line-height: 20px;
+        min-height: 27px;
+        white-space: nowrap;
+    }
+
+    .joined-datedate {
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-top: 28px;
+        min-height: 54px;
+        white-space: nowrap;
+    }
+    .email{
+        font-size: 16px;
+    }
+    .nav-ide {
+        height: 940px;
+        width: 215px;
+        overflow: auto;
+        float: left;
+        position: relative;
+        margin-left: -5px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Poppins;
+    }
+
+    /* Float four columns side by side */
+    .column {
+        float: left;
+        width: 50%;
+        padding: 0 10px;
+    }
+
+    /* Remove extra left and right margins, due to padding in columns */
+    .row {margin: 0 -5px;}
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Style the counter cards */
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+    }
+
+    /* Responsive columns - one column layout (vertical) on small screens */
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+
+    .title{
+        font-size: 60px;
+        font-family: Poppins;
+    }
+    .button-container {
+        display: flex;
+        position: absolute;
+        left: 80px;
+        top: 100px;
+    }
+    .flex-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start !important;
+        position: relative;
+    }
+
+    .avatar {
+        /*vertical-align: left;*/
+        width: 100px;
+        height: 100px;
+        border-radius: 10%;
+    }
+
+
+    .gradient-custom {
+        /* fallback for old browsers */
+        background: #f6d365;
+
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+    }
+</style>
+
+
 <body>
 <header th:replace="partials/header :: header"></header>
-<div class="wknd-profile screen">
-    <br><br>
-    <div class="wknd-xf-header">
-        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
-    </div>
+<div class="dash">
+    <div class="dashbrd"><h1 class="title p-4 pb-1 pt-4">User Dashboard</h1></div>
+</div>
 
-<div class="template row">
-    <aside class="col-xl-4">
-        <div class="container">
-            <div class="row p-3" style="background: #E6C25F">
-                <div class="col">
-                    <img class="card-img-top p-3 profile-pic" th:src="${friend.getProfile_picture_url().toString()}" alt="Card image cap">
-                    <h5 class="card-title" th:text="${friend.username}"></h5>
-                </div>
-                <div class="col">
-                    <div class="card-text">
-                        <p th:text="${friend.firstName}"></p>
-                        <p th:text="${friend.lastName}"></p>
-                        <p class="text-muted">Joined</p>
-                        <p th:text="${friend.createdDate}"></p>
-                        <p class="text-muted">Birthday</p>
-                        <p th:text="${friend.birthday}"></p>
+<div class="row pt-4">
+    <div class="column h-100">
+        <div class="card">
+            <div class="col col-lg-12 mb-4 mb-lg-0">
+                <div class="row g-0">
+                    <div class="col-md-12 gradient-custom text-center text-white"
+                         style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; border-top-right-radius: .5rem; border-bottom-right-radius: .5rem;">
+                        <img class="image p-2 p-3 profile-pic" th:src="${friend.getProfile_picture_url().toString()}" alt="Card image cap">
+                        <h5 class="card-title" th:text="${friend.username}"></h5>
+                        <p class="pt-1 text-muted"><i class="far fa-address-card"></i> Works at</p><p class="pb-4" th:text="${friend.job}"></p>
+                    </div>
+                    <div class="col-12">
+                        <h6 class="pt-4 pb-1">Information</h6>
+                        <hr class="mt-0 mb-4">
+                        <div class="row pt-1">
+                            <div class="col-3 mb-3">
+                                <h6 class="text-muted"><i class="far fa-handshake"></i> Joined</h6>
+                                <p th:text="${friend.createdDate}"></p>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <h6 class="text-muted"><i class="far fa-envelope"></i> Email</h6>
+                                <p th:text="${friend.email}"></p>
+                            </div>
+                            <div class="col-3 mb-3">
+                                <h6 class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</h6>
+                                <p th:text="${friend.birthday}"></p>
+                            </div>
+                        </div>
+                        <h6 class="pt-4 pb-1">About</h6>
+                        <hr class="mt-0 mb-4">
+                        <div class="row pt-1">
+                            <div class="col-6 mb-3">
+                                <h6 class="text-muted">Language Proficiency:</h6>
+                                <p th:text="${friend.codeLanguages}"></p>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <h6 class="text-muted">Interests</h6>
+                                <p th:text="${friend.aboutMe}"></p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${friend.getUsername()})}" th:method="POST">
+                                <input type="hidden" class="field" name="reject" th:value="${friend.getUsername()}"/>
+                                <button class="btn btn-light" onclick="return confirm('Are you sure?')">Unfriend</button>
+                            </form>
+                        </div>
+                        <!--                            </div>-->
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card-text">
-                        <p class="text-muted">Email</p>
-                        <p th:text="${friend.email}"></p>
-                        <p class="text-muted">Works at</p>
-                        <p th:text="${friend.job}"></p>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <p th:text="${friend.aboutMe}"></p>
-                </div>
-                <div class="col-12">
-                    <p th:text="${friend.codeLanguages}"></p>
-                </div>
-                <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${friend.getUsername()})}" th:method="POST">
-                    <input type="hidden" class="field" name="reject" th:value="${friend.getUsername()}"/>
-                    <button class="btn btn-light" onclick="return confirm('Are you sure?')">Unfriend</button>
-                </form>
+                <!--                </div>-->
             </div>
         </div>
-    </aside>
-    <main class="col-xl-8">
-        <div style="width: 100%; background-color: white;">
+    </div>
+    <div class="column">
+        <div class="card">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-friends-tab" data-toggle="tab" href="#nav-friends" role="tab" aria-controls="nav-friends" aria-selected="true">Friends</a>
@@ -122,18 +396,10 @@
                 </div>
             </div>
         </div>
-    </main>
-    <div class="wknd-container">
-        <div class="wknd-separator"><div class="separator"></div></div>
-        <div class="wknd-xf-footer">
-            <h1 class="title">CodeEncounter</h1>
-            <div class="x2022-code-encounter">Ⓒ 2022, CODEENCOUNTER</div>
-        </div>
     </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
