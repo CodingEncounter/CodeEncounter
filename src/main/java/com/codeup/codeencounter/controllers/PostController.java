@@ -58,14 +58,6 @@ public class PostController {
         if (!post.getPhoto_url().isEmpty()) {
             newPost.setPhoto_url(post.getPhoto_url());
         }
-//      SET LOCATION ON THE MAP
-        if (!post.getLongitude().isEmpty()) {
-            newPost.setLongitude(post.getLongitude());
-        }
-        if (!post.getLatitude().isEmpty()) {
-            newPost.setLatitude(post.getLatitude());
-        }
-
 
         Post dbPost = postRepo.save(newPost);
         model.addAttribute("user", user);

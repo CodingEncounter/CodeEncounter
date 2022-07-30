@@ -38,6 +38,11 @@
                     <li class="nav-item">
                         <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/{username}/friends/requests (username=${#authentication.principal.username})}">Requests</a>
                     </li>
+
+<!--                    Meetup-->
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/meetup}">Meetup</a>
+                    </li>
                 </ul>
                 <form th:action="@{/logout}" th:method="post" class="p-2 nav-item" style="font-family: Monaco; font-size: 25px">
                         <button type="submit" class="btn btn-link btn-anchor nav-link">Logout</button>
