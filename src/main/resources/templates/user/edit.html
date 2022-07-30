@@ -31,9 +31,9 @@
         border-radius: 0 0 5px 5px;
         padding: 25px;
     }
-    form{
-        flex: 4;
-    }
+    /*form{*/
+    /*    flex: 4;*/
+    /*}*/
     h2{
         margin: 0;
         padding-left: 15px;
@@ -75,10 +75,7 @@
         text-align: left;
         color: #2d2d2a;
     }
-    tr>td:nth-child(2){
-        text-align: right;
-        color: #52ad9c;
-    }
+
     td{
         border-bottom: 1px solid #dadada;
         padding: 25px 25px 25px 0;
@@ -110,10 +107,12 @@
     }
 </style>
 <body>
+
 <header th:replace="partials/header :: header"></header>
 <div class="dash">
-    <div class="dashbrd"><h1 class="title p-4 pb-1 pt-4">User Dashboard</h1></div>
+    <div class="dashbrd"><h1 class="title p-4 pb-1 pt-4">Update Your Profile</h1></div>
 </div>
+
 <div class="container">
     <div class="d-flex">
         <form th:action="@{/edit/{username} (username=${user.getUsername()})}" method="POST" th:object="${user}">
