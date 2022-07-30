@@ -30,163 +30,15 @@
         box-sizing: border-box;
     }
 
-    .dashboard {
-        align-items: flex-start;
-        background-color: var(--white);
-        display: flex;
-        height: 772px;
-        min-width: 1440px;
-        padding: 18px 17px;
-    }
-
-
     .hidden,
     .hidden * {
         pointer-events: none;
         visibility: hidden;
     }
-
-    .rectangle-6 {
-        background-color: var(--white);
-        border-radius: 8px;
-        height: 653px;
-        margin-left: 27px;
-        width: 656px;
-    }
-
-    .border-1px-dove-gray {
-        border: 1px solid var(--dove-gray);
-    }
-
-    .overlap-group3 {
-        align-items: flex-start;
-        background-color: #e6c25f;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        min-height: 653px;
-        padding: 21px 30px;
-        width: 720px;
-    }
-    .overlap-group4 {
-        align-items: flex-start;
-        background-color: #e6c25f;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        min-height: 653px;
-        padding: 21px 30px;
-        width: 720px;
-    }
-
-    .light-button3-containeda-text-enabled {
-        align-items: flex-start;
-        align-self: flex-end;
-        display: flex;
-        margin-right: 1px;
-        margin-top: 26px;
-        min-width: 144px;
-    }
-
-    .btngroup {
-        height: 34px;
-        position: relative;
-        width: 144px;
-    }
-
-    .overlap-group1 {
-        height: 34px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 144px;
-    }
-
-    .color {
-        background-color: gray;
-        border-radius: 4px;
-        height: 34px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 144px;
-    }
-
-    .coding-interestsdes {
-        letter-spacing: 0;
-        line-height: 20px;
-        margin-top: 23px;
-        min-height: 54px;
-        white-space: nowrap;
-    }
-
-
-
-    .language-proficiency {
-        letter-spacing: 0;
-        line-height: 20px;
-        margin-top: 24px;
-        min-height: 54px;
-        white-space: nowrap;
-    }
-
-    .flex-row {
-        align-items: flex-start;
-        display: flex;
-        height: 388px;
-        margin-left: 1px;
-        margin-top: 8px;
-        min-width: 547px;
-    }
-
     .image {
         height: 300px;
         width: 280px;
         border-radius: 8px;
-    }
-
-    .flex-col {
-        align-items: flex-start;
-        align-self: flex-end;
-        display: flex;
-        flex-direction: column;
-        margin-left: 116px;
-        min-height: 372px;
-        width: 134px;
-    }
-
-    .flex-col-item {
-        letter-spacing: 0;
-        line-height: 20px;
-        margin-top: 34px;
-        min-height: 54px;
-        white-space: nowrap;
-    }
-
-    .full-name {
-        letter-spacing: 0;
-        line-height: 20px;
-        min-height: 27px;
-        white-space: nowrap;
-    }
-
-    .joined-datedate {
-        letter-spacing: 0;
-        line-height: 20px;
-        margin-top: 28px;
-        min-height: 54px;
-        white-space: nowrap;
-    }
-    .email{
-        font-size: 16px;
-    }
-    .nav-ide {
-        height: 940px;
-        width: 215px;
-        overflow: auto;
-        float: left;
-        position: relative;
-        margin-left: -5px;
     }
 
     * {
@@ -234,18 +86,6 @@
     .title{
         font-size: 60px;
         font-family: Poppins;
-    }
-    .button-container {
-        display: flex;
-        position: absolute;
-        left: 80px;
-        top: 100px;
-    }
-    .flex-container{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start !important;
-        position: relative;
     }
 
     .avatar {
@@ -321,10 +161,8 @@
                                         <button type="submit" class="btn btn-dark btn-block">Edit Profile</button>
                                     </form>
                                 </div>
-<!--                            </div>-->
                         </div>
                     </div>
-<!--                </div>-->
             </div>
         </div>
     </div>
@@ -479,7 +317,7 @@
                         <div class="col-4 my-2" th:each="item : ${friends}">
                             <div th:if="${item.profile_picture_url.isEmpty()}" class="search-card">
                                 <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">
-                                    <img src="/img/blank-profile-picture.png" class="avatar" alt="avatar" >
+                                    <img src="/img/blank-profile-picture.png" class="gallery-item-post" style="border-radius: 4px; width: 500px; height: 300px;" >
                                 </a>
                                 <p class="my-1" th:text="${item.username}"></p>
                             </div>
