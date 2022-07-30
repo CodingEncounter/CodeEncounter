@@ -248,6 +248,13 @@
         position: relative;
     }
 
+    .avatar {
+        /*vertical-align: left;*/
+        width: 100px;
+        height: 100px;
+        border-radius: 10%;
+    }
+
 
     .gradient-custom {
         /* fallback for old browsers */
@@ -338,7 +345,7 @@
                 <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">
 
                     <!--                    make a post and upload a pic-->
-                    <form style="background-color: #ff5a3ce8;"
+                    <form style="background-color: #ff5a3ce8; border-radius: 4px;"
                           th:action="@{/posts/create/{username}(username=${#authentication.principal.username})}"
                           th:object="${newPost}" method="POST" class="p-4 m-1">
                         <div class="btn-group" role="group" style="width: 100%;">
@@ -351,7 +358,7 @@
                             <button type="submit" class="btn btn-dark btn-block m-1" style="font-family: Poppins; font-size: 15px;">Submit</button>
                         </div>
                     </form>
-                    Make a Post!
+                    <p class="pt-1" style="font-size:30px">Recent Posts</p>
 
                     <div class="container">
                         <div th:each="item : ${posts}">
@@ -362,19 +369,19 @@
                                             <a th:if="${item.getUser() != user}"
                                                th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">
                                                 <img th:src="${item.getUser().getProfile_picture_url().toString()}"
-                                                     class="rounded gallery-item-tiny" alt="...">
+                                                     class="avatar" alt="avatar">
                                             </a>
                                             <a th:if="${item.getUser() == user}"
                                                th:href="@{/user/{username} (username=${user.getUsername()})}">
                                                 <img th:src="${item.getUser().getProfile_picture_url().toString()}"
-                                                     class="rounded gallery-item-tiny" alt="...">
+                                                     class="avatar" alt="avatar">
                                             </a>
                                         </div>
                                         <div class="col-xl-9">
                                             <br>
                                             <h6 th:text="${item.getUser().getUsername()}"></h6>
                                             <div>
-                                                <p th:text="'Uploaded: ' + ${item.getDateString()}"
+                                                <p th:text="'Posted on ' + ${item.getDateString()}"
                                                    style="font-size: 100%; white-space: nowrap"></p>
                                                 <small class="text-muted" th:text="${item.getEditDate()}"></small>
                                             </div>
@@ -383,7 +390,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="mt-2 pt-2">
-                                        <img th:if="${item.getPhoto_url()} != null" class="gallery-item-post"
+                                        <img th:if="${item.getPhoto_url()} != null" class="gallery-item-post" style="border-radius: 4px; width: 500px; height: 300px;"
                                              th:src="${item.getPhoto_url().toString()}" alt="">
                                         <p class="card-text m-1" th:text="${item.getBody()}"></p>
                                         <br>
@@ -391,21 +398,21 @@
                                             <form style="float: left;"
                                                   th:action="@{/posts/edit/{username}/{id} (username=${user.getUsername()}, id=${item.getId()})}"
                                                   method="get">
-                                                <button class="btn btn-dark btn-block" style="font-family: Poppins; font-size: 25px;" type="submit" name="edit">Edit</button>
+                                                <button class="btn btn-dark btn-block" style="font-family: Poppins; font-size: 15px; float: left;" type="submit" name="edit">Edit</button>
                                             </form>
-                                            <form style="float: left;"
+                                            <form style="float: right;"
                                                   th:action="@{/posts/delete/{username}/{id} (username=${user.getUsername()}, id = ${item.getId()})}"
                                                   th:method="post">
-                                                <button class="btn btn-dark btn-block" style="font-family: Poppins; font-size: 25px;" type="submit" name="delete">Remove</button>
+                                                <button class="btn btn-dark btn-block" style="font-family: Poppins; font-size: 15px; " type="submit" name="delete">Remove</button>
                                             </form>
                                             <br>
                                         </div>
-                                        <form class="mt-3 pt-3 border-top"
+                                        <form class="mt-3 pt-3 pb-3"
                                               th:action="@{/posts/create/{username}/{postId}/comment (username=${user.getUsername()}, postId=${item.getId()})}"
                                               th:object="${newComment}" method="POST">
                                             <input id="commentBody" class="form-control" th:field="*{body}" type="text"
                                                    placeholder="comment" required>
-                                            <button type="submit" class="btn btn-dark btn-block" style="font-family: Poppins; font-size: 25px;">Comment</button>
+                                            <button type="submit" class=" pt-2 btn btn-dark btn-block" style="font-family: Poppins; float: left; font-size: 15px;">Comment</button>
                                         </form>
                                     </div>
                                 </div>
@@ -420,19 +427,19 @@
                                                     <a th:if="${commentItem.getUser() != user}"
                                                        th:href="@{/{username}/friend/{friendName} (friendName=${commentItem.getUser().getUsername()}, username=${user.getUsername()})}">
                                                         <img th:src="${commentItem.getUser().getProfile_picture_url().toString()}"
-                                                             class="rounded gallery-item-teeny-tiny" alt="...">
+                                                             class="avatar" alt="avatar">
                                                     </a>
                                                     <a th:if="${commentItem.getUser() == user}"
                                                        th:href="@{/user/{username} (username=${user.getUsername()})}">
                                                         <img th:src="${commentItem.getUser().getProfile_picture_url().toString()}"
-                                                             class="rounded gallery-item-teeny-tiny" alt="...">
+                                                             class="avatar" alt="avatar">
                                                     </a>
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="me-auto card-title">
                                                         <p th:text="${commentItem.getUser().getUsername()}"></p>
                                                     </div>
-                                                    <p th:text="'Uploaded: ' + ${commentItem.getDateString()}"></p>
+                                                    <p th:text="'Commented ' + ${commentItem.getDateString()}"></p>
                                                     <small class="text-muted"
                                                            th:text="${commentItem.getEditDate()}"></small>
                                                     <br><br>
@@ -464,7 +471,7 @@
                 </div>
                 <!--       tab 2 friends-->
                 <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">
-                    <h1 class="pt-3" style="font-family: Poppins; font-size: 25px;">Friends</h1>
+                    <h1 class="pt-3" style="font-family: Poppins; font-size: 15px;">Friends</h1>
                     <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">
                         <button type="submit" class="btn btn-dark btn-block" style="font-family: Poppins; font-size: 20px;">Discover</button>
                     </form>
@@ -472,7 +479,7 @@
                         <div class="col-4 my-2" th:each="item : ${friends}">
                             <div th:if="${item.profile_picture_url.isEmpty()}" class="search-card">
                                 <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">
-                                    <img src="/img/blank-profile-picture.png">
+                                    <img src="/img/blank-profile-picture.png" class="avatar" alt="avatar" >
                                 </a>
                                 <p class="my-1" th:text="${item.username}"></p>
                             </div>
