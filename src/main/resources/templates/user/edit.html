@@ -5,1026 +5,268 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-
 <style>
-    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-
-    @font-face {
-        font-family: "Monaco-Regular";
-        font-style: normal;
-        font-weight: 400;
-        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
-    }
-
-    :root {
-        --primary--500-: #6200ee;
-        --white: #ffffff;
-        --light---outline--on-surface-000000-12: #0000001f;
-        --light---on-surface--high-emphasis-000000-87: #000000de;
-        --light---on-surface--medium-emphasis-000000-60: #00000099;
-        --equator: #e6c25f;
-        --font-size-l2: 16px;
-        --font-size-m3: 14px;
-        --font-family-monaco-regular: Monaco;
-    }
-
-    .viewingprofile {
-        align-items: flex-start;
-        background-color: var(--white);
-        display: flex;
-        height: 650px;
-        min-width: 1440px;
-        padding: 49px 20px;
-    }
-
     * {
         box-sizing: border-box;
     }
 
-    .hidden,
-    .hidden * {
-        pointer-events: none;
-        visibility: hidden;
+    body {
+        font-family: Arial, Helvetica, sans-serif;
     }
 
-    .light-container {
-        height: 533px;
-        position: relative;
-        width: 1376px;
+    /* Float four columns side by side */
+    .column {
+
+        width: 50%;
+        padding: 0 10px;
     }
 
-    .light-card-image-top-elevated-01-dp {
-        align-items: flex-start;
+    /* Remove extra left and right margins, due to padding in columns */
+    .row {margin: 0 -5px;}
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Style the counter cards */
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
         display: flex;
-        height: 533px;
-        left: 0;
-        min-width: 1376px;
-        position: absolute;
-        top: 0;
+        align-items: center;
+        justify-content: center;
     }
 
-    .overlap-group4 {
-        border-radius: 4px;
-        height: 525px;
-        position: absolute;
-        width: 1376px;
+    /* Responsive columns - one column layout (vertical) on small screens */
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
     }
-
-    .light-card-elements-imagea-image {
-        display: flex;
-        height: 385px;
-        left: 0;
-        position: absolute;
-        top: 64px;
-        width: 1376px;
-    }
-
-    .image {
-        border-radius: 30px;
-        flex: 1;
-        margin-left: 90px;
-        margin-right: 853px;
-        width: 426px;
-        height: 426px;
-    }
-
-    .light-lists-three-li-5 {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        left: 962px;
-        min-height: 69px;
-        position: absolute;
-        top: 111px;
-        width: 309px;
-    }
-
-    .devider-light {
-        align-self: flex-end;
-        background-color: var(--light---outline--on-surface-000000-12);
-        height: 1px;
-        margin-top: 12px;
-        width: 293px;
-    }
-
-    .overlap-group {
-        height: 47px;
-        margin-left: 14px;
-        margin-top: 9px;
-        position: relative;
-        width: 225px;
-    }
-
-    .secondary-text {
-        height: 28px;
-        left: 0;
-        letter-spacing: 0.25px;
-        line-height: 20px;
-        position: absolute;
-        top: 19px;
-        width: 225px;
-    }
-
-    .monaco-regular-normal-black-14px {
-        color: var(--light---on-surface--medium-emphasis-000000-60);
-        font-family: var(--font-family-monaco-regular);
-        font-size: var(--font-size-m3);
-        font-style: normal;
-        font-weight: 400;
-    }
-
-    .subtitle-1 {
-        left: 0;
-        letter-spacing: 0.5px;
-        line-height: 24px;
-        position: absolute;
-        top: 0;
-        white-space: nowrap;
-    }
-
-    .monaco-regular-normal-black-16px {
-        color: var(--light---on-surface--high-emphasis-000000-87);
-        font-family: var(--font-family-monaco-regular);
-        font-size: var(--font-size-l2);
-        font-style: normal;
-        font-weight: 400;
-    }
-
-    .light-lists-three-li-4 {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        left: 620px;
-        min-height: 69px;
-        position: absolute;
-        top: 249px;
-        width: 309px;
-    }
-
-    .light-lists-three-li-2 {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        left: 620px;
-        min-height: 69px;
-        position: absolute;
-        top: 111px;
-        width: 309px;
-    }
-
-    .light-lists-three-li-6 {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        left: 620px;
-        min-height: 69px;
-        position: absolute;
-        top: 317px;
-        width: 309px;
-    }
-
-    .light-button3-containeda-text-enabled {
-        display: flex;
-        height: 37px;
-        left: 1206px;
-        position: absolute;
-        top: 463px;
-        width: 129px;
-    }
-
-    .container-2 {
-        align-items: flex-start;
-        display: flex;
-        flex: 1;
-        min-width: 129px;
-    }
-
-    .overlap-group1-1 {
-        height: 37px;
-        position: relative;
-        width: 129px;
-    }
-
-    .states-1 {
-        display: flex;
-        height: 20px;
-        left: 15px;
-        position: absolute;
-        top: 9px;
-        width: 103px;
-    }
-
-    .edit-profile {
-        color: var(--white);
-        font-family: var(--font-family-monaco-regular);
-        font-size: var(--font-size-m3);
-        font-weight: 400;
-        height: 20px;
-        letter-spacing: 0;
-        line-height: 14px;
-        white-space: nowrap;
-        width: 103px;
-    }
-
-    .light-lists-three-li {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        left: 962px;
-        min-height: 88px;
-        position: absolute;
-        top: 196px;
-        width: 309px;
-    }
-
-    .subtitle-1-1 {
-        letter-spacing: 0.5px;
-        line-height: 24px;
-        margin-bottom: -2px;
-        margin-left: 14px;
-        margin-top: 9px;
-        min-height: 22px;
-        white-space: nowrap;
-    }
-
-    .secondary-text-1 {
-        align-self: center;
-        height: 42px;
-        letter-spacing: 0.25px;
-        line-height: 20px;
-        margin-left: 9px;
-        margin-top: 2px;
-        width: 290px;
-    }
-
-    .light-lists-three-li-1 {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        left: 962px;
-        min-height: 71px;
-        position: absolute;
-        top: 315px;
-        width: 309px;
-    }
-
-    .secondary-text-2 {
-        align-self: center;
-        height: 42px;
-        letter-spacing: 0.25px;
-        line-height: 20px;
-        margin-left: 3px;
-        margin-top: 2px;
-        width: 290px;
-    }
-
-    .devider-light-1 {
-        align-self: flex-end;
-        background-color: var(--light---outline--on-surface-000000-12);
-        height: 1px;
-        margin-top: 6px;
-        width: 293px;
-    }
-
-    .subtitle-1-2 {
-        letter-spacing: 0.5px;
-        line-height: 24px;
-        margin-bottom: -2px;
-        margin-left: 11px;
-        margin-top: -2px;
-        min-height: 22px;
-        white-space: nowrap;
-    }
-
-    .light-lists-three-li-3 {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        left: 620px;
-        min-height: 69px;
-        position: absolute;
-        top: 180px;
-        width: 309px;
-    }
-
-    .overlap-group6 {
-        height: 47px;
-        margin-left: 14px;
-        margin-top: 9px;
-        position: relative;
-        width: 190px;
-    }
-
-    .secondary-text-3 {
-        height: 28px;
-        left: 0;
-        letter-spacing: 0.25px;
-        line-height: 20px;
-        position: absolute;
-        top: 19px;
-        width: 190px;
-    }
-    /*<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->*/
-    /*<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->*/
-    /*<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->*/
-
-    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-
-    @font-face {
-        font-family: Monaco;
-        font-style: normal;
-        font-weight: 400;
-        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
-    }
-
-    :root {
-        --primary--500-: #6200ee;
-        --white: #ffffff;
-        --black: #000000;
-        --gunsmoke: #838383;
-        --red: #ff0000;
-        --font-size-m: 28px;
-        --font-size-m3: 14px;
-        --font-family-monaco-regular: Monaco;
-    }
-
-    .editform {
-        align-items: flex-start;
-        background-color: var(--white);
-        display: flex;
-        flex-direction: column;
-        min-height: 577px;
-        padding: 25px 32px;
-        width: 1440px;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    .hidden,
-    .hidden * {
-        pointer-events: none;
-        visibility: hidden;
-    }
-
-    .discardchanges {
-        align-items: flex-start;
-        display: flex;
-        min-width: 172px;
-    }
-
-    .a1 {
-        height: 35px;
-        position: relative;
-        width: 172px;
-    }
-
-    .a2 {
-        height: 35px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 172px;
-    }
-
-    .a8 {
-        background-color: var(--gunsmoke);
-        border-radius: 4px;
-        height: 35px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 172px;
-    }
-
-    .a3 {
-        display: flex;
-        height: 35px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 172px;
-    }
-
-    .a4 {
-        align-items: flex-start;
-        background-color: var(--gunsmoke);
-        border-radius: 4px;
-        box-shadow: 0px 1px 5px #00000033;
-        display: flex;
-        flex: 1;
-        min-width: 172px;
-        mix-blend-mode: multiply;
-    }
-
-    .a5 {
-        align-items: flex-start;
-        background-color: var(--gunsmoke);
-        border-radius: 4px;
-        box-shadow: 0px 3px 1px #0000001f;
-        display: flex;
-        min-width: 172px;
-    }
-
-    .a6 {
-        background-color: var(--gunsmoke);
-        border-radius: 4px;
-        box-shadow: 0px 2px 2px #00000024;
-        height: 35px;
-        width: 172px;
-    }
-
-    .monaco-regular-normal-white-14px {
-        color: var(--white);
-        font-family: var(--font-family-monaco-regular);
-        font-size: var(--font-size-m3);
-        font-style: normal;
-        font-weight: 400;
-    }
-
-    .discardlabel {
-        left: 16px;
-        letter-spacing: 1.25px;
-        line-height: 16px;
-        position: absolute;
-        top: 9px;
-        white-space: nowrap;
-    }
-
-    .c1 {
-        align-items: flex-end;
-        align-self: flex-end;
-        display: flex;
-        height: 38px;
-        margin-right: 3px;
-        margin-top: 46px;
-        min-width: 1363px;
-    }
-
-    .d8 {
-        height: 34px;
-        margin-bottom: 1px;
-        margin-left: 97px;
-        position: relative;
-        width: 147px;
-    }
-
-    .d9 {
-        display: flex;
-        height: 34px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 147px;
-    }
-
-    .container {
-        align-items: flex-start;
-        display: flex;
-        flex: 1;
-        min-width: 147px;
-    }
-
-    .e1 {
-        height: 34px;
-        position: relative;
-        width: 147px;
-    }
-
-    .e6 {
-        background-color: var(--black);
-        border-radius: 4px;
-        height: 34px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 147px;
-    }
-
-    .e2 {
-        align-items: flex-start;
-        background-color: var(--black);
-        border-radius: 4px;
-        box-shadow: 0px 1px 5px #00000033;
-        display: flex;
-        flex: 1;
-        min-width: 147px;
-        mix-blend-mode: multiply;
-    }
-
-    .e3 {
-        align-items: flex-start;
-        background-color: var(--black);
-        border-radius: 4px;
-        box-shadow: 0px 3px 1px #0000001f;
-        display: flex;
-        min-width: 147px;
-    }
-
-    .e4 {
-        background-color: var(--black);
-        border-radius: 4px;
-        box-shadow: 0px 2px 2px #00000024;
-        height: 34px;
-        width: 147px;
-    }
-
-    .light-button3-containeda-text-enabled-1 {
-        align-items: flex-start;
-        align-self: flex-start;
-        display: flex;
-        min-width: 162px;
-    }
-
-    .c2 {
-        height: 35px;
-        position: relative;
-        width: 162px;
-    }
-
-    .del {
-        left: 13px;
-        letter-spacing: 1.25px;
-        line-height: 16px;
-        position: absolute;
-        top: 10px;
-        white-space: nowrap;
-    }
-
-    .dis {
-        left: 13px;
-        letter-spacing: 1.25px;
-        line-height: 16px;
-        position: absolute;
-        top: 10px;
-        white-space: nowrap;
-    }
-
-
-    .c3 {
-        height: 35px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 162px;
-    }
-
-    .c4 {
-        display: flex;
-        height: 35px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 162px;
-    }
-
-    .c5 {
-        align-items: flex-start;
-        background-color: var(--red);
-        border-radius: 4px;
-        box-shadow: 0px 1px 5px #00000033;
-        display: flex;
-        flex: 1;
-        min-width: 162px;
-        mix-blend-mode: multiply;
-    }
-
-    .c6 {
-        align-items: flex-start;
-        background-color: var(--red);
-        border-radius: 4px;
-        box-shadow: 0px 3px 1px #0000001f;
-        display: flex;
-        min-width: 162px;
-    }
-
-    .c7 {
-        background-color: var(--red);
-        border-radius: 4px;
-        box-shadow: 0px 2px 2px #00000024;
-        height: 35px;
-        width: 162px;
-    }
-
-    .c8 {
-        background-color: var(--red);
-        border-radius: 4px;
-        height: 35px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 162px;
-    }
-
-    .light-button3-containeda-text-enabled-2 {
-        align-items: flex-start;
-        display: flex;
-        margin-left: 804px;
-        min-width: 153px;
-    }
-
-    .d1 {
-        height: 35px;
-        position: relative;
-        width: 153px;
-    }
-
-    .pic {
-        left: 13px;
-        letter-spacing: 1.25px;
-        line-height: 16px;
-        position: absolute;
-        top: 15px;
-        white-space: nowrap;
-    }
-
-    .sav {
-        left: 13px;
-        letter-spacing: 1.25px;
-        line-height: 16px;
-        position: absolute;
-        top: 15px;
-        white-space: nowrap;
-    }
-
-    .d2 {
-        height: 35px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 153px;
-    }
-
-    .d7 {
-        background-color: var(--gunsmoke);
-        border-radius: 4px;
-        height: 35px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 153px;
-    }
-
-    .d3 {
-        display: flex;
-        height: 35px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 153px;
-    }
-
-    .d4 {
-        align-items: flex-start;
-        background-color: var(--gunsmoke);
-        border-radius: 4px;
-        box-shadow: 0px 1px 5px #00000033;
-        display: flex;
-        flex: 1;
-        min-width: 153px;
-        mix-blend-mode: multiply;
-    }
-
-    .d5 {
-        align-items: flex-start;
-        background-color: var(--gunsmoke);
-        border-radius: 4px;
-        box-shadow: 0px 3px 1px #0000001f;
-        display: flex;
-        min-width: 153px;
-    }
-
-    .d6 {
-        background-color: var(--gunsmoke);
-        border-radius: 4px;
-        box-shadow: 0px 2px 2px #00000024;
-        height: 35px;
-        width: 153px;
-    }
-
-    .b1 {
-        align-self: center;
-        height: 377px;
-        margin-right: 157px;
-        margin-top: 26px;
-        position: relative;
-        width: 965px;
-    }
-
-    .b2 {
-        align-items: flex-start;
-        display: flex;
-        height: 377px;
-        left: 0;
-        min-width: 965px;
-        position: absolute;
-        top: 0;
-    }
-
-    .b3 {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        margin-top: 7px;
-        min-height: 324px;
-        width: 327px;
-    }
-
-    .b4 {
-        height: 86px;
-        position: relative;
-        width: 327px;
-    }
-
-    .title {
-        left: 0;
-        letter-spacing: 2.49px;
-        line-height: 25px;
-        position: absolute;
-        top: 0;
-        white-space: nowrap;
-    }
-
-    .monaco-regular-normal-black-28px {
-        color: var(--black);
-        font-family: var(--font-family-monaco-regular);
-        font-size: var(--font-size-m);
-        font-style: normal;
-        font-weight: 400;
-    }
-
-    .border-2px-primary--500- {
-        border: 2px solid var(--primary--500-);
-    }
-
-    .container-l-color {
-        border-radius: 4px;
-        height: 56px;
-        left: 0;
-        position: absolute;
-        top: 30px;
-        width: 327px;
-    }
-
-    .b5 {
-        height: 86px;
-        margin-top: 82px;
-        position: relative;
-        width: 327px;
-    }
-
-    .birthday {
-        left: 0;
-        letter-spacing: 2.49px;
-        line-height: 25px;
-        position: absolute;
-        top: 0;
-        white-space: nowrap;
-    }
-
-    .last-name {
-        letter-spacing: 2.49px;
-        line-height: 25px;
-        margin-top: 33px;
-        min-height: 37px;
-        white-space: nowrap;
-    }
-
-    .b6 {
-        align-items: flex-start;
-        align-self: flex-end;
-        display: flex;
-        flex-direction: column;
-        margin-left: 213px;
-        min-height: 372px;
-        width: 425px;
-    }
-
-    .b9 {
-        height: 132px;
-        margin-top: 33px;
-        position: relative;
-        width: 425px;
-    }
-
-    .container-l-color-4 {
-        border-radius: 4px;
-        height: 104px;
-        left: 1px;
-        position: absolute;
-        top: 28px;
-        width: 424px;
-    }
-
-    .interests {
-        left: 0;
-        letter-spacing: 2.49px;
-        line-height: 25px;
-        position: absolute;
-        top: 0;
-        white-space: nowrap;
-    }
-
-    .b8 {
-        height: 86px;
-        margin-top: 33px;
-        position: relative;
-        width: 328px;
-    }
-
-    .container-l-color-3 {
-        border-radius: 4px;
-        height: 56px;
-        left: 1px;
-        position: absolute;
-        top: 30px;
-        width: 327px;
-    }
-
-    .job-title {
-        left: 0;
-        letter-spacing: 2.49px;
-        line-height: 25px;
-        position: absolute;
-        top: 0;
-        white-space: nowrap;
-    }
-
-    .b7 {
-        height: 88px;
-        position: relative;
-        width: 425px;
-    }
-
-    .container-l-color-2 {
-        border-radius: 4px;
-        height: 58px;
-        left: 1px;
-        position: absolute;
-        top: 30px;
-        width: 424px;
-    }
-
-    .coding-languages {
-        left: 0;
-        letter-spacing: 2.49px;
-        line-height: 25px;
-        position: absolute;
-        top: 0;
-        white-space: nowrap;
-    }
-
-    .container-l-color-1 {
-        border-radius: 4px;
-        height: 56px;
-        left: 0;
-        position: absolute;
-        top: 156px;
-        width: 328px;
-    }
-
-
 </style>
-
 <body>
+
 <header th:replace="partials/header :: header"></header>
-    <main class="editform screen">
-        <div class="p-5" style="width: 100%; background-color: #e6c25f; border: 5px solid black">
-            <div class="discardchanges">
-                <div class="a1">
-                    <div class="a2">
-                        <div class="a3">
-                            <div class="a4">
-                                <div class="a5"><div class="a6"></div></div>
-                            </div>
-                                </div>
-                                <div class="a8"></div>
-                                <div class="a8"></div>
-                            </div>
-                                <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
-                                    <div class="dis monaco-regular-normal-white-14px">DISCARD CHANGES</div>
-                                </a>
-                            </div>
+<div class="dash">
+    <div class="dashbrd"><h1 class="title p-4 pb-1 pt-4">Edit Profile</h1></div>
+</div>
+
+
+    <div class="card col col-lg-8 mb-4 mb-lg-0">
+        <form th:action="@{/edit/{username} (username=${user.getUsername()})}" method="POST" th:object="${user}">
+            <div class="mb-3 mt-3">
+                <label for="first-name-input" class="form-label monaco-regular-normal-black-28px">First Name</label>
+                <input id="first-name-input" class="form-control monaco-regular-normal-black-14px" th:field="*{firstName}" />
+            </div>
+            <div class="mb-3">
+                <label for="last-name-input" class="form-label monaco-regular-normal-black-28px">Last Name</label>
+                <input type="text" class="form-control monaco-regular-normal-black-14px" id="last-name-input" th:field="*{lastName}">
+            </div>
+            <div class="mb-3">
+                <label for="aboutMe-input" class="form-label monaco-regular-normal-black-28px">Coding Interests</label>
+                <input type="text" class="form-control monaco-regular-normal-black-14px" id="aboutMe-input" th:field="*{aboutMe}">
+            </div>
+            <div class="mb-3">
+                <label for="codeLanguages-input" class="form-label monaco-regular-normal-black-28px">Coding Languages</label>
+                <input type="text" class="form-control monaco-regular-normal-black-14px" id="codeLanguages-input" th:field="*{codeLanguages}">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="birthday-input" class="col-2 col-form-label monaco-regular-normal-black-28px">Birthday</label>
+                <input class="form-control monaco-regular-normal-black-14px" type="date" value="2000-01-01" id="birthday-input" th:field="*{birthday}">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="job-input" class="form-label monaco-regular-normal-black-28px">Job</label>
+                <input type="text" class="form-control monaco-regular-normal-black-14px" id="job-input" th:field="*{job}" maxlength="30">
+            </div>
+            <div class="light-button3-containeda-text-enabled-2">
+                <div class="d1">
+                    <div class="d2">
+                        <div class="d3">
+                        </div>
                     </div>
+                    <div class="pic monaco-regular-normal-white-14px" id="uploadPhoto">
 
-            <form th:action="@{/edit/{username} (username=${user.getUsername()})}" method="POST" th:object="${user}">
-                <div class="mb-3 mt-3">
-                    <label for="first-name-input" class="form-label monaco-regular-normal-black-28px">First Name</label>
-                    <input id="first-name-input" class="form-control monaco-regular-normal-black-14px" th:field="*{firstName}" />
+                        <input type="hidden" id="photo" name="gallery_photo" th:field="*{profile_picture_url}" />
+                        <button class="btn btn-secondary" id="upload">Profile Photo</button>
+
+
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="last-name-input" class="form-label monaco-regular-normal-black-28px">Last Name</label>
-                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="last-name-input" th:field="*{lastName}">
-                </div>
-                <div class="mb-3">
-                    <label for="aboutMe-input" class="form-label monaco-regular-normal-black-28px">Coding Interests</label>
-                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="aboutMe-input" th:field="*{aboutMe}">
-                </div>
-                <div class="mb-3">
-                    <label for="codeLanguages-input" class="form-label monaco-regular-normal-black-28px">Coding Languages</label>
-                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="codeLanguages-input" th:field="*{codeLanguages}">
-                </div>
-
-
-                <div class="mb-3">
-                    <label for="birthday-input" class="col-2 col-form-label monaco-regular-normal-black-28px">Birthday</label>
-                    <input class="form-control monaco-regular-normal-black-14px" type="date" value="2000-01-01" id="birthday-input" th:field="*{birthday}">
-                </div>
-
-
-                <div class="mb-3">
-                    <label for="job-input" class="form-label monaco-regular-normal-black-28px">Job</label>
-                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="job-input" th:field="*{job}" maxlength="30">
-                </div>
-                    <div class="light-button3-containeda-text-enabled-2">
-                                    <div class="d1">
-                                        <div class="d2">
-                                            <div class="d3">
-                                            </div>
-                                        </div>
-                                        <div class="pic monaco-regular-normal-white-14px" id="uploadPhoto">
-
-                                                <input type="hidden" id="photo" name="gallery_photo" th:field="*{profile_picture_url}" />
-                                                <button class="btn btn-secondary" id="upload">Profile Photo</button>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                <div class="light-button3-containeda-text-enabled-2">
-                            <div class="d8">
-                                <div class="d9">
-                                    <div class="container">
-                                        <div class="e1">
-                                            <div class="error-message" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
-                                            <div class="error-message" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
-                                            <button type="submit" class="btn btn-primary sav monaco-regular-normal-white-14px">Save Changes</button>
-                                        </div>
-                                    </div>
-                                </div>
+            </div>
+            <div class="light-button3-containeda-text-enabled-2">
+                <div class="d8">
+                    <div class="d9">
+                        <div class="container">
+                            <div class="e1">
+                                <div class="error-message" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+                                <div class="error-message" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+                                <button type="submit" class="btn btn-primary sav monaco-regular-normal-white-14px">Save Changes</button>
                             </div>
-                </div>
-
-            </form>
-            <form th:action="@{/{username}/delete (username=${#authentication.principal.username})}" method="POST" class="p-3" >
-                <button type="submit" class="btn btn-danger monaco-regular-normal-white-14px" onclick="return confirm('Are you sure?\nYou can\'t change your mind after clicking OK.')">Delete your account</button>
-            </form>
-
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Friend Requests</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body" style="width: 100%">
-                            <div class="p-5" style="background-color: lavender;" th:each="item : ${friendRequests}">
-                                <div class="row m-3 p-3 border border-dark" style="background-color: white;">
-                                    <div class="col-6">
-                                        <img th:src="${item.getUser().getProfile_picture_url().toString()}" class="gallery-item-tiny" alt="...">
-                                        <a th:if="${item.getStatus().ACCEPTED}" th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">
-                                            <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
-                                        </a>
-                                        <div th:if="${item.getStatus().PENDING}" th:href="@{/user/{username} (username=${user.getUsername()})}">
-                                            <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <small class="text-muted">Username: </small>
-                                        <p class="card-text" th:text="${item.getUser().getUsername()}"></p>
-                                        <small class="text-muted">First Name: </small>
-                                        <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>
-                                        <small class="text-muted">Last Name: </small>
-                                        <p class="card-text" th:text="${item.getUser().getLastName()}"></p>
-                                        <form th:action="@{/request/{username}/{friendName}/accept (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
-                                            <input class="field" name="accept" type="hidden" th:value="${item.getUser().getUsername()}"/>
-                                            <button class="btn btn-primary">Accept</button>
-                                        </form>
-                                        <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
-                                            <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>
-                                            <button class="btn btn-danger">Reject</button>
-                                        </form>
-                                        <form th:action="@{/request/{username}/{friendName}/block (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
-                                            <input type="hidden" class="field" name="block" th:value="${item.getUser().getUsername()}"/>
-                                            <button class="btn btn-danger">Block</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
-</div>
+
+        </form>
+
+
+    </div>
+
+
+
+
+
+
+
+<!--<body>-->
+<!--<header th:replace="partials/header :: header"></header>-->
+<!--    <main class="editform screen">-->
+<!--        <div class="p-5" style="width: 100%; background-color: #e6c25f; border: 5px solid black">-->
+<!--            <div class="discardchanges">-->
+<!--                <div class="a1">-->
+<!--                    <div class="a2">-->
+<!--                        <div class="a3">-->
+<!--                            <div class="a4">-->
+<!--                                <div class="a5"><div class="a6"></div></div>-->
+<!--                            </div>-->
+<!--                                </div>-->
+<!--                                <div class="a8"></div>-->
+<!--                                <div class="a8"></div>-->
+<!--                            </div>-->
+<!--                                <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">-->
+<!--                                    <div class="dis monaco-regular-normal-white-14px">DISCARD CHANGES</div>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                    </div>-->
+
+<!--            <form th:action="@{/edit/{username} (username=${user.getUsername()})}" method="POST" th:object="${user}">-->
+<!--                <div class="mb-3 mt-3">-->
+<!--                    <label for="first-name-input" class="form-label monaco-regular-normal-black-28px">First Name</label>-->
+<!--                    <input id="first-name-input" class="form-control monaco-regular-normal-black-14px" th:field="*{firstName}" />-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <label for="last-name-input" class="form-label monaco-regular-normal-black-28px">Last Name</label>-->
+<!--                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="last-name-input" th:field="*{lastName}">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <label for="aboutMe-input" class="form-label monaco-regular-normal-black-28px">Coding Interests</label>-->
+<!--                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="aboutMe-input" th:field="*{aboutMe}">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <label for="codeLanguages-input" class="form-label monaco-regular-normal-black-28px">Coding Languages</label>-->
+<!--                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="codeLanguages-input" th:field="*{codeLanguages}">-->
+<!--                </div>-->
+
+
+<!--                <div class="mb-3">-->
+<!--                    <label for="birthday-input" class="col-2 col-form-label monaco-regular-normal-black-28px">Birthday</label>-->
+<!--                    <input class="form-control monaco-regular-normal-black-14px" type="date" value="2000-01-01" id="birthday-input" th:field="*{birthday}">-->
+<!--                </div>-->
+
+
+<!--                <div class="mb-3">-->
+<!--                    <label for="job-input" class="form-label monaco-regular-normal-black-28px">Job</label>-->
+<!--                    <input type="text" class="form-control monaco-regular-normal-black-14px" id="job-input" th:field="*{job}" maxlength="30">-->
+<!--                </div>-->
+<!--                    <div class="light-button3-containeda-text-enabled-2">-->
+<!--                                    <div class="d1">-->
+<!--                                        <div class="d2">-->
+<!--                                            <div class="d3">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="pic monaco-regular-normal-white-14px" id="uploadPhoto">-->
+
+<!--                                                <input type="hidden" id="photo" name="gallery_photo" th:field="*{profile_picture_url}" />-->
+<!--                                                <button class="btn btn-secondary" id="upload">Profile Photo</button>-->
+
+
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                <div class="light-button3-containeda-text-enabled-2">-->
+<!--                            <div class="d8">-->
+<!--                                <div class="d9">-->
+<!--                                    <div class="container">-->
+<!--                                        <div class="e1">-->
+<!--                                            <div class="error-message" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>-->
+<!--                                            <div class="error-message" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>-->
+<!--                                            <button type="submit" class="btn btn-primary sav monaco-regular-normal-white-14px">Save Changes</button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                </div>-->
+
+<!--            </form>-->
+<!--            <form th:action="@{/{username}/delete (username=${#authentication.principal.username})}" method="POST" class="p-3" >-->
+<!--                <button type="submit" class="btn btn-danger monaco-regular-normal-white-14px" onclick="return confirm('Are you sure?\nYou can\'t change your mind after clicking OK.')">Delete your account</button>-->
+<!--            </form>-->
+
+
+<!--            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                <div class="modal-dialog modal-lg" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="modal-header">-->
+<!--                            <h5 class="modal-title" id="exampleModalLabel">Friend Requests</h5>-->
+<!--                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                                <span aria-hidden="true">&times;</span>-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                        <div class="modal-body" style="width: 100%">-->
+<!--                            <div class="p-5" style="background-color: lavender;" th:each="item : ${friendRequests}">-->
+<!--                                <div class="row m-3 p-3 border border-dark" style="background-color: white;">-->
+<!--                                    <div class="col-6">-->
+<!--                                        <img th:src="${item.getUser().getProfile_picture_url().toString()}" class="gallery-item-tiny" alt="...">-->
+<!--                                        <a th:if="${item.getStatus().ACCEPTED}" th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">-->
+<!--                                            <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>-->
+<!--                                        </a>-->
+<!--                                        <div th:if="${item.getStatus().PENDING}" th:href="@{/user/{username} (username=${user.getUsername()})}">-->
+<!--                                            <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6">-->
+<!--                                        <small class="text-muted">Username: </small>-->
+<!--                                        <p class="card-text" th:text="${item.getUser().getUsername()}"></p>-->
+<!--                                        <small class="text-muted">First Name: </small>-->
+<!--                                        <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>-->
+<!--                                        <small class="text-muted">Last Name: </small>-->
+<!--                                        <p class="card-text" th:text="${item.getUser().getLastName()}"></p>-->
+<!--                                        <form th:action="@{/request/{username}/{friendName}/accept (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">-->
+<!--                                            <input class="field" name="accept" type="hidden" th:value="${item.getUser().getUsername()}"/>-->
+<!--                                            <button class="btn btn-primary">Accept</button>-->
+<!--                                        </form>-->
+<!--                                        <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">-->
+<!--                                            <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>-->
+<!--                                            <button class="btn btn-danger">Reject</button>-->
+<!--                                        </form>-->
+<!--                                        <form th:action="@{/request/{username}/{friendName}/block (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">-->
+<!--                                            <input type="hidden" class="field" name="block" th:value="${item.getUser().getUsername()}"/>-->
+<!--                                            <button class="btn btn-danger">Block</button>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </main>-->
+<!--</div>-->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
