@@ -117,7 +117,7 @@
                 <div class="row g-0">
                     <div class="col-md-12 gradient-custom text-center text-white"
                          style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; border-top-right-radius: .5rem; border-bottom-right-radius: .5rem;">
-                        <img class="image pt-2" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap"/>
+                        <img class="image" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap"/>
                         <h5 class="pt-3" th:text="${user.firstName}"></h5>
                         <h5 class="pb-3" th:text="${user.lastName}"></h5>
                         <p class="pt-1 text-muted"><i class="far fa-address-card"></i> Works at</p><p class="pb-4" th:text="${user.job}"></p>
