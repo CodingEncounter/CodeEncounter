@@ -28,163 +28,16 @@
         box-sizing: border-box;
     }
 
-    .dashboard {
-        align-items: flex-start;
-        background-color: var(--white);
-        display: flex;
-        height: 772px;
-        min-width: 1440px;
-        padding: 18px 17px;
-    }
-
-
     .hidden,
     .hidden * {
         pointer-events: none;
         visibility: hidden;
     }
 
-    .rectangle-6 {
-        background-color: var(--white);
-        border-radius: 8px;
-        height: 653px;
-        margin-left: 27px;
-        width: 656px;
-    }
-
-    .border-1px-dove-gray {
-        border: 1px solid var(--dove-gray);
-    }
-
-    .overlap-group3 {
-        align-items: flex-start;
-        background-color: #e6c25f;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        min-height: 653px;
-        padding: 21px 30px;
-        width: 720px;
-    }
-    .overlap-group4 {
-        align-items: flex-start;
-        background-color: #e6c25f;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        min-height: 653px;
-        padding: 21px 30px;
-        width: 720px;
-    }
-
-    .light-button3-containeda-text-enabled {
-        align-items: flex-start;
-        align-self: flex-end;
-        display: flex;
-        margin-right: 1px;
-        margin-top: 26px;
-        min-width: 144px;
-    }
-
-    .btngroup {
-        height: 34px;
-        position: relative;
-        width: 144px;
-    }
-
-    .overlap-group1 {
-        height: 34px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 144px;
-    }
-
-    .color {
-        background-color: gray;
-        border-radius: 4px;
-        height: 34px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 144px;
-    }
-
-    .coding-interestsdes {
-        letter-spacing: 0;
-        line-height: 20px;
-        margin-top: 23px;
-        min-height: 54px;
-        white-space: nowrap;
-    }
-
-
-
-    .language-proficiency {
-        letter-spacing: 0;
-        line-height: 20px;
-        margin-top: 24px;
-        min-height: 54px;
-        white-space: nowrap;
-    }
-
-    .flex-row {
-        align-items: flex-start;
-        display: flex;
-        height: 388px;
-        margin-left: 1px;
-        margin-top: 8px;
-        min-width: 547px;
-    }
-
     .image {
         height: 300px;
         width: 250px;
         border-radius: 8px;
-    }
-
-    .flex-col {
-        align-items: flex-start;
-        align-self: flex-end;
-        display: flex;
-        flex-direction: column;
-        margin-left: 116px;
-        min-height: 372px;
-        width: 134px;
-    }
-
-    .flex-col-item {
-        letter-spacing: 0;
-        line-height: 20px;
-        margin-top: 34px;
-        min-height: 54px;
-        white-space: nowrap;
-    }
-
-    .full-name {
-        letter-spacing: 0;
-        line-height: 20px;
-        min-height: 27px;
-        white-space: nowrap;
-    }
-
-    .joined-datedate {
-        letter-spacing: 0;
-        line-height: 20px;
-        margin-top: 28px;
-        min-height: 54px;
-        white-space: nowrap;
-    }
-    .email{
-        font-size: 16px;
-    }
-    .nav-ide {
-        height: 940px;
-        width: 215px;
-        overflow: auto;
-        float: left;
-        position: relative;
-        margin-left: -5px;
     }
 
     * {
@@ -233,26 +86,20 @@
         font-size: 60px;
         font-family: Poppins;
     }
-    .button-container {
-        display: flex;
-        position: absolute;
-        left: 80px;
-        top: 100px;
-    }
-    .flex-container{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start !important;
-        position: relative;
-    }
 
-    .avatar {
+    .avataracc {
         /*vertical-align: left;*/
-        width: 100px;
-        height: 100px;
-        border-radius: 10%;
-    }
+        display: flex;
+        justify-content: flex-start;
+        width: 250px;
+        height: 300px;
+        border-radius: 6px;
 
+    }
+    .frinfo{
+        display: flex;
+        justify-content: flex-end;
+    }
 
     .gradient-custom {
         /* fallback for old browsers */
@@ -326,27 +173,28 @@
             <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
                 <h5>Back to Profile</h5>
             </a>
-            <h1>Friend Requests</h1>
+            <h1 class="pt-3 pb-3">Pending Approval</h1>
 
-            <div class="pt-3" th:each="item : ${friendRequests}">
-                <div class="row m-3 p-3" style="background-color: white;">
-                    <div class="col-4">
-                        <img th:src="${item.getUser().getProfile_picture_url().toString()}" class="avatar" alt="avatar">
+            <div th:each="item : ${friendRequests}">
+
+                        <img th:src="${item.getUser().getProfile_picture_url().toString()}" class="avataracc" alt="avataracc">
+                        <div>
                         <a th:if="${item.getStatus().ACCEPTED}" th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">
-                            <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
+                            <h5  th:text="${item.getUser().getUsername()}"></h5>
                         </a>
                         <div th:if="${item.getStatus().PENDING}" th:href="@{/user/{username} (username=${user.getUsername()})}">
-                            <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
+                            <h5  th:text="${item.getUser().getUsername()}"></h5>
                         </div>
-                    </div>
-                </div>
-                <div class="col-7">
+
                     <small class="text-muted">Username: </small>
-                    <p class="card-text" th:text="${item.getUser().getUsername()}"></p>
+                    <p  th:text="${item.getUser().getUsername()}"></p>
                     <small class="text-muted">First Name: </small>
-                    <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>
+                    <p  th:text="${item.getUser().getFirstName()}"></p>
                     <small class="text-muted">Last Name: </small>
-                    <p class="card-text" th:text="${item.getUser().getLastName()}"></p>
+                    <p  th:text="${item.getUser().getLastName()}"></p>
+
+</div>
+                    <div class="d-flex justify-content-around">
                     <form th:action="@{/request/{username}/{friendName}/accept (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
                         <input class="field" name="accept" type="hidden" th:value="${item.getUser().getUsername()}"/>
                         <button class="btn btn-primary">Accept</button>
@@ -355,7 +203,8 @@
                         <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>
                         <button class="btn btn-danger">Reject</button>
                     </form>
-                </div>
+                        </div>
+
 
     </div>
 </div>
