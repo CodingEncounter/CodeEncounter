@@ -2,31 +2,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://thymeleaf.org">
 <head th:replace="partials/head :: head('IDE')">
-    <meta charset="UTF-8" name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <title>Title</title>
+  <meta charset="UTF-8" name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Title</title>
 </head>
 <body>
 <header th:replace="partials/header :: header"></header>
 <main class="col-xl-12">
-    <div style="width: 100%;">
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 15px;">
-                <a class="nav-item nav-link" style="font-family: Poppins; font-size: 50px;" th:href="@{/user/{username}/java (username=${#authentication.principal.username})}">Java</a>
-                <a class="nav-item nav-link" style="font-family: Poppins; font-size: 50px;" th:href="@{/user/{username}/python (username=${#authentication.principal.username})}">Python</a>
-                <a class="nav-item nav-link" style="font-family: Poppins; font-size: 50px;" th:href="@{/user/{username}/nodejs (username=${#authentication.principal.username})}">NodeJS</a>
-                <a class="nav-item nav-link" style="font-family: Poppins; font-size: 50px;" th:href="@{/user/{username}/c (username=${#authentication.principal.username})}">C</a>
-            </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-            <div>
-                <div class="tab-pane fade show active" id="nav-c" role="tabpanel" aria-labelledby="nav-c-tab">
-                    <div id="c" data-pym-src='https://www.jdoodle.com/plugin' data-language="c"
-                         data-version-index="4" data-libs="mavenlib1, mavenlib2">
-                    </div>
-                </div>
-            </div>
+  <div style="width: 100%;">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Monaco; font-size: 15px;">
+        <a class="nav-item nav-link" style="font-family: Poppins; font-size: 50px;" th:href="@{/user/{username}/java (username=${#authentication.principal.username})}">Java</a>
+        <a class="nav-item nav-link" style="font-family: Poppins; font-size: 50px;" th:href="@{/user/{username}/python (username=${#authentication.principal.username})}">Python</a>
+        <a class="nav-item nav-link" style="font-family: Poppins; font-size: 50px;" th:href="@{/user/{username}/nodejs (username=${#authentication.principal.username})}">NodeJS</a>
+        <a class="nav-item nav-link" style="font-family: Poppins; font-size: 50px;" th:href="@{/user/{username}/c (username=${#authentication.principal.username})}">C</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div>
+        <div class="tab-pane fade show active" id="nav-c" role="tabpanel" aria-labelledby="nav-c-tab">
+          <div id="c" data-pym-src='https://www.jdoodle.com/plugin' data-language="c"
+               data-version-index="4" data-libs="mavenlib1, mavenlib2">
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </main>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
