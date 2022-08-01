@@ -1506,6 +1506,79 @@ button.accent {
     }
 }
 
+/*********  Type Animation  ***************/
+
+:root{
+    --bg-color: hsl(49, 35%, 94%);
+    --typewriterSpeed: 6s;
+}
+
+body{
+    margin: 0;
+    font-family: "Source Code Pro", sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background: var(--bg-color);
+}
+
+.meet-the-code-encounter-founders{
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    position: relative;
+    font-family: "Source Code Pro", monospace;
+}
+
+.meet-the-code-encounter-founders::before,
+.meet-the-code-encounter-founders::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 10px;
+}
+
+.meet-the-code-encounter-founders::before{
+    background: var(--bg-color);
+    animation: typewriter var(--typewriterSpeed) steps(20) 1s forwards;
+}
+
+.meet-the-code-encounter-founders::after{
+    width: 0.125em;
+    background: black;
+    animation: typewriter var(--typewriterSpeed) steps(20) 1s forwards,
+    blink 750ms steps(20) infinite;
+}
+
+/*.subtitle{*/
+/*    color: hsl(0 0% 0% / 0.7);*/
+/*    font-size: 2rem;*/
+/*    font-weight: 400;*/
+/*    opacity: 0;*/
+/*    transform: translateY(3rem);*/
+/*    animation: fadeInUp 2s ease var(--typewriterSpeed) forwards;*/
+/*}*/
+
+@keyframes typewriter{
+    to{
+        left: 100%;
+    }
+}
+
+@keyframes blink{
+    to{
+        background: transparent;
+    }
+}
+
+@keyframes fadeInUp{
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /*********  Developer Card 1  *************/
 *
 {
@@ -1517,9 +1590,11 @@ button.accent {
 .image-area
 {
     top: 50%;
-    left: 25%;
+    left: 12%;
     transform: translate(-50%, -50%);
+    border-radius: 25px;
     position: absolute;
+
 }
 
 .img-wrapper
@@ -1528,6 +1603,8 @@ button.accent {
     height: 400px;
     position: relative;
     overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 70px 1000px -50px #000000
 }
 
 .img-wrapper:before
@@ -1542,6 +1619,7 @@ button.accent {
     z-index: 1;
     transform: skew(45deg);
     transition: .5s;
+
 }
 
 .img-wrapper:hover:before
@@ -1661,8 +1739,9 @@ button.accent {
 .image-area2
 {
     top: 50%;
-    left: 50%;
+    left: 37%;
     transform: translate(-50%, -50%);
+    border-radius: 25px;
     position: absolute;
 }
 
@@ -1672,6 +1751,8 @@ button.accent {
     height: 400px;
     position: relative;
     overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 70px 1000px -50px #000000
 }
 
 .img-wrapper2:before
@@ -1805,8 +1886,9 @@ button.accent {
 .image-area3
 {
     top: 50%;
-    left: 75%;
+    left: 62%;
     transform: translate(-50%, -50%);
+    border-radius: 25px;
     position: absolute;
 }
 
@@ -1816,6 +1898,8 @@ button.accent {
     height: 400px;
     position: relative;
     overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 70px 1000px -50px #000000
 }
 
 .img-wrapper3:before
@@ -1949,8 +2033,9 @@ button.accent {
 .image-area4
 {
     top: 50%;
-    left: 100%;
+    left: 87%;
     transform: translate(-50%, -50%);
+    border-radius: 25px;
     position: absolute;
 }
 
@@ -1960,6 +2045,8 @@ button.accent {
     height: 400px;
     position: relative;
     overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 70px 1000px -50px #000000
 }
 
 .img-wrapper4:before
