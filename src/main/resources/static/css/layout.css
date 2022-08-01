@@ -1104,7 +1104,7 @@ img {
     height: auto;
     padding: 4rem 5rem;
     position: relative;
-    border: 5px solid var(--color-primary);
+    /*border: 5px solid var(--color-primary);*/
 }
 
 .fa-quote-left {
@@ -1582,7 +1582,7 @@ body{
 /*********  Developer Card 1  *************/
 *
 {
-    background: #f1f2f6;
+    /*background: #f1f2f6;*/
     margin: 0;
     padding: 0;
 }
@@ -1731,7 +1731,7 @@ body{
 /*********  Developer Card 2  *************/
 *
 {
-    background: #f1f2f6;
+    /*background: #f1f2f6;*/
     margin: 0;
     padding: 0;
 }
@@ -1878,7 +1878,7 @@ body{
 /*********  Developer Card 3  *************/
 *
 {
-    background: #f1f2f6;
+    /*background: #f1f2f6;*/
     margin: 0;
     padding: 0;
 }
@@ -2025,7 +2025,7 @@ body{
 /*********  Developer Card 4  *************/
 *
 {
-    background: #f1f2f6;
+    /*background: #f1f2f6;*/
     margin: 0;
     padding: 0;
 }
