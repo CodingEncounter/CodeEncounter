@@ -33,11 +33,37 @@ $(document).ready(function () {
         $.get('/meetup/all',
             function (data, textStatus) {
                 data.forEach(meetup => {
+                    let dateTime = new Date(meetup.dateTime).toLocaleString('en-US', {
+                        weekday: 'short', // long, short, narrow
+                        day: 'numeric', // numeric, 2-digit
+                        year: 'numeric', // numeric, 2-digit
+                        month: 'long', // numeric, 2-digit, long, short, narrow
+                        hour: 'numeric', // numeric, 2-digit
+                        minute: 'numeric', // numeric, 2-digit
+                        second: 'numeric', // numeric, 2-digit
+                    });
+                    let organizedBy = meetup.user.firstName + " " + meetup.user.lastName;
+                    const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+                        "<p> Name: " + meetup.name + "</p>" +
+                        "<p>" + dateTime + "</p>" +
+                        "<p>Description: " + meetup.description + "</p>" +
+                        "<p>Organized by: " + organizedBy + "</p>"
+                    );
                     new mapboxgl.Marker({
                         draggable: false
                     })
-                        .setLngLat([meetup.longitude, meetup.latitude])
-                        .addTo(map);
+                    .setLngLat([meetup.longitude, meetup.latitude])
+                    .setPopup(popup)
+                    .addTo(map);
+
+                    let p_name = $("<p>").text("Name: " + meetup.name);
+                    let p_dateTime = $("<p>").text(dateTime);
+                    let p_description = $("<p>").text("Description: " + meetup.description);
+                    let p_organizedBy = $("<p>").text("Organized by: " + organizedBy);
+                    let div = $("<div>").click(e => {
+                        alert("goho" + meetup.name)
+                    }).attr("class", "border-1px-dove-gray mb-2").append(p_name, p_dateTime, p_description, p_organizedBy);
+                    $("#allMeetups").append(div);
                 })
             });
     });
