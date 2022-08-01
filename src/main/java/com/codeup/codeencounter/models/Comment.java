@@ -34,9 +34,9 @@ public class Comment {
     @Column(nullable = true)
     private Date editDate;
 
-//    @ManyToOne
-//    @JoinColumn(name = "comment_id")
-//    private Comment comment;
+    @ManyToOne
+    @JoinColumn(name = "comment_id")
+    private Comment comment;
 
     public Comment(){}
 
