@@ -1,4 +1,4 @@
-https://user-images.githubusercontent.com/100165827/182199504-9049f862-a7ec-4a46-a14a-7faca3e1f2d7.mp4
+![Copy of Code encounter](https://user-images.githubusercontent.com/100165827/182200508-d31de07c-517d-4b86-ad7d-322cab4edbd0.gif)
 
 # CodeEncounter
 
