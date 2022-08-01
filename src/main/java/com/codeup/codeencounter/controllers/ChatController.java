@@ -44,6 +44,31 @@ public class ChatController {
     public String chat() {
         return "user/chat";
     }
+
+    @GetMapping("/user/{username}/ide")
+    public String ide() {
+        return "user/ide";
+    }
+
+    @GetMapping("/user/{username}/java")
+    public String java() {
+        return "user/java";
+    }
+
+    @GetMapping("/user/{username}/python")
+    public String python() {
+        return "user/python";
+    }
+
+    @GetMapping("/user/{username}/nodejs")
+    public String nodejs() {
+        return "user/nodejs";
+    }
+
+    @GetMapping("/user/{username}/c")
+    public String c() {
+        return "user/c";
+    }
 //    @RequestMapping("/{username}/chat")
 //    public String index(Model model) {
 //        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -63,3 +88,5 @@ public class ChatController {
 //    }
 
 }
+
+
