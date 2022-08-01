@@ -4,6 +4,8 @@ import com.codeup.codeencounter.repositories.*;
 import com.codeup.codeencounter.models.*;
 import com.codeup.codeencounter.services.*;
 import com.codeup.codeencounter.models.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import static javax.swing.JOptionPane.showMessageDialog;
+
 
 import javax.validation.Valid;
 import java.util.*;
@@ -52,6 +55,7 @@ public class UserController {
 
         return "user/register";
     }
+
     @PostMapping("/sign-up")
     public String registerUser(Model model,
                                @Valid User user,
@@ -281,4 +285,14 @@ public class UserController {
     public String viewAllAdsWithAjax() {
         return "user/random";
     }
+
+//    @PostMapping(value = "/createUser")
+//    public ResponseEntity<User> createUser(@RequestBody User user) {
+//        return new ResponseEntity<>(userRepo.save(user), HttpStatus.OK);
+//    }
+//
+//    @GetMapping(value = "/getUser")
+//    public ResponseEntity<User> getUser(@RequestParam(required = true) Long userId) {
+//        return new ResponseEntity<>(userRepo.findById(userId).get(), HttpStatus.OK);
+//    }
 }
