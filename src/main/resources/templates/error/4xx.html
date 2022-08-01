@@ -1,105 +1,2338 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head th:replace="partials/head :: head('Error')">-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<header th:replace="partials/header :: header"></header>-->
-<!--<p>Something went wrong, use this <a href="javascript:window.history.back();">back</a> button and try again.</p>-->
-
-<!--<img class="center" th:src="@{/img/worker1.png/}" style="max-width: 35vw;" alt="">-->
-
-<!--<footer th:replace="partials/footer :: footer"></footer>-->
-<!--</body>-->
-<!--</html>-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/head :: head('Error')">
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
+</head><style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+    @import url("https://fonts.googleapis.com/css?family=Poppins:700|Nunito:400,600");
+
+    :root {
+        --elephant: #143445;
+        --white: #ffffff;
+        --big-stone: #0a2c3d;
+        --elephant-2: #133344;
+        --spindle: #b6d0fb;
+        --font-size-l: 18px;
+        --font-size-xxxl: 48px;
+        --font-size-xxxl: 28px;
+        --font-size-xxxxl: 550px;
+        --font-size-xxxl2: 36px;
+        --font-size-l2: 16px;
+        --font-family-nunito: "Nunito", Helvetica;
+        --font-family-poppins: "Poppins", Helvetica;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .error {
+        align-items: flex-start;
+        background-color: var(--white);
+        display: flex;
+        flex-direction: column;
+        /*min-height: 1604px;*/
+        overflow-x: hidden;
+        width: 1440px;
+    }
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .overlap-group-container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: -249px;
+        min-height: 500px;
+        width: 1440px;
+    }
+
+    .overlap-group26 {
+        height: 700px;
+        margin-left: 2px;
+        margin-top: 167px;
+        position: relative;
+        width: 1106px;
+    }
+
+    .number {
+        color: #f4f4f8;
+        font-family: var(--font-family-poppins);
+        font-size: var(--font-size-xxxxl);
+        font-weight: 700;
+        left: 0;
+        letter-spacing: 0;
+        line-height: 32px;
+        position: absolute;
+        text-align: center;
+        top: 188px;
+        white-space: nowrap;
+    }
+
+    .content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        left: 132px;
+        min-height: 608px;
+        position: absolute;
+        top: 0;
+        width: 841px;
+    }
+
+    .vector {
+        height: 383px;
+        margin-right: 0.84px;
+        position: relative;
+        width: 593px;
+    }
+
+    .group-2431 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17295@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 107px;
+        position: absolute;
+        top: 172px;
+        width: 81px;
+    }
+
+    .group-container-34 {
+        height: 9px;
+        left: 241px;
+        position: absolute;
+        top: 34px;
+        width: 9px;
+    }
+
+    .group-2454 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17313@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 3px;
+        width: 9px;
+    }
+
+    .group-2453 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17312@1x.png);
+        background-size: 100% 100%;
+        height: 9px;
+        left: 3px;
+        position: absolute;
+        top: 0;
+        width: 3px;
+    }
+
+    .group-2517 {
+        display: flex;
+        height: 12px;
+        justify-content: space-between;
+        left: 83px;
+        position: absolute;
+        top: 205px;
+        width: 32px;
+    }
+
+    .group-2509 {
+        align-items: center;
+        display: flex;
+        min-width: 11.43px;
+    }
+
+    .overlap-group-2 {
+        height: 12px;
+        position: relative;
+        width: 11px;
+    }
+
+    .path-17333 {
+        height: 12px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 11px;
+    }
+
+    .rectangle-5777 {
+        background-color: var(--white);
+        height: 10px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        transform: rotate(180deg);
+        width: 10px;
+    }
+
+    .group-2516 {
+        align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 1.8px;
+        margin-top: 1.8px;
+        min-height: calc(100% - 4px);
+        width: 17.97px;
+    }
+
+    .group-2511 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17326@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-right: 0;
+        width: 10px;
+    }
+
+    .group-2515 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17328@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 18px;
+    }
+
+    .group-2513 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17335@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-top: 2px;
+        width: 14px;
+    }
+
+    .group-2369 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17273@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 28px;
+        position: absolute;
+        top: 344px;
+        width: 42px;
+    }
+
+    .overlap-group23 {
+        height: 5px;
+        left: 59px;
+        position: absolute;
+        top: 301px;
+        width: 4px;
+    }
+
+    .group-278 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17460@1x.png);
+        background-size: 100% 100%;
+        height: 5px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 4px;
+    }
+
+    .path-174 {
+        height: 1px;
+        left: 2px;
+        position: absolute;
+        top: 2px;
+        width: 1px;
+    }
+
+    .group-2424 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17291@1x.png);
+        background-size: 100% 100%;
+        height: 52px;
+        left: 513px;
+        opacity: 0.15;
+        position: absolute;
+        top: 328px;
+        width: 64px;
+    }
+
+    .overlap-group20 {
+        height: 5px;
+        left: 150px;
+        position: absolute;
+        top: 147px;
+        width: 4px;
+    }
+
+    .group-2780 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17458@1x.png);
+        background-size: 100% 100%;
+        height: 5px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 4px;
+    }
+
+    .group-container-1 {
+        height: 383px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 593px;
+    }
+
+    .group-2430 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17294@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 235px;
+        position: absolute;
+        top: 149px;
+        width: 51px;
+    }
+
+    .group-2779 {
+        display: flex;
+        height: 380px;
+        left: 255px;
+        position: absolute;
+        top: 0;
+        width: 256px;
+    }
+
+    .group-2778 {
+        align-items: flex-start;
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        min-width: 256.12px;
+    }
+
+    .group-container-24 {
+        height: 380px;
+        position: relative;
+        width: 256px;
+    }
+
+    .group-container-26 {
+        height: 94px;
+        left: 0;
+        position: absolute;
+        top: 191px;
+        width: 119px;
+    }
+
+    .path-container-4 {
+        height: 51px;
+        left: 10px;
+        position: absolute;
+        top: 33px;
+        width: 65px;
+    }
+
+    .path-17392 {
+        height: 51px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 65px;
+    }
+
+    .path-17391 {
+        height: 49px;
+        left: 2px;
+        position: absolute;
+        top: 1px;
+        width: 62px;
+    }
+
+    .path-container-5 {
+        height: 13px;
+        left: 88px;
+        position: absolute;
+        top: 33px;
+        width: 13px;
+    }
+
+    .path-17394 {
+        height: 13px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 13px;
+    }
+
+    .path-17393 {
+        height: 11px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        width: 11px;
+    }
+
+    .path-container-2 {
+        height: 78px;
+        left: 5px;
+        position: absolute;
+        top: 10px;
+        width: 109px;
+    }
+
+    .path-17388 {
+        height: 78px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 109px;
+    }
+
+    .path-17387 {
+        height: 76px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        width: 106px;
+    }
+
+    .path-container-3 {
+        height: 30px;
+        left: 55px;
+        position: absolute;
+        top: 57px;
+        width: 38px;
+    }
+
+    .path-17390 {
+        height: 30px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 38px;
+    }
+
+    .path-17389 {
+        height: 27px;
+        left: 2px;
+        position: absolute;
+        top: 1px;
+        width: 35px;
+    }
+
+    .path-container-1 {
+        height: 90px;
+        left: 0;
+        position: absolute;
+        top: 4px;
+        width: 119px;
+    }
+
+    .path-17386 {
+        height: 90px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 119px;
+    }
+
+    .path-17385 {
+        height: 87px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        width: 117px;
+    }
+
+    .group-2620 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17384@1x.png);
+        background-size: 100% 100%;
+        height: 20px;
+        left: 67px;
+        position: absolute;
+        top: 0;
+        width: 36px;
+    }
+
+    .group-2618 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17383@1x.png);
+        background-size: 100% 100%;
+        height: 7px;
+        left: 30px;
+        position: absolute;
+        top: 0;
+        width: 39px;
+    }
+
+    .group-container-25 {
+        height: 134px;
+        left: 59px;
+        position: absolute;
+        top: 61px;
+        width: 14px;
+    }
+
+    .group-2611 {
+        background-color: var(--elephant);
+        height: 110px;
+        left: 6px;
+        position: absolute;
+        top: 0;
+        width: 2px;
+    }
+
+    .group-2613 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17381@1x.png);
+        background-size: 100% 100%;
+        height: 14px;
+        left: 0;
+        position: absolute;
+        top: 103px;
+        width: 14px;
+    }
+
+    .group-2615 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17382@1x.png);
+        background-size: 100% 100%;
+        height: 18px;
+        left: 1px;
+        position: absolute;
+        top: 115px;
+        width: 12px;
+    }
+
+    .group-2438 {
+        align-items: flex-start;
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17298@1x.png);
+        background-size: 100% 100%;
+        display: flex;
+        height: 37px;
+        justify-content: flex-end;
+        left: 352px;
+        min-width: 36px;
+        opacity: 0.18;
+        padding: 12.2px 8px;
+        position: absolute;
+        top: 133px;
+    }
+
+    .group-2437 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17299@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        width: 9px;
+    }
+
+    .group-2533 {
+        align-items: flex-start;
+        display: flex;
+        height: 152px;
+        justify-content: flex-end;
+        left: 389px;
+        min-width: 35px;
+        padding: 0 0px;
+        position: absolute;
+        top: 229px;
+    }
+
+    .group-container-15 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin-top: 3.96px;
+        min-height: 19px;
+        width: 5px;
+    }
+
+    .group-2527 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17340@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        margin-left: 1.33px;
+        margin-top: 6px;
+        width: 4px;
+    }
+
+    .group-2529 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17341@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        margin-top: 8px;
+        width: 4px;
+    }
+
+    .group-2531 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17342@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        margin-left: 1.16px;
+        width: 4px;
+    }
+
+    .flex-row {
+        align-items: flex-start;
+        display: flex;
+        margin-left: 4px;
+        min-width: 26px;
+    }
+
+    .group-container-16 {
+        height: 152px;
+        position: relative;
+        width: 19px;
+    }
+
+    .group-2518 {
+        background-color: var(--elephant);
+        height: 136px;
+        left: 8px;
+        position: absolute;
+        top: 15px;
+        width: 3px;
+    }
+
+    .group-2532 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17343@1x.png);
+        background-size: 100% 100%;
+        height: 18px;
+        left: 2px;
+        position: absolute;
+        top: 134px;
+        width: 14px;
+    }
+
+    .group-2519 {
+        background-color: var(--elephant);
+        height: 31px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 19px;
+    }
+
+    .group-container-17 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin-left: 2px;
+        margin-top: 6.16px;
+        min-height: 17px;
+        width: 5px;
+    }
+
+    .group-2521 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17337@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        margin-left: 0.74px;
+        margin-top: 6px;
+        width: 4px;
+    }
+
+    .group-2523 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17338@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-left: 0.32px;
+        margin-top: 5px;
+        width: 4px;
+    }
+
+    .group-2525 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17339@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        width: 4px;
+    }
+
+    .group-container-7 {
+        height: 9px;
+        left: 287px;
+        position: absolute;
+        top: 355px;
+        width: 9px;
+    }
+
+    .group-2456 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17314@1x.png);
+        background-size: 100% 100%;
+        height: 5px;
+        left: 0;
+        position: absolute;
+        top: 2px;
+        width: 9px;
+    }
+
+    .group-2457 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17315@1x.png);
+        background-size: 100% 100%;
+        height: 9px;
+        left: 2px;
+        position: absolute;
+        top: 0;
+        width: 5px;
+    }
+
+    .group-2508 {
+        display: flex;
+        height: 12px;
+        justify-content: space-between;
+        left: 321px;
+        position: absolute;
+        top: 354px;
+        width: 32px;
+    }
+
+    .group-2500 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17329@1x.png);
+        background-size: 100% 100%;
+        width: 11.43px;
+    }
+
+    .group-2507 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.8px;
+        margin-top: 1.8px;
+        min-height: calc(100% - 4px);
+        width: 17.97px;
+    }
+
+    .group-2502 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17330@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-left: 0;
+        width: 10px;
+    }
+
+    .group-2504 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17331@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-left: 0;
+        margin-top: 2px;
+        width: 14px;
+    }
+
+    .group-2506 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17332@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-left: 0;
+        margin-top: 2px;
+        width: 18px;
+    }
+
+    .group-container-6 {
+        height: 125px;
+        left: 144px;
+        position: absolute;
+        top: 256px;
+        width: 31px;
+    }
+
+    .group-2447 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17302@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 92px;
+        width: 31px;
+    }
+
+    .group-2443 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17303@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 36px;
+        width: 31px;
+    }
+
+    .group-2441 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17302@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 8px;
+        width: 31px;
+    }
+
+    .group-2448 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17302@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 105px;
+        width: 31px;
+    }
+
+    .group-2440 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17301@1x.png);
+        background-size: 100% 100%;
+        height: 125px;
+        left: 27px;
+        position: absolute;
+        top: 0;
+        width: 3px;
+    }
+
+    .group-2446 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17303@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 78px;
+        width: 31px;
+    }
+
+    .group-2445 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17303@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 64px;
+        width: 31px;
+    }
+
+    .group-2439 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17300@1x.png);
+        background-size: 100% 100%;
+        height: 125px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 3px;
+    }
+
+    .group-2442 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17303@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 22px;
+        width: 31px;
+    }
+
+    .group-2444 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17302@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 50px;
+        width: 31px;
+    }
+
+    .group-2384 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17279@1x.png);
+        background-size: 100% 100%;
+        height: 12px;
+        left: 200px;
+        position: absolute;
+        top: 370px;
+        width: 102px;
+    }
+
+    .group-2433 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17297@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 380px;
+        width: 593px;
+    }
+
+    .overlap-group24 {
+        height: 5px;
+        left: 280px;
+        position: absolute;
+        top: 74px;
+        width: 4px;
+    }
+
+    .group-2788 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17466@1x.png);
+        background-size: 100% 100%;
+        height: 5px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 4px;
+    }
+
+    .group-container-4 {
+        height: 3px;
+        left: 249px;
+        position: absolute;
+        top: 191px;
+        width: 3px;
+    }
+
+    .group-2416 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17287@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 3px;
+    }
+
+    .group-2412 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17280@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 1px;
+        position: absolute;
+        top: 2px;
+        width: 1px;
+    }
+
+    .group-2499 {
+        align-items: flex-start;
+        display: flex;
+        height: 44px;
+        left: 239px;
+        min-width: 64px;
+        position: absolute;
+        top: 96px;
+    }
+
+    .group-2498 {
+        align-items: flex-start;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+        min-height: 19px;
+        width: 21px;
+    }
+
+    .group-2497 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17328@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-left: 3.36px;
+        margin-top: 8px;
+        width: 18px;
+    }
+
+    .group-2495 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17326@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-left: 0;
+        margin-top: 8px;
+        width: 10px;
+    }
+
+    .group-2493 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17326@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-left: 0;
+        width: 10px;
+    }
+
+    .group-container-9 {
+        background-color: #ff5a3c30;
+        border-radius: 21.34px/21.91px;
+        height: 44px;
+        position: relative;
+        width: 43px;
+    }
+
+    .group-2491 {
+        align-items: center;
+        display: flex;
+        height: 30px;
+        left: 7px;
+        min-width: 30px;
+        position: absolute;
+        top: 7px;
+    }
+
+    .group-container-14 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin-left: 9px;
+        margin-top: 0;
+        min-height: 22px;
+        width: 1px;
+    }
+
+    .group-2482 {
+        background-color: var(--elephant);
+        border-radius: 0.63px/0.65px;
+        height: 1px;
+        margin-left: 0;
+        margin-top: 19px;
+        width: 1px;
+    }
+
+    .group-2478 {
+        background-color: var(--elephant);
+        border-radius: 0.63px/0.65px;
+        height: 1px;
+        width: 1px;
+    }
+
+    .group-2480 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17321@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-left: 3px;
+        margin-top: 0;
+        width: 1px;
+    }
+
+    .group-container-13 {
+        align-items: flex-start;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin-left: 9px;
+        margin-top: 0;
+        min-height: 30px;
+        width: 1px;
+    }
+
+    .group-2484 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17321@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-top: 28px;
+        width: 1px;
+    }
+
+    .group-24 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17321@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        width: 1px;
+    }
+
+    .group-container-12 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin-left: 3px;
+        min-height: 22px;
+        width: 1px;
+    }
+
+    .group-2486 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17321@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        margin-top: 19px;
+        width: 1px;
+    }
+
+    .group-2488 {
+        background-color: var(--elephant);
+        border-radius: 0.63px/0.65px;
+        height: 1px;
+        margin-top: 0;
+        width: 1px;
+    }
+
+    .group-container-10 {
+        height: 34px;
+        left: 5px;
+        position: absolute;
+        top: 5px;
+        width: 33px;
+    }
+
+    .group-2465 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-62213@1x.png);
+        background-size: 100% 100%;
+        height: 33px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        width: 32px;
+    }
+
+    .group-2468 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17318@1x.png);
+        background-size: 100% 100%;
+        height: 34px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 33px;
+    }
+
+    .group-container-11 {
+        height: 10px;
+        left: 21px;
+        position: absolute;
+        top: 13px;
+        width: 11px;
+    }
+
+    .group-2471 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17319@1x.png);
+        background-size: 100% 100%;
+        height: 10px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1px;
+    }
+
+    .group-2473 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17320@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 0;
+        position: absolute;
+        top: 8px;
+        width: 11px;
+    }
+
+    .group-2368 {
+        align-items: center;
+        display: flex;
+        height: 19px;
+        justify-content: flex-end;
+        left: 369px;
+        min-width: 45px;
+        position: absolute;
+        top: 362px;
+    }
+
+    .group-2352 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17267@1x.png);
+        background-size: 100% 100%;
+        height: 5px;
+        margin-bottom: 1.7px;
+        margin-left: 1px;
+        width: 2px;
+    }
+
+    .group-2355 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17268@1x.png);
+        background-size: 100% 100%;
+        height: 5px;
+        margin-bottom: 0.3px;
+        width: 1px;
+    }
+
+    .group-container-2 {
+        align-self: flex-start;
+        height: 19px;
+        margin-left: 1px;
+        margin-top: 0;
+        position: relative;
+        width: 40px;
+    }
+
+    .group-2367 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17272@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 21px;
+        position: absolute;
+        top: 10px;
+        width: 1px;
+    }
+
+    .group-2361 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17270@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 4px;
+        position: absolute;
+        top: 10px;
+        width: 1px;
+    }
+
+    .group-2358 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17269@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 0;
+        position: absolute;
+        top: 4px;
+        width: 1px;
+    }
+
+    .group-2364 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17271@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 24px;
+        position: absolute;
+        top: 12px;
+        width: 1px;
+    }
+
+    .group-container-3 {
+        height: 19px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 40px;
+    }
+
+    .group-2347 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17265@1x.png);
+        background-size: 100% 100%;
+        height: 17px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        width: 38px;
+    }
+
+    .group-2348 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17266@1x.png);
+        background-size: 100% 100%;
+        height: 19px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 40px;
+    }
+
+    .group-2379 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17277@1x.png);
+        background-size: 100% 100%;
+        height: 161px;
+        left: 124px;
+        position: absolute;
+        top: 187px;
+        width: 253px;
+    }
+
+    .group-2381 {
+        display: flex;
+        height: 132px;
+        left: 133px;
+        position: absolute;
+        top: 196px;
+        width: 236px;
+    }
+
+    .group-2380 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17278@1x.png);
+        background-size: 100% 100%;
+        flex: 1;
+        opacity: 0.17;
+        width: 235.89px;
+    }
+
+    .group-container-18 {
+        height: 96px;
+        left: 76px;
+        position: absolute;
+        top: 284px;
+        width: 46px;
+    }
+
+    .group-2591 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17372@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 38px;
+        position: absolute;
+        top: 27px;
+        width: 1px;
+    }
+
+    .group-2583 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17368@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 38px;
+        position: absolute;
+        top: 0;
+        width: 1px;
+    }
+
+    .group-2585 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17369@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 39px;
+        position: absolute;
+        top: 10px;
+        width: 2px;
+    }
+
+    .group-2589 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17371@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 40px;
+        position: absolute;
+        top: 20px;
+        width: 2px;
+    }
+
+    .group-2559 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17356@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 12px;
+        position: absolute;
+        top: 38px;
+        width: 2px;
+    }
+
+    .group-2579 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17366@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 31px;
+        position: absolute;
+        top: 12px;
+        width: 3px;
+    }
+
+    .group-2549 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17351@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 6px;
+        position: absolute;
+        top: 28px;
+        width: 3px;
+    }
+
+    .group-2599 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17376@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 18px;
+        position: absolute;
+        top: 50px;
+        width: 3px;
+    }
+
+    .group-2571 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17362@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 18px;
+        position: absolute;
+        top: 25px;
+        width: 2px;
+    }
+
+    .group-2569 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17270@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 29px;
+        position: absolute;
+        top: 28px;
+        width: 1px;
+    }
+
+    .group-2601 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17377@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 27px;
+        position: absolute;
+        top: 39px;
+        width: 3px;
+    }
+
+    .group-2573 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17363@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 20px;
+        position: absolute;
+        top: 16px;
+        width: 2px;
+    }
+
+    .group-2597 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17375@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 22px;
+        position: absolute;
+        top: 49px;
+        width: 1px;
+    }
+
+    .group-2577 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17365@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 30px;
+        position: absolute;
+        top: 19px;
+        width: 2px;
+    }
+
+    .group-2593 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17373@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 27px;
+        position: absolute;
+        top: 44px;
+        width: 2px;
+    }
+
+    .group-container-19 {
+        height: 94px;
+        left: 0;
+        position: absolute;
+        top: 2px;
+        width: 46px;
+    }
+
+    .overlap-group-container-1 {
+        height: 13px;
+        left: 0;
+        position: absolute;
+        top: 51px;
+        width: 46px;
+    }
+
+    .group-container-22 {
+        height: 13px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 46px;
+    }
+
+    .group-2544 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17350@1x.png);
+        background-size: 100% 100%;
+        height: 13px;
+        left: 0;
+        opacity: 0.36;
+        position: absolute;
+        top: 0;
+        width: 46px;
+    }
+
+    .group-2543 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17349@1x.png);
+        background-size: 100% 100%;
+        height: 11px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        width: 45px;
+    }
+
+    .group-container-21 {
+        height: 11px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        width: 45px;
+    }
+
+    .group-2540 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17347@1x.png);
+        background-size: 100% 100%;
+        height: 10px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        width: 44px;
+    }
+
+    .group-2541 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17348@1x.png);
+        background-size: 100% 100%;
+        height: 11px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 45px;
+    }
+
+    .group-container-20 {
+        height: 63px;
+        left: 4px;
+        position: absolute;
+        top: 0;
+        width: 40px;
+    }
+
+    .group-2534 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17344@1x.png);
+        background-size: 100% 100%;
+        height: 62px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        width: 38px;
+    }
+
+    .group-2535 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17345@1x.png);
+        background-size: 100% 100%;
+        height: 63px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 40px;
+    }
+
+    .group-2539 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17346@1x.png);
+        background-size: 100% 100%;
+        height: 33px;
+        left: 2px;
+        position: absolute;
+        top: 62px;
+        width: 42px;
+    }
+
+    .group-2553 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17353@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 13px;
+        position: absolute;
+        top: 28px;
+        width: 3px;
+    }
+
+    .group-2557 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17355@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 3px;
+        position: absolute;
+        top: 33px;
+        width: 2px;
+    }
+
+    .group-2551 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17352@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 10px;
+        position: absolute;
+        top: 19px;
+        width: 1px;
+    }
+
+    .group-2561 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17357@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 15px;
+        position: absolute;
+        top: 44px;
+        width: 1px;
+    }
+
+    .group-2575 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17364@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 23px;
+        position: absolute;
+        top: 13px;
+        width: 1px;
+    }
+
+    .group-2595 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17374@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 26px;
+        position: absolute;
+        top: 48px;
+        width: 3px;
+    }
+
+    .group-2555 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17354@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 7px;
+        position: absolute;
+        top: 42px;
+        width: 3px;
+    }
+
+    .group-2587 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17370@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 35px;
+        position: absolute;
+        top: 22px;
+        width: 2px;
+    }
+
+    .group-2567 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17360@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 23px;
+        position: absolute;
+        top: 25px;
+        width: 1px;
+    }
+
+    .group-2563 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17358@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 20px;
+        position: absolute;
+        top: 44px;
+        width: 2px;
+    }
+
+    .group-2565 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17359@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 24px;
+        position: absolute;
+        top: 33px;
+        width: 2px;
+    }
+
+    .group-2581 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17367@1x.png);
+        background-size: 100% 100%;
+        height: 2px;
+        left: 33px;
+        position: absolute;
+        top: 3px;
+        width: 2px;
+    }
+
+    .group-2373 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17275@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 410px;
+        position: absolute;
+        top: 139px;
+        width: 6px;
+    }
+
+    .overlap-group21 {
+        height: 5px;
+        left: 400px;
+        position: absolute;
+        top: 97px;
+        width: 4px;
+    }
+
+    .group-container-8 {
+        height: 9px;
+        left: 257px;
+        position: absolute;
+        top: 169px;
+        width: 9px;
+    }
+
+    .group-2459 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17316@1x.png);
+        background-size: 100% 100%;
+        height: 5px;
+        left: 0;
+        position: absolute;
+        top: 2px;
+        width: 9px;
+    }
+
+    .group-2460 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17317@1x.png);
+        background-size: 100% 100%;
+        height: 9px;
+        left: 2px;
+        position: absolute;
+        top: 0;
+        width: 5px;
+    }
+
+    .group-2376 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17276@1x.png);
+        background-size: 100% 100%;
+        height: 28px;
+        left: 224px;
+        position: absolute;
+        top: 345px;
+        width: 53px;
+    }
+
+    .overlap-group22 {
+        height: 5px;
+        left: 504px;
+        position: absolute;
+        top: 267px;
+        width: 6px;
+    }
+
+    .group-2784 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17462@1x.png);
+        background-size: 100% 100%;
+        height: 5px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 6px;
+    }
+
+    .group-2422 {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        left: 473px;
+        min-height: 45px;
+        position: absolute;
+        top: 335px;
+        width: 37px;
+    }
+
+    .group-container-5 {
+        align-items: center;
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17288@1x.png);
+        background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 2.59px;
+        min-height: 41px;
+        padding: 0px 0;
+        width: 31px;
+    }
+
+    .group-2421 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17290@1x.png);
+        background-size: 100% 100%;
+        height: 10px;
+        margin-top: 10px;
+        width: 19px;
+    }
+
+    .group-2420 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17289@1x.png);
+        background-size: 100% 100%;
+        height: 10px;
+        margin-top: 10px;
+        width: 31px;
+    }
+
+    .group-2419 {
+        background-color: var(--spindle);
+        height: 5px;
+        width: 37px;
+    }
+
+    .group-container-23 {
+        height: 82px;
+        left: 200px;
+        position: absolute;
+        top: 222px;
+        width: 87px;
+    }
+
+    .group-2606 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17379@1x.png);
+        background-size: 100% 100%;
+        height: 38px;
+        left: 46px;
+        position: absolute;
+        top: 31px;
+        width: 41px;
+    }
+
+    .group-2604 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17378@1x.png);
+        background-size: 100% 100%;
+        height: 38px;
+        left: 4px;
+        position: absolute;
+        top: 13px;
+        width: 41px;
+    }
+
+    .group-2608 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17380@1x.png);
+        background-size: 100% 100%;
+        height: 82px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 82px;
+    }
+
+    .group-2409 {
+        align-items: flex-start;
+        display: flex;
+        height: 7px;
+        left: 139px;
+        min-width: 32px;
+        position: absolute;
+        top: 333px;
+    }
+
+    .group-240 {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-left: 7px;
+        min-width: 6px;
+    }
+
+    .group-container {
+        height: 7px;
+        position: relative;
+        width: 6px;
+    }
+
+    .group-2-1 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17281@1x.png);
+        background-size: 100% 100%;
+        height: 7px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 6px;
+    }
+
+    .group-2 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17280@1x.png);
+        background-size: 100% 100%;
+        height: 1px;
+        left: 3px;
+        position: absolute;
+        top: 3px;
+        width: 1px;
+    }
+
+    .group-2392 {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        min-width: 6px;
+    }
+
+    .group-2371 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17274@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 406px;
+        position: absolute;
+        top: 205px;
+        width: 6px;
+    }
+
+    .group-container-32 {
+        height: 57px;
+        left: 147px;
+        position: absolute;
+        top: 76px;
+        width: 51px;
+    }
+
+    .group-2426 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17292@1x.png);
+        background-size: 100% 100%;
+        height: 39px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 38px;
+    }
+
+    .group-2428 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17293@1x.png);
+        background-size: 100% 100%;
+        height: 23px;
+        left: 28px;
+        opacity: 0.33;
+        position: absolute;
+        top: 33px;
+        width: 23px;
+    }
+
+    .group-container-33 {
+        height: 9px;
+        left: 103px;
+        position: absolute;
+        top: 254px;
+        width: 9px;
+    }
+
+    .group-2451 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17311@1x.png);
+        background-size: 100% 100%;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        top: 3px;
+        width: 9px;
+    }
+
+    .group-2450 {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17310@1x.png);
+        background-size: 100% 100%;
+        height: 9px;
+        left: 3px;
+        position: absolute;
+        top: 0;
+        width: 3px;
+    }
+
+
+    .back-to-home {
+        color: var(--white);
+        font-family: var(--font-family-nunito);
+        font-size: var(--font-size-l2);
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 28.8px;
+        min-height: 24px;
+        white-space: nowrap;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        height: 92px;
+        justify-content: space-between;
+        margin-left: 2px;
+        margin-top: 47px;
+        width: 843px;
+    }
+
+    .oops-the-page-you-r {
+        color: var(--big-stone);
+        flex: 1;
+        font-family: var(--font-family-poppins);
+        font-size: var(--font-size-xxxl2);
+        font-weight: 700;
+        height: 53px;
+        letter-spacing: 0;
+        line-height: 31.2px;
+        margin-right: -2px;
+        margin-top: 9.9px;
+        max-height: 53px;
+        white-space: nowrap;
+    }
+
+    .sorry-but-the-page {
+        color: #5c727d;
+        font-family: var(--font-family-nunito);
+        font-size: var(--font-size-l2);
+        font-weight: 400;
+        height: 24px;
+        letter-spacing: 0;
+        line-height: 28.8px;
+        margin-bottom: 1.4px;
+        white-space: nowrap;
+        width: 365px;
+    }
+
+    .overlap-group27 {
+        height: 200px;
+        position: relative;
+        width: 1440px;
+    }
+
+    .top {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/bg@1x.png);
+        background-size: 100% 100%;
+        height: 48px;
+        left: 0;
+        position: absolute;
+        top: 248px;
+        width: 1440px;
+    }
+
+    .footer {
+        align-items: flex-start;
+        display: flex;
+        margin-top: 196px;
+        min-width: 1440px;
+    }
+
+    .overlap-group-3 {
+        height: 300px;
+        position: relative;
+        width: 1440px;
+    }
+
+    .down-bg {
+        background-color: #ff5a3ce8;
+        height: 300px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1440px;
+    }
+</style>
 <body>
-<header th:replace="partials/header :: header"></header>
-<div class="wknd-magazine screen">
-    <div class="wknd-xf-header">
-        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
-    </div>
-    <div class="flex-row">
-        <div class="overlap-group">
-            <div class="uh-oh-something-went-wrong">Uh oh! Something went wrong</div>
-            <div class="click-this-back-button-to-try-again">
-                Click this <a href="javascript:window.history.back();">back</a> button to try again.
-            </div>
+<div class="error screen">
+    <div class="overlap-group-container">
+        <div class="overlap-group27">
+            <div class="top"></div>
         </div>
-        <img
-                class="image-2"
-                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d703b2b1ad02a2aa7002d4/img/image-2-1x-png-1x-png@1x.png"
-        />
-    </div>
-    <div class="wknd-xf-footer">
-        <div class="wknd-navigation">
-            <div class="wknd-navigation-item"></div>
-            <div class="wknd-navigation-item-1"></div>
-            <div class="wknd-navigation-item-2"></div>
+        <div class="overlap-group26">
+            <h1 class="number">404</h1>
+            <div class="content">
+                <div class="vector">
+                    <div class="group-container-1">
+                        <div class="group-2368">
+                            <div class="group-2355"></div>
+                            <div class="group-2352"></div>
+                            <div class="group-container-2">
+                                <div class="group-container-3">
+                                    <div class="group-2347"></div>
+                                    <div class="group-2348"></div>
+                                </div>
+                                <div class="group-2358"></div>
+                                <div class="group-2361"></div>
+                                <div class="group-2364"></div>
+                                <div class="group-2367"></div>
+                            </div>
+                        </div>
+                        <div class="group-2371"></div>
+                        <div class="group-2373"></div>
+                        <div class="group-2376"></div>
+                        <div class="group-2379"></div>
+                        <div class="group-2381"><div class="group-2380"></div></div>
+                        <div class="group-2384"></div>
+                        <div class="group-2409">
+                            <div class="group-2392">
+                                <div class="group-container">
+                                    <div class="group-2"></div>
+                                    <div class="group-2-1"></div>
+                                </div>
+                            </div>
+                            <div class="group-240">
+                                <div class="group-container">
+                                    <div class="group-2"></div>
+                                    <div class="group-2-1"></div>
+                                </div>
+                            </div>
+                            <div class="group-240">
+                                <div class="group-container">
+                                    <div class="group-2"></div>
+                                    <div class="group-2-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group-container-4">
+                            <div class="group-2412"></div>
+                            <div class="group-2416"></div>
+                        </div>
+                        <div class="group-2422">
+                            <div class="group-container-5">
+                                <div class="group-2421"></div>
+                                <div class="group-2420"></div>
+                            </div>
+                            <div class="group-2419"></div>
+                        </div>
+                        <div class="group-2430"></div>
+                        <div class="group-2433"></div>
+                        <div class="group-2438"><div class="group-2437"></div></div>
+                        <div class="group-container-6">
+                            <div class="group-2439"></div>
+                            <div class="group-2440"></div>
+                            <div class="group-2441"></div>
+                            <div class="group-2442"></div>
+                            <div class="group-2443"></div>
+                            <div class="group-2444"></div>
+                            <div class="group-2445"></div>
+                            <div class="group-2446"></div>
+                            <div class="group-2447"></div>
+                            <div class="group-2448"></div>
+                        </div>
+                        <div class="group-container-7">
+                            <div class="group-2456"></div>
+                            <div class="group-2457"></div>
+                        </div>
+                        <div class="group-container-8">
+                            <div class="group-2459"></div>
+                            <div class="group-2460"></div>
+                        </div>
+                        <div class="group-2499">
+                            <div class="group-container-9">
+                                <div class="group-container-10">
+                                    <div class="group-2465"></div>
+                                    <div class="group-2468"></div>
+                                </div>
+                                <div class="group-container-11">
+                                    <div class="group-2471"></div>
+                                    <div class="group-2473"></div>
+                                </div>
+                                <div class="group-2491">
+                                    <div class="group-2488"></div>
+                                    <div class="group-container-12">
+                                        <div class="group-24"></div>
+                                        <div class="group-2486"></div>
+                                    </div>
+                                    <div class="group-container-13">
+                                        <div class="group-24"></div>
+                                        <div class="group-2484"></div>
+                                    </div>
+                                    <div class="group-container-14">
+                                        <div class="group-2478"></div>
+                                        <div class="group-2482"></div>
+                                    </div>
+                                    <div class="group-2480"></div>
+                                </div>
+                            </div>
+                            <div class="group-2498">
+                                <div class="group-2493"></div>
+                                <div class="group-2497"></div>
+                                <div class="group-2495"></div>
+                            </div>
+                        </div>
+                        <div class="group-2508">
+                            <div class="group-2500"></div>
+                            <div class="group-2507">
+                                <div class="group-2502"></div>
+                                <div class="group-2506"></div>
+                                <div class="group-2504"></div>
+                            </div>
+                        </div>
+                        <div class="group-2533">
+                            <div class="group-container-15">
+                                <div class="group-2531"></div>
+                                <div class="group-2529"></div>
+                                <div class="group-2527"></div>
+                            </div>
+                            <div class="flex-row">
+                                <div class="group-container-16">
+                                    <div class="group-2518"></div>
+                                    <div class="group-2519"></div>
+                                    <div class="group-2532"></div>
+                                </div>
+                                <div class="group-container-17">
+                                    <div class="group-2525"></div>
+                                    <div class="group-2523"></div>
+                                    <div class="group-2521"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group-container-18">
+                            <div class="group-container-19">
+                                <div class="group-container-20">
+                                    <div class="group-2534"></div>
+                                    <div class="group-2535"></div>
+                                </div>
+                                <div class="group-2539"></div>
+                                <div class="overlap-group-container-1">
+                                    <div class="group-container-21">
+                                        <div class="group-2540"></div>
+                                        <div class="group-2541"></div>
+                                    </div>
+                                    <div class="group-container-22">
+                                        <div class="group-2543"></div>
+                                        <div class="group-2544"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group-2549"></div>
+                            <div class="group-2551"></div>
+                            <div class="group-2553"></div>
+                            <div class="group-2555"></div>
+                            <div class="group-2557"></div>
+                            <div class="group-2559"></div>
+                            <div class="group-2561"></div>
+                            <div class="group-2563"></div>
+                            <div class="group-2565"></div>
+                            <div class="group-2567"></div>
+                            <div class="group-2569"></div>
+                            <div class="group-2571"></div>
+                            <div class="group-2573"></div>
+                            <div class="group-2575"></div>
+                            <div class="group-2577"></div>
+                            <div class="group-2579"></div>
+                            <div class="group-2581"></div>
+                            <div class="group-2583"></div>
+                            <div class="group-2585"></div>
+                            <div class="group-2587"></div>
+                            <div class="group-2589"></div>
+                            <div class="group-2591"></div>
+                            <div class="group-2593"></div>
+                            <div class="group-2595"></div>
+                            <div class="group-2597"></div>
+                            <div class="group-2599"></div>
+                            <div class="group-2601"></div>
+                        </div>
+                        <div class="group-container-23">
+                            <div class="group-2604"></div>
+                            <div class="group-2606"></div>
+                            <div class="group-2608"></div>
+                        </div>
+                        <div class="group-2779">
+                            <div class="group-2778">
+                                <div class="group-container-24">
+                                    <div class="group-container-25">
+                                        <div class="group-2611"></div>
+                                        <div class="group-2613"></div>
+                                        <div class="group-2615"></div>
+                                    </div>
+                                    <div class="group-container-26">
+                                        <div class="group-2618"></div>
+                                        <div class="group-2620"></div>
+                                        <div class="path-container-1">
+                                            <img
+                                                    class="path-17385"
+                                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17385@1x.png"
+                                            /><img
+                                                class="path-17386"
+                                                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17386@1x.png"
+                                        />
+                                        </div>
+                                        <div class="path-container-2">
+                                            <img
+                                                    class="path-17387"
+                                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17387@1x.png"
+                                            /><img
+                                                class="path-17388"
+                                                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17388@1x.png"
+                                        />
+                                        </div>
+                                        <div class="path-container-3">
+                                            <img
+                                                    class="path-17389"
+                                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17389@1x.png"
+                                            /><img
+                                                class="path-17390"
+                                                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17390@1x.png"
+                                        />
+                                        </div>
+                                        <div class="path-container-4">
+                                            <img
+                                                    class="path-17391"
+                                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17391@1x.png"
+                                            /><img
+                                                class="path-17392"
+                                                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17392@1x.png"
+                                        />
+                                        </div>
+                                        <div class="path-container-5">
+                                            <img
+                                                    class="path-17393"
+                                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17393@1x.png"
+                                            /><img
+                                                class="path-17394"
+                                                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17394@1x.png"
+                                        />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overlap-group21">
+                            <img
+                                    class="path-174"
+                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17280@1x.png"
+                            />
+                            <div class="group-278"></div>
+                        </div>
+                        <div class="overlap-group22">
+                            <img
+                                    class="path-174"
+                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17461@1x.png"
+                            />
+                            <div class="group-2784"></div>
+                        </div>
+                        <div class="overlap-group24">
+                            <img
+                                    class="path-174"
+                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17280@1x.png"
+                            />
+                            <div class="group-2788"></div>
+                        </div>
+                    </div>
+                    <div class="group-2369"></div>
+                    <div class="group-2424"></div>
+                    <div class="group-container-32">
+                        <div class="group-2426"></div>
+                        <div class="group-2428"></div>
+                    </div>
+                    <div class="group-2431"></div>
+                    <div class="group-container-33">
+                        <div class="group-2450"></div>
+                        <div class="group-2451"></div>
+                    </div>
+                    <div class="group-container-34">
+                        <div class="group-2453"></div>
+                        <div class="group-2454"></div>
+                    </div>
+                    <div class="group-2517">
+                        <div class="group-2516">
+                            <div class="group-2511"></div>
+                            <div class="group-2515"></div>
+                            <div class="group-2513"></div>
+                        </div>
+                        <div class="group-2509">
+                            <div class="overlap-group-2">
+                                <div class="rectangle-5777"></div>
+                                <img
+                                        class="path-17333"
+                                        src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17333@1x.png"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlap-group20">
+                        <img
+                                class="path-174"
+                                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17280@1x.png"
+                        />
+                        <div class="group-2780"></div>
+                    </div>
+                    <div class="overlap-group23">
+                        <img
+                                class="path-174"
+                                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e171469a92ecc2ad90e134/img/path-17280@1x.png"
+                        />
+                        <div class="group-278"></div>
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="oops-the-page-you-r">
+                        oops! The page you requested was not found!
+                    </div>
+                    <p class="sorry-but-the-page">
+                        Sorry, But the page you are looking for does't exist!
+                    </p>
+                </div>
+
+                <div class="back-to-home"></div>
+                <button type="submit" class="btn btn-secondary-outline"><a style="font-family: Poppins;" href="javascript:window.history.back();">Back Home</a></button>
+            </div>
+
         </div>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-</html>
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head th:replace="partials/head :: head('Error')">-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<header th:replace="partials/header :: header"></header>-->
-<!--<p>We had an internal server error, use this <a href="javascript:window.history.back();">back</a> button and try again.</p>-->
-
-<!--<img class="center" th:src="@{/img/worker1.png/}" style="max-width: 35vw;" alt="">-->
-
-<!--<footer th:replace="partials/footer :: footer"></footer>-->
-<!--</body>-->
-<!--</html>-->
-
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head('Error')">
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<header th:replace="partials/header :: header"></header>
-<div class="wknd-magazine screen">
-    <div class="wknd-xf-header">
-        <div class="wknd-header"><h1 class="title">CodeEncounter</h1></div>
-    </div>
-    <div class="flex-row">
-        <div class="overlap-group">
-            <div class="uh-oh-something-went-wrong">Uh oh! Something went wrong</div>
-            <div class="click-this-back-button-to-try-again">
-                Click this <a href="javascript:window.history.back();">back</a> button to try again.
-            </div>
-        </div>
-        <img
-                class="image-2"
-                src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62d703b2b1ad02a2aa7002d4/img/image-2-1x-png-1x-png@1x.png"
-        />
-    </div>
-    <div class="wknd-xf-footer">
-        <div class="wknd-navigation">
-            <div class="wknd-navigation-item"></div>
-            <div class="wknd-navigation-item-1"></div>
-            <div class="wknd-navigation-item-2"></div>
-        </div>
+<div class="footer">
+    <div class="overlap-group-3">
+        <div class="down-bg"></div>
     </div>
 </div>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
