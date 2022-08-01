@@ -5,29 +5,29 @@ let index = 0;
 console.log(slides);
 
 function display(index) {
-    slides.forEach((slide) => {
-        slide.style.display = "none";
-    });
-    slides[index].style.display = "flex";
-    // clearTimeout(timer);
-    // timer = setTimeout(() => slides(1), 2000);
+  slides.forEach((slide) => {
+    slide.style.display = "none";
+  });
+  slides[index].style.display = "flex";
+  // clearTimeout(timer);
+  // timer = setTimeout(() => slides(1), 2000);
 }
 
 function nextSlide() {
-    index++;
-    if (index > slides.length - 1) {
-        index = 0;
-    }
-    display(index);
-    setTimeout(nextSlide, 5000);
+  index++;
+  if (index > slides.length - 1) {
+    index = 0;
+  }
+  display(index);
+  setTimeout(nextSlide, 4000);
 }
 
 function prevSlide() {
-    index--;
-    if (index < 0) {
-        index = slides.length - 1;
-    }
-    display(index);
+  index--;
+  if (index < 0) {
+    index = slides.length - 1;
+  }
+  display(index);
 }
 
 next.addEventListener("click", nextSlide);
