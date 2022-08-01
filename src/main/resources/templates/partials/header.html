@@ -56,6 +56,11 @@
                             <button type="submit" class="btn btn-anchor nav-link">Logout</button>
                         </form>
                     </li>
+
+<!--                    Meetup-->
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/meetup}">Meetup</a>
+                    </li>
                 </ul>
 
                 <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">

@@ -58,6 +58,7 @@ public class PostController {
         if (!post.getPhoto_url().isEmpty()) {
             newPost.setPhoto_url(post.getPhoto_url());
         }
+
         Post dbPost = postRepo.save(newPost);
         model.addAttribute("user", user);
         model.addAttribute("post", dbPost);
