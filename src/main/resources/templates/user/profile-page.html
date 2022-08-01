@@ -308,62 +308,63 @@
                     </div>
                 </div>
                 <!--       tab 2 friends-->
-                <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">
-                    <h1 class="pt-3" style="font-family: Poppins; font-size: 15px;">Friends</h1>
-                    <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">
-                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Poppins; font-size: 20px;">Discover</button>
-                    </form>
-                    <div style="background-color: #faf3dd;" class="row my-3">
-                        <div class="col-4 my-2" th:each="item : ${friends}">
-                            <div th:if="${item.profile_picture_url.isEmpty()}" class="search-card">
-                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">
-                                    <img src="/img/blank-profile-picture.png" class="gallery-item-post" style="border-radius: 4px; width: 500px; height: 300px;" >
-                                </a>
-                                <p class="my-1" th:text="${item.username}"></p>
-                            </div>
-                            <div th:if="${!item.profile_picture_url.isEmpty()}" class="search-card">
-                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">
-                                    <img th:src="${item.profile_picture_url.toString()}">
-                                </a>
-                                <p class="my-1" th:text="${item.username}"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--       tab 3 galleries-->
-                <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
-                    <h1 style="font-family: Poppins; font-size: 15px;">Photos</h1>
-                    <div style="background-color: #faf3dd;" class="row my-3">
-                        <div class="col-6 col-xl-4 my-2" th:each="item : ${galleries}">
-                            <div th:if="${!item.getPictures().isEmpty()}" id="thumbnail-container" class="search-card">
-                                <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">
-                                    <img th:src="${item.getPictures().get(0).pictureUrl.toString()}"
-                                         alt="Gallery Thumbnail Image">
-                                </a>
-                                <p class="my-1" th:text="${item.name}"></p>
-                            </div>
-                            <div th:if="${item.getPictures().isEmpty()} == true" class="search-card">
-                                <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">
-                                    <img src="/img/thumbnailDefault.jpg" alt="Gallery Thumbnail Image">
-                                </a>
-                                <p class="my-1" th:text="${item.getName()}"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--                MAP        -->
-                <div class="tab-pane fade" id="nav-map" role="tabpanel" aria-labelledby="nav-map-tab">
-                    <h1>Map</h1>
-                    <div id="map" style="margin-left: auto; margin-right: auto; height: auto; width: auto;"></div>
-                    <script>
-                        console.log("something from prof-page.html");
-                    </script>
-                </div>
-            </div>
-        </div>
+<!--                <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">-->
+<!--                    <h1 class="pt-3" style="font-family: Poppins; font-size: 15px;">Friends</h1>-->
+<!--                    <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">-->
+<!--                        <button type="submit" class="btn btn-dark btn-block" style="font-family: Poppins; font-size: 20px;">Discover</button>-->
+<!--                    </form>-->
+
+<!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
+<!--                        <div class="col-4 my-2" th:each="item : ${friends}">-->
+<!--                            <div th:if="${item.profile_picture_url.isEmpty()}" class="search-card">-->
+<!--                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">-->
+<!--                                    <img src="/img/blank-profile-picture.png" class="gallery-item-post" style="border-radius: 4px; width: 500px; height: 300px;" >-->
+<!--                                </a>-->
+<!--                                <p class="my-1" th:text="${item.username}"></p>-->
+<!--                            </div>-->
+<!--                            <div th:if="${!item.profile_picture_url.isEmpty()}" class="search-card">-->
+<!--                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">-->
+<!--                                    <img th:src="${item.profile_picture_url.toString()}">-->
+<!--                                </a>-->
+<!--                                <p class="my-1" th:text="${item.username}"></p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash;       tab 3 galleries&ndash;&gt;-->
+<!--                <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">-->
+<!--                    <h1 style="font-family: Poppins; font-size: 15px;">Photos</h1>-->
+<!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
+<!--                        <div class="col-6 col-xl-4 my-2" th:each="item : ${galleries}">-->
+<!--                            <div th:if="${!item.getPictures().isEmpty()}" id="thumbnail-container" class="search-card">-->
+<!--                                <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">-->
+<!--                                    <img th:src="${item.getPictures().get(0).pictureUrl.toString()}"-->
+<!--                                         alt="Gallery Thumbnail Image">-->
+<!--                                </a>-->
+<!--                                <p class="my-1" th:text="${item.name}"></p>-->
+<!--                            </div>-->
+<!--                            <div th:if="${item.getPictures().isEmpty()} == true" class="search-card">-->
+<!--                                <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">-->
+<!--                                    <img src="/img/thumbnailDefault.jpg" alt="Gallery Thumbnail Image">-->
+<!--                                </a>-->
+<!--                                <p class="my-1" th:text="${item.getName()}"></p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash;                MAP        &ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="tab-pane fade" id="nav-map" role="tabpanel" aria-labelledby="nav-map-tab">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h1>Map</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div id="map" style="margin-left: auto; margin-right: auto; height: auto; width: auto;"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <script>&ndash;&gt;-->
+<!--&lt;!&ndash;                        console.log("something from prof-page.html");&ndash;&gt;-->
+<!--&lt;!&ndash;                    </script>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
-</div>
-</body>
+
+
 <!--MAP  -->
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
