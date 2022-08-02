@@ -54,7 +54,11 @@
     }
 
     /* Remove extra left and right margins, due to padding in columns */
-    .row {margin: 0 -5px;}
+    .row {margin: 0 -5px;
+        display: flex;
+        justify-content: space-between;
+
+    }
 
     /* Clear floats after the columns */
     .row:after {
@@ -111,102 +115,102 @@
 </div>
 
 <div class="row pt-4">
-    <div class="column h-100">
-        <div class="card">
-            <div class="col col-lg-12 mb-4 mb-lg-0">
-                <div class="row g-0">
-                    <div class="col-md-12 gradient-custom text-center text-white"
-                         style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; border-top-right-radius: .5rem; border-bottom-right-radius: .5rem;">
-                        <img class="image" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap"/>
-                        <h5 class="pt-3" th:text="${user.firstName}"></h5>
-                        <h5 class="pb-3" th:text="${user.lastName}"></h5>
-                        <p class="pt-1 text-muted"><i class="far fa-address-card"></i> Works at</p><p class="pb-4" th:text="${user.job}"></p>
-                    </div>
-                    <div class="col-12">
-                        <h6 class="pt-4 pb-1">Information</h6>
-                        <hr class="mt-0 mb-4">
-                        <div class="row pt-1">
-                            <div class="col-3 mb-3">
-                                <h6 class="text-muted"><i class="far fa-handshake"></i> Joined</h6>
-                                <p th:text="${user.createdDate}"></p>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <h6 class="text-muted"><i class="far fa-envelope"></i> Email</h6>
-                                <p th:text="${user.email}"></p>
-                            </div>
-                            <div class="col-3 mb-3">
-                                <h6 class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</h6>
-                                <p th:text="${user.birthday}"></p>
-                            </div>
+    <!--    <div class="column h-100">-->
+    <div class="card col-4 pe-3" style="max-width: 500px;">
+        <div class="col col-lg-12 mb-4 mb-lg-0">
+            <div class="row g-0">
+                <div class="col-md-12 gradient-custom text-center text-white"
+                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; border-top-right-radius: .5rem; border-bottom-right-radius: .5rem;">
+                    <img class="image" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap"/>
+                    <h5 class="pt-3" th:text="${user.firstName}"></h5>
+                    <h5 class="pb-3" th:text="${user.lastName}"></h5>
+                    <p class="pt-1 text-muted"><i class="far fa-address-card"></i> Works at</p><p class="pb-4" th:text="${user.job}"></p>
+                </div>
+                <div class="col-12">
+                    <h6 class="pt-4 pb-1">Information</h6>
+                    <hr class="mt-0 mb-4">
+                    <div class="row pt-1">
+                        <div class="col-3 mb-3">
+                            <h6 class="text-muted"><i class="far fa-handshake"></i> Joined</h6>
+                            <p th:text="${user.createdDate}"></p>
                         </div>
-                        <h6 class="pt-4 pb-1">About</h6>
-                        <hr class="mt-0 mb-4">
-                        <div class="row pt-1">
-                            <div class="col-6 mb-3">
-                                <h6 class="text-muted">Language Proficiency:</h6>
-                                <p th:text="${user.codeLanguages}"></p>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <h6 class="text-muted">Interests</h6>
-                                <p th:text="${user.aboutMe}"></p>
-                            </div>
+                        <div class="col-6 mb-3">
+                            <h6 class="text-muted"><i class="far fa-envelope"></i> Email</h6>
+                            <p th:text="${user.email}"></p>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <h6 class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</h6>
+                            <p th:text="${user.birthday}"></p>
+                        </div>
+                    </div>
+                    <h6 class="pt-4 pb-1">About</h6>
+                    <hr class="mt-0 mb-4">
+                    <div class="row pt-1">
+                        <div class="col-6 mb-3">
+                            <h6 class="text-muted">Language Proficiency:</h6>
+                            <p th:text="${user.codeLanguages}"></p>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <h6 class="text-muted">Interests</h6>
+                            <p th:text="${user.aboutMe}"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!--    </div>-->
 
-    <div class="column">
-        <div class="card">
-            <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
-                <h5>Back to Profile</h5>
-            </a>
-            <h1>Make New Friends!</h1>
-            <div th:each="item : ${allUsers}" class="col-6 col-xl-4 my-2">
-                <div th:if="${item.username == user.username}" class="search-card">
-                    <a th:href="@{/user/{username} (username=${user.getUsername()})}">
-                        <img th:src="${item.profile_picture_url.toString()}">
-                    </a>
-                    <p class="my-1" th:text="${item.username}"></p>
-                    <p class="my-1" th:text="${item.firstName}"></p>
-                    <p class="my-1" th:text="${item.lastName}"></p>
-                    <p class="my-1" th:text="${item.codeLanguages}"></p>
+    <!--    <div class="column">-->
+    <div class="card col-8 pe-2" style="max-width: 900px">
+        <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
+            <h5>Back to Profile</h5>
+        </a>
+        <h1>Make New Friends!</h1>
+        <div th:each="item : ${allUsers}" class="col-6 col-xl-4 my-2">
+            <div th:if="${item.username == user.username}" class="search-card">
+                <a th:href="@{/user/{username} (username=${user.getUsername()})}">
+                    <img th:src="${item.profile_picture_url.toString()}">
+                </a>
+                <p class="my-1" th:text="${item.username}"></p>
+                <p class="my-1" th:text="${item.firstName}"></p>
+                <p class="my-1" th:text="${item.lastName}"></p>
+                <p class="my-1" th:text="${item.codeLanguages}"></p>
 
-                </div>
-                <div th:if="${userFriends.contains(item) == true}" class="search-card">
-                    <a th:href="@{/{username}/friend/{friendName} (username=${user.getUsername()}, friendName=${item.getUsername()})}">
-                        <img th:src="${item.profile_picture_url.toString()}">
-                    </a>
-                    <p class="my-1" th:text="${item.username}"></p>
-                    <p class="my-1" th:text="${item.firstName}"></p>
-                    <p class="my-1" th:text="${item.lastName}"></p>
-                    <p class="my-1" th:text="${item.codeLanguages}"></p>
-                </div>
-                <div th:if="${userFriends.contains(item) == false && pendingFriends.contains(item) == false && item.username != user.username}" class="search-card">
+            </div>
+            <div th:if="${userFriends.contains(item) == true}" class="search-card">
+                <a th:href="@{/{username}/friend/{friendName} (username=${user.getUsername()}, friendName=${item.getUsername()})}">
                     <img th:src="${item.profile_picture_url.toString()}">
-                    <p class="my-1" th:text="${item.username}"></p>
-                    <p class="my-1" th:text="${item.firstName}"></p>
-                    <p class="my-1" th:text="${item.lastName}"></p>
-                    <p class="my-1" th:text="${item.codeLanguages}"></p>
-                    <form th:action="@{/request/{username}/{friendName} (username=${user.getUsername()}, friendName = ${item.getUsername()})}" th:method="POST">
-                        <button class="btn btn-primary" type="submit" name="Friend Request">Friend Request</button>
-                    </form>
-                </div>
-                <div th:if="${pendingFriends.contains(item) == true && item.username != user.username}" class="search-card">
-                    <img th:src="${item.profile_picture_url.toString()}">
-                    <p class="my-1" th:text="${item.username}"></p>
-                    <p class="my-1" th:text="${item.firstName}"></p>
-                    <p class="my-1" th:text="${item.lastName}"></p>
-                    <p class="my-1" th:text="${item.codeLanguages}"></p>
-                    <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUsername()})}" th:method="POST">
-                        <input type="hidden" class="field" name="reject" th:value="${item.getUsername()}"/>
-                        <button class="btn btn-secondary">Remove Request</button>
-                    </form>
-                </div>
+                </a>
+                <p class="my-1" th:text="${item.username}"></p>
+                <p class="my-1" th:text="${item.firstName}"></p>
+                <p class="my-1" th:text="${item.lastName}"></p>
+                <p class="my-1" th:text="${item.codeLanguages}"></p>
+            </div>
+            <div th:if="${userFriends.contains(item) == false && pendingFriends.contains(item) == false && item.username != user.username}" class="search-card">
+                <img th:src="${item.profile_picture_url.toString()}">
+                <p class="my-1" th:text="${item.username}"></p>
+                <p class="my-1" th:text="${item.firstName}"></p>
+                <p class="my-1" th:text="${item.lastName}"></p>
+                <p class="my-1" th:text="${item.codeLanguages}"></p>
+                <form th:action="@{/request/{username}/{friendName} (username=${user.getUsername()}, friendName = ${item.getUsername()})}" th:method="POST">
+                    <button class="btn btn-primary" type="submit" name="Friend Request">Friend Request</button>
+                </form>
+            </div>
+            <div th:if="${pendingFriends.contains(item) == true && item.username != user.username}" class="search-card">
+                <img th:src="${item.profile_picture_url.toString()}">
+                <p class="my-1" th:text="${item.username}"></p>
+                <p class="my-1" th:text="${item.firstName}"></p>
+                <p class="my-1" th:text="${item.lastName}"></p>
+                <p class="my-1" th:text="${item.codeLanguages}"></p>
+                <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUsername()})}" th:method="POST">
+                    <input type="hidden" class="field" name="reject" th:value="${item.getUsername()}"/>
+                    <button class="btn btn-secondary">Remove Request</button>
+                </form>
             </div>
         </div>
     </div>
+    <!--    </div>-->
 </div>
 </div>
 
