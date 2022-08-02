@@ -1,6 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hY29kZXVwIiwiYSI6ImNsNXNtc281bTJqMDMzaXJvM3dsYnBvejMifQ.edW3GsZuaC1hr4Jvy_u7XQ';
 
-var center = [-98.7320, 29.7947]
+var center = [-98.4895, 29.4270]
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
     enableHighAccuracy: true
 });
@@ -18,7 +18,7 @@ $(document).ready(function () {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: center,
-        zoom: 14
+        zoom: 10
     });
     var directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
