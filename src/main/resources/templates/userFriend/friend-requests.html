@@ -256,6 +256,11 @@
         height: 100px;
         border-radius: 10%;
     }
+    .row {
+        display: flex;
+        justify-content: space-between;
+
+    }
 
 
     .gradient-custom {
@@ -293,7 +298,7 @@
                     <h6 class="pt-4 pb-1">Information</h6>
                     <hr class="mt-0 mb-4">
                     <div class="row pt-1">
-                        <div class="col-3 mb-3">
+                        <div class="col-6 mb-3">
                             <h6 class="text-muted"><i class="far fa-handshake"></i> Joined</h6>
                             <p th:text="${user.createdDate}"></p>
                         </div>
@@ -301,10 +306,7 @@
                             <h6 class="text-muted"><i class="far fa-envelope"></i> Email</h6>
                             <p th:text="${user.email}"></p>
                         </div>
-                        <div class="col-3 mb-3">
-                            <h6 class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</h6>
-                            <p th:text="${user.birthday}"></p>
-                        </div>
+
                     </div>
                     <h6 class="pt-4 pb-1">About</h6>
                     <hr class="mt-0 mb-4">
@@ -328,9 +330,9 @@
     <!--    <div class="column">-->
     <div class="card col-8 pe-2" style="max-width: 900px">
         <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
-            <h5>Back to Profile</h5>
+            <h5 class="pt-3 pb-3">Back to Profile</h5>
         </a>
-        <h1>Friend Requests</h1>
+        <h1 class="pt-3">Friend Requests</h1>
 
         <div class="pt-3" th:each="item : ${friendRequests}">
             <div class="row m-3 p-3" style="background-color: white;">
