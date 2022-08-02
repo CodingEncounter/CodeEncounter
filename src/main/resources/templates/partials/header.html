@@ -51,17 +51,16 @@
                         <a class="nav-item nav-link" style="font-family: Poppins; font-size: 25px"th:href="@{/user/{username}/ide (username=${#authentication.principal.username})}">IDE</a>
                         <!--                        </select>-->
                     </li>
+                    <!--                    Meetup-->
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/meetup}">Meetup</a>
+                    </li>
+                </ul>
                     <li class="nav-item">
                         <form th:action="@{/logout}" th:method="post" class="nav-item" style="font-family: Poppins; font-size: 30px">
                             <button type="submit" class="btn btn-anchor nav-link">Logout</button>
                         </form>
                     </li>
-
-<!--                    Meetup-->
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" style="font-family: Monaco; font-size: 25px"th:href="@{/meetup}">Meetup</a>
-                    </li>
-                </ul>
 
                 <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">
                     <input style="font-family: Poppins; font-size: 15px; width: 70%; float: left;" class="form-control field" type="search" name="search" placeholder="User Search" aria-label="Search">
