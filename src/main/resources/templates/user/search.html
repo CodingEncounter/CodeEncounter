@@ -95,6 +95,17 @@
         height: 100px;
         border-radius: 10%;
     }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 20px;
+        align-items: stretch;
+    }
+    .grid img {
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+        max-width: 100%;
+    }
 
 
     .gradient-custom {
@@ -130,7 +141,7 @@
                         <h6 class="pt-4 pb-1">Information</h6>
                         <hr class="mt-0 mb-4">
                         <div class="row pt-1">
-                            <div class="col-3 mb-3">
+                            <div class="col-6 mb-3">
                                 <h6 class="text-muted"><i class="far fa-handshake"></i> Joined</h6>
                                 <p th:text="${user.createdDate}"></p>
                             </div>
@@ -138,10 +149,7 @@
                                 <h6 class="text-muted"><i class="far fa-envelope"></i> Email</h6>
                                 <p th:text="${user.email}"></p>
                             </div>
-                            <div class="col-3 mb-3">
-                                <h6 class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</h6>
-                                <p th:text="${user.birthday}"></p>
-                            </div>
+
                         </div>
                         <h6 class="pt-4 pb-1">About</h6>
                         <hr class="mt-0 mb-4">
@@ -164,9 +172,12 @@
 <!--    <div class="column">-->
     <div class="card col-8 pe-2" style="max-width: 900px">
             <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
-                <h5>Back to Profile</h5>
+                <h5 class="pt-3">Back to Profile</h5>
             </a>
-            <h1>Make New Friends!</h1>
+            <h1 class="pt-3 pb-3" style="font-size: 25px">Make New Friends!</h1>
+        <div class="container">
+            <div class="card pt-3">
+                <div class="grid">
             <div th:each="item : ${allUsers}" class="col-6 col-xl-4 my-2">
                 <div th:if="${item.username == user.username}" class="search-card">
                     <a th:href="@{/user/{username} (username=${user.getUsername()})}">
@@ -194,7 +205,7 @@
                     <p class="my-1" th:text="${item.lastName}"></p>
                     <p class="my-1" th:text="${item.codeLanguages}"></p>
                     <form th:action="@{/request/{username}/{friendName} (username=${user.getUsername()}, friendName = ${item.getUsername()})}" th:method="POST">
-                        <button class="btn btn-primary" type="submit" name="Friend Request">Friend Request</button>
+                        <button class="btn btn-primary" style="font-size: 10px;" type="submit" name="Friend Request">Friend Request</button>
                     </form>
                 </div>
                 <div th:if="${pendingFriends.contains(item) == true && item.username != user.username}" class="search-card">
@@ -205,8 +216,11 @@
                     <p class="my-1" th:text="${item.codeLanguages}"></p>
                     <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUsername()})}" th:method="POST">
                         <input type="hidden" class="field" name="reject" th:value="${item.getUsername()}"/>
-                        <button class="btn btn-secondary">Remove Request</button>
+                        <button class="btn btn-secondary" style="font-size: 10px;" >Remove Request</button>
                     </form>
+                </div>
+            </div>
+        </div>
                 </div>
             </div>
         </div>
