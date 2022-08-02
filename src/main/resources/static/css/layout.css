@@ -138,6 +138,7 @@
     clear: both;
 }
 
+
 .hidden {
     display: none;
 }
@@ -296,7 +297,7 @@ button.accent {
     position: absolute;
     width: 42px;
     height: 42px;
-    overflow: hidden;
+    overflow: auto;
     left: 10px;
     display: inline-block;
     vertical-align: middle;
@@ -348,6 +349,37 @@ button.accent {
     position: absolute;
     top: 65px;
     width: 100%;
+}
+
+.c {
+    background-color: #F5F5F5;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 0 4px 0;
+    color: #3B3C3E;
+    font-size: 12px;
+    font-weight: bold;
+    left: -1px;
+    padding: 10px 7px 5px;
+}
+
+.nav-c {
+    height:500rem;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+#c-test {
+    height:auto;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+
+
+#cc {
+    height:auto;
+    overflow:scroll;
+    overflow-x:hidden;
 }
 
 
