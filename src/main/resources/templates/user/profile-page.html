@@ -146,7 +146,7 @@
                         <h6 class="pt-4 pb-1">Information</h6>
                         <hr class="mt-0 mb-4">
                         <div class="row pt-1">
-                            <div class="col-3 mb-3">
+                            <div class="col-6 mb-3">
                                 <h6 class="text-muted"><i class="far fa-handshake"></i> Joined</h6>
                                 <p th:text="${user.createdDate}"></p>
                             </div>
@@ -154,10 +154,7 @@
                                 <h6 class="text-muted"><i class="far fa-envelope"></i> Email</h6>
                                 <p th:text="${user.email}"></p>
                             </div>
-                            <div class="col-3 mb-3">
-                                <h6 class="text-muted"><i class="fas fa-birthday-cake"></i> Birthday</h6>
-                                <p th:text="${user.birthday}"></p>
-                            </div>
+
                         </div>
                         <h6 class="pt-4 pb-1">About</h6>
                         <hr class="mt-0 mb-4">
@@ -356,22 +353,25 @@
                     </div>
 <!--                       tab 3 galleries-->
                 <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
-                    <h1 class="pt-3 pb-2" style="font-family: Poppins; font-size: 25px;">Your Photos</h1>
+                    <h1 class="pt-3 pb-3" style="font-family: Poppins; font-size: 25px;">Your Photos</h1>
 <!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
+                    <div class="card pt-3">
+                        <div class="grid">
                         <div th:each="item : ${galleries}">
-                            <div th:if="${!item.getPictures().isEmpty()}" id="thumbnail-container" class="search-card">
+                            <div th:if="${!item.getPictures().isEmpty()}" id="thumbnail-container">
                                 <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">
-                                    <img th:src="${item.getPictures().get(0).pictureUrl.toString()}"
-                                         alt="Gallery Thumbnail Image">
+                                    <img th:src="${item.getPictures().get(0).pictureUrl.toString()}">
                                 </a>
                                 <p class="my-1" th:text="${item.name}"></p>
                             </div>
-                            <div th:if="${item.getPictures().isEmpty()} == true" class="search-card">
+                            <div th:if="${item.getPictures().isEmpty()} == true">
                                 <a th:href="@{/{username}/gallery/{id} (username=${user.username}, id=${item.id})}">
-                                    <img src="/img/thumbnailDefault.jpg" alt="Gallery Thumbnail Image">
+                                    <img src="/img/thumbnailDefault.jpg">
                                 </a>
                                 <p class="my-1" th:text="${item.getName()}"></p>
                             </div>
+                        </div>
+                    </div>
                         </div>
                     </div>
                 </div>
