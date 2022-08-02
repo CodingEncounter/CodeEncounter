@@ -20,14 +20,20 @@ $(document).ready(function () {
         center: center,
         zoom: 14
     });
-
-    const geocoder = new MapboxGeocoder({
-        // Initialize the geocoder
-        accessToken: mapboxgl.accessToken, // Set the access token
-        mapboxgl: mapboxgl, // Set the mapbox-gl instance
-        marker: false, // Do not use the default marker style
-        placeholder: '   Search for places', // Placeholder text for the search bar
+    var directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        unit: 'metric',
+        profile: 'mapbox/cycling'
     });
+    map.addControl(directions, 'top-left');
+    //
+    // const geocoder = new MapboxGeocoder({
+    //     // Initialize the geocoder
+    //     accessToken: mapboxgl.accessToken, // Set the access token
+    //     mapboxgl: mapboxgl, // Set the mapbox-gl instance
+    //     marker: false, // Do not use the default marker style
+    //     placeholder: '   Search for places', // Placeholder text for the search bar
+    // });
 
     map.on('load', () => {
         $.get('/meetup/all',
@@ -56,13 +62,16 @@ $(document).ready(function () {
                         .setPopup(popup)
                         .addTo(map);
 
-                    let p_name = $("<p>").text("Name: " + meetup.name);
-                    let p_dateTime = $("<p>").text(dateTime);
-                    let p_description = $("<p>").text("Description: " + meetup.description);
-                    let p_organizedBy = $("<p>").text("Organized by: " + organizedBy);
+                    let p_name = $("<p class='card' style='text-align: center'>").text("Name: " + meetup.name);
+                    // let p_dateTime = $("<p>").text(dateTime);
+                    // let p_description = $("<p>").text("Description: " + meetup.description);
+                    // let p_organizedBy = $("<p>").text("Organized by: " + organizedBy);
+                    let dash = $("<p style='text-align: center'>").text("-----------------------------------")
                     let div = $("<div>").click(e => {
-                        alert("goho" + meetup.name)
-                    }).attr("class", "border-1px-dove-gray mb-2").append(p_name, p_dateTime, p_description, p_organizedBy);
+                        map.flyTo({
+                            center: [meetup.longitude, meetup.latitude],
+                        })
+                    }).attr("class", "border-1px-dove-gray mb-2").append(p_name);
                     $("#allMeetups").append(div);
                 })
             });
@@ -70,4 +79,12 @@ $(document).ready(function () {
 
 
 });
+
+
+
+
+
+
+
+
 
