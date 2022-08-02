@@ -203,7 +203,11 @@
     }
 
     /* Remove extra left and right margins, due to padding in columns */
-    .row {margin: 0 -5px;}
+    .row {margin: 0 -5px;
+        display: flex;
+        justify-content: space-between;
+
+    }
 
     /* Clear floats after the columns */
     .row:after {
@@ -273,9 +277,9 @@
     <div class="dashbrd"><h1 class="title p-4 pb-1 pt-4">Friend Requests</h1></div>
 </div>
 
-<div class="row pt-4">
-    <div class="column h-100">
-        <div class="card">
+<div class="row pt-4 mx-auto">
+<!--    <div class="column h-100">-->
+        <div class="card col-4 pe-3" style="max-width: 500px;">
             <div class="col col-lg-12 mb-4 mb-lg-0">
                 <div class="row g-0">
                     <div class="col-md-12 gradient-custom text-center text-white"
@@ -320,9 +324,9 @@
                 <!--                </div>-->
             </div>
         </div>
-    </div>
-    <div class="column">
-        <div class="card">
+<!--    </div>-->
+<!--    <div class="column">-->
+    <div class="card col-8 pe-2" style="max-width: 900px">
             <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
                 <h5>Back to Profile</h5>
             </a>
