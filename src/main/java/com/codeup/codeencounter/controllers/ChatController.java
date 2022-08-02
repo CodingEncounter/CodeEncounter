@@ -5,24 +5,13 @@ package com.codeup.codeencounter.controllers;
 import com.codeup.codeencounter.models.ChatMessage;
 
 
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import com.codeup.codeencounter.models.ChatMessage;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ChatController {
@@ -40,9 +29,9 @@ public class ChatController {
         return chatMessage;
     }
 
-    @GetMapping("/user/{username}/chat")
+    @GetMapping("/chat")
     public String chat() {
-        return "user/chat";
+        return "/chat/chat";
     }
 
     @GetMapping("/user/{username}/ide")
