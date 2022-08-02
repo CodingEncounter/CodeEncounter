@@ -186,7 +186,6 @@
                           th:action="@{/posts/create/{username}(username=${#authentication.principal.username})}"
                           th:object="${newPost}" method="POST" class="p-4 m-1">
                         <div class="btn-group" role="group" style="width: 100%;">
-                                     make a post and upload a pic-->
                             <input style="font-family: Poppins; font-size: 20px;" type="text" id="postBody" class="form-control" placeholder="What's new?"
                                    th:field="*{body}" required>
                             <div id="uploadPhoto">
