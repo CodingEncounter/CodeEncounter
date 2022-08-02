@@ -7,6 +7,13 @@
 
 
 </head>
+
+<style>
+    .btn{
+        display: flex;
+        justify-content: center;
+    }
+</style>
 <body>
 <!--    MAPBOX MAP -->
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
@@ -28,7 +35,7 @@
         <div class="wknd-header">
             <h1 class="title" style="text-align: center">Find meetups near you:</h1>
             <h3 style="text-align: center">Need to host or organize in-person or virtual activities?</h3>
-            <h4 style="text-align: center">Use the button bellow to set up meetups for your coding projects, gatherings,
+            <h4 style="text-align: center">Use the button below to set up meetups for your coding projects, gatherings,
                 and events for people in our community.</h4>
             <h4 style="text-align: center">Find users with similar interests, hobbies, and professions.</h4>
         </div>
@@ -38,10 +45,10 @@
         <div style="width: 100%;">
 
             <!--                MAP        -->
-            <div id="map" style="margin-left: auto; margin-right: auto; min-height: 500px; width: 90%;"></div>
+            <div id="map" class="pb-3" style="margin-left: auto; margin-right: auto; min-width: 300px; min-height: 500px; width: 90%; border-radius: 6px;"></div>
             <form action="/meetup/create" method="get">
-                <input type="submit" value="Create meetup" class="btn btn-dark btn-block m-1"
-                       style="font-family: Monaco; font-size: 20px;">
+                <input type="submit" value="Create meetup" class="btn btn-dark btn-block"
+                       style="font-family: Poppins; font-size: 20px;">
             </form>
             <div id="allMeetups"></div>
         </div>
