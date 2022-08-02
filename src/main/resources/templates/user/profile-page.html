@@ -57,7 +57,7 @@
     }
 
     /* Remove extra left and right margins, due to padding in columns */
-    .row {margin: 0 -5px;
+    .row {
         display: flex;
         justify-content: space-between;
 
@@ -98,6 +98,21 @@
         height: 100px;
         border-radius: 10%;
     }
+    .search-card{
+        max-width: 100px;
+        max-height: 100px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 20px;
+        align-items: stretch;
+    }
+    .grid img {
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+        max-width: 100%;
+    }
 
 
     .gradient-custom {
@@ -117,7 +132,6 @@
     <div class="dashbrd"><h1 class="title p-4 pb-1 pt-4">User Dashboard</h1></div>
 </div>
 <div class="row pt-4 mx-auto">
-<!--    <div class="column h-100">-->
         <div class="card col-4 pe-3" style="max-width: 500px;">
             <div class="col col-lg-12 mb-4 mb-lg-0">
                 <div class="row g-0">
@@ -167,8 +181,7 @@
                 </div>
             </div>
         </div>
-<!--    </div>-->
-<!--    <div class="column col-lg-8">-->
+
         <div class="card col-8 pe-2" style="max-width: 900px">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-family: Poppins; font-size: 15px;">
@@ -313,29 +326,34 @@
                 </div>
                 <!--       tab 2 friends-->
                 <div class="tab-pane fade" id="nav-friends" role="tabpanel" aria-labelledby="nav-friends-tab">
-                    <h1 class="pt-3" style="font-family: Poppins; font-size: 15px;">Friends</h1>
-                    <form th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">
+                    <h1 class="pt-3 pb-3" style="font-family: Poppins; font-size: 25px;">Your Friends</h1>
+                    <form class="pb-3" th:action="@{/users/search/{username} (username=${user.getUsername()})}" method="GET">
 
                         <button type="submit" class="btn btn-dark btn-block" style="font-family: Poppins; font-size: 20px;">Discover</button>
                     </form>
-<!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
-<!--                        <div class="col-4 my-2" th:each="item : ${friends}">-->
-<!--                            <div th:if="${item.profile_picture_url.isEmpty()}" class="search-card">-->
-<!--                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">-->
-<!--                                    <img src="/img/blank-profile-picture.png" class="gallery-item-post" style="border-radius: 4px; width: 500px; height: 300px;" >-->
-<!--                                </a>-->
-<!--                                <p class="my-1" th:text="${item.username}"></p>-->
-<!--                            </div>-->
-<!--                            <div th:if="${!item.profile_picture_url.isEmpty()}" class="search-card">-->
-<!--                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">-->
-<!--                                    <img th:src="${item.profile_picture_url.toString()}">-->
-<!--                                </a>-->
-<!--                                <p class="my-1" th:text="${item.username}"></p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+
+
+                    <div class="container">
+                        <div class="card pt-3">
+                            <div class="grid">
+                        <div th:each="item : ${friends}">
+                            <div th:if="${item.profile_picture_url.isEmpty()}">
+                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">
+                                    <img src="/img/blank-profile-picture.png">
+                                </a>
+                                <p class="my-1" th:text="${item.username}"></p>
+                            </div>
+                            <div th:if="${!item.profile_picture_url.isEmpty()}">
+                                <a th:href="@{/{username}/friend/{friendName} (username=${sessionUser.getUsername()}, friendName=${item.getUsername()})}">
+                                    <img th:src="${item.profile_picture_url.toString()}">
+                                </a>
+                                <p class="my-1" th:text="${item.username}"></p>
+                            </div>
+                        </div>
+                            </div>
                 </div>
-                <!--       tab 3 galleries-->
+                    </div>
+<!--                       tab 3 galleries-->
                 <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
                     <h1 class="pt-3 pb-2" style="font-family: Poppins; font-size: 25px;">Your Photos</h1>
 <!--                    <div style="background-color: #faf3dd;" class="row my-3">-->
@@ -355,7 +373,7 @@
                             </div>
                         </div>
                     </div>
-<!--                </div>-->
+                </div>
 
                 
             </div>
