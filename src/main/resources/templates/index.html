@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="partials/head :: head('Friends list')">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../resources/static/img/Codeencounterheader.png">
+    <title>Title</title>
+</head>
+<style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+    @import url("https://fonts.googleapis.com/css?family=Nunito:400,600|Poppins:700,500,600,800|Nunito+Sans:400");
+
+    @font-face {
+        font-family: "HelveticaNeue-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://fonts.animaapp.com/HelveticaNeue-Regular");
+    }
+
+    :root {
+        --white: #ffffff;
+        --nevada: #5c727d;
+        --black: #000000;
+        --big-stone: #0a2c3d;
+        --bunting: #0f1b43;
+        --dove-gray: #707070;
+        --orange-soda: #ff5a3c;
+        --french-gray: #b9b8c2;
+        --font-size-xxl: 22px;
+        --font-size-m2: 20px;
+        --font-size-xxxl: 48px;
+        --font-size-l: 18px;
+        --font-size-l2: 16px;
+        --font-size-xxxl: 35px;
+        --font-size-xxxxl: 46px;
+        --font-family-nunito: "Nunito", Helvetica;
+        --font-family-poppins: "Poppins", Helvetica;
+        --font-family-helveticaneue-regular: "HelveticaNeue-Regular", Helvetica;
+        --font-family-nunito_sans: "Nunito Sans", Helvetica;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .group-7856 {
+        display: flex;
+        height: 49px;
+        justify-content: space-between;
+        left: 954px;
+        position: absolute;
+        top: 16px;
+        width: 326px;
+    }
+
+    .poppins-medium-black-35px {
+        color: var(--black);
+        font-family: var(--font-family-poppins);
+        font-size: var(--font-size-xxxl);
+        font-style: normal;
+        font-weight: 500;
+    }
+
+    .place-1 {
+        letter-spacing: 0;
+        line-height: 66px;
+        margin-bottom: 6.5px;
+        margin-right: -2px;
+        margin-top: -8.5px;
+        text-align: center;
+        white-space: nowrap;
+        width: 146px;
+    }
+
+    .login {
+        letter-spacing: 0;
+        line-height: 66px;
+        margin-bottom: 6.5px;
+        margin-top: -8.5px;
+        text-align: center;
+        white-space: nowrap;
+        width: 96px;
+    }
+
+    .group-7850 {
+        align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+        left: 0;
+        min-height: 4000px;
+        position: absolute;
+        top: 0;
+        width: 1440px;
+    }
+
+    .core_feature {
+        display: flex;
+        height: 742px;
+        margin-right: 8.22px;
+        margin-top: 67px;
+        width: 1383px;
+    }
+
+    .group-7846 {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        width: 1382.7px;
+    }
+
+    .images {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a3f095cec0501ebfb21e/img/img-3@1x.png);
+        background-size: 100% 100%;
+        width: 718px;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 41.5px;
+        margin-top: 41.5px;
+        width: 614px;
+    }
+
+    .tittle {
+        display: flex;
+        flex: 1;
+        height: 67px;
+        max-height: 67px;
+    }
+
+    .connect-with-developers {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: 75px;
+        margin-bottom: 2px;
+        margin-right: -2px;
+        margin-top: -4px;
+        white-space: nowrap;
+        width: 616px;
+    }
+
+    .poppins-bold-big-stone-48px {
+        color: var(--big-stone);
+        font-family: var(--font-family-poppins);
+        font-size: var(--font-size-xxxl);
+        font-style: normal;
+        font-weight: 700;
+    }
+
+    .features {
+        align-items: flex-start;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        margin-left: 3.5px;
+        margin-right: 42.8px;
+        max-height: 495px;
+        min-height: 495px;
+    }
+
+    .x2 {
+        align-items: flex-end;
+        background-color: var(--orange-soda);
+        border-radius: 4px;
+        display: flex;
+        height: 145px;
+        margin-top: 30px;
+        min-width: 567px;
+        padding: 25.9px 26.8px;
+    }
+
+    .content-1 {
+        display: flex;
+        flex-direction: column;
+        height: 89px;
+        justify-content: space-between;
+        width: 412px;
+    }
+
+    .make-friends-and-mes {
+        color: var(--white);
+        flex: 1;
+        font-family: var(--font-family-nunito_sans);
+        font-size: var(--font-size-l2);
+        font-weight: 400;
+        height: 53px;
+        letter-spacing: 0;
+        line-height: 29px;
+        margin-bottom: 1.5px;
+        margin-right: -2px;
+        max-height: 53px;
+        white-space: nowrap;
+    }
+
+    .chat {
+        color: var(--white);
+        font-family: var(--font-family-poppins);
+        font-size: var(--font-size-l);
+        font-weight: 700;
+        height: 27px;
+        letter-spacing: 0;
+        line-height: 53px;
+        margin-left: 1.7px;
+        margin-top: -14px;
+        white-space: nowrap;
+        width: 47px;
+    }
+
+    .x3 {
+        align-items: flex-start;
+        display: flex;
+        height: 145px;
+        justify-content: center;
+        margin-left: 0.4px;
+        margin-top: 30px;
+        min-width: 567px;
+    }
+
+    .overlap-group-2 {
+        align-items: flex-end;
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1ae004f70a963aee1d710/img/path-61207-1x-png-1x-png-1x-png@1x.png);
+        background-size: 100% 100%;
+        display: flex;
+        height: 199px;
+        margin-top: -27px;
+        min-width: 621px;
+        padding: 52.9px 51.8px;
+    }
+
+    .content-2 {
+        display: flex;
+        flex-direction: column;
+        height: 89px;
+        justify-content: space-between;
+        width: 469px;
+    }
+
+    .poppins-bold-big-stone-18px {
+        color: var(--big-stone);
+        font-family: var(--font-family-poppins);
+        font-size: var(--font-size-l);
+        font-style: normal;
+        font-weight: 700;
+    }
+
+    .built-in-ide {
+        height: 27px;
+        letter-spacing: 0;
+        line-height: 53px;
+        margin-left: 1.5px;
+        margin-top: -14px;
+        white-space: nowrap;
+        width: 97px;
+    }
+
+    .trying-things-out-u {
+        flex: 1;
+        height: 53px;
+        letter-spacing: 0;
+        line-height: 29px;
+        margin-bottom: 1.5px;
+        margin-right: -2px;
+        max-height: 53px;
+        white-space: nowrap;
+    }
+
+    .nunitosans-normal-nevada-16px {
+        color: var(--nevada);
+        font-family: var(--font-family-nunito_sans);
+        font-size: var(--font-size-l2);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .x1 {
+        align-items: flex-start;
+        display: flex;
+        height: 145px;
+        justify-content: center;
+        margin-left: 0.4px;
+        min-width: 567px;
+    }
+
+    .overlap-group1 {
+        align-items: flex-end;
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1ae004f70a963aee1d710/img/path-61207-1x-png-1x-png-1x-png@1x.png);
+        background-size: 100% 100%;
+        display: flex;
+        height: 199px;
+        margin-top: -27px;
+        min-width: 621px;
+        padding: 53.9px 42.6px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        height: 88px;
+        justify-content: space-between;
+        width: 335px;
+    }
+
+    .meet-up-locally-or-remotely {
+        height: 27px;
+        letter-spacing: 0;
+        line-height: 53px;
+        margin-top: -14px;
+        white-space: nowrap;
+        width: 253px;
+    }
+
+    .with-our-map-feature {
+        flex: 1;
+        height: 53px;
+        letter-spacing: 0;
+        line-height: 29px;
+        margin-bottom: 1.5px;
+        margin-left: 0.1px;
+        margin-right: -2px;
+        max-height: 53px;
+        white-space: nowrap;
+    }
+
+    .footer {
+        display: flex;
+        height: 167px;
+        margin-right: 0;
+        margin-top: 72px;
+        width: 1439px;
+    }
+
+    .footer-1 {
+        align-items: flex-end;
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a89234b110980d0909c0/img/down---bg-1x-png-1x-png@1x.png);
+        background-size: 100% 100%;
+        display: flex;
+        flex: 1;
+        width: 1439px;
+    }
+
+    .copy-rights-arya {
+        align-items: flex-start;
+        display: flex;
+        flex: 1;
+        height: 79.56px;
+        margin-bottom: 0;
+        margin-left: 0;
+        min-width: 100%;
+    }
+
+    .overlap-group-5 {
+        height: 80px;
+        position: relative;
+        width: 1439px;
+    }
+
+    .path-61901 {
+        height: 80px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1439px;
+    }
+
+    .code-encounter-2022 {
+        color: var(--white);
+        font-family: var(--font-family-nunito);
+        font-size: var(--font-size-l2);
+        font-weight: 400;
+        left: 264px;
+        letter-spacing: 0;
+        line-height: 40px;
+        position: absolute;
+        top: 19px;
+        white-space: nowrap;
+    }
+
+    .group-7849 {
+        display: flex;
+        height: 943px;
+        margin-right: 0;
+        width: 1440px;
+    }
+
+    .headerslider {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        width: 1440px;
+    }
+
+    .header {
+        display: flex;
+        height: 95px;
+        margin-left: 65px;
+        width: 516px;
+    }
+
+    .logo {
+        display: flex;
+        flex: 1;
+        width: 518px;
+    }
+
+    .title {
+        color: var(--black);
+        flex: 1;
+        font-family: var(--font-family-poppins);
+        font-size: 68px;
+        font-weight: 700;
+        letter-spacing: -2.04px;
+        line-height: 51px;
+        margin-bottom: -24px;
+        margin-right: -2px;
+        margin-top: 22px;
+        white-space: nowrap;
+        width: 518px;
+    }
+
+    .slider {
+        align-items: flex-end;
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1ae004f70a963aee1d710/img/bg-3-1x-png-1x-png-1x-png@1x.png);
+        background-size: 100% 100%;
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        min-width: 100%;
+        padding: 0 233px;
+    }
+
+    .overlap-group-1 {
+        align-items: center;
+        background-color: #ff5a3ce8;
+        border-radius: 4px;
+        display: flex;
+        height: 169px;
+        justify-content: flex-end;
+        margin-bottom: -0.42px;
+        min-width: 973px;
+        padding: 0 109px;
+    }
+
+    .welcome-to-the-web-d {
+        color: var(--black);
+        font-family: var(--font-family-poppins);
+        font-size: var(--font-size-xxxxl);
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 66px;
+        min-height: 132px;
+        min-width: 754px;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .group-7848 {
+        align-items: flex-start;
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1ae004f70a963aee1d710/img/bg-4-1x-png-1x-png-1x-png@1x.png);
+        background-size: 100% 100%;
+        display: flex;
+        height: 729px;
+        justify-content: flex-end;
+        margin-right: 0;
+        margin-top: 72px;
+        min-width: 1439px;
+        padding: 132px 83px;
+    }
+
+    .group-7857 {
+        display: flex;
+        height: 425px;
+        width: 1251px;
+    }
+
+    .group-7858 {
+        align-items: flex-start;
+        display: flex;
+        flex: 1;
+        min-width: 1251px;
+    }
+
+    .overlap-group-4 {
+        height: 425px;
+        position: relative;
+        width: 1251px;
+    }
+
+    .aminities {
+        display: flex;
+        height: 424px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 990px;
+    }
+
+    .tittle-2 {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 992px;
+    }
+
+    .join-your-future-friends-today {
+        align-self: flex-end;
+        height: 69px;
+        letter-spacing: 0;
+        line-height: 75.2px;
+        margin-right: -2px;
+        margin-top: -4.1px;
+        text-align: center;
+        white-space: nowrap;
+        width: 750px;
+    }
+
+    .jumpstory-download20220718-215251 {
+        height: 319px;
+        width: 389px;
+    }
+
+    .jumpstory-download20220718-215531 {
+        height: 319px;
+        left: 862px;
+        position: absolute;
+        top: 106px;
+        width: 389px;
+    }
+
+    .jumpstory-download20220718-215416 {
+        height: 319px;
+        left: 433px;
+        position: absolute;
+        top: 106px;
+        width: 389px;
+    }
+
+    .upcoming_projects {
+        align-items: flex-end;
+        display: flex;
+        height: 829px;
+        margin-right: 1px;
+        margin-top: 43px;
+        min-width: 1439px;
+    }
+
+    .overlap-group5 {
+        height: 865px;
+        margin-bottom: -36px;
+        position: relative;
+        width: 1439px;
+    }
+
+    .new-users-and-new-ideas-daily {
+        color: var(--white);
+        font-family: var(--font-family-poppins);
+        font-size: var(--font-size-xxxl);
+        font-weight: 500;
+        left: 120px;
+        letter-spacing: 0;
+        line-height: 66px;
+        position: absolute;
+        text-align: center;
+        top: 24px;
+        white-space: nowrap;
+    }
+
+    .imgoverlay {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a89234b110980d0909c0/img/corporate-building-with-minimalist-empty-room-copy-space-1x-png-@1x.png);
+        background-size: 100% 100%;
+        display: flex;
+        height: 724px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1439px;
+    }
+
+    .modern-glass-corner {
+        flex: 1;
+        margin-bottom: 0;
+        margin-top: 0;
+        width: 1439px;
+    }
+
+    .overlap-group-3 {
+        align-items: flex-start;
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a89234b110980d0909c0/img/shadow-img-1x-png-1x-png@1x.png);
+        background-size: 100% 100%;
+        display: flex;
+        height: 786px;
+        left: 90px;
+        min-width: 1259px;
+        padding: 45px 52px;
+        position: absolute;
+        top: 79px;
+    }
+
+    .video {
+        display: flex;
+        height: 681px;
+        width: 1148px;
+    }
+
+    .video_img {
+        border-radius: 5px;
+        flex: 1;
+        margin-left: 0;
+        margin-right: 0;
+        width: 1147.5px;
+    }
+
+    .area_properties {
+        align-items: flex-start;
+        display: flex;
+        margin-right: 1px;
+        margin-top: 72px;
+        min-width: 1439px;
+    }
+
+    .overlap-group4 {
+        height: 928px;
+        margin-top: 0;
+        position: relative;
+        width: 1439px;
+    }
+
+    .img-1 {
+        height: 597px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1439px;
+    }
+
+    .group-7855 {
+        align-items: flex-start;
+        display: flex;
+        height: 663px;
+        left: 36px;
+        min-width: 1366px;
+        position: absolute;
+        top: 265px;
+    }
+
+    .group-785 {
+        align-items: flex-start;
+        display: flex;
+        margin-left: 26px;
+        min-width: 322px;
+    }
+
+    .overlap-group {
+        border-radius: 4px;
+        height: 663px;
+        position: relative;
+        width: 322px;
+    }
+
+    .x1-4 {
+        align-items: flex-start;
+        background-color: var(--white);
+        border-radius: 4px;
+        box-shadow: 0px 3px 20px #1c32a21f;
+        display: flex;
+        flex-direction: column;
+        left: 0;
+        min-height: 663px;
+        padding: 11px 13px;
+        position: absolute;
+        top: 0;
+        width: 322px;
+    }
+
+    .content-9 {
+        display: flex;
+        height: 55px;
+        margin-left: 1px;
+        margin-top: 9px;
+        width: 187px;
+    }
+
+    .content-10 {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 189px;
+    }
+
+    .texas {
+        height: 21px;
+        letter-spacing: -0.42px;
+        line-height: 30px;
+        margin-top: -5.5px;
+        white-space: nowrap;
+        width: 36px;
+    }
+
+    .nunito-normal-nevada-14px {
+        color: var(--nevada);
+        font-family: var(--font-family-nunito);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .boryana-dimova {
+        flex: 1;
+        height: 33px;
+        letter-spacing: 0;
+        line-height: 30px;
+        margin-bottom: -2.5px;
+        margin-right: -2px;
+        max-height: 33px;
+        white-space: nowrap;
+    }
+
+    .poppins-semi-bold-bunting-22px {
+        color: var(--bunting);
+        font-family: var(--font-family-poppins);
+        font-size: var(--font-size-xxl);
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    .img-5 {
+        align-self: flex-end;
+        background-color: var(--french-gray);
+        border-radius: 4px;
+        height: 334px;
+        width: 295px;
+    }
+
+    .something-thosadkjaf {
+        left: 17px;
+        letter-spacing: 0;
+        line-height: 20px;
+        position: absolute;
+        top: 430px;
+        white-space: nowrap;
+    }
+
+    .helveticaneue-regular-normal-dove-gray-20px {
+        color: var(--dove-gray);
+        font-family: var(--font-family-helveticaneue-regular);
+        font-size: var(--font-size-m2);
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .group-7854 {
+        align-items: flex-start;
+        display: flex;
+        min-width: 322px;
+    }
+
+    .x1-1 {
+        align-items: flex-start;
+        background-color: var(--white);
+        border-radius: 4px;
+        box-shadow: 0px 3px 20px #1c32a21f;
+        display: flex;
+        flex-direction: column;
+        left: 0;
+        min-height: 663px;
+        padding: 11px 13px;
+        position: absolute;
+        top: 0;
+        width: 322px;
+    }
+
+    .img-2 {
+        align-self: flex-end;
+        border-radius: 4px;
+        height: 334px;
+        width: 295px;
+    }
+
+    .content-3 {
+        display: flex;
+        height: 55px;
+        margin-left: 1px;
+        margin-top: 9px;
+        width: 136px;
+    }
+
+    .content-4 {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 138px;
+    }
+
+    .name {
+        flex: 1;
+        height: 33px;
+        letter-spacing: 0;
+        line-height: 30px;
+        margin-bottom: -2.5px;
+        margin-right: -2px;
+        max-height: 33px;
+        white-space: nowrap;
+    }
+
+    .place {
+        height: 21px;
+        letter-spacing: -0.42px;
+        line-height: 30px;
+        margin-top: -5.5px;
+        white-space: nowrap;
+        width: 58px;
+    }
+
+    .x1-2 {
+        align-items: flex-start;
+        background-color: var(--white);
+        border-radius: 4px;
+        box-shadow: 0px 3px 20px #1c32a21f;
+        display: flex;
+        flex-direction: column;
+        left: 0;
+        min-height: 663px;
+        padding: 11px 13px;
+        position: absolute;
+        top: 0;
+        width: 322px;
+    }
+
+    .img-3 {
+        align-self: flex-end;
+        border-radius: 4px;
+        height: 334px;
+        width: 295px;
+    }
+
+    .content-5 {
+        display: flex;
+        height: 55px;
+        margin-left: 1px;
+        margin-top: 9px;
+        width: 197px;
+    }
+
+    .content-6 {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 199px;
+    }
+
+    .name-1 {
+        flex: 1;
+        height: 33px;
+        letter-spacing: 0;
+        line-height: 30px;
+        margin-bottom: -2.5px;
+        margin-right: -2px;
+        max-height: 33px;
+        white-space: nowrap;
+    }
+
+    .x1-3 {
+        align-items: flex-start;
+        background-color: var(--white);
+        border-radius: 4px;
+        box-shadow: 0px 3px 20px #1c32a21f;
+        display: flex;
+        flex-direction: column;
+        left: 0;
+        min-height: 663px;
+        padding: 11px 13px;
+        position: absolute;
+        top: 0;
+        width: 322px;
+    }
+
+    .content-7 {
+        display: flex;
+        height: 55px;
+        margin-left: 1px;
+        margin-top: 9px;
+        width: 115px;
+    }
+
+    .content-8 {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 117px;
+    }
+
+    .name-2 {
+        flex: 1;
+        height: 33px;
+        letter-spacing: 0;
+        line-height: 30px;
+        margin-bottom: -2.5px;
+        margin-right: -2px;
+        max-height: 33px;
+        white-space: nowrap;
+    }
+
+    .img-4 {
+        align-self: flex-end;
+        background-color: var(--french-gray);
+        border-radius: 4px;
+        height: 334px;
+        width: 295px;
+    }
+
+    .tittle-1 {
+        display: flex;
+        flex-direction: column;
+        height: 98px;
+        justify-content: space-between;
+        left: 205px;
+        position: absolute;
+        top: 115px;
+        width: 849px;
+    }
+
+    .meet-the-code-encounter-founders {
+        color: var(--black);
+        flex: 1;
+        font-family: var(--font-family-poppins);
+        font-size: var(--font-size-xxxl);
+        font-weight: 700;
+        height: 69px;
+        letter-spacing: 0;
+        line-height: 75.2px;
+        margin-bottom: 2.1px;
+        margin-right: -2px;
+        max-height: 69px;
+        white-space: nowrap;
+    }
+
+    .were-so-glad-youre-here {
+        color: var(--orange-soda);
+        font-family: var(--font-family-nunito);
+        font-size: var(--font-size-l);
+        font-weight: 600;
+        height: 26px;
+        letter-spacing: 0;
+        line-height: 32.2px;
+        margin-left: 3px;
+        margin-top: -4.1px;
+        white-space: nowrap;
+        width: 213px;
+    }
+
+    .building_facilities {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a89234b110980d0909c0/img/overlay-1x-png-1x-png@1x.png);
+        background-size: 100% 100%;
+        display: flex;
+        height: 735px;
+        margin-right: 1px;
+        margin-top: 99px;
+        width: 1439px;
+    }
+
+    .img {
+        background-image: url(https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e443a0613a1c8f1675c36f/img/shutterstock-1369460255-1x-png-1x-png-1x-png-1x-png@1x.png);
+        background-size: 100% 100%;
+        flex: 1;
+        margin-bottom: 71.5px;
+        margin-left: 59px;
+        margin-right: 55px;
+        margin-top: 71.5px;
+        width: 1325.04px;
+    }
+
+</style>
+
+
+<div class="group-7850">
+    <div class="group-7849">
+        <div class="headerslider">
+            <div class="header">
+                <div sec:authorize="isAnonymous()">
+                    <div class="logo"><h1 class="title">CodeEncounter</h1></div>
+                    <div class="group-7856">
+                        <a class="login poppins-medium-black-35px" th:href="@{/login}">Login</a>
+                        <a class="place-1 poppins-medium-black-35px" th:href="@{/sign-up}">Register</a>
+                    </div>
+                </div>
+                <div sec:authorize="isAuthenticated()">
+                    <nav class="navbar navbar-expand-lg navbar-light" >
+                        <div class="container-fluid">
+                            <ul class="navbar-nav mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link" th:href="@{/user/{username}(username=${#authentication.principal.username})}">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link" th:href="@{/{username}/friends/requests (username=${#authentication.principal.username})}">Requests</a>
+                                </li>
+                            </ul>
+                            <form th:action="@{/logout}" th:method="post" class="p-2 nav-item">
+                                <button type="submit" class="btn btn-link btn-anchor nav-link">Logout</button>
+                            </form>
+                            <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">
+                                <input  class="form-control field" type="search" name="search" placeholder="Search" aria-label="Search">
+                                <button  class="btn btn-dark btn-block">Search</button>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+
+            </div>
+            <div class="slider">
+                <div class="overlap-group-1">
+                    <div class="welcome-to-the-web-d">
+                        Welcome to the Web Developer <br />preferred social media app!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="core_feature">
+        <div class="group-7846">
+            <div class="images"></div>
+            <div class="text">
+                <div class="tittle">
+                    <div class="connect-with-developers poppins-bold-big-stone-48px">
+                        Connect with developers
+                    </div>
+                </div>
+                <div class="features">
+                    <div class="x1">
+                        <div class="overlap-group1">
+                            <div class="content">
+                                <div
+                                        class="meet-up-locally-or-remotely poppins-bold-big-stone-18px"
+                                >
+                                    Meet up locally or remotely
+                                </div>
+                                <p
+                                        class="with-our-map-feature nunitosans-normal-nevada-16px"
+                                >
+                                    With our map feature, see if your collaborative
+                                    <br />match is in your area.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x2">
+                        <div class="content-1">
+                            <div class="chat">Chat</div>
+                            <p class="make-friends-and-mes">
+                                Make friends and message your ideas utilizing our secure
+                                <br />messaging feature.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="x3">
+                        <div class="overlap-group-2">
+                            <div class="content-2">
+                                <div class="built-in-ide poppins-bold-big-stone-18px">
+                                    Built in IDE
+                                </div>
+                                <p
+                                        class="trying-things-out-u nunitosans-normal-nevada-16px"
+                                >
+                                    Trying things out? Use our IDE playground to test out what
+                                    you're<br />working on.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="upcoming_projects">
+        <div class="overlap-group5">
+            <div class="imgoverlay">
+                <img
+                        class="modern-glass-corner"
+                        src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a89234b110980d0909c0/img/modern-glass-corner-fireplace-wall-interior-1x-png-1x-png@1x.png"
+                />
+            </div>
+            <div class="overlap-group-3">
+                <div class="video">
+                    <img
+                            class="video_img"
+                            src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e443a0613a1c8f1675c36f/img/video-img-1x-png-1x-png-1x-png@1x.png"
+                    />
+                </div>
+            </div>
+            <div class="new-users-and-new-ideas-daily">
+                New users and new ideas daily.
+            </div>
+        </div>
+    </div>
+    <div class="area_properties">
+        <div class="overlap-group4">
+            <img
+                    class="img-1"
+                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a89234b110980d0909c0/img/img-1x-png-1x-png@1x.png"
+            />
+            <div class="tittle-1">
+                <div class="were-so-glad-youre-here">
+                    We're so glad you're here!
+                </div>
+                <div class="meet-the-code-encounter-founders">
+                    Meet the CodeEncounter Founders
+                </div>
+            </div>
+            <div class="group-7855">
+                <div class="group-7854">
+                    <div class="overlap-group">
+
+                        <!-- ------------ Developer Card 1 ------------------ -->
+                        <div class="image-area">
+                            <div class="img-wrapper">
+                                <img src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a89234b110980d0909c0/img/img-2-1x-png@1x.png" alt="Atul Prajapati">
+                                <h2>Cory Tidwell</h2>
+                                <ul>
+                                    <li><a href="https://github.com/cory-tidwell"><i class="fab fa-github"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--------- Card 2  -------------------->
+                        <div class="image-area2">
+                            <div class="img-wrapper2">
+                                <img src="/img/melanie-schwartz.jpg" alt="Melanie">
+                                <h2>Melanie Schwartz</h2>
+                                <ul>
+                                    <li><a href="https://github.com/melschwartz07"><i class="fab fa-github"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--------- Card 3  -------------------->
+                        <div class="image-area3">
+                            <div class="img-wrapper3">
+                                <img src="https://avatars.githubusercontent.com/u/100165827?s=400&u=8334c858ec9778ad4f831202a3ca0130c264ed3e&v=4" alt="Chris">
+                                <h2>Christopher Ortiz</h2>
+                                <ul>
+                                    <li><a href="https://github.com/cortiz642"><i class="fab fa-github"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--------- Card 4  -------------------->
+                        <div class="image-area4">
+                            <div class="img-wrapper4">
+                                <img src="/img/boryana.jpg" alt="Boryana">
+                                <h2>Boryana Demova</h2>
+                                <ul>
+                                    <li><a href="https://github.com/Boryana1"><i class="fab fa-github"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------ End Developer Card 1 ------------------ -->
+                <!--                        <div class="x1-1">-->
+                <!--                            <img-->
+                <!--                                    class="img-2"-->
+                <!--                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a89234b110980d0909c0/img/img-2-1x-png@1x.png"-->
+                <!--                            />-->
+                <!--                            <div class="content-3">-->
+                <!--                                <div class="content-4">-->
+                <!--                                    <div class="place nunito-normal-nevada-14px">-->
+                <!--                                        Maryland-->
+                <!--                                    </div>-->
+                <!--                                    <div class="name poppins-semi-bold-bunting-22px">-->
+                <!--                                        Cory Tidwell-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                        <div-->
+                <!--                                class="something-thosadkjaf helveticaneue-regular-normal-dove-gray-20px"-->
+                <!--                        >-->
+                <!--                            Something thosadkjafds;kjfakjks<br />Sadlfkjkaskdajfklsjflasd;k-->
+                <!--                            sdakfk<br />Adkfajdskljasdkjfa;k;kjasdf;lk;als<br />Kasdfjas;dkadjfa;skjdksajdsfkjkj<br />Adslkfjakdsl;jaksdfjaskdhaksldf<br />Akdsjfafdslkjfasldkjadsflkjasdkfj<br />Dalkfjds;lkfjadskfja-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="group-785">-->
+                <!--                    <div class="overlap-group">-->
+                <!--                        <div class="x1-2">-->
+                <!--                            <img-->
+                <!--                                    class="img-3"-->
+                <!--                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a89234b110980d0909c0/img/img-1-1x-png@1x.png"-->
+                <!--                            />-->
+                <!--                            <div class="content-5">-->
+                <!--                                <div class="content-6">-->
+                <!--                                    <div class="texas nunito-normal-nevada-14px">Texas</div>-->
+                <!--                                    <div class="name-1 poppins-semi-bold-bunting-22px">-->
+                <!--                                        Melanie Schwartz-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                        <div-->
+                <!--                                class="something-thosadkjaf helveticaneue-regular-normal-dove-gray-20px"-->
+                <!--                        >-->
+                <!--                            Something thosadkjafds;kjfakjks<br />Sadlfkjkaskdajfklsjflasd;k-->
+                <!--                            sdakfk<br />Adkfajdskljasdkjfa;k;kjasdf;lk;als<br />Kasdfjas;dkadjfa;skjdksajdsfkjkj<br />Adslkfjakdsl;jaksdfjaskdhaksldf<br />Akdsjfafdslkjfasldkjadsflkjasdkfj<br />Dalkfjds;lkfjadskfja-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="group-785">-->
+                <!--                    <div class="overlap-group">-->
+                <!--                        <div class="x1-3">-->
+                <!--                            <div class="img-4"></div>-->
+                <!--                            <div class="content-7">-->
+                <!--                                <div class="content-8">-->
+                <!--                                    <div class="texas nunito-normal-nevada-14px">Texas</div>-->
+                <!--                                    <div class="name-2 poppins-semi-bold-bunting-22px">-->
+                <!--                                        Chris Ortiz-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                        <div-->
+                <!--                                class="something-thosadkjaf helveticaneue-regular-normal-dove-gray-20px"-->
+                <!--                        >-->
+                <!--                            Something thosadkjafds;kjfakjks<br />Sadlfkjkaskdajfklsjflasd;k-->
+                <!--                            sdakfk<br />Adkfajdskljasdkjfa;k;kjasdf;lk;als<br />Kasdfjas;dkadjfa;skjdksajdsfkjkj<br />Adslkfjakdsl;jaksdfjaskdhaksldf<br />Akdsjfafdslkjfasldkjadsflkjasdkfj<br />Dalkfjds;lkfjadskfja-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="group-785">-->
+                <!--                    <div class="overlap-group">-->
+                <!--                        <div class="x1-4">-->
+                <!--                            <div class="img-5"></div>-->
+                <!--                            <div class="content-9">-->
+                <!--                                <div class="content-10">-->
+                <!--                                    <div class="texas nunito-normal-nevada-14px">Texas</div>-->
+                <!--                                    <div-->
+                <!--                                            class="boryana-dimova poppins-semi-bold-bunting-22px"-->
+                <!--                                    >-->
+                <!--                                        Boryana Dimova-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                        <div-->
+                <!--                                class="something-thosadkjaf helveticaneue-regular-normal-dove-gray-20px"-->
+                <!--                        >-->
+                <!--                            Something thosadkjafds;kjfakjks<br />Sadlfkjkaskdajfklsjflasd;k-->
+                <!--                            sdakfk<br />Adkfajdskljasdkjfa;k;kjasdf;lk;als<br />Kasdfjas;dkadjfa;skjdksajdsfkjkj<br />Adslkfjakdsl;jaksdfjaskdhaksldf<br />Akdsjfafdslkjfasldkjadsflkjasdkfj<br />Dalkfjds;lkfjadskfja-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="group-7848">
+        <div class="group-7857">
+            <div class="group-7858">
+                <div class="overlap-group-4">
+                    <div class="aminities">
+                        <div class="tittle-2">
+                            <div
+                                    class="join-your-future-friends-today poppins-bold-big-stone-48px"
+                            >
+                                Join your future friends today!
+                            </div>
+                            <img
+                                    class="jumpstory-download20220718-215251"
+                                    src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1ae004f70a963aee1d710/img/jumpstory-download20220718-215251@1x.png"
+                            />
+                        </div>
+                    </div>
+                    <img
+                            class="jumpstory-download20220718-215416"
+                            src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1ae004f70a963aee1d710/img/jumpstory-download20220718-215416@1x.png"
+                    /><img
+                        class="jumpstory-download20220718-215531"
+                        src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1ae004f70a963aee1d710/img/jumpstory-download20220718-215531@1x.png"
+                />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-1">
+            <div class="copy-rights-arya">
+                <div class="overlap-group-5">
+
+                    <img
+                            class="path-61901"
+                            src="https://anima-uploads.s3.amazonaws.com/projects/62d1c8e880783b7cd9c6d83d/releases/62e1a89234b110980d0909c0/img/path-61901-1x-png-1x-png@1x.png"
+                    />
+                    <p class="code-encounter-2022">
+                        © CodeEncounter 2022, All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+

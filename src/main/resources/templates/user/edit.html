@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head th:replace="partials/head :: head('Edit')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+
+    body{
+        font-family: Poppins;
+    }
+    .container{
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    @media (min-width: 1200px)
+    {
+        .container{
+            max-width: 1140px;
+        }
+    }
+    .d-flex{
+        display: flex;
+        flex-direction: row;
+        background: #f6f6f6;
+        border-radius: 0 0 5px 5px;
+        padding: 25px;
+    }
+    /*form{*/
+    /*    flex: 4;*/
+    /*}*/
+    h2{
+        margin: 0;
+        padding-left: 15px;
+    }
+    label, table{
+        display: block;
+        margin: 15px;
+    }
+    label>span{
+        float: left;
+        width: 25%;
+        margin-top: 12px;
+        padding-right: 10px;
+    }
+    input[type="text"], input[type="tel"], input[type="email"], select
+    {
+        width: 80%;
+        height: 30px;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        border: 1px solid #dadada;
+        color: #888;
+    }
+    select{
+        width: 72%;
+        height: 45px;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+    }
+    table{
+        margin: 0;
+        padding: 0;
+    }
+    th{
+        border-bottom: 1px solid #dadada;
+        padding: 10px 0;
+    }
+    tr>td:nth-child(1){
+        text-align: left;
+        color: #2d2d2a;
+    }
+
+    td{
+        border-bottom: 1px solid #dadada;
+        padding: 25px 25px 25px 0;
+    }
+
+    p{
+        display: block;
+        color: #888;
+        margin: 0;
+        padding-left: 25px;
+    }
+    .Yorder>div{
+        padding: 15px 0;
+    }
+
+    .changes{
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        border: none;
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .title{
+        font-size: 60px;
+        font-family: Poppins;
+    }
+</style>
+<body>
+
+<header th:replace="partials/header :: header"></header>
+<div class="dash">
+    <div class="dashbrd"><h1 class="title p-4 pb-1 pt-4">Update Your Profile</h1></div>
+</div>
+
+<div class="container">
+    <div class="d-flex">
+        <form th:action="@{/edit/{username} (username=${user.getUsername()})}" method="POST" th:object="${user}">
+            <label>
+                <span for="first-name-input" class="fname">First Name</span>
+                <input id="first-name-input" type="text" name="fname" th:field="*{firstName}">
+            </label>
+            <label>
+                <span for="last-name-input" class="lname">Last Name </span>
+                <input type="text" name="lname" id="last-name-input" th:field="*{lastName}">
+            </label>
+            <label>
+                <span for="job-input"> Works At </span>
+                <input type="text" name="cn" id="job-input" th:field="*{job}" maxlength="30">
+            </label>
+            <label>
+                <span for="codeLanguages-input">Language Proficiency </span>
+                <input type="text" name="city" id="codeLanguages-input" th:field="*{codeLanguages}">
+            </label>
+            <label>
+                <span for="aboutMe-input">Coding Interests </span>
+                <input type="text" name="interest" id="aboutMe-input" th:field="*{aboutMe}">
+            </label>
+
+            <div class="changes" id="uploadPhoto">
+
+                <input type="hidden" id="photo" name="gallery_photo" th:field="*{profile_picture_url}" />
+                <button class="btn btn-secondary" id="upload">Profile Photo</button>
+
+                <div class="error-message" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+                <div class="error-message" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+
+                <form th:action="@{/{username}/delete (username=${#authentication.principal.username})}" method="POST" >
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?\nYou can\'t change your mind after clicking OK.')">Delete your account</button>
+                </form>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js" defer></script>
+<script src="/keys.js"></script>
+<script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
+</body>
+</html>
