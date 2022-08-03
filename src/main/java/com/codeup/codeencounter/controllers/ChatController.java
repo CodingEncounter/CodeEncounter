@@ -2,8 +2,8 @@ package com.codeup.codeencounter.controllers;
 
 
 
-import com.codeup.codeencounter.models.ChatMessage;
 
+import com.codeup.codeencounter.models.ChatMessage;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
