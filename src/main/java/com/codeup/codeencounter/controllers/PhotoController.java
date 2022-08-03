@@ -25,7 +25,7 @@ public class PhotoController {
     public GalleryRepo galleryRepo;
 
     public PhotoController(UserRepo userRepo, UserFriendRepo userFriendRepo, PostRepo postRepo, CommentRepo commentRepo,
-                           PictureRepo pictureRepo, GalleryRepo galleryRepo) {
+                          PictureRepo pictureRepo, GalleryRepo galleryRepo) {
         this.userRepo = userRepo;
         this.userFriendRepo = userFriendRepo;
         this.postRepo = postRepo;
@@ -203,8 +203,8 @@ public class PhotoController {
     //Update photo caption
     @PostMapping("{username}/photo/{id}/edit")
     public String editPhoto(@PathVariable String username,
-                            @PathVariable long id,
-                            @ModelAttribute Picture pictureToBeUpdated){
+                              @PathVariable long id,
+                              @ModelAttribute Picture pictureToBeUpdated){
         User user = userRepo.findByUsername(username);
         Picture picture = pictureRepo.findById(id);
         picture.setUser(user);

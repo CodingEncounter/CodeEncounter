@@ -79,8 +79,8 @@ public class User {
 
     @ManyToMany
     @JoinTable(name="user_interests",
-            joinColumns = {@JoinColumn(name="user_id")},
-            inverseJoinColumns = {@JoinColumn(name="interest_id")})
+    joinColumns = {@JoinColumn(name="user_id")},
+    inverseJoinColumns = {@JoinColumn(name="interest_id")})
     @OrderColumn(name="display_order")
     private Set<Interest> interests;
 
