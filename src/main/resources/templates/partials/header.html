@@ -72,20 +72,6 @@
                 </ul>
 
 
-
-                <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">
-                    <input style="font-family: Poppins; font-size: 15px; width: 70%; float: left;" class="form-control field" type="search" name="search" placeholder="User Search" aria-label="Search">
-                    <button style="font-family: Poppins; font-size: 15px; width: 30%; float: right;" class="btn btn-dark btn-block">Search</button>
-                </form>
-
-
-                <ul class="nav-item">
-                    <form th:action="@{/logout}" th:method="post" class="nav-item" style="font-family: Poppins; font-size: 30px">
-                        <button type="submit" class="btn btn-anchor nav-link">Logout</button>
-                    </form>
-                </ul>
-
-
             </div>
         </nav>
     </div>
