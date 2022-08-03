@@ -221,7 +221,7 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
         padding: 16px;
         text-align: center;
-        background-color: #f1f1f1;
+
     }
 
     /* Responsive columns - one column layout (vertical) on small screens */
@@ -261,6 +261,17 @@
         justify-content: space-between;
 
     }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 20px;
+        align-items: stretch;
+    }
+    .grid img {
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+        max-width: 100%;
+    }
 
 
     .gradient-custom {
@@ -272,6 +283,11 @@
 
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+    }
+
+    .buttons1{
+        display: flex;
+        justify-content: space-between;
     }
 </style>
 
@@ -332,37 +348,43 @@
         <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
             <h5 class="pt-3 pb-3">Back to Profile</h5>
         </a>
-        <h1 class="pt-3">Friend Requests</h1>
+        <h1 class="pt-3 pb-3" style="font-size: 25px">Friend Requests</h1>
 
-        <div class="pt-3" th:each="item : ${friendRequests}">
-            <div class="row m-3 p-3" style="background-color: white;">
-                <div class="col-4">
-                    <img th:src="${item.getUser().getProfile_picture_url().toString()}" class="avatar" alt="avatar">
-                    <a th:if="${item.getStatus().ACCEPTED}" th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">
-                        <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
-                    </a>
-                    <div th:if="${item.getStatus().PENDING}" th:href="@{/user/{username} (username=${user.getUsername()})}">
-                        <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
+
+        <div class="container">
+            <div class="card pt-3">
+                <div class="grid">
+                    <div class="pt-3" th:each="item : ${friendRequests}">
+                        <div class="row m-3">
+                            <div>
+                                <img th:src="${item.getUser().getProfile_picture_url().toString()}" class="avatar" alt="avatar">
+                                <a th:if="${item.getStatus().ACCEPTED}" th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">
+                                    <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
+                                </a>
+                                <div th:if="${item.getStatus().PENDING}" th:href="@{/user/{username} (username=${user.getUsername()})}">
+                                    <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <small class="text-muted">First Name: </small>
+                            <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>
+                            <small class="text-muted">Last Name: </small>
+                            <p class="card-text" th:text="${item.getUser().getLastName()}"></p>
+                            <form class="pt-2 buttons1" th:action="@{/request/{username}/{friendName}/accept (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
+                                <input class="field" name="accept" type="hidden" th:value="${item.getUser().getUsername()}"/>
+                                <button class="btn btn-primary">Accept</button>
+
+                                <form  class="pt-2 buttons1" th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
+                                    <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>
+                                    <button class="btn btn-danger">Reject</button>
+                                </form>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <div class="col-7">
-                <small class="text-muted">Username: </small>
-                <p class="card-text" th:text="${item.getUser().getUsername()}"></p>
-                <small class="text-muted">First Name: </small>
-                <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>
-                <small class="text-muted">Last Name: </small>
-                <p class="card-text" th:text="${item.getUser().getLastName()}"></p>
-                <form th:action="@{/request/{username}/{friendName}/accept (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
-                    <input class="field" name="accept" type="hidden" th:value="${item.getUser().getUsername()}"/>
-                    <button class="btn btn-primary">Accept</button>
-                </form>
-                <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
-                    <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>
-                    <button class="btn btn-danger">Reject</button>
-                </form>
-            </div>
-
         </div>
     </div>
     <!--        <main class="col-xl-6">-->
