@@ -22,7 +22,7 @@ function setupMap(center) {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: center,
-        zoom: 14
+        zoom: 10
     });
     // function onMapLoaded(event) {
     //
