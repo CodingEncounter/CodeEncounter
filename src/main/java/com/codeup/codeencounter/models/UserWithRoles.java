@@ -1,15 +1,17 @@
 package com.codeup.codeencounter.models;
 
 import com.codeup.codeencounter.models.User;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
 public class UserWithRoles extends User implements UserDetails {
 
-    public UserWithRoles(User user) {
+    public UserWithRoles(SecurityProperties.User user) {
         super(user);  // Call the copy constructor defined in User
     }
 
