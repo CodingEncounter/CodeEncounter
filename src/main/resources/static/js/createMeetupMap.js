@@ -1,14 +1,14 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hY29kZXVwIiwiYSI6ImNsNXNtc281bTJqMDMzaXJvM3dsYnBvejMifQ.edW3GsZuaC1hr4Jvy_u7XQ';
 
-let longitude = -98.7320;
-let latitude = 29.7947
+let longitude = -98.4895;
+let latitude = 29.4270;
 
 function setUpCreateMeetupMap(center) {
     let map = new mapboxgl.Map({
         container: 'createMeetupMap',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: center,
-        zoom: 14
+        zoom: 10
     });
     //Search bar
     const geocoder = new MapboxGeocoder({
