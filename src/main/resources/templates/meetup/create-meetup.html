@@ -5,6 +5,106 @@
     <meta charset="UTF-8" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Title</title>
 </head>
+<style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+    @font-face {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+    }
+
+    :root {
+        --black: #000000;
+        --white: #ffffff;
+        --dove-gray: #707070;
+        --font-size-m2: 20px;
+        --font-size-m3: 14px;
+        --font-family-monaco-regular: Monaco;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+    .image {
+        height: 300px;
+        width: 280px;
+        border-radius: 8px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Poppins;
+    }
+
+    /* Float four columns side by side */
+    .column {
+        float: left;
+        width: 50%;
+        padding: 0 10px;
+    }
+
+    /* Remove extra left and right margins, due to padding in columns */
+    .row {margin: 0 -5px;}
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Style the counter cards */
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+    }
+
+    /* Responsive columns - one column layout (vertical) on small screens */
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+
+    .title{
+        font-size: 60px;
+        font-family: Poppins;
+    }
+
+    .avatar {
+        /*vertical-align: left;*/
+        width: 100px;
+        height: 100px;
+        border-radius: 10%;
+    }
+
+
+    .gradient-custom {
+        /* fallback for old browsers */
+        background: #f6d365;
+
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+    }
+</style>
 <body>
 <!--    MAPBOX MAP -->
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
@@ -21,23 +121,27 @@
       type='text/css'/>
 <header th:replace="partials/header :: header"></header>
 <main class="col-xl-12">
-    <div style="width: 100%;">
+    <div class="card" style="width: 100%;">
         <!--                MAP        -->
-        <div id="createMeetupMap" style="margin-left: auto; margin-right: auto; min-height: 500px; width: 90%;"></div>
+        <h2 style="font-size: 35px; margin-bottom: 10px">Create a meetup</h2>
+        <div class="card">
+            <h2 style="font-size: 20px; margin-bottom: 10px">Use the search bar to find the location of your meetup and fill out the information bellow:</h2>
+            <div id="createMeetupMap" style="margin-left: auto; margin-right: auto; min-height: 500px; width: 90%; border-radius: 15px;"></div>
 
-        <form th:object="${meetup}" th:action="@{/meetup/create}"
-              method="POST">
-            <input th:field="*{name}" type="text" placeholder="Type of event"
-                   style="margin: 20px auto; display: block; width: 50%;">
-            <input th:field="*{dateTimeString}" type="datetime-local" placeholder="Date and Time"
-                   style="margin: 20px auto; display: block; width: 50%;">
-            <input th:field="*{description}" type="text" placeholder="Brief description of the event"
-                   style="margin: 20px auto; display: block; width: 50%;">
-            <input th:field="*{longitude}" id="longitude" type="text" hidden style="margin: 20px auto; display: block; width: 50%;">
-            <input th:field="*{latitude}" id="latitude" type="text" hidden style="margin: 20px auto; display: block; width: 50%;">
-            <input type="submit" value="submit" class="btn btn-dark btn-block m-1"
-                   style="font-family: Monaco; font-size: 20px;">
-        </form>
+            <form th:object="${meetup}" th:action="@{/meetup/create}"
+                  method="POST">
+                <input th:field="*{name}" type="text" placeholder="Type of event"
+                       style="margin: 20px auto; display: block; width: 50%;">
+                <input th:field="*{dateTimeString}" type="datetime-local" placeholder="Date and Time"
+                       style="margin: 20px auto; display: block; width: 50%;">
+                <input th:field="*{description}" type="text" placeholder="Brief description of the event"
+                       style="margin: 20px auto; display: block; width: 50%;">
+                <input th:field="*{longitude}" id="longitude" type="text" hidden style="margin: 20px auto; display: block; width: 50%;">
+                <input th:field="*{latitude}" id="latitude" type="text" hidden style="margin: 20px auto; display: block; width: 50%;">
+                <input type="submit" value="submit" class="btn btn-dark btn-block m-1"
+                       style="font-family: Monaco; font-size: 20px;">
+            </form>
+        </div>
     </div>
 </main>
 </div>
