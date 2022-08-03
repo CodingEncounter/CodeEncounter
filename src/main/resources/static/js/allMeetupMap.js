@@ -80,11 +80,3 @@ $(document).ready(function () {
 
 });
 
-
-
-
-
-
-
-
-

@@ -9,9 +9,107 @@
 </head>
 
 <style>
-    .btn{
-        display: flex;
-        justify-content: center;
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+    @font-face {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://fonts.animaapp.com/Monaco-Regular") format("truetype");
+    }
+
+    :root {
+        --black: #000000;
+        --white: #ffffff;
+        --dove-gray: #707070;
+        --font-size-m2: 20px;
+        --font-size-m3: 14px;
+        --font-family-monaco-regular: Monaco;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .hidden,
+    .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .image {
+        height: 300px;
+        width: 280px;
+        border-radius: 8px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Poppins;
+    }
+
+    /* Float four columns side by side */
+    .column {
+        float: left;
+        width: 50%;
+        padding: 0 10px;
+    }
+
+    /* Remove extra left and right margins, due to padding in columns */
+    .row {
+        margin: 0 -5px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Style the counter cards */
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+    }
+
+    /* Responsive columns - one column layout (vertical) on small screens */
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+
+    .title {
+        font-size: 60px;
+        font-family: Poppins;
+    }
+
+    .avatar {
+        /*vertical-align: left;*/
+        width: 100px;
+        height: 100px;
+        border-radius: 10%;
+    }
+
+
+    .gradient-custom {
+        /* fallback for old browsers */
+        background: #f6d365;
+
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+
     }
 </style>
 <body>
@@ -31,54 +129,81 @@
 <header th:replace="partials/header :: header"></header>
 <div class="wknd-profile screen">
     <br><br>
-    <div class="wknd-xf-header" style="text-align: center">
-        <div class="wknd-header">
-            <h1 class="title" style="text-align: center">Find meetups near you:</h1>
-            <h3 style="text-align: center">Need to host or organize in-person or virtual activities?</h3>
-            <h4 style="text-align: center">Use the button below to set up meetups for your coding projects, gatherings,
-                and events for people in our community.</h4>
-            <h4 style="text-align: center">Find users with similar interests, hobbies, and professions.</h4>
+
+    <div class="card" style="margin-left: 20px; margin-right: 20px;">
+
+        <div class="card wknd-xf-header" style="text-align: center; display: inline; margin-bottom: 10px">
+            <!--        <div class="col-md-12 mb-2 gradient-custom text-center text-black"-->
+            <!--             style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; border-top-right-radius: .5rem; border-bottom-right-radius: .5rem;">-->
+            <div class="wknd-header" style="margin-bottom: 15px">
+                <div class="title mb-2 mt-0" style="text-align: center; font-size: 25px">Find meetups near you:</div>
+                <div class="mb-0 mt-1" style="text-align: center; font-size: 17px; padding-left: 100px; padding-right: 100px">Need to host or organize in-person or virtual activities? Use the button bellow to set up meetups for your coding projects, gatherings, and events for people in our community. Use the feature in the upper left corner of the map to get direction to the meetup you are attending. Find users with similar interests, hobbies, and professions.</div>
+                <!--                <p class="mb-0" style="text-align: center; font-size: 15px">Use the button bellow to set up meetups for your coding-->
+                <!--                    projects,-->
+                <!--                    gatherings,-->
+                <!--                    and events for people in our community.</p>-->
+                <!--                <p class="mb-0" style="text-align: center; font-size: 15px">Use the feature in the upper left corner of the map to get direction to the meetup you are attending.</p>-->
+                <!--                <p class="mb-0" style="text-align: center; font-size: 15px">Find users with similar interests, hobbies, and-->
+                <!--                    professions.</p>-->
+            </div>
         </div>
+        <!--    </div>-->
+
+        <main class="col-xl-12">
+            <div style="width: 100%;">
+
+
+                <!--                MAP        -->
+                <div id="map"
+                     style="margin-left: auto; margin-right: auto; min-height: 500px; width: 90%; border-radius: 15px;"></div>
+                <div class="col col-lg-12 mb-4 mb-lg-0">
+                    <div class="card row g-0" style="display: flex; margin-top: 10px">
+
+                        <p style="align-text: center; margin-bottom: 10px; margin-top: 10px">Click on a meetup to find out the location and click on the pin to see more information,</p>
+                        <div id="allMeetups"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--</div>-->
+
+        <form action="/meetup/create" method="get">
+            <div class="container" style="position: relative">
+                <input type="submit" value="Create meetup" class="btn btn-dark btn-block m-1"
+                       style="font-family: Monaco; font-size: 20px;">
+            </div>
+        </form>
+        <!--</main>-->
     </div>
-
-    <main class="col-xl-12">
-        <div style="width: 100%;">
-
-            <!--                MAP        -->
-            <div id="map" class="pb-3" style="margin-left: auto; margin-right: auto; min-width: 300px; min-height: 500px; width: 90%; border-radius: 6px;"></div>
-            <form action="/meetup/create" method="get">
-                <input type="submit" value="Create meetup" class="btn btn-dark btn-block"
-                       style="font-family: Poppins; font-size: 20px;">
-            </form>
-            <div id="allMeetups"></div>
-        </div>
-    </main>
 </div>
+<!--     MAPBOX MAP -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
 
-            <!--     MAPBOX MAP -->
-            <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+<!-- MAPBOX DIRECTIONS -->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 
-            <!-- MAPBOX DIRECTIONS -->
-            <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<!--  MAPBOX GEOCODER -->
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
 
-            <!--  MAPBOX GEOCODER -->
-            <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+<!-- JQUERY-->
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
 
-            <!-- JQUERY-->
-            <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!-- BOOTSTRAP -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-            <!-- BOOTSTRAP -->
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                    crossorigin="anonymous"></script>
+<!-- JDOODLE-->
+<script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
+<script src="/keys.js"></script>
 
-            <!-- JDOODLE-->
-            <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
-            <script src="/keys.js"></script>
-
-            <!-- JAVASCRIPT -->
-            <script type="text/javascript" th:src="@{/js/allMeetupMap.js}" defer></script>
-            <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
+<!-- JAVASCRIPT -->
+<script type="text/javascript" th:src="@{/js/allMeetupMap.js}" defer></script>
+<script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
 </body>
 </html>
+
