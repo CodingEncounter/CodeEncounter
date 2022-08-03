@@ -1,3 +1,4 @@
+
 .fa-quote-left {
     font-size: 2.5rem;
     height: 5rem;
@@ -131,6 +132,7 @@
     .buttons {
         left: 75%;
     }
+
 }
 .clearfix:after {
     display: block;
@@ -260,6 +262,7 @@ button.accent {
     padding: 0 20px 0px 20px;
     height: calc(100% - 150px);
 }
+
 
 #chat-page #messageForm {
     padding: 20px;
@@ -1409,6 +1412,7 @@ button.accent {
     transform-origin: left;
 }
 
+
 .img-wrapper4:hover ul li
 {
     transform: perspective(800px) rotateY(0deg);
@@ -1428,6 +1432,7 @@ button.accent {
 {
     transition-delay: .8s;
 }
+
 
 .img-wrapper4:hover ul li:nth-child(4)
 {
@@ -1450,4 +1455,7 @@ button.accent {
 {
     color: #fff;
     background: rgba(255,255,255,0);
+
 }
+
+

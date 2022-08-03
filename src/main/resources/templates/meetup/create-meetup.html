@@ -5,6 +5,7 @@
     <meta charset="UTF-8" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Title</title>
 </head>
+
 <style>
     @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
@@ -105,6 +106,7 @@
         background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
     }
 </style>
+
 <body>
 <!--    MAPBOX MAP -->
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
@@ -121,6 +123,7 @@
       type='text/css'/>
 <header th:replace="partials/header :: header"></header>
 <main class="col-xl-12">
+
     <div class="card" style="width: 100%;">
         <!--                MAP        -->
         <h2 style="font-size: 35px; margin-bottom: 10px">Create a meetup</h2>
@@ -142,6 +145,7 @@
                        style="font-family: Monaco; font-size: 20px;">
             </form>
         </div>
+
     </div>
 </main>
 </div>
@@ -193,4 +197,6 @@
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
 
 </body>
+
 </html>
+

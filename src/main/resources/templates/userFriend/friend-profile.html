@@ -292,6 +292,7 @@
 </div>
 
 <div class="row pt-4">
+
     <!--    <div class="column h-100">-->
     <div class="card col-4 pe-3" style="max-width: 500px;">
         <div class="col col-lg-12 mb-4 mb-lg-0">
@@ -326,6 +327,7 @@
                             <h6 class="text-muted">Interests</h6>
                             <p th:text="${friend.aboutMe}"></p>
                         </div>
+
                     </div>
                     <div class="d-flex justify-content-end">
                         <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${friend.getUsername()})}" th:method="POST">
@@ -335,9 +337,11 @@
                     </div>
                     <!--                            </div>-->
                 </div>
+
             </div>
             <!--                </div>-->
         </div>
+
     </div>
     <!--    </div>-->
     <!--    <div class="column">-->
@@ -386,10 +390,15 @@
                                         <button class="btn btn-secondary">Remove Request</button>
                                     </form>
                                 </div>
+
+                            </div>
+                        </div>
                             </div>
                         </div>
                     </div>
+<!--                    </div>-->
                 </div>
+
                 <!--                    </div>-->
             </div>
             <!--       tab 2 galleries-->
@@ -415,16 +424,20 @@
                                     </a>
                                     <p class="my-1" th:text="${item.getName()}"></p>
                                 </div>
+
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!--    </div>-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>

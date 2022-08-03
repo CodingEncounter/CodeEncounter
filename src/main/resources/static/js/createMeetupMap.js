@@ -1,7 +1,9 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hY29kZXVwIiwiYSI6ImNsNXNtc281bTJqMDMzaXJvM3dsYnBvejMifQ.edW3GsZuaC1hr4Jvy_u7XQ';
 
-let longitude = -98.48958440230562;
-let latitude = 29.42702369800032
+
+let longitude = -98.7320;
+let latitude = 29.7947
+
 
 function setUpCreateMeetupMap(center) {
     let map = new mapboxgl.Map({

@@ -299,6 +299,7 @@
 </div>
 
 <div class="row pt-4 mx-auto">
+
     <!--    <div class="column h-100">-->
     <div class="card col-4 pe-3" style="max-width: 500px;">
         <div class="col col-lg-12 mb-4 mb-lg-0">
@@ -337,10 +338,13 @@
                         </div>
                     </div>
                     <!--                            </div>-->
+
                 </div>
+                <!--                </div>-->
             </div>
             <!--                </div>-->
         </div>
+
     </div>
     <!--    </div>-->
     <!--    <div class="column">-->
@@ -382,53 +386,38 @@
                             </form>
                         </div>
 
+
                     </div>
                 </div>
+                <div>
+                    <small class="text-muted">First Name: </small>
+                    <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>
+                    <small class="text-muted">Last Name: </small>
+                    <p class="card-text" th:text="${item.getUser().getLastName()}"></p>
+                    <form class="pt-2 buttons1" th:action="@{/request/{username}/{friendName}/accept (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
+                        <input class="field" name="accept" type="hidden" th:value="${item.getUser().getUsername()}"/>
+                        <button class="btn btn-primary">Accept</button>
+
+                    <form  class="pt-2 buttons1" th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
+                        <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>
+                        <button class="btn btn-danger">Reject</button>
+                    </form>
+                    </form>
+                </div>
+
+            </div>
+            </div>
             </div>
         </div>
+
     </div>
-    <!--        <main class="col-xl-6">-->
-    <!--            <div style="width: 100%; background-color: white;" class="p-5">-->
-    <!--                <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">-->
-    <!--                    <h5>Home</h5>-->
-    <!--                </a>-->
-    <!--                <h1>Friend Requests</h1>-->
-    <!--                <div class="p-5" style="background-color: #bde0fe;" th:each="item : ${friendRequests}">-->
-    <!--                    <div class="row m-3 p-3" style="background-color: white;">-->
-    <!--                        <div class="col-4">-->
-    <!--                            <img th:src="${item.getUser().getProfile_picture_url().toString()}" class="gallery-item-tiny" alt="...">-->
-    <!--                            <a th:if="${item.getStatus().ACCEPTED}" th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">-->
-    <!--                                <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>-->
-    <!--                            </a>-->
-    <!--                            <div th:if="${item.getStatus().PENDING}" th:href="@{/user/{username} (username=${user.getUsername()})}">-->
-    <!--                                <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                        <div class="col-7">-->
-    <!--                            <small class="text-muted">Username: </small>-->
-    <!--                            <p class="card-text" th:text="${item.getUser().getUsername()}"></p>-->
-    <!--                            <small class="text-muted">First Name: </small>-->
-    <!--                            <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>-->
-    <!--                            <small class="text-muted">Last Name: </small>-->
-    <!--                            <p class="card-text" th:text="${item.getUser().getLastName()}"></p>-->
-    <!--                            <form th:action="@{/request/{username}/{friendName}/accept (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">-->
-    <!--                                <input class="field" name="accept" type="hidden" th:value="${item.getUser().getUsername()}"/>-->
-    <!--                                <button class="btn btn-primary">Accept</button>-->
-    <!--                            </form>-->
-    <!--                            <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">-->
-    <!--                                <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>-->
-    <!--                                <button class="btn btn-danger">Reject</button>-->
-    <!--                            </form>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </main>-->
+   
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>
