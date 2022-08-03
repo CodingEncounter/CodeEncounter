@@ -81,9 +81,9 @@ public class PostController {
     }
     @PostMapping("/posts/edit/{username}/{id}")
     public String editPost(@ModelAttribute Post postToBeUpdated,
-            @PathVariable String username,
-            @PathVariable long id,
-            @ModelAttribute User currentUser) {
+                           @PathVariable String username,
+                           @PathVariable long id,
+                           @ModelAttribute User currentUser) {
         Post post = postRepo.findById(id);
         User user = userRepo.findByUsername(username);
         Date editDate = new Date();
@@ -114,10 +114,10 @@ public class PostController {
     //Create Comment
     @PostMapping("/posts/create/{username}/{postId}/comment")
     public String submitCommentForm(@ModelAttribute Comment comment,
-                                 //@ModelAttribute Post post,
-                                 @PathVariable long postId,
-                                 @PathVariable String username,
-                                 Model model) {
+                                    //@ModelAttribute Post post,
+                                    @PathVariable long postId,
+                                    @PathVariable String username,
+                                    Model model) {
         Post parentPost = postRepo.findById(postId);
         Comment newComment = new Comment();
         User newUser = userRepo.findByUsername(username);
@@ -155,9 +155,9 @@ public class PostController {
     }
     @PostMapping("/comments/edit/{username}/{commentId}")
     public String editComment(@ModelAttribute Comment commentToBeUpdated,
-            @PathVariable String username,
-            @PathVariable long commentId,
-            @ModelAttribute User currentUser) {
+                              @PathVariable String username,
+                              @PathVariable long commentId,
+                              @ModelAttribute User currentUser) {
         Comment comment = commentRepo.findById(commentId);
         User user = userRepo.findByUsername(username);
 
