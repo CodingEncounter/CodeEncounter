@@ -178,42 +178,34 @@
         <div class="container">
             <div class="card pt-3">
                 <div class="grid">
-            <div th:each="item : ${allUsers}" class="col-6 col-xl-4 my-2">
-                <div th:if="${item.username == user.username}" class="search-card">
+            <div th:each="item : ${allUsers}">
+                <div th:if="${item.username == user.username}">
                     <a th:href="@{/user/{username} (username=${user.getUsername()})}">
                         <img th:src="${item.profile_picture_url.toString()}">
                     </a>
-                    <p class="my-1" th:text="${item.username}"></p>
                     <p class="my-1" th:text="${item.firstName}"></p>
                     <p class="my-1" th:text="${item.lastName}"></p>
-                    <p class="my-1" th:text="${item.codeLanguages}"></p>
 
                 </div>
-                <div th:if="${userFriends.contains(item) == true}" class="search-card">
+                <div th:if="${userFriends.contains(item) == true}">
                     <a th:href="@{/{username}/friend/{friendName} (username=${user.getUsername()}, friendName=${item.getUsername()})}">
                         <img th:src="${item.profile_picture_url.toString()}">
                     </a>
-                    <p class="my-1" th:text="${item.username}"></p>
                     <p class="my-1" th:text="${item.firstName}"></p>
                     <p class="my-1" th:text="${item.lastName}"></p>
-                    <p class="my-1" th:text="${item.codeLanguages}"></p>
                 </div>
-                <div th:if="${userFriends.contains(item) == false && pendingFriends.contains(item) == false && item.username != user.username}" class="search-card">
+                <div th:if="${userFriends.contains(item) == false && pendingFriends.contains(item) == false && item.username != user.username}">
                     <img th:src="${item.profile_picture_url.toString()}">
-                    <p class="my-1" th:text="${item.username}"></p>
                     <p class="my-1" th:text="${item.firstName}"></p>
                     <p class="my-1" th:text="${item.lastName}"></p>
-                    <p class="my-1" th:text="${item.codeLanguages}"></p>
                     <form th:action="@{/request/{username}/{friendName} (username=${user.getUsername()}, friendName = ${item.getUsername()})}" th:method="POST">
                         <button class="btn btn-primary" style="font-size: 10px;" type="submit" name="Friend Request">Friend Request</button>
                     </form>
                 </div>
-                <div th:if="${pendingFriends.contains(item) == true && item.username != user.username}" class="search-card">
+                <div th:if="${pendingFriends.contains(item) == true && item.username != user.username}">
                     <img th:src="${item.profile_picture_url.toString()}">
-                    <p class="my-1" th:text="${item.username}"></p>
                     <p class="my-1" th:text="${item.firstName}"></p>
                     <p class="my-1" th:text="${item.lastName}"></p>
-                    <p class="my-1" th:text="${item.codeLanguages}"></p>
                     <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUsername()})}" th:method="POST">
                         <input type="hidden" class="field" name="reject" th:value="${item.getUsername()}"/>
                         <button class="btn btn-secondary" style="font-size: 10px;" >Remove Request</button>
