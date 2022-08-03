@@ -8,18 +8,18 @@ const options = {
     onFileUploadFinished: callback => {
         const filestackUrl = callback.url;
         setTimeout(() => {
-            $('#photo').val(filestackUrl);
-            alert("Upload Success!")
+        $('#photo').val(filestackUrl);
+        alert("Upload Success!")
         },5000);
     }
 };
 
 
 
-$('#upload').click(function (event){
-    event.preventDefault();
-    client.picker(options).open();
-})
+    $('#upload').click(function (event){
+        event.preventDefault();
+        client.picker(options).open();
+    })
 
 
 function validatePhoto(){

@@ -22,7 +22,7 @@ function setupMap(center) {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: center,
-        zoom: 10
+        zoom: 14
     });
     // function onMapLoaded(event) {
     //
@@ -59,7 +59,7 @@ function setupMap(center) {
         unit: 'metric',
         profile: 'mapbox/cycling'
     });
-    map.addControl(directions, 'top-left');
+        map.addControl(directions, 'top-left');
 
     var marker = new mapboxgl.Marker({
         draggable: true
