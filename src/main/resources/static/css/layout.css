@@ -1556,7 +1556,7 @@ button.accent {
 {
     transform: perspective(800px) rotateY(0deg);
 }
-<<<<<<< HEAD
+
 
 .img-wrapper2:hover ul li:nth-child(1)
 {
@@ -1849,7 +1849,7 @@ button.accent {
 
 
 .img-wrapper4:hover ul li
-=======
+
 
 .img-wrapper2:hover ul li:nth-child(1)
 {
@@ -1994,74 +1994,56 @@ button.accent {
 }
 
 .img-wrapper3:hover ul li
->>>>>>> 1f63149bd54581a71c730bd353b5c095d2bb4828
+
 {
     transform: perspective(800px) rotateY(0deg);
 }
 
-<<<<<<< HEAD
+
 .img-wrapper4:hover ul li:nth-child(1)
-=======
-.img-wrapper3:hover ul li:nth-child(1)
->>>>>>> 1f63149bd54581a71c730bd353b5c095d2bb4828
+
 {
     transition-delay: .2s;
 }
 
-<<<<<<< HEAD
-.img-wrapper4:hover ul li:nth-child(2)
-=======
+
 .img-wrapper3:hover ul li:nth-child(2)
->>>>>>> 1f63149bd54581a71c730bd353b5c095d2bb4828
+
 {
     transition-delay: .6s;
 }
 
-<<<<<<< HEAD
-.img-wrapper4:hover ul li:nth-child(3)
-=======
+
 .img-wrapper3:hover ul li:nth-child(3)
->>>>>>> 1f63149bd54581a71c730bd353b5c095d2bb4828
+
 {
     transition-delay: .8s;
 }
 
-<<<<<<< HEAD
 
-.img-wrapper4:hover ul li:nth-child(4)
-=======
 .img-wrapper3:hover ul li:nth-child(4)
->>>>>>> 1f63149bd54581a71c730bd353b5c095d2bb4828
+
 {
     transition-delay: 1s;
 }
 
-<<<<<<< HEAD
-.img-wrapper4 ul li a
-=======
+
 .img-wrapper3 ul li a
->>>>>>> 1f63149bd54581a71c730bd353b5c095d2bb4828
+
 {
     color: tomato;
     background: rgba(255,255,255,0);
 }
 
-<<<<<<< HEAD
-.img-wrapper4 ul li i
-=======
+
 .img-wrapper3 ul li i
->>>>>>> 1f63149bd54581a71c730bd353b5c095d2bb4828
+
 {
     color: tomato;
     background: rgba(255,255,255,0);
 }
 
-<<<<<<< HEAD
-.img-wrapper4 ul li i:hover
-{
-    color: #fff;
-    background: rgba(255,255,255,0);
-=======
+
 .img-wrapper3 ul li i:hover
 {
     color: #fff;
@@ -2177,22 +2159,14 @@ button.accent {
 {
     transform: perspective(800px) rotateY(0deg);
 }
->>>>>>> 1f63149bd54581a71c730bd353b5c095d2bb4828
+
 
 .img-wrapper4:hover ul li:nth-child(1)
 {
     transition-delay: .2s;
 }
 
-<<<<<<< HEAD
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-=======
+
 .img-wrapper4:hover ul li:nth-child(2)
 {
     transition-delay: .6s;
@@ -2227,6 +2201,3 @@ Status
     background: rgba(255,255,255,0);
 
 }
-
-
->>>>>>> 1f63149bd54581a71c730bd353b5c095d2bb4828
