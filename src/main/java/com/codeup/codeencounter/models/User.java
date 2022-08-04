@@ -75,7 +75,8 @@ public class User {
     @JsonBackReference
     private List<Picture> pictures;
 
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Meetup> meetups;
 
     @ManyToMany
     @JoinTable(name="user_interests",
