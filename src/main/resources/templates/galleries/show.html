@@ -252,6 +252,11 @@
         height: 100px;
         border-radius: 10%;
     }
+    .add{
+        display: flex;
+        justify-content: end;
+        background-color: gray;
+    }
 
 
     .gradient-custom {
@@ -282,6 +287,7 @@
         box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
         max-width: 100%;
     }
+
 </style>
 
 <body>
@@ -292,8 +298,6 @@
 </div>
 
 <div class="row pt-4">
-
-<!--    <div class="column h-100">-->
     <div class="card col-4 pe-3" style="max-width: 500px;">
         <div class="col col-lg-12 mb-4 mb-lg-0">
                 <div class="row g-0">
@@ -302,7 +306,7 @@
                         <img class="image" th:src="${user.getProfile_picture_url().toString()}" alt="Card image cap"/>
                         <h5 class="pt-3" th:text="${user.firstName}"></h5>
                         <h5 class="pb-3" th:text="${user.lastName}"></h5>
-                        <p class="pt-1 text-mutedpb-2"><i class="far fa-address-card"></i> Works at</p><p class="pb-4" th:text="${user.job}"></p>
+                        <p class="pt-1 text-muted pb-2"><i class="far fa-address-card"></i> Works at</p><p class="pb-4" th:text="${user.job}"></p>
                     </div>
                     <div class="col-12">
                         <h6 class="pt-4 pb-1">Information</h6>
@@ -348,36 +352,48 @@
             <h5 class="pt-3 pb-3">Back to Profile</h5>
         </a>
 <!--        <div class="col-6 col-xl-4 my-2" th:each="item : ${photos}">-->
-            <div class="container">
-                <div class="card pt-3">
+            <div class="container pb-4">
+                <div class="card pt-3 pb-3">
+                    <div class="pt-2 pb-3">
+                        <button type="button" class="add btn btn-primary" data-toggle="modal" data-target="#addPhotoModal">Add Photo</button>
+                    </div>
                     <div class="grid">
                         <div class=" my-2" th:each="item : ${photos}">
+
 
 
                 <img id="galleryPhoto" th:src="${item.pictureUrl}" alt="User uploaded image"/>
                 <div class="my-1" th:text="${item.getComment()}"></div>
                 <div th:if="${#authentication.principal.username} == ${displayUser.getUsername()}">
+
                     <form th:action="@{/{username}/photo/{id}/edit (username=${#authentication.principal.username}, id=${item.getId()})}" th:object="${displayPhoto}" method="POST" class="pt-3">
                         <input id="caption" class="form-control" th:field="*{comment}" maxlength="30"/>
+                        <div class="pt-1 mx-4" style="float: left;">
                         <button type="submit" class="btn btn-primary">Save</button>
+                </div>
                         <form th:action="@{/{username}/photo/{id}/delete (username=${#authentication.principal.username}, id=${item.getId()})}" method="post" th:object="${displayPhoto}" class="gallery-btn">
+                            <div class="pt-1 mx-4" style="float: right;">
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?\nYou can\'t change your mind after clicking OK.')">Delete</button>
+                            </div>
                         </form>
                         <div class="error-message" th:if="${#fields.hasErrors('pictureUrl')}" th:errors="*{pictureUrl}"></div>
                     </form>
+
                 </div>
             </div>
 
                 </div>
             </div>
         </div>
-        <div th:if="${#authentication.principal.username} == ${displayUser.getUsername()}" class="pt-2 pb-2">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPhotoModal">Add Photo</button>
+        <div th:if="${#authentication.principal.username} == ${displayUser.getUsername()}">
+
             <div class="card">
                 <form th:action="@{/{username}/gallery/{id}/edit (username=${#authentication.principal.username}, id=${gallery.getId()})}" th:object="${gallery}" method="POST" class="pt-3">
-                    <label for="galleryName">Gallery Name</label>
-                    <input id="galleryName" class="form-control" th:field="*{name}" maxlength="40" required>
+                    <label class="pb-3" for="galleryName" style="font-size: 30px; font-weight: bold;">Gallery Name</label>
+                    <input id="galleryName" class="form-control" style="max-width: 40%;" th:field="*{name}" maxlength="20" required>
+                    <div class="pt-3">
                     <button type="submit" class="btn btn-primary">Change Gallery Name</button>
+                    </div>
                     <div class="error-message" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                 </form>
                 <form th:action="@{/{username}/gallery/{id}/delete (username=${#authentication.principal.username}, id=${gallery.getId()})}" th:object="${gallery}" method="post" class="p-3">
@@ -389,7 +405,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Upload Photo</h5>
+                        <h5 class="modal-title" style="font-size: 30px;">Upload Photo</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -401,8 +417,8 @@
                                 <button class="btn btn-primary" id="upload">Upload Picture</button>
                             </div>
                             <br>
-                            <div class="col-md-4 mb-3">
-                                <label for="comment">Caption</label>
+                            <div class="mb-3">
+                                <label class="pb-2" for="comment">Caption</label>
                                 <input type="text" id="comment" class="form-control" placeholder="Picture this..." th:field="*{comment}" required>
                             </div>
                             <button id="submitAddPhoto" type="submit" class="btn btn-primary">Submit</button>
