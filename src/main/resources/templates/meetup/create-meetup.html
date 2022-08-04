@@ -46,6 +46,7 @@
 
     body {
         font-family: Poppins;
+        background-color: #f1f1f1;
     }
 
     /* Float four columns side by side */
@@ -105,6 +106,9 @@
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
     }
+    a:hover {
+        background-color: yellow;
+    }
 </style>
 
 <body>
@@ -118,9 +122,7 @@
       type="text/css">
 
 <!--  MAPBOX GEOCODER -->
-<link rel='stylesheet'
-      href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
-      type='text/css'/>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 <header th:replace="partials/header :: header"></header>
 <main class="col-xl-12">
 
@@ -128,17 +130,17 @@
         <!--                MAP        -->
         <h2 style="font-size: 35px; margin-bottom: 10px">Create a meetup</h2>
         <div class="card">
-            <h2 style="font-size: 20px; margin-bottom: 10px">Use the search bar to find the location of your meetup and fill out the information bellow:</h2>
             <div id="createMeetupMap" style="margin-left: auto; margin-right: auto; min-height: 500px; width: 90%; border-radius: 15px;"></div>
-
+            <h2 style="margin-top: 10px;font-size: 20px; margin-bottom: 10px">Use the search bar to find the location of your meetup and fill out the information bellow:</h2>
+            <div id="geocoder" class="margin-left: auto; margin-right: auto; geocoder" style="margin-top: 10px; display: block; z-index: 1; width: 90%;  top: 10px"></div>
             <form th:object="${meetup}" th:action="@{/meetup/create}"
                   method="POST">
-                <input th:field="*{name}" type="text" placeholder="Type of event"
-                       style="margin: 20px auto; display: block; width: 50%;">
-                <input th:field="*{dateTimeString}" type="datetime-local" placeholder="Date and Time"
-                       style="margin: 20px auto; display: block; width: 50%;">
-                <input th:field="*{description}" type="text" placeholder="Brief description of the event"
-                       style="margin: 20px auto; display: block; width: 50%;">
+                <input th:field="*{name}" class="center-block" type="text" placeholder="Type of event"
+                       style="margin: 20px auto; height: 35px;display: block; width: 50%;">
+                <input th:field="*{dateTimeString}" class="center-block" type="datetime-local" placeholder="Date and Time"
+                       style="margin: 20px auto; height: 35px; display: block; width: 50%;">
+                <input th:field="*{description}" class="center-block" type="text" placeholder="Brief description of the event"
+                       style="margin: 20px auto; height: 35px; display: block; width: 50%;">
                 <input th:field="*{longitude}" id="longitude" type="text" hidden style="margin: 20px auto; display: block; width: 50%;">
                 <input th:field="*{latitude}" id="latitude" type="text" hidden style="margin: 20px auto; display: block; width: 50%;">
                 <input type="submit" value="submit" class="btn btn-dark btn-block m-1"
@@ -149,6 +151,21 @@
     </div>
 </main>
 </div>
+<style>
+    .mapboxgl-ctrl-geocoder input[type='text'] {
+        font-size: 12px;
+        width: 100%;
+        border: 0;
+        background-color: transparent;
+        height: 40px;
+        margin: 0;
+        color: rgba(0, 0, 0, .5);
+        padding: 10px 40px 10px 30px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+</style>
 
 <!-- MAPBOX MAP -->
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
@@ -157,8 +174,12 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 
 <!--  MAPBOX GEOCODER -->
-<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
-
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<style>
+    .mapboxgl-ctrl-geocoder {
+        min-width: 100%;
+    }
+</style>
 <!-- JQUERY-->
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
         crossorigin="anonymous"></script>
@@ -195,8 +216,5 @@
 <!-- JAVASCRIPT -->
 <script type="text/javascript" th:src="@{/js/createMeetupMap.js}" defer></script>
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
-
 </body>
-
 </html>
-

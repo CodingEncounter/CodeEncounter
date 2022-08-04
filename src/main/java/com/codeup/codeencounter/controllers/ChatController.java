@@ -31,8 +31,14 @@ public class ChatController {
 
     @GetMapping("/chat")
     public String chat() {
-        return "/chat/chat";
+        return "chat/chat";
     }
+
+
+//    @GetMapping("/chat/test")
+//    public String chattest() {
+//        return "/chat";
+//    }
 
     @GetMapping("/user/{username}/ide")
     public String ide() {

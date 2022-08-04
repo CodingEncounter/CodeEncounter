@@ -3,6 +3,7 @@ package com.codeup.codeencounter.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -14,6 +15,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="users")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "meetups"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -75,7 +77,8 @@ public class User {
     @JsonBackReference
     private List<Picture> pictures;
 
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Meetup> meetups;
 
     @ManyToMany
     @JoinTable(name="user_interests",
@@ -88,9 +91,17 @@ public class User {
 
     public User(){}
 
+    public List<Meetup> getMeetups() {
+        return meetups;
+    }
+
+    public void setMeetups(List<Meetup> meetups) {
+        this.meetups = meetups;
+    }
+
     public User(String aboutMe, String codeLanguages, Date birthday, String email, String firstName, String password,
                 String lastName, String job, String dp, String role, String profile_picture_url, String username,
-                List<UserFriend> userFriends,  List<Picture> pictures, Date createdDate){
+                List<UserFriend> userFriends, List<Picture> pictures, Date createdDate){
         this.birthday = birthday;
         this.email = email;
         this.firstName = firstName;
