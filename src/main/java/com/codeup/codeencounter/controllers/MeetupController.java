@@ -42,7 +42,8 @@ public class MeetupController {
     public String submitMeetup(@ModelAttribute Meetup meetup, Model model) throws ParseException {
         String username = ((UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         User user = userRepo.findByUsername(username);
-        meetup.setUser(user);
+        String organizer = String.format("%s %s", user.getFirstName(), user.getLastName()).trim();
+        meetup.setOrganizer(organizer);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
         meetup.setDateTime(format.parse(meetup.getDateTimeString()));
         meetupRepo.save(meetup);
@@ -50,5 +51,3 @@ public class MeetupController {
     }
 
 }
-
-
