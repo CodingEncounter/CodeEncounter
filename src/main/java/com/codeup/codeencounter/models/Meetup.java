@@ -1,10 +1,13 @@
 package com.codeup.codeencounter.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "meetups")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "user"})
 public class Meetup {
 
     @Id
