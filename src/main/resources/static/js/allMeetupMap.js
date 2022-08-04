@@ -1,6 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hY29kZXVwIiwiYSI6ImNsNXNtc281bTJqMDMzaXJvM3dsYnBvejMifQ.edW3GsZuaC1hr4Jvy_u7XQ';
 
-var center = [-98.7320, 29.7947]
+var center = [-98.4894, 29.4275]
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
     enableHighAccuracy: true
 });
@@ -22,7 +22,7 @@ $(document).ready(function () {
     });
     var directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
-        unit: 'metric',
+        // unit: 'metric',
         profile: 'mapbox/cycling'
     });
     map.addControl(directions, 'top-left');
@@ -48,12 +48,12 @@ $(document).ready(function () {
                         minute: 'numeric', // numeric, 2-digit
                         second: 'numeric', // numeric, 2-digit
                     });
-                    // let organizedBy = meetup.user.firstName + " " + meetup.user.lastName;
+                    let organizedBy = meetup.organizer;
                     const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
                         "<p> Name: " + meetup.name + "</p>" +
                         "<p>" + dateTime + "</p>" +
-                        "<p>Description: " + meetup.description + "</p>"
-                        // "<p>Organized by: " + organizedBy + "</p>"
+                        "<p>Description: " + meetup.description + "</p>" +
+                        "<p>Organized by: " + organizedBy + "</p>"
                     );
                     new mapboxgl.Marker({
                         draggable: false
@@ -79,4 +79,3 @@ $(document).ready(function () {
 
 
 });
-

@@ -1,13 +1,12 @@
 package com.codeup.codeencounter.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.util.Date;
 
+import static javax.persistence.FetchType.LAZY;
+
 @Entity
 @Table(name = "meetups")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "user"})
 public class Meetup {
 
     @Id
@@ -32,6 +31,9 @@ public class Meetup {
 
     @Column(nullable = false)
     private String latitude;
+
+    @Column(nullable = false)
+    private String organizer;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -83,6 +85,14 @@ public class Meetup {
 
     public void setLatitude(String latitude) {
         this.latitude = latitude;
+    }
+
+    public String getOrganizer() {
+        return organizer;
+    }
+
+    public void setOrganizer(String organizer) {
+        this.organizer = organizer;
     }
 
     public User getUser() {

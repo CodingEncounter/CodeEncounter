@@ -49,6 +49,7 @@
 
     body {
         font-family: Poppins;
+        background-color: #f1f1f1;
     }
 
     /* Float four columns side by side */
@@ -114,18 +115,18 @@
 </style>
 <body>
 <!--    MAPBOX MAP -->
-<!--<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">-->
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
 
 <!-- MAPBOX DIRECTIONS -->
 <!--<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>-->
-<!--<link rel="stylesheet"-->
-<!--      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"-->
-<!--      type="text/css">-->
+<link rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+      type="text/css">
 
 <!--  MAPBOX GEOCODER -->
-<!--<link rel='stylesheet'-->
-<!--      href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'-->
-<!--      type='text/css'/>-->
+<link rel='stylesheet'
+      href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
+      type='text/css'/>
 <header th:replace="partials/header :: header"></header>
 <div class="wknd-profile screen">
     <br><br>
@@ -136,8 +137,8 @@
             <!--        <div class="col-md-12 mb-2 gradient-custom text-center text-black"-->
             <!--             style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; border-top-right-radius: .5rem; border-bottom-right-radius: .5rem;">-->
             <div class="wknd-header" style="margin-bottom: 15px">
-                <div class="title mb-2 mt-0" style="text-align: center; font-size: 25px">Find meetups near you:</div>
-                <div class="mb-0 mt-1" style="text-align: center; font-size: 17px; padding-left: 100px; padding-right: 100px">Need to host or organize in-person or virtual activities? Use the button bellow to set up meetups for your coding projects, gatherings, and events for people in our community. Use the feature in the upper left corner of the map to get direction to the meetup you are attending. Find users with similar interests, hobbies, and professions.</div>
+                <div class="title mb-2 mt-0" style="text-align: center; font-size: 30px">Find meetups near you:</div>
+                <div class="mb-0 mt-1" style="text-align: center; font-size: 20px; padding-left: 100px; padding-right: 100px">Need to host or organize in-person or virtual activities? Use the button bellow to set up meetups for your coding projects, gatherings, and events for people in our community. Use the feature in the upper left corner of the map to get direction to the meetup you are attending. Find users with similar interests, hobbies, and professions.</div>
                 <!--                <p class="mb-0" style="text-align: center; font-size: 15px">Use the button bellow to set up meetups for your coding-->
                 <!--                    projects,-->
                 <!--                    gatherings,-->
@@ -159,8 +160,8 @@
                 <div class="col col-lg-12 mb-4 mb-lg-0">
                     <div class="card row g-0" style="display: flex; margin-top: 10px">
 
-                        <p style="align-text: center; margin-bottom: 10px; margin-top: 10px">Click on a meetup to find out the location and click on the pin to see more information,</p>
-                        <div id="allMeetups"></div>
+                        <p style="align-text: center; margin-bottom: 10px; margin-top: 10px; font-size: 20px">Click on a meetup to find out the location and click on the pin to see more information,</p>
+                        <div id="allMeetups" style="font-size: 20px"></div>
                     </div>
                 </div>
             </div>
@@ -206,4 +207,3 @@
 <script type="text/javascript" th:src="@{/js/filestack.js}" defer></script>
 </body>
 </html>
-
