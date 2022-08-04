@@ -48,12 +48,12 @@ $(document).ready(function () {
                         minute: 'numeric', // numeric, 2-digit
                         second: 'numeric', // numeric, 2-digit
                     });
-                    let organizedBy = meetup.user.firstName + " " + meetup.user.lastName;
+                    // let organizedBy = meetup.user.firstName + " " + meetup.user.lastName;
                     const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
                         "<p> Name: " + meetup.name + "</p>" +
                         "<p>" + dateTime + "</p>" +
-                        "<p>Description: " + meetup.description + "</p>" +
-                        "<p>Organized by: " + organizedBy + "</p>"
+                        "<p>Description: " + meetup.description + "</p>"
+                        // "<p>Organized by: " + organizedBy + "</p>"
                     );
                     new mapboxgl.Marker({
                         draggable: false
