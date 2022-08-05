@@ -369,42 +369,43 @@
             <div class="container">
                 <div class="card pt-3">
                     <div class="grid">
-
-
-            <div class="pt-3" th:each="item : ${friendRequests}">
-
-                    <div class="col-4">
-                        <img th:src="${item.getUser().getProfile_picture_url().toString()}" class="avatar" alt="avatar">
+                        <div class="pt-3" th:each="item : ${friendRequests}">
+                            <div>
+                        <img th:src="${item.getUser().getProfile_picture_url().toString()}">
                         <a th:if="${item.getStatus().ACCEPTED}" th:href="@{/{username}/friend/{friendName} (friendName=${item.getUser().getUsername()}, username=${user.getUsername()})}">
-                            <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
+                            <h5 class="pt-1" th:text="${item.getUser().getUsername()}"></h5>
                         </a>
                         <div th:if="${item.getStatus().PENDING}" th:href="@{/user/{username} (username=${user.getUsername()})}">
-                            <h5 class="p-3" th:text="${item.getUser().getUsername()}"></h5>
+                            <h5 class="pt-1" th:text="${item.getUser().getUsername()}"></h5>
                         </div>
                     </div>
 
-                <div class="col-7">
-                    <small class="text-muted">Username: </small>
-                    <p class="card-text" th:text="${item.getUser().getUsername()}"></p>
-                    <small class="text-muted">First Name: </small>
-                    <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>
-                    <small class="text-muted">Last Name: </small>
-                    <p class="card-text" th:text="${item.getUser().getLastName()}"></p>
+                <div>
+<!--                    <small class="text-muted">Username: </small>-->
+<!--                    <p class="card-text" th:text="${item.getUser().getUsername()}"></p>-->
+<!--                    <small class="text-muted">First Name: </small>-->
+<!--                    <p class="card-text" th:text="${item.getUser().getFirstName()}"></p>-->
+<!--                    <small class="text-muted">Last Name: </small>-->
+<!--                    <p class="card-text" th:text="${item.getUser().getLastName()}"></p>-->
                     <form th:action="@{/request/{username}/{friendName}/accept (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
                         <input class="field" name="accept" type="hidden" th:value="${item.getUser().getUsername()}"/>
-                        <button class="btn btn-primary">Accept</button>
-                    </form>
+                        <div class="pt-1 mx-4" style="float: left;">
+                        <button class="btn btn-primary" style="font-size: 15px;">Accept</button>
+                        </div>
+<!--                    </form>-->
                     <form th:action="@{/request/{username}/{friendName}/reject (username=${#authentication.principal.username}, friendName = ${item.getUser().getUsername()})}" th:method="POST">
                         <input type="hidden" class="field" name="reject" th:value="${item.getUser().getUsername()}"/>
-                        <button class="btn btn-danger">Reject</button>
+                        <div class="pt-1 mx-4" style="float: right;">
+                        <button class="btn btn-danger" style="font-size: 15px;">Reject</button>
+                        </div>
                     </form>
-                </div>
+                    </form>
 
-            </div>
                     </div>
 
         </div>
                 </div>
+            </div>
             </div>
 
 
