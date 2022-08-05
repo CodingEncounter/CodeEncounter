@@ -736,13 +736,17 @@
                                     <a class="nav-item nav-link" th:href="@{/{username}/friends/requests (username=${#authentication.principal.username})}">Requests</a>
                                 </li>
                             </ul>
-                            <form th:action="@{/logout}" th:method="post" class="p-2 nav-item">
-                                <button type="submit" class="btn btn-link btn-anchor nav-link">Logout</button>
-                            </form>
                             <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">
                                 <input  class="form-control field" type="search" name="search" placeholder="Search" aria-label="Search">
                                 <button  class="btn btn-dark btn-block">Search</button>
                             </form>
+                            <form th:action="@{/logout}" th:method="post" class="p-2 nav-item">
+                                <button type="submit" class="btn btn-link btn-anchor nav-link">Logout</button>
+                            </form>
+<!--                            <form th:action="@{/users/search/{username} (username=${#authentication.principal.username})}" method="post" class="form-inline my-2 my-lg-0">-->
+<!--                                <input  class="form-control field" type="search" name="search" placeholder="Search" aria-label="Search">-->
+<!--                                <button  class="btn btn-dark btn-block">Search</button>-->
+<!--                            </form>-->
                         </div>
                     </nav>
                 </div>

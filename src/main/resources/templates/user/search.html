@@ -46,12 +46,6 @@
         font-family: Poppins;
     }
 
-    /* Float four columns side by side */
-    .column {
-        float: left;
-        width: 50%;
-        padding: 0 10px;
-    }
 
     /* Remove extra left and right margins, due to padding in columns */
     .row {margin: 0 -5px;
@@ -170,9 +164,6 @@
         </div>
 
     </div>
-    <!--    </div>-->
-
-    <!--    <div class="column">-->
     <div class="card col-8 pe-2" style="max-width: 900px">
         <a th:href="@{/user/{username}(username=${#authentication.principal.username})}">
             <h5 class="pt-3">Back to Profile</h5>
@@ -219,7 +210,7 @@
             </div>
         </div>
     </div>
-    <!--    </div>-->
+
 
 </div>
 </div>
