@@ -1,4 +1,4 @@
-const fileStack = 'AX1Jt8rFiRvGNuWPENMkoz';
+const fileStack = 'A5MQ52eaAS3Ww7XCFRlAmz';
 const client = filestack.init(fileStack);
 
 const options = {
